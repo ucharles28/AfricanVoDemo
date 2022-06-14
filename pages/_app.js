@@ -1,16 +1,10 @@
 import App from 'next/app';
-import Page from '../components/Page';
+// import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/styles.css'
+import '../styles/tailwind.css'
 
-class MyApp extends App {
-  render() {
-    const { Component } = this.props;
-
-    return (
-      <Page>
-        <Component />
-      </Page>
-    );
-  }
+function MyApp({ Component, pageProps }) {
+  return<Component {...pageProps} /> 
 }
-
-export default MyApp;
+export default MyApp
