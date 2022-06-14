@@ -3,43 +3,50 @@ import { FaFacebookSquare, FaGooglePlusG, FaTwitter } from 'react-icons/fa'
 import { Navbar } from 'react-bootstrap';
 import Link from "next/link";
 import { useState } from "react";
-import { VscGithubAlt } from 'react-icons/vsc'
-import { FiTwitter } from 'react-icons/fi'
+import { ImFacebook2, ImTwitter} from 'react-icons/im'
 
 function Footer() {
   const [mode, setMode] = useState("auto");
     return (
-              <div className="pt-12 footer-wrapper">
-                  <footer id="footer" className="relative z-50 dark:bg-gray-900 fixed bottom-0 w-full">
-                      <div className=" border-t border-gray-200 dark:border-gray-700 pt-16">
+              <div className="pt-12 footer-wrapper bg-purple-1000 text-white">
+                  <footer id="footer" className="relative z-50 fixed bottom-0 w-full">
+                      <div className="pt-2">
                           <div className="mx-auto container px-4 xl:px-12 2xl:px-4">
                               <div className="lg:flex">
                                   <div className="w-full lg:w-1/2 mb-16 lg:mb-0 flex">
                                       <div className="w-full lg:w-1/2 px-6">
                                           <ul>
                                               <li>
+                                                    <a className="text-base font-semibold lg:text-base leading-none text-white">Products</a>
+                                              </li>
+                                              <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Components</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Voices</a>
                                                   </Link>
                                               </li>
                                               <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Templates</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Translators</a>
                                                   </Link>
                                               </li>
                                               <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Pricing</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Join AVO as a voice talent</a>
                                                   </Link>
                                               </li>
                                               <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">FAQ</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Join AVO as a translator</a>
                                                   </Link>
                                               </li>
                                               <li className="mt-6">
-                                                  <a href="javascript:void(0)" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
-                                                      Documentation
+                                                  <a href="javascript:void(0)" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">
+                                                  Post a VO Project
+                                                  </a>
+                                              </li>
+                                              <li className="mt-6">
+                                                  <a href="javascript:void(0)" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">
+                                                  Membership Options
                                                   </a>
                                               </li>
                                           </ul>
@@ -47,19 +54,22 @@ function Footer() {
                                       <div className="w-full lg:w-1/2 px-6">
                                           <ul>
                                               <li>
+                                                    <a className="text-base font-semibold lg:text-base leading-none text-white">Resources</a>
+                                              </li>
+                                              <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Free components</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Help center</a>
                                                   </Link>
                                               </li>
       
                                               <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Blog</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">FAQ</a>
                                                   </Link>
                                               </li>
                                               <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Changelog</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Rates</a>
                                                   </Link>
                                               </li>
                                           </ul>
@@ -69,13 +79,21 @@ function Footer() {
                                       <div className="w-full lg:w-1/2 px-6">
                                           <ul>
                                               <li>
-                                                  <a href="javascript:void(0)" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">
-                                                      Privacy policy
+                                                    <a className="text-base font-semibold lg:text-base leading-none text-white">Company</a>
+                                              </li>
+                                              <li className="mt-6">
+                                                  <a href="javascript:void(0)" className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">
+                                                  About Us
                                                   </a>
                                               </li>
                                               <li className="mt-6">
                                                   <Link href="javascript:void(0)">
-                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50">Terms of service</a>
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Contact Us</a>
+                                                  </Link>
+                                              </li>
+                                              <li className="mt-6">
+                                                  <Link href="javascript:void(0)">
+                                                      <a className="text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white">Careers</a>
                                                   </Link>
                                               </li>
                                           </ul>
@@ -83,13 +101,13 @@ function Footer() {
                                       <div className="w-full lg:w-1/2 px-6 flex flex-col justify-between">
                                           <div className="flex items-center mb-6">
                                               <a href="javascript:void(0)">
-                                                  <div className="text-gray-800 dark:text-gray-50 cursor-pointer hover:text-brand dark:hover:text-brand ">
-                                                      <VscGithubAlt size={24} />
+                                                  <div className="hover:text-twitter">
+                                                      <ImFacebook2 size={24} />
                                                   </div>
                                               </a>
                                               <a href="javascript:void(0)">
-                                                  <div className="pl-4">
-                                                      <FiTwitter size={24} strokeWidth={1.1} />
+                                                  <div className="pl-4 hover:text-twitter">
+                                                      <ImTwitter size={24} />
                                                   </div>
                                               </a>
                                           </div>

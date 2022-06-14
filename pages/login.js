@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Meta from './components/Meta'
 import Link from 'next/link'
 import {Navbar, Nav, Container, Button, Form, Col} from 'react-bootstrap';
 import { FiEye, FiEyeOff } from 'react-icons/fi'
@@ -22,7 +23,9 @@ function Login () {
     };
 
     return (
+    <div>
         <div className="h-full bg-gray-100 w-full py-16 px-4 w-100">
+            <Meta />
             <div className='navbar'>
                 <Navbar 
                     bg="white" 
@@ -67,7 +70,7 @@ function Login () {
                                 </div>
                             </Form.Group>
                             <div className="mt-8">
-                                <button role="button" type="submit" aria-label="create my account" className="text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">Login</button>
+                                <button role="button" type="submit" aria-label="create my account" className="text-sm font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded hover:bg-purple-600 py-2.5 w-full">Login</button>
                             </div>
                         </Form>    
                         <div className="w-full flex items-center justify-between py-4">
@@ -75,9 +78,9 @@ function Login () {
                             <p className="text-base font-medium leading-4 px-0.5 text-gray-400">OR</p>
                             <hr className="w-full bg-gray-400  " />
                         </div>
-                        <button aria-label="Continue with google" role="button" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt--15">
-                            <FcGoogle size={24}/>
-                            <p className="text-base font-medium ml-4 text-gray-700">Sign in with Google</p>
+                        <button aria-label="Continue with google" role="button" className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15" type="submit">
+                            <div className="border rounded-full p-1 bg-white shadow-sm"><FcGoogle size={24}/></div>
+                            <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center">Sign in with Google</p>
                         </button>
                         <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
                             Don't have account yet?{" "}
@@ -89,6 +92,33 @@ function Login () {
                 </div>
             </div>
         </div>
+            <footer class="bg-purple-1000  py-12 xl:py-12">
+                <div class="mx-auto px-4 sm:px-6 md:px-8 text-white">
+                    <ul class="flex flex-col items-center justify-center">
+                        <li class="w-1/2 md:w-1/3 lg:w-1/3">
+                        </li>
+                        <li class="w-1/2 md:w-1/3 lg:w-1/3">
+                            <div class="text-center">
+                                <ul>
+                                    <li class="mb-4 transition-colors duration-200">
+                                        <a href="#" className='hover:text-white'>
+                                            Terms of Service
+                                        </a>
+                                    </li>
+                                    <li class="mb-4 transition-colors duration-200">
+                                        <a href="#" className='hover:text-white'>
+                                            Privacy Policy
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="w-1/2 md:w-1/3 lg:w-1/3">
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+    </div>
     );
 }
 

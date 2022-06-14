@@ -1510,3 +1510,10 @@
   border-color: transparent;
   background-color: rgba(196, 196, 196, 1);
 }
+
+.h2 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+}
