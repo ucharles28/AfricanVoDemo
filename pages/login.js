@@ -70,7 +70,7 @@ function Login () {
                                 </div>
                             </Form.Group>
                             <div className="mt-8">
-                                <button role="button" type="submit" aria-label="create my account" className="text-sm font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded hover:bg-purple-600 py-2.5 w-full">Login</button>
+                                <button role="button" type="submit" aria-label="log into my account" className="text-sm font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded hover:bg-purple-600 py-2.5 w-full">Login</button>
                             </div>
                         </Form>    
                         <div className="w-full flex items-center justify-between py-4">

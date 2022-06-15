@@ -1153,11 +1153,11 @@
     color: dodgerblue;
   }
 
-.nav-link{
+/* .nav-link{
   margin-right: 20px;
   color: #111827;
   font-weight: 600;
-}
+} */
 
 .navborder {
   border-bottom: 1px solid #C4C4C4;
@@ -1511,9 +1511,9 @@
   background-color: rgba(196, 196, 196, 1);
 }
 
-.h2 {
+/* .h2 {
   margin-bottom: 15px;
   font-size: 30px;
   font-weight: 700;
   text-align: left;
-}
+} */
