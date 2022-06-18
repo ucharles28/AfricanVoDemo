@@ -1153,41 +1153,13 @@
     color: dodgerblue;
   }
 
-/* .nav-link{
-  margin-right: 20px;
-  color: #111827;
-  font-weight: 600;
-} */
-
-.navborder {
-  border-bottom: 1px solid #C4C4C4;
-}
-
 .footer-wrapper {
   display: flex;
   min-height: 70vh;
   flex-direction: column;
   justify-content: flex-start;
 }
-/* signup form /////////////////////////////////////////////////////////////*/
-/* .signup-title {
-  color: Black;
-  text-align: center;
-  line-height: 60px;
-  font-size: 28px;
-  font-weight: 700;
-}
-.signup {
-  margin: 0 auto;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  top: 80px;
-  left: -1.5px;
-  padding: 10px 10px;
-  justify-content: center;  
-  margin-bottom: 100px;
-} */
+
 .desktop575447976-desktop575447976 {
   width: 1440px;
   height: 1024px;
@@ -1510,10 +1482,3 @@
   border-color: transparent;
   background-color: rgba(196, 196, 196, 1);
 }
-
-/* .h2 {
-  margin-bottom: 15px;
-  font-size: 30px;
-  font-weight: 700;
-  text-align: left;
-} */

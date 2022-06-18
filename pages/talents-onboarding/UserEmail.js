@@ -1,31 +1,34 @@
+
 import React, { useState } from "react";
-import Meta from './components/Meta'
 import Link from 'next/link'
-import {Navbar, Nav, Container, Button, Form, Col} from 'react-bootstrap';
-import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { Form, Col } from "react-bootstrap";
+import validator from "validator";
 import { FcGoogle } from 'react-icons/fc'
 
-function Login () {
-    const [passwordShown, setPasswordShown] = useState(false);
-    const togglePasswordVisiblity = () => {
-        setPasswordShown(passwordShown ? false : true);
-    };
-    const [validated, setValidated] = useState(false);
+// creating functional component ans getting props from app.js and destucturing them
+const UserEmail = ({ nextStep, handleFormData, values }) => {
+  //creating error state for validation
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // after form submit validating the form data using validator
+  const submitFormData = (e) => {
+    e.preventDefault();
 
-    const handleSubmit = (event) => {
-    const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-        }
+    // checking if value of first name and last name is empty show error else take to step 2
+    if (
+      validator.isEmpty(values.email) 
+    ) {
+      setError(true);
+    } else {
+      nextStep();
+    }
+  };
 
-    setValidated(true);
-    };
+  // const [validated, setValidated] = useState(false);
 
-    return (
-    <div>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+      <div>
         {/* Navbar starts */}
         <div className="bg-white fixed w-full z-10 shadow-sm">
         <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -116,59 +119,59 @@ function Login () {
         </div>
         </div>
         {/* Navbar ends */}
-        <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100">
-            <div>
-                <div className="flex flex-col items-center justify-center">
-                    <div className="bg-white rounded lg:w-1/3  md:w-1/2 w-full mt-12 p-10 shadow-sm">
-                        <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-extrabold leading-6 text-gray-800 text-center pt-3 pb-3">
-                            Login to Africanvo
-                        </p>
-                        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                            <Form.Group as={Col} controlId="validationCustom01">
-                                <div  className="mt-3  w-full">
-                                    <lable className="text-sm font-medium leading-none text-gray-800">Email Address</lable>
-                                    <Form.Control type="email" placeholder="Email Address" role="input" className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"  required />
-                                    <Form.Control.Feedback type="invalid" />
-                                </div>
-                            </Form.Group>
-                            <Form.Group as={Col} controlId="validationCustomPassword">
-                                <div className="mt-6  w-full">
-                                    <label className="text-sm font-medium leading-none text-gray-800">Password</label>
-                                    <div className="relative flex items-center justify-center">
-                                        <Form.Control type={passwordShown ? "text" : "password"} role="input" placeholder="Password" className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2" required />
-                                        <div className="absolute right-1 mt-2 mr-2 cursor-pointer bg-white" onClick={togglePasswordVisiblity} >
-                                            {passwordShown ? <FiEyeOff /> :
-                                                <FiEye />
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </Form.Group>
-                            <div className="mt-8">
-                                <button role="button" type="submit" aria-label="log into my account" className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded hover:bg-purple-500 py-3 w-full">Login</button>
-                            </div>
-                        </Form>    
-                        <div className="w-full flex items-center justify-between py-4">
-                            <hr className="w-full bg-gray-400" />
-                            <p className="text-base font-medium leading-4 px-0.5 text-gray-400">OR</p>
-                            <hr className="w-full bg-gray-400  " />
-                        </div>
-                        <button aria-label="Continue with google" role="button" className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15" type="submit">
-                            <div className="border rounded-full p-1 bg-white shadow-sm"><FcGoogle size={24}/></div>
-                            <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center">Sign in with Google</p>
-                        </button>
-                        <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
-                            Don't have account yet?{" "}
-                            <span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                            <Link href='/signup'><a> Sign up here</a></Link>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+        <div className="flex flex-col items-center mb-12 p-1 justify-center">
+          <div className="lg:w-2/5 md:w-1/2 pt-10 justify-center my-5">
+            <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-4xl font-bold text-gray-800 text-center pt-3 pb-5">
+              Create your account
+            </p>
+            <button aria-label="Continue with google" role="button" className="py-2 pl-1 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15" >
+              <div className="border rounded-full p-1 bg-white shadow-sm"><FcGoogle size={26}/></div>
+              <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center flex">Sign in with Google</p>
+            </button>
+            <div className="w-full flex items-center justify-between py-4">
+              <hr className="w-full bg-gray-400" />
+              <p className="text-base font-medium leading-4 px-0.5 text-gray-400">OR</p>
+              <hr className="w-full bg-gray-400  " />
             </div>
+            <Form 
+              onSubmit={submitFormData}
+            >
+              <Form.Group as={Col} controlId="validationCustom01">
+                <div  className="mt-1  w-full">
+                  <lable className="text-sm font-medium leading-none text-gray-800">Email Address</lable>
+                  <Form.Control 
+                      type="email" 
+                      placeholder="Enter email address" 
+                      role="input" 
+                      className="bg-white border rounded-lg border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"  
+                      required 
+                      name="email"
+                      defaultValue={values.email}
+                      onChange={handleFormData("email")}
+                  />
+                  <Form.Control.Feedback type="invalid" />
+                </div>
+              </Form.Group>
+              <div className="mt-8">
+                <button 
+                  role="button" 
+                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full" 
+                  onClick={nextStep}
+                >
+                  Continue with email
+                </button>
+              </div>
+            </Form>
+            <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
+              Already have an account?{" "}
+                <span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+                  <Link href='../login.js'><a> Login</a></Link>
+                </span>
+            </p>
+          </div>
         </div>
         {/* Footer starts */}
-        <footer class="bg-purple-1000  py-12 xl:py-12">
+        <footer class="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
             <div class="mx-auto px-4 sm:px-6 md:px-8 text-white">
                 <ul class="flex flex-col items-center justify-center">
                     <li class="w-1/2 md:w-1/3 lg:w-1/3">
@@ -195,8 +198,8 @@ function Login () {
             </div>
         </footer>
         {/* Footer ends */}
-    </div>
-    );
-}
+      </div>
+  );
+};
 
-export default Login
+export default UserEmail;
