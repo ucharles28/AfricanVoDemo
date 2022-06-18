@@ -12,9 +12,9 @@ function Footer() {
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div>
                         <Navbar.Brand href="/">
-                            <img src="https://i.ibb.co/hf41gnJ/logo.png" alt="africanvo" width={110} layout='responsive' />
+                            <img src="https://i.ibb.co/hf41gnJ/logo.png" alt="africanvo" width={150} layout='responsive' />
                         </Navbar.Brand>
-                        <p className="max-w-xs mt-1 text-sm text-white">
+                        <p className="max-w-xs mt-0 text-sm text-white">
                         Be sure to take a look at our Terms of Use and Privacy Policy
                         </p>
                         <div className="flex mt-8 space-x-6 text-white">

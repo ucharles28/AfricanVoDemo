@@ -31,7 +31,7 @@ function Home() {
       </div>
       {/* hero ends */}
       {/* cloud logo starts */}
-      <section className="py-10 lg:py-[80px]">
+      <section className="bg-gray-100 py-10 lg:py-[80px]">
         <div className="container">
             <div className="flex flex-wrap -mx-4">
               <div className="w-full px-4">
@@ -48,73 +48,17 @@ function Home() {
                         items-center
                         justify-center
                         mx-4
-                        "
-                        >
-                    <img
-                        src="https://cdn.tailgrids.com/1.0/assets/images/brands/graygrids.svg"
-                        alt="image"
-                        className="w-full h-10 bg-blend-lighten"
-                        />
+                        " >
+                      <img src="https://cdn.tailgrids.com/1.0/assets/images/brands/graygrids.svg" alt="image" className="w-full h-10 bg-blend-lighten" />
                     </a>
-                    <a
-                        href="javascript:void(0)"
-                        className="
-                        opacity-25
-                        grayscale
-                        w-[150px]
-                        2xl:w-[180px]
-                        py-5
-                        flex
-                        items-center
-                        justify-center
-                        mx-4
-                        "
-                        >
-                    <img
-                        src="https://cdn.tailgrids.com/1.0/assets/images/brands/lineicons.svg"
-                        alt="image"
-                        className="w-full h-10"
-                        />
+                    <a href="javascript:void(0)" className="opacity-25 grayscale w-[150px] 2xl:w-[180px] py-5 flex items-center justify-center mx-4 ">
+                      <img src="https://cdn.tailgrids.com/1.0/assets/images/brands/lineicons.svg" alt="image" className="w-full h-10" />
                     </a>
-                    <a
-                        href="javascript:void(0)"
-                        className="
-                        opacity-25
-                        grayscale
-                        w-[150px]
-                        2xl:w-[180px]
-                        py-5
-                        flex
-                        items-center
-                        justify-center
-                        mx-4
-                        "
-                        >
-                    <img
-                        src="https://cdn.tailgrids.com/1.0/assets/images/brands/uideck.svg"
-                        alt="image"
-                        className="w-full h-10"
-                        />
+                    <a href="javascript:void(0)" className="opacity-25 grayscale w-[150px] 2xl:w-[180px] py-5 flex items-center justify-center mx-4 " >
+                      <img src="https://cdn.tailgrids.com/1.0/assets/images/brands/uideck.svg" alt="image" className="w-full h-10" />
                     </a>
-                    <a
-                        href="javascript:void(0)"
-                        className="
-                        opacity-25
-                        grayscale
-                        w-[150px]
-                        2xl:w-[180px]
-                        py-5
-                        flex
-                        items-center
-                        justify-center
-                        mx-4
-                        "
-                        >
-                    <img
-                        src="https://cdn.tailgrids.com/1.0/assets/images/brands/ayroui.svg"
-                        alt="image"
-                        className="w-full h-10"
-                        />
+                    <a href="javascript:void(0)" className=" opacity-25 grayscale w-[150px] 2xl:w-[180px] py-5 flex items-center justify-center mx-4 " >
+                      <img src="https://cdn.tailgrids.com/1.0/assets/images/brands/ayroui.svg" alt="image" className="w-full h-10" />
                     </a>
                   </div>
               </div>

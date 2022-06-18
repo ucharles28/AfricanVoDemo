@@ -11,15 +11,15 @@ function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-        <div className="bg-white fixed w-full z-10 navborder">
+        <div className="bg-white fixed w-full z-10 shadow-sm">
           <div className="px-4 pt-2 pb-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-            <div className="relative flex items-center justify-between">
+            <div className="relative flex items-center pt-1 justify-between">
               <a
                 href="/"
                 className="inline-flex items-center"
               >
                 <span className="ml-2 fixed text-xl font-bold tracking-wide text-gray-900 uppercase">
-                  <img src="https://i.ibb.co/fqKFnPj/logo.png" alt="africanvo" width={110} layout='responsive' />
+                  <img src="https://i.ibb.co/yshXSCj/africanvo.png" alt="africanvo" width={120} layout='responsive' />
                 </span>
               </a>
               <ul class="flex items-center hidden space-x-8 lg:flex">
@@ -98,7 +98,7 @@ function Menu() {
                             className="inline-flex items-center"
                           >
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                            <img src="https://i.ibb.co/fqKFnPj/logo.png" alt="africanvo" width={110} layout='responsive' />
+                            <img src="https://i.ibb.co/yshXSCj/africanvo.png" alt="africanvo" width={120} layout='responsive' />
                             </span>
                           </a>
                         </div>
@@ -177,7 +177,7 @@ function Menu() {
     //     className='navborder'>
     //     <Container>
     //     <Navbar.Brand href="/">
-    //       <img src="https://i.ibb.co/fqKFnPj/logo.png" alt="africanvo" width={110} padding-top={10} layout='responsive' />
+    //       <img src="https://i.ibb.co/fqKFnPj/logo.png" alt="africanvo" width={120} padding-top={10} layout='responsive' />
     //     </Navbar.Brand>
     //     <Nav>
     //       <Nav.Link href="#" style={{color:'#111827'}} >Post a Project</Nav.Link>
