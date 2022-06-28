@@ -44,10 +44,10 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
             <ul class="flex items-center hidden space-x-8 lg:flex">
                 <li>
                 <a
-                    href="../signup"
+                    href="../login"
                     class="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
-                    Sign Up
+                    Already have an account? Login
                 </a>
                 </li>
             </ul>
@@ -103,10 +103,10 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
                         <ul className="space-y-4">
                         <li>
                             <a
-                            href="../signup"
+                            href="../login"
                             className="inline-flex items-center justify-center text-center text-wrap w-full h-12 px-1 py-1 font-medium tracking-wide text-base text-white transition duration-200 rounded bg-purple-1000 hover:bg-purple-500"
                             >
-                            Sign Up
+                            Already have an account? Login
                             </a>
                         </li>
                         </ul>
@@ -121,13 +121,15 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
         {/* Navbar ends */}
         <div className="flex flex-col items-center mb-12 p-1 justify-center">
           <div className="lg:w-2/5 md:w-1/2 pt-10 justify-center my-5">
-            <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-4xl font-bold text-gray-800 text-center pt-3 pb-5">
+            <p tabIndex={0} role="heading" className="text-4xl font-bold text-gray-800 text-center pt-3 pb-4">
               Create your account
             </p>
-            <button aria-label="Continue with google" role="button" className="py-2 pl-1 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15" >
-              <div className="border rounded-full p-1 bg-white shadow-sm"><FcGoogle size={26}/></div>
-              <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center flex">Sign in with Google</p>
-            </button>
+            <div className="flex flex-col items-center justify-center">
+              <button role="button" className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-4/5 mt-15" >
+                <div className="border rounded-full bg-white p-1 shadow-sm"><FcGoogle size={26}/></div>
+                <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center flex">Sign in with Google</p>
+              </button>
+            </div>
             <div className="w-full flex items-center justify-between py-4">
               <hr className="w-full bg-gray-400" />
               <p className="text-base font-medium leading-4 px-0.5 text-gray-400">OR</p>
@@ -165,7 +167,7 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
             <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
               Already have an account?{" "}
                 <span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                  <Link href='../login.js'><a> Login</a></Link>
+                  <Link href='../login'><a> Login</a></Link>
                 </span>
             </p>
           </div>

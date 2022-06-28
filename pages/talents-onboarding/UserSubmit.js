@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 const SubmitProfile = ({ values }) => {
 
   //destructuring the object from values
-  const { talent, terms, authtext, client, firstName, lastName, age, gender, DOB, email, password, bio, voicerange, sourcelang, targetlang, langstrength, avatar, audiosample } = values;
+  const { talent, terms, authtext, client, firstName, lastName, age, gender, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, langstrength, avatar, audiosample } = values;
 
   return (
     <>
@@ -45,6 +45,9 @@ const SubmitProfile = ({ values }) => {
           </p>
           <p>
             <strong>Country :</strong> {country}{" "}
+          </p>
+          <p>
+            <strong>Role :</strong> {role}{" "}
           </p>
           <p>
             <strong>Voice Range :</strong> {voicerange}{" "}
