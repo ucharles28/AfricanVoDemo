@@ -3,6 +3,9 @@ import { useState } from "react";
 import UserEmail from "./talents-onboarding/UserEmail";
 import UserName from "./talents-onboarding/UserName";
 import UserAuth from "./talents-onboarding/UserAuth";
+import UserAuth1 from "./talents-onboarding/UserAuth1";
+import UserAuth2 from "./talents-onboarding/UserAuth2";
+import UserVoiceRange from "./talents-onboarding/UserVoiceRange"
 import UserBio from "./talents-onboarding/UserBio";
 import UserCategory from "./talents-onboarding/UserCategory";
 import UserLang from "./talents-onboarding/UserLang";
@@ -17,7 +20,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(1);
+  const [step, setstep] = useState(9);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -34,6 +37,7 @@ const Signup = ({ values }) => {
     password: '',
     bio: '',
     country: '',
+    role: '',
     voicerange: '',
     sourcelang: '',
     targetlang: '',
@@ -251,41 +255,41 @@ const Signup = ({ values }) => {
       );
     case 4:
       return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserAuth nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
+        <div>
+          <UserAuth nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
     case 5:
       return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserBio nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
+        <div>
+          <UserAuth1 nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
     case 6:
       return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserLang nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
+        <div>
+          <UserAuth2 nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
     case 7:
+      return (
+        <div>
+          <UserVoiceRange nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+        </div>
+      );
+    case 8:
+      return (
+        <div>
+          <UserBio nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+        </div>
+      );
+    case 9:
+      return (
+        <div>
+          <UserLang nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+        </div>
+      );
+    case 10:
       return (
         <div className="App">
           <Container>
@@ -297,7 +301,7 @@ const Signup = ({ values }) => {
           </Container>
         </div>
       );
-    case 8:
+    case 11:
       return (
         <div className="App">
           <Container>
@@ -309,7 +313,7 @@ const Signup = ({ values }) => {
           </Container>
         </div>
       );
-    case 9:
+    case 12:
       return (
         <div className="App">
           <Container>
@@ -321,7 +325,7 @@ const Signup = ({ values }) => {
           </Container>
         </div>
       );
-    case 10:
+    case 13:
       return (
         <div className="App">
           <Container>
@@ -334,7 +338,7 @@ const Signup = ({ values }) => {
         </div>
       );
       // Only formData is passed as prop to show the final value at form submit
-    case 11:
+    case 14:
       return (
         <div className="App">
           <Container>

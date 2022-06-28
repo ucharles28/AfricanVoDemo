@@ -153,7 +153,7 @@ function Login () {
                             <p className="text-base font-medium leading-4 px-0.5 text-gray-400">OR</p>
                             <hr className="w-full bg-gray-400  " />
                         </div>
-                        <button aria-label="Continue with google" role="button" className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15" type="submit">
+                        <button role="button" className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15" type="submit">
                             <div className="border rounded-full p-1 bg-white shadow-sm"><FcGoogle size={24}/></div>
                             <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center">Sign in with Google</p>
                         </button>

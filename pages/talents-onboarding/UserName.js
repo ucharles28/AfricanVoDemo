@@ -50,10 +50,10 @@ const UserName = ({ nextStep, handleFormData, values }) => {
           <ul class="flex items-center hidden space-x-8 lg:flex">
               <li>
               <a
-                  href="../signup"
+                  href="../login"
                   class="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                  Sign Up
+                  Already have an account? Login
               </a>
               </li>
           </ul>
@@ -109,10 +109,10 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                       <ul className="space-y-4">
                       <li>
                           <a
-                          href="../signup"
+                          href="../login"
                           className="inline-flex items-center justify-center text-center text-wrap w-full h-12 px-1 py-1 font-medium tracking-wide text-base text-white transition duration-200 rounded bg-purple-1000 hover:bg-purple-500"
                           >
-                          Sign Up
+                            Already have an account? Login
                           </a>
                       </li>
                       </ul>
@@ -197,12 +197,12 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                 onChange={changeHandler} 
               />
             </div>
-            <div className="flex items-start mt-2">
+            <div className="flex items-start mt-2 ml-1">
               <div className="flex items-center h-5">
                 <input
                   name="terms"
                   type="checkbox"
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  className="focus:ring-indigo-500 bg-purple-1000 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                   defaultValue={values.terms}
                   onChange={handleFormData("terms")}
                 />

@@ -2,15 +2,16 @@ import Footer from "../components/footer";
 import React, { useState } from "react";
 import validator from "validator";
 import { Form, Col } from 'react-bootstrap'
+import Select from 'react-select'
 
-const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
+const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
     const [error, setError] = useState(false);
 
     const submitFormData = (e) => {
       e.preventDefault();
   
       if (
-        validator.isEmpty(values.bio)
+        validator.isEmpty(values.voicerange)
       ) {
         setError(true);
       } else {
@@ -58,24 +59,24 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                             </a>
                         </div>
                         { 
-                        show1?<div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                            <div className="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span className="flex flex-col">
+                        show1?<div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                            <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span class="flex flex-col">
                                         <span>
                                             Settings
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span className="flex flex-col">
+                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span class="flex flex-col">
                                         <span>
                                             Account
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span className="flex flex-col">
+                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span class="flex flex-col">
                                         <span>
                                             Logout
                                         </span>
@@ -156,26 +157,46 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
             {/* Navbar ends */}
             <div className="flex flex-col items-center justify-center">
               <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
-                <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-center pt-3 pb-6 block">
-                Now, tell us summary about your profession and yourself
+                <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6">
+                  Voice over artist or Translator? <br></br>What is your voice range(s)
                 </p>
-                <p className="pb-6 text-base text-center text-gray-550">Talents who add their a summary about their profession and about themselves are twice as likely to win work.</p>
-                <label className="text-gray-700 justify-center flex items-center" for="name">
-                    <textarea 
-                      className="flex-1 appearance-none border border-gray-300 w-full py-2 px-3 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base"
-                      placeholder="Your message here" 
-                      name="bio" 
-                      rows="5" 
-                      cols="40"
-                      defaultValue={values.bio}
-                      onChange={handleFormData("bio")}
-                    >
-                    </textarea>
-                </label>
+                <p className="pb-6 text-base text-gray-550 font-medium">Choose the categories that best describe the type of work you do so we can show you to the right type of clients in search results.</p>
+                <p className="text-2xl font-bold text-gray-900 text-left pb-2">I am a:</p>
+                <div className="flex flex-row items-center justify-center ml-4">
+                  <button 
+                    name="Voice over artist" 
+                    className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 border-2 rounded-lg border-purple-1000 hover:border-purple-600 text-center text-white px-3 py-3 sm:px-2 sm:py-1 font-semibold text-base w-2/3"
+                    // defaultValue={values.client} 
+                  >
+                    <a href='' className='hover:text-white'>Voice over artist</a>
+                  </button>
+                  <button 
+                    name="Translation" 
+                    className="sm:ml-2 md:ml-7 ml-7 hover:bg-purple-1000 transition duration-150 ease-in-out hover:border-purple-1000 border-2 rounded-lg border-gray-400 text-gray-400 hover:text-white px-3 sm:px-5 py-3 sm:py-2 text-base font-semibold text-center w-2/3"
+                    // defaultValue={values.talent} 
+                  >
+                    <a href='' className='hover:text-white'>Translator</a>
+                  </button>
+                </div>
+                <div className="">
+                  <label className="mt-4 font-bold text-gray-900">Voice Range(s)</label>
+                  <Select 
+                  options={options}
+                  isMulti
+                  isClearable={true}
+                  isSearchable={true}
+                  closeMenuOnSelect={true}
+                  placeholder="Select your voice range"
+                  className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
+                  name="voicerange"
+                  onChange={setSelected}
+                  defaultValue={values.voicerange}
+                  />
+                </div>
               </div>                         
             </div>
             <div className="flow-root">
-              <div className="ml-10 mb-5 float-left justify-start">
+              <div className="ml-5 mb-5 float-left justify-start">
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
@@ -184,13 +205,13 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                   Back
                 </button>
               </div>
-              <div className="mr-10 mb-5 float-right justify-end">
+              <div className="mr-5 mb-5 float-right justify-end">
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
                   onClick={nextStep}
                 >
-                  Next, Languages
+                  Next, your professional brief
                 </button>
               </div>
             </div>
@@ -198,4 +219,4 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
         </div>
     );
 };
-export default UserBio;
+export default UserVoiceRange;
