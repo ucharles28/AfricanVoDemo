@@ -130,7 +130,7 @@ const UserName = ({ nextStep, handleFormData, values }) => {
           <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-4xl font-bold text-gray-800 text-center pt-3 pb-3">
             Complete your account setup
           </p>
-          <p className="text-center pb-2 text-base font-medium text-gray-500">{email}{' '}</p>
+          <p className="text-center pb-2 text-base font-normal text-gray-500">{email}{' '}</p>
           <Form 
             onSubmit={submitFormData}
           >
@@ -171,7 +171,7 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                   onChange={handleFormData("password")}
                 />
             </div>
-            <div  className="mt-2 w-full">
+            {/* <div  className="mt-2 w-full">
                 <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
                 <input 
                     type="text" 
@@ -183,7 +183,7 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                     defaultValue={values.password}
                     onChange={handleFormData("password")}
                 />
-            </div>
+            </div> */}
             <div className="col-span-6 sm:col-span-3 mt-2">
               <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                 Country

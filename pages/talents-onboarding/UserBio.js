@@ -194,6 +194,15 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                 </button>
               </div>
             </div>
+            {/* progess bar */}
+          {/* <div className="flex items-center w-full mb-1">
+                    <div className="w-1/3 bg-purple-700 h-1 rounded-tl rounded-bl mr-1" />
+                    <div className="w-1/3 bg-gray-200 h-1 mr-1 relative">
+                        <div className="h-1 w-1/6 bg-purple-700" />
+                    </div>
+                    <div className="w-1/3 bg-gray-200 h-1 rounded-tr rounded-br" />
+                </div> */}
+                {/* progress bar ends */}
           <Footer />
         </div>
     );

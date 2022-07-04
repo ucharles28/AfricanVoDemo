@@ -1,10 +1,11 @@
+import { m } from "framer-motion";
 import React from "react";
 import { Card } from "react-bootstrap";
 
 const SubmitProfile = ({ values }) => {
 
   //destructuring the object from values
-  const { talent, terms, authtext, client, firstName, lastName, age, gender, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, langstrength, avatar, audiosample } = values;
+  const { talent, terms, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, audiosample, city, spokenlang, country } = values;
 
   return (
     <>
@@ -35,7 +36,13 @@ const SubmitProfile = ({ values }) => {
             <strong>DOB :</strong> {DOB}{" "}
           </p>
           <p>
-            <strong>Gender :</strong> {gender}{" "}
+            <strong>Gender :</strong> {genderm}{" "}
+          </p>
+          <p>
+            <strong>Gender :</strong> {genderf}{" "}
+          </p>
+          <p>
+            <strong>Phone Number :</strong> {tel}{" "}
           </p>
           <p>
             <strong>Password :</strong> {password}{" "}
@@ -47,7 +54,13 @@ const SubmitProfile = ({ values }) => {
             <strong>Country :</strong> {country}{" "}
           </p>
           <p>
+            <strong>City :</strong> {city}{" "}
+          </p>
+          <p>
             <strong>Role :</strong> {role}{" "}
+          </p>
+          <p>
+            <strong>Spoken Language :</strong> {spokenlang}{" "}
           </p>
           <p>
             <strong>Voice Range :</strong> {voicerange}{" "}

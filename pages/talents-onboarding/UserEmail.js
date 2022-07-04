@@ -145,7 +145,7 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
                       type="email" 
                       placeholder="Enter email address" 
                       role="input" 
-                      className="bg-white border rounded-lg border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"  
+                      className="bg-white border rounded-lg border-gray text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"  
                       required 
                       name="email"
                       defaultValue={values.email}

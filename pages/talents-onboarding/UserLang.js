@@ -2,6 +2,8 @@ import Footer from "../components/footer";
 import React, { useState } from "react";
 import validator from "validator";
 import { Form, Col } from 'react-bootstrap'
+import Select from 'react-select'
+
 
 const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   const [error, setError] = useState(false);
@@ -10,7 +12,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
     e.preventDefault();
 
     if (
-      validator.isEmpty(values.langstrength)
+      validator.isEmpty(values.langstrength) || validator.isEmpty(values.spokenlang)
     ) {
       setError(true);
     } else {
@@ -25,13 +27,30 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   const [show1, setShow1] = useState(false)
 
   const options = [
-    { label: "Kids", value: "kids" },
-    { label: "Teens", value: "teens" },
-    { label: "Young adults", value: "young adults" },
-    { label: "Adults", value: "adults" }
+    { label: "Basic", value: "basic" },
+    { label: "Conversational", value: "conversational" },
+    { label: "Fluent", value: "fluent" }
   ];
 
   const [selected, setSelected] = useState();
+
+  const [languageList, setLanguageList] = useState([{ service: "" }]);
+  const handleServiceRemove = (index) => {
+    const list = [...languageList];
+    list.splice(index, 1);
+    setLanguageList(list);
+  };
+
+  const handleServiceChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...languageList];
+    list[index][name] = value;
+    setLanguageList(list);
+  };
+
+  const handleServiceAdd = () => {
+    setLanguageList([...languageList, { service: "" }]);
+  };
   
 
   return (
@@ -160,18 +179,65 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 Looking good. Next, tell us which languages you speak.
               </p>
               <p className="pb-6 text-base text-left text-gray-550">Africanvo is over Africa, so clients are often interested to know what languages you speak. English is a must, but do you speak any other languages?</p>
-              <label className="text-gray-700 justify-center flex items-center" for="name">
-                  <textarea 
-                    className="flex-1 appearance-none border border-gray-300 w-full py-2 px-3 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base"
-                    placeholder="Your message here" 
-                    name="bio" 
-                    rows="5" 
-                    cols="40"
-                    defaultValue={values.bio}
-                    onChange={handleFormData("bio")}
-                  >
-                  </textarea>
-              </label>
+              <div
+                className="py-3 px-3 mb-2 text-gray-900 border rounded-xl bg-purple-250 grid sm:grid-cols-2 lg:grid-cols-2">
+                <strong className="text-base font-medium w-1/2 sm:w-full"> Language </strong>
+                <strong className="text-base font-medium w-1/2 sm:w-full"> Proficiency </strong>
+              </div>
+              <div
+                className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2">
+                <strong className="text-base font-medium w-1/2 sm:w-full"> English </strong>
+                <Select 
+                options={options}
+                closeMenuOnSelect={true}
+                placeholder="My level is.."
+                className="mt-1 rounded-lg focus:outline-none" 
+                name="langstrength"
+                onChange={setSelected}
+                defaultValue={values.langstrength}
+                />
+              </div>
+              {languageList.map((singleService, index) => (
+                <div>
+                  <div
+                    className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2 gap-1" key={index} >
+                    <input
+                      class="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
+                      placeholder="I know"
+                      type="text"
+                      name="spokenlang"
+                      // value={singleService.service}
+                      defaultValue={values.spokenlang}
+                      onChange={(e) => handleServiceChange(e, index)}
+                    />
+                    <div className=" flex items-center">
+                    <Select 
+                    options={options}
+                    closeMenuOnSelect={true}
+                    isClearable
+                    placeholder="My level is.."
+                    className="mt-1 mr-2 w-full rounded-lg focus:outline-none" 
+                    name="langstrength"
+                    onChange={setSelected}
+                    defaultValue={values.langstrength}
+                    />
+                      {languageList.length !== 1 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#bdbdbd" d="M10 5h4a2 2 0 1 0-4 0ZM8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5H8.5Zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0v-7.5ZM14.25 9a.75.75 0 0 0-.75.75v7.5a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75Z" onClick={() => handleServiceRemove(index)} /></svg>
+                      )}
+                    </div>
+                  </div>
+                  {languageList.length - 1 === index && languageList.length < 100 && (
+                    <button
+                      type="button"
+                      onClick={handleServiceAdd}
+                      className="mt-2.5 text-purple-1000 ml-4 font-semibold flex items-center"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>
+                      <span className="pl-3">Add Language</span>
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>                         
           </div>
           {/* prev & next button starts */}

@@ -58,7 +58,7 @@ function Menu() {
                 <li>
                   <a
                     href="../login"
-                    class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded bg-purple-1000 hover:bg-purple-500"
+                    class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-lg bg-purple-1000 hover:bg-purple-500"
                   >
                     Login
                   </a>
