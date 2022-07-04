@@ -10,7 +10,7 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
       e.preventDefault();
   
       if (
-        validator.isEmpty(values.email)
+        validator.isEmpty
       ) {
         setError(true);
       } else {
@@ -150,7 +150,7 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
                 <section className="grid lg:grid-cols-2 gap-3 pt-32 mb-10">
                     <main className="mt-2 mb-5 max-w-7xl lg:m-auto px-4 sm:px-6 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28">
                         <div className="sm:text-center lg:text-left">
-                            <h1 className="text-5xl leading-10 font-semibold sm:text-5xl md:text-5xl text-purple-1000"> Hello {firstName}
+                            <h1 className="text-5xl leading-10 font-bold sm:text-5xl md:text-5xl text-purple-1000"> Hello {firstName}
                             </h1>
                             <h1 className="text-4xl leading-10 font-semibold sm:text-4xl md:text-4xl text-gray-900 pt-2">Welcome to Africanvo!
                             </h1>

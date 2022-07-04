@@ -196,7 +196,7 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
               </div>                         
             </div>
             <div className="flow-root">
-              <div className="ml-5 mb-5 float-left justify-start">
+              <div className="ml-7 mb-5 float-left justify-start">
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
@@ -205,7 +205,7 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                   Back
                 </button>
               </div>
-              <div className="mr-5 mb-5 float-right justify-end">
+              <div className="mr-7 mb-5 float-right justify-end">
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 

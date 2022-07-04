@@ -20,7 +20,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(9);
+  const [step, setstep] = useState(1);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -30,18 +30,22 @@ const Signup = ({ values }) => {
     firstName: '',
     lastName: '',
     age: '',
-    gender: '',
+    genderm: '',
+    genderf: '',
     DOB: '',
+    tel: '',
     email: '',
     authtext: '',
     password: '',
     bio: '',
     country: '',
+    city: '',
     role: '',
     voicerange: '',
     sourcelang: '',
     targetlang: '',
     langstrength: '',
+    spokenlang: '',
     avatar: '',
     audiosample: ''
   })
@@ -291,41 +295,29 @@ const Signup = ({ values }) => {
       );
     case 10:
       return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserCategory nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
+        <div>
+          <UserProfile nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
     case 11:
       return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserProfile nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
+        <div>
+          <UserSample nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
+    // case 12:
+    //   return (
+    //     <div className="App">
+    //       <Container>
+    //         <Row>
+    //           <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
+    //             <UserCategory nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+    //           </Col>
+    //         </Row>
+    //       </Container>
+    //     </div>
+    //   );
     case 12:
-      return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserSample nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
-    case 13:
       return (
         <div className="App">
           <Container>
@@ -338,7 +330,7 @@ const Signup = ({ values }) => {
         </div>
       );
       // Only formData is passed as prop to show the final value at form submit
-    case 14:
+    case 13:
       return (
         <div className="App">
           <Container>

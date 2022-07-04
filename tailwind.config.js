@@ -14,6 +14,7 @@ module.exports = {
           50: '#F9F4FF',
           100: '#ECDEFF',
           200: '#E0C8FF',
+          250: '#E6D2FF',
           300: '#D0ACFF',
           400: '#C190FF',
           500: '#B175FF',
@@ -24,7 +25,9 @@ module.exports = {
           1000: '#A259FF',
         },
         'gray': {
+          50: '#C4C4C4',
           100: '#F3F4F6',
+          150: '#CED4DA',
           200: '#E5E7EB',
           300: '#D1D5DB',
           400: '#9CA3AF',
