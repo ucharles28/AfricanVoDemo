@@ -3,8 +3,10 @@ import React, { useState, useMemo } from "react";
 import validator from "validator";
 import Select from 'react-select';
 import countryList from "react-select-country-list";
+import {Modal, Button} from 'react-bootstrap';
 
-const UserCategory = ({ nextStep, prevStep, handleFormData, values }) => {
+
+const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
   const [error, setError] = useState(false);
 
   const submitFormData = (e) => {
@@ -29,11 +31,16 @@ const UserCategory = ({ nextStep, prevStep, handleFormData, values }) => {
 
   const [country, setCountry] = useState("");
 
- const changeHandler = Cvalue => {
-   // console.log(Cvalue)
-   values.country = Cvalue
-   // setCountry(Cvalue)
- }
+  const changeHandler = Cvalue => {
+    // console.log(Cvalue)
+    values.country = Cvalue
+    // setCountry(Cvalue)
+  }
+
+  // modal
+  const [show2, setShow2] = useState(false);
+  const handleClose = () => setShow2(false);
+  const handleShow = () => setShow2(true);
 
   return (
       <div>
@@ -164,19 +171,54 @@ const UserCategory = ({ nextStep, prevStep, handleFormData, values }) => {
               <div className="py-3 px-3 text-gray-900 rounded-xl grid sm:grid-cols-2 lg:grid-cols-2">
                 <div className="flex flex-col items-center align-top lg:border-r lg:border-gray-300 pb-10">
                   <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
-                    <svg className="text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
+                    <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" />
                   </span>
                   <div className="mt-3 flex justify-center">
                     <button
                       type="button"
-                      className="text-purple-1000 font-semibold flex items-center border-1 border-gray-150 py-3 px-3 rounded-lg"
+                      className="text-purple-1000 hover:text-white font-semibold flex items-center border-1 border-gray-150 py-2.5 px-3 rounded-lg hover:bg-purple-600"
+                      onClick={handleShow}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>
-                      <span className="pl-3 text-base">Add Photo</span>
+                      <span className="pl-2 text-base">Add Photo</span>
                     </button>
                   </div>
+
+                  <Modal show={show2} onHide={handleClose} centered className="rounded-xl" size="lg">
+                    <Modal.Header closeButton>
+                      <Modal.Title className="font-bold text-4xl">Add Photo</Modal.Title>
+                    </Modal.Header>
+                    <div className="bg-[#F2F2F2] items-center flex justify-center py-10 px-12">
+                      <img src='https://i.ibb.co/X5LP2MZ/avatar.png' alt="avatar" border="0" width="264" height="264" />
+                    </div>
+                    <Modal.Body className="text-[#828282] text-base">
+                      <div className="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                          <path fill="#a259ff" d="M13.839 17.525c-.006.002-.559.186-1.039.186c-.265 0-.372-.055-.406-.079c-.168-.117-.48-.336.054-1.4l1-1.994c.593-1.184.681-2.329.245-3.225c-.356-.733-1.039-1.236-1.92-1.416a4.776 4.776 0 0 0-.958-.097c-1.849 0-3.094 1.08-3.146 1.126a.5.5 0 0 0 .493.848c.005-.002.559-.187 1.039-.187c.263 0 .369.055.402.078c.169.118.482.34-.051 1.402l-1 1.995c-.594 1.185-.681 2.33-.245 3.225c.356.733 1.038 1.236 1.921 1.416c.314.063.636.097.954.097c1.85 0 3.096-1.08 3.148-1.126a.5.5 0 0 0-.491-.849z"/><circle cx="13" cy="6.001" r="2.5" fill="#a259ff"/>
+                        </svg>
+                        <p className="ml-4">Must be an actual photo of you. Logos, clip-art, group photos, and digitally-altered images are not allowed </p>
+                      </div>
+                      <div className="mt-3 flex justify-center">
+                        {/* <button
+                          type="file"
+                          role="button"
+                          className="text-purple-1000 hover:bg-purple-600 hover:text-white font-semibold flex items-center border-1 border-gray-150 py-2 px-3 rounded-lg"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>
+                          <span className="pl-3 text-base">Add Photo</span>
+                        </button> */}
+                        <input type="file" name="avatar" accept="image/*" />
+                      </div>
+                    </Modal.Body>
+                    <Modal.Footer className="border-t-0">
+                      <Button variant="secondary" onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 px-2 ml-2">
+                        Cancel
+                      </Button>
+                      <Button variant="primary" onClick={handleClose} className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2 px-2">
+                        Save
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                 </div>
                 <div className="ml-4">
                   <div className="flex items-center justify-between">
@@ -272,4 +314,4 @@ const UserCategory = ({ nextStep, prevStep, handleFormData, values }) => {
   );
 };
 
-export default UserCategory
+export default UserProfile

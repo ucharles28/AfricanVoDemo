@@ -1,8 +1,22 @@
 import { m } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
+import validator from "validator";
 
-const SubmitProfile = ({ values }) => {
+const SubmitProfile = ({ prevStep, values }) => {
+  const [error, setError] = useState(false);
+
+  const submitFormData = (e) => {
+    e.preventDefault();
+
+    if (
+      validator.isEmpty( values )
+    ) {
+      setError(true);
+    } else {
+      nextStep();
+    }
+  };
 
   //destructuring the object from values
   const { talent, terms, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, audiosample, city, spokenlang, country } = values;
@@ -36,10 +50,10 @@ const SubmitProfile = ({ values }) => {
             <strong>DOB :</strong> {DOB}{" "}
           </p>
           <p>
-            <strong>Gender :</strong> {genderm}{" "}
+            <strong>Gender Male :</strong> {genderm}{" "}
           </p>
           <p>
-            <strong>Gender :</strong> {genderf}{" "}
+            <strong>Gender Female :</strong> {genderf}{" "}
           </p>
           <p>
             <strong>Phone Number :</strong> {tel}{" "}
@@ -85,6 +99,13 @@ const SubmitProfile = ({ values }) => {
           </p>
         </Card.Body>
       </Card>
+      <button 
+                role="button" 
+                className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                onClick={prevStep}
+              >
+                Back
+              </button>
     </>
   );
 };
