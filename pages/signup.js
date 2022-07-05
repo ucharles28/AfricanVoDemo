@@ -20,7 +20,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(1);
+  const [step, setstep] = useState(7);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -305,7 +305,7 @@ const Signup = ({ values }) => {
           <UserSample nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
-    // case 12:
+    // case 14:
     //   return (
     //     <div className="App">
     //       <Container>
@@ -317,29 +317,23 @@ const Signup = ({ values }) => {
     //       </Container>
     //     </div>
     //   );
+    // case 12:
+    //   return (
+    //     <div className="App">
+    //       <Container>
+    //         <Row>
+    //           <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
+    //             <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+    //           </Col>
+    //         </Row>
+    //       </Container>
+    //     </div>
+    //   );
+      // Only formData is passed as prop to show the final value at form submit
     case 12:
       return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
-      // Only formData is passed as prop to show the final value at form submit
-    case 13:
-      return (
-        <div className="App">
-          <Container>
-            <Row>
-              <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-                <SubmitProfile values={formData}  />
-              </Col>
-            </Row>
-          </Container>
+        <div className="flex items-center justify-center">
+          <SubmitProfile values={formData}  prevStep={prevStep} />
         </div>
       );
   }

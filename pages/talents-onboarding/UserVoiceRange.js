@@ -32,6 +32,10 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
       { label: "Adults", value: "adults" }
     ];
 
+    const handleOnchange = options => {
+      console.log(options)
+    }
+
     const [selected, setSelected] = useState();
     
 
@@ -155,6 +159,7 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                 </div>
             </div>
             {/* Navbar ends */}
+            <Form onSubmit={submitFormData} >
             <div className="flex flex-col items-center justify-center">
               <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
                 <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6">
@@ -189,8 +194,8 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                   placeholder="Select your voice range"
                   className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
                   name="voicerange"
-                  onChange={setSelected}
-                  defaultValue={values.voicerange}
+                  // onChange={setSelected}
+                  // defaultValue={values.voicerange}
                   />
                 </div>
               </div>                         
@@ -215,6 +220,7 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                 </button>
               </div>
             </div>
+            </Form>
           <Footer />
         </div>
     );

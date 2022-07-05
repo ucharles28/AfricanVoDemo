@@ -160,6 +160,7 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                 Now, tell us summary about your profession and yourself
                 </p>
                 <p className="pb-6 text-base text-center text-gray-550">Talents who add their a summary about their profession and about themselves are twice as likely to win work.</p>
+                <Form onSubmit={submitFormData}>
                 <label className="text-gray-700 justify-center flex items-center" for="name">
                     <textarea 
                       className="flex-1 appearance-none border border-gray-300 w-full py-2 px-3 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base"
@@ -172,6 +173,7 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                     >
                     </textarea>
                 </label>
+                </Form>
               </div>                         
             </div>
             <div className="flow-root">

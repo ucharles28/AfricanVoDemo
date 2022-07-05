@@ -53,20 +53,21 @@
 // export default UserSample;
 
 import Footer from "../components/footer";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import validator from "validator";
-import { Form, Col } from 'react-bootstrap'
-import Select from 'react-select'
+import { Form, Col, Modal, Button } from 'react-bootstrap';
+import Select from 'react-select';
+import countryList from "react-select-country-list";
 
 
-const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
+const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
   const [error, setError] = useState(false);
 
   const submitFormData = (e) => {
     e.preventDefault();
 
     if (
-      validator.isEmpty(values.audiosample)
+      validator.isEmpty(values.audiosample) || validator.isEmpty(values.country) 
     ) {
       setError(true);
     } else {
@@ -77,10 +78,33 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   // state for navbar for sm screens
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // state for change email
+  // country select
+  const options = useMemo(() => countryList().getData(), []);
+  const [country, setCountry] = useState("");
+
+  const changeHandler = Cvalue => {
+    // console.log(Cvalue)
+    values.country = Cvalue
+    // setCountry(Cvalue)
+  }
+
+  const [show, setShow] = useState(false)
   const [show1, setShow1] = useState(false)
 
+  // modal
+  const [show2, setShow2] = useState(false);
+  const handleClose = () => setShow2(false);
+  const handleShow = () => setShow2(true);
 
+  
+  <style>
+  {`  .checkbox:checked {
+          border: none;
+      }
+      .checkbox:checked + .check-icon {
+          display: flex;
+      }`}
+  </style>
 
   return (
       <div>
@@ -212,11 +236,164 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 <button
                   type="button"
                   className="text-purple-1000 font-semibold flex items-center border-2 border-{#E0E0E0} py-2 px-3 rounded-lg bg-white"
+                  onClick={handleShow}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>
                   <span className="pl-3 text-base">Add a demo</span>
                 </button>
               </div>
+
+              <Modal show={show2} onHide={handleClose} centered scrollable className="rounded-xl" size="lg">
+                <Modal.Header closeButton>
+                  <Modal.Title className="font-bold text-4xl">Add a voice demo</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="flex flex-col">
+                  <div>
+                    <div>
+                      <div className="ml-2">
+                        <p className="text-2xl font-bold pb-2">Voice over skill <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                        <p className="text-base font-semibold pb-2 text-gray-550" >Select one skill this voice over sample relates to.</p>
+                      </div>
+                      <fieldset className="flex flex-wrap ml-2">
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Animation
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />AudioBooks
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Business
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Documentaries
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />E-Learning
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Online-Video
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Movie Trailer
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Podcasting
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Radio
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Telephone
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Television
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Video Games
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Voice Assistant
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Commercial
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div className="mt-4">
+                      <div className="ml-2">
+                        <p className="text-2xl font-bold pb-2">Age tick <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                      </div>
+                      <fieldset className="flex flex-wrap ml-2">
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
+                        </div>
+                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div className="mt-4">
+                      <div className="ml-2">
+                        <p className="text-2xl font-bold pb-2">Title <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                        <p className="text-base font-semibold pb-2 text-gray-550" >Include your languages, industry expertise, and any other descriptive to get your portfolio samples the most views.</p>
+                      </div>
+                      <fieldset className="flex flex-wrap">
+                        <textarea 
+                          className="flex-1 appearance-none border border-gray-300 w-full py-2 px-3 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base ml-2"
+                          maxlength = "70"
+                          name="title of sample" 
+                          rows="3" 
+                          cols="40"
+                        >
+                        </textarea>
+                      </fieldset>
+                    </div>
+                    <div className="mt-4">
+                      <div className="ml-2">
+                        <p className="text-2xl font-bold pb-2">Language <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                      </div>
+                      <fieldset className="flex flex-wrap">
+                      <Select
+                        name="country"
+                        placeholder="Select your country"
+                        className="mt-1 border-gray-300 ml-2"
+                        value={values.country}
+                        options={options}
+                        onChange={changeHandler} 
+                      />
+                      </fieldset>
+                    </div>
+                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div className="ml-2">
+                        <p className="text-2xl font-bold pb-2">Tone <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                        <div>
+                          <input
+                            class="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                            placeholder="Enter sample tone"
+                            type="text"
+                            name="tone"
+                          />
+                        </div>
+                      </div>
+                      <div className="ml-4">
+                        <p className="text-2xl font-bold pb-2">Genre <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                          <input
+                            class="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                            placeholder="Enter sample genre"
+                            type="text"
+                            name="genre"
+                          />
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <div className="ml-2">
+                        <p className="text-2xl font-bold pb-2">Upload audio file <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                        <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
+                      </div>
+                      <fieldset className="flex flex-wrap">
+                      <input type="file" name="audiosample" accept="audio/**" className="ml-2"/>
+                      </fieldset>
+                    </div>
+                  </div>
+                </Modal.Body>
+                <Modal.Footer className="border-t-0">
+                  <Button onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 ml-2">
+                  <span className="px-1">Cancel</span>
+                  </Button>
+                  <Button onClick={handleClose} className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2">
+                    <span className="px-2">Save</span>
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </div>                         
           </div>
           {/* prev & next button starts */}
@@ -246,4 +423,4 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   );
 };
 
-export default UserLang
+export default UserSample
