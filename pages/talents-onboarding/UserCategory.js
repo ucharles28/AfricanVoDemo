@@ -1,5 +1,6 @@
-// import React, { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 
+<<<<<<< HEAD
 // function UserCategory () {
 //   return (
 //   );
@@ -41,3 +42,11 @@
 // }
 
 // export default UserCategory
+=======
+function UserCategory() {
+    return (
+        <h1>Hello world</h1>
+    );
+};
+export default UserCategory
+>>>>>>> 6a21a2f63cf392dbf2487b85b000b839ca74f135

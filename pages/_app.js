@@ -33,10 +33,12 @@ const colors = {
 }
 const theme = extendTheme({ colors })
 
+console.log('Where am i : ' + process.env.REACT_APP_WHERE_AM_I);
+
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme} >
-      <Component {...pageProps} /> 
+      <Component {...pageProps} />
     </ChakraProvider>
   )
 }

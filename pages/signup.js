@@ -20,7 +20,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(7);
+  const [step, setstep] = useState(12);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -332,7 +332,7 @@ const Signup = ({ values }) => {
       // Only formData is passed as prop to show the final value at form submit
     case 12:
       return (
-        <div className="flex items-center justify-center">
+        <div>
           <SubmitProfile values={formData}  prevStep={prevStep} />
         </div>
       );
