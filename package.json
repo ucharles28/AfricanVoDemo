@@ -1,12 +1,12 @@
 {
-  "name": "Africanvo Demo",
+  "name": "Africanvo",
   "version": "1.0.0",
   "description": "Africanvo talent network",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
-    "build": "next build",
-    "start": "next start -p 7777",
+    "build": "env-cmd -f .env next build",
+    "start": "env-cmd -f .env -p 7777",
     "test": "NODE_ENV=test jest --watch",
     "tailwindcss": "postcss styles/tailwind.css -o src/app_tailwind.css"
   },
@@ -23,6 +23,7 @@
     "bootstrap": "^5.1.3",
     "date-fns": "^2.16.1",
     "downshift": "^6.0.6",
+    "env-cmd": "^10.1.0",
     "framer-motion": "^6.3.11",
     "lodash.debounce": "^4.0.8",
     "next": "^10.2.3",
