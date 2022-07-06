@@ -150,8 +150,8 @@ const SubmitProfile = ({ prevStep, values }) => {
       </div>
       {/* Navbar ends */}
       <div className="flex flex-col items-center justify-center">
-        <div className="w-full py-6 px-8 flex justify-center align-top flex-col items-center mt-4 mb-16">
-          <div className="w-9/12 mb-16">
+        <div className="w-full py-6 px-8 flex justify-center align-top flex-col items-center mt-16 mb-16">
+          <div className="w-4/5 mb-16">
             <div className="w-full bg-purple-1000 rounded-t-xl py-4">
               <p className="text-white text-2xl w-full font-semibold pl-4">Preview profile</p>
             </div>
@@ -163,13 +163,24 @@ const SubmitProfile = ({ prevStep, values }) => {
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6"
+                  onClick={prevStep}
                 >
                   Submit Profile
                 </button>
               </div>
             </div>
+            <div className="bg-purple-1000 mt-3 h-96 rounded-xl">
+              <div className="grid grid-cols-2 gap-2 rounded-xl">
+                <div className="w-2/5 bg-gray-400 text-white">
+                  <h1>Hi</h1>
+                </div>
+                <div className="w-full bg-gray-600 text-white">
+                  <h1>HEY</h1>
+                </div>
+              </div>
+            </div>
           </div>
-          {/* <Card>
+          <Card>
             <Card.Body>
               <p>
                 <strong>First Name :</strong> {firstName}{" "}
@@ -244,7 +255,7 @@ const SubmitProfile = ({ prevStep, values }) => {
                 <strong>Terms :</strong> {terms}{" "}
               </p>
             </Card.Body>
-          </Card> */}
+          </Card>
         </div>
       </div>
       <div className="flow-root">

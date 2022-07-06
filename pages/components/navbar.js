@@ -1,10 +1,6 @@
-// import Head from 'next/head'
-// import Image from 'next/image'
-import Link from 'next/link'
-// import {useRouter} from 'next/router'
-// import logo from './public/logo.png'
-import { useState } from 'react';
-import {Navbar, Nav, Container, Button} from 'react-bootstrap';
+// import Link from 'next/link'
+import React, { useState } from 'react';
+// import {Navbar, Nav, Container, Button} from 'react-bootstrap';
 
 function Menu() {
 
@@ -107,7 +103,7 @@ function Menu() {
                             aria-label="Close Menu"
                             title="Close Menu"
                             className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => setIsMenuOpen(true)}
                           >
                             <svg className="w-5 text-gray-900" viewBox="0 0 24 24">
                               <path

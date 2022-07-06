@@ -96,16 +96,6 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
   const handleClose = () => setShow2(false);
   const handleShow = () => setShow2(true);
 
-  
-  <style>
-  {`  .checkbox:checked {
-          border: none;
-      }
-      .checkbox:checked + .check-icon {
-          display: flex;
-      }`}
-  </style>
-
   return (
       <div>
           {/* Navbar starts */}

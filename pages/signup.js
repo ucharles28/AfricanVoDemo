@@ -317,18 +317,12 @@ const Signup = ({ values }) => {
     //       </Container>
     //     </div>
     //   );
-    // case 12:
-    //   return (
-    //     <div className="App">
-    //       <Container>
-    //         <Row>
-    //           <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-    //             <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-    //           </Col>
-    //         </Row>
-    //       </Container>
-    //     </div>
-    //   );
+    case 13:
+      return (
+        <div>
+          <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+        </div>
+      );
       // Only formData is passed as prop to show the final value at form submit
     case 12:
       return (
