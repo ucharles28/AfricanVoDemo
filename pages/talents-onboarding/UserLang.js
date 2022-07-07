@@ -194,7 +194,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 className="mt-1 rounded-lg focus:outline-none" 
                 name="langstrength"
                 onChange={setSelected}
-                defaultValue={values.langstrength}
+                // defaultValue={values.langstrength}
                 />
               </div>
               {languageList.map((singleService, index) => (

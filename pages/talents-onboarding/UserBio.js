@@ -167,7 +167,7 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                       name="bio" 
                       rows="5" 
                       cols="40"
-                      defaultValue={values.bio}
+                    //   defaultValue={values.bio}
                       onChange={handleFormData("bio")}
                     >
                     </textarea>
