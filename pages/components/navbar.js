@@ -1,6 +1,6 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
-import Link from 'next/link'
+import Link from 'next/link';
 // import {useRouter} from 'next/router'
 // import logo from './public/logo.png'
 import { useState } from 'react';
