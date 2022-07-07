@@ -148,7 +148,7 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
                       className="bg-white border rounded-lg border-gray text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"  
                       required 
                       name="email"
-                      defaultValue={values.email}
+                      // defaultValue={values.email}
                       onChange={handleFormData("email")}
                   />
                   <Form.Control.Feedback type="invalid" />

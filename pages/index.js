@@ -1,9 +1,9 @@
-import Menu from './components/Navbar'
-import Footer from './components/Footer'
-import Meta from './components/meta'
-import { FaProjectDiagram } from 'react-icons/fa'
-import { SiAirplayaudio } from 'react-icons/si'
-import { BsPatchCheck } from 'react-icons/bs'
+import { FaProjectDiagram } from 'react-icons/fa';
+import { SiAirplayaudio } from 'react-icons/si';
+import { BsPatchCheck } from 'react-icons/bs';
+import Menu from './components/Navbar';
+import Footer from './components/Footer';
+import Meta from './components/Meta';
 
 function Home() {
   return (

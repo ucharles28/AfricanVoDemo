@@ -194,8 +194,12 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                   placeholder="Select your voice range"
                   className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
                   name="voicerange"
+<<<<<<< HEAD
                   // onChange={setSelected}
                   // defaultValue={values.voicerange}
+=======
+                  onChange={setSelected}
+>>>>>>> 6db3e5de7a4aabd84d9dc3d25d008b148869575e
                   />
                 </div>
               </div>                         

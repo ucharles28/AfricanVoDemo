@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 // import Link from 'next/link'
 import React, { useState } from 'react';
 // import {Navbar, Nav, Container, Button} from 'react-bootstrap';
+=======
+// import Head from 'next/head'
+// import Image from 'next/image'
+import Link from 'next/link';
+// import {useRouter} from 'next/router'
+// import logo from './public/logo.png'
+import { useState } from 'react';
+import {Navbar, Nav, Container, Button} from 'react-bootstrap';
+>>>>>>> 6db3e5de7a4aabd84d9dc3d25d008b148869575e
 
 function Menu() {
 
