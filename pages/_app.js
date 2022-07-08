@@ -32,7 +32,12 @@ const colors = {
     900: '#111827',
   },
 }
-const theme = extendTheme({ colors })
+
+const font = {
+  inter: ['Inter', 'sans-serif'],
+}
+
+const theme = extendTheme({ colors, font })
 
 console.log('Where am i : ' + process.env.REACT_APP_WHERE_AM_I);
 

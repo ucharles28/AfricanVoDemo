@@ -40,7 +40,9 @@ module.exports = {
           900: '#111827',
         },
       },
-      extend: {},
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
     },
     variants: {
       extend: {},

@@ -19,7 +19,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(2);
+  const [step, setstep] = useState(12);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -249,7 +249,7 @@ const Signup = ({ values }) => {
           <UserEmail nextStep={nextStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
-    // case 2 to show stepTwo form passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the fprm
+    // case 2 to show stepTwo form passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the form
     case 3:
       return (
         <div>
