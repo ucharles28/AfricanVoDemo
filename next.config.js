@@ -3,7 +3,12 @@ const nextConfig = {
     reactStrictMode: true,
   }
   
-module.exports = nextConfig
+// module.exports = nextConfig
+module.exports = {
+  options: {
+    case:'insentive'
+  },
+}
 
 // const isDev = NODE_ENV === 'development'
 

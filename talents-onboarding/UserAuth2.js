@@ -1,7 +1,7 @@
-import Footer from "../components/footer";
-import React, { useState } from "react";
-import validator from "validator";
+import Footer from '../components/footer';
+import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react';
 
 const UserAuth2 = ({ nextStep, handleFormData, values }) => {
     const [error, setError] = useState(false);
@@ -18,7 +18,15 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
       }
     };
 
-    const { firstName } = values;
+    // destruct firstName
+    // const { firstName } = values;
+    
+    // define firstName
+    const [firstName, setFirstName] = useState('');
+    const [firstNameError, setFirstNameError] = useState(false);
+
+    
+    // const { firstName } = values;
 
     // state for navbar for sm screens
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,24 +58,24 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
                             </a>
                         </div>
                         { 
-                        show1?<div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                            <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span class="flex flex-col">
+                        show1?<div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                            <div className="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span className="flex flex-col">
                                         <span>
                                             Settings
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span class="flex flex-col">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span className="flex flex-col">
                                         <span>
                                             Account
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span class="flex flex-col">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span className="flex flex-col">
                                         <span>
                                             Logout
                                         </span>
@@ -150,7 +158,7 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
                 <section className="grid lg:grid-cols-2 gap-3 pt-32 mb-10">
                     <main className="mt-2 mb-5 max-w-7xl lg:m-auto px-4 sm:px-6 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28">
                         <div className="sm:text-center lg:text-left">
-                            <h1 className="text-5xl leading-10 font-bold sm:text-5xl md:text-5xl text-purple-1000"> Hello {firstName}
+                            <h1 className="text-5xl leading-10 font-bold sm:text-5xl md:text-5xl text-purple-1000"> Hello {firstName}{''}
                             </h1>
                             <h1 className="text-4xl leading-10 font-semibold sm:text-4xl md:text-4xl text-gray-900 pt-2">Welcome to Africanvo!
                             </h1>

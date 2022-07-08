@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import Head from 'next/Head';
-import { useRouter  } from 'next/router';
-=======
 import Head from 'next/head';
 import { useRouter } from 'next/router';
->>>>>>> 6db3e5de7a4aabd84d9dc3d25d008b148869575e
 
 const Meta = ( pageMeta ) => {
   const router = useRouter();

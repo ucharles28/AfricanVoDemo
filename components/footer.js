@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-import { Navbar } from 'react-bootstrap';
-import Link from "next/Link";
-=======
 import { IoIosFlag, IoIosArrowDown } from 'react-icons/io';
 import { FaFacebookSquare, FaGooglePlusG, FaTwitter } from 'react-icons/fa';
 import { Navbar } from 'react-bootstrap';
 import Link from 'next/link';
 import { useState } from 'react';
->>>>>>> 6db3e5de7a4aabd84d9dc3d25d008b148869575e
 import { ImFacebook2, ImTwitter, ImGoogle} from 'react-icons/im'
 
 function Footer() {
@@ -91,4 +86,4 @@ function Footer() {
         </div>
     )
 }
-export default Footer
+export default Footer;

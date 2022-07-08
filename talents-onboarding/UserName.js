@@ -1,17 +1,17 @@
-import React, { useState, useMemo } from "react";
-import Link from 'next/link'
-import { Form, Col } from "react-bootstrap";
-import validator from "validator";
-import Select from "react-select";
-import countryList from "react-select-country-list";
+import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { Form, Col } from 'react-bootstrap'; 
+import validator from 'validator';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 
-const UserName = ({ nextStep, handleFormData, values }) => {
+const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
 
   const submitFormData = (e) => {
     e.preventDefault();
 
     if (
-      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.terms)
+      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.term)
     ) {
       setError(true);
     } else {
@@ -47,11 +47,11 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                 <img src="https://i.ibb.co/yshXSCj/africanvo.png" alt="africanvo" width={120} layout='responsive' />
               </span>
             </a>
-            <ul class="flex items-center hidden space-x-8 lg:flex">
+            <ul className="flex items-center hidden space-x-8 lg:flex">
               <li>
                 <a
                   href="../login"
-                  class="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Already have an account? Login
                 </a>
@@ -134,11 +134,11 @@ const UserName = ({ nextStep, handleFormData, values }) => {
           <Form
             onSubmit={submitFormData}
           >
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label class="text-sm font-semibold leading-none text-gray-800">First Name</label>
+                <label className="text-sm font-semibold leading-none text-gray-800">First Name</label>
                 <input
-                  class="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                  className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                   placeholder="Enter first name"
                   type="text"
                   name="firstName"
@@ -147,9 +147,9 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                 />
               </div>
               <div>
-                <label class="text-sm font-semibold leading-none text-gray-800">Last Name</label>
+                <label className="text-sm font-semibold leading-none text-gray-800">Last Name</label>
                 <input
-                  class="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                  className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                   placeholder="Enter last name"
                   type="text"
                   name="firstName"
@@ -200,11 +200,11 @@ const UserName = ({ nextStep, handleFormData, values }) => {
             <div className="flex items-start mt-2 ml-1">
               <div className="flex items-center h-5">
                 <input
-                  name="terms"
+                  name="term"
                   type="checkbox"
                   className="focus:ring-indigo-500 bg-purple-1000 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                  defaultValue={values.terms}
-                  onChange={handleFormData("terms")}
+                  defaultValue={values.term}
+                  onChange={handleFormData("term")}
                 />
               </div>
               <div className="ml-3 text-sm">
@@ -219,6 +219,13 @@ const UserName = ({ nextStep, handleFormData, values }) => {
               >
                 Create my account
               </button>
+              <button
+                role="button"
+                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
+                onClick={prevStep}
+              >
+                back
+              </button>
             </div>
           </Form>
           <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
@@ -230,20 +237,20 @@ const UserName = ({ nextStep, handleFormData, values }) => {
         </div>
       </div>
       {/* Footer starts */}
-      <footer class="bg-purple-1000 fixed h-full w-full pb-12 pt-8 xl:pt-8">
-        <div class="mx-auto px-4 sm:px-6 md:px-8 text-white">
-          <ul class="flex flex-col items-center justify-center">
-            <li class="w-1/2 md:w-1/3 lg:w-1/3">
+      <footer className="bg-purple-1000 fixed h-full w-full pb-12 pt-8 xl:pt-8">
+        <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
+          <ul className="flex flex-col items-center justify-center">
+            <li className="w-1/2 md:w-1/3 lg:w-1/3">
             </li>
-            <li class="w-1/2 md:w-1/3 lg:w-1/3">
-              <div class="text-center">
+            <li className="w-1/2 md:w-1/3 lg:w-1/3">
+              <div className="text-center">
                 <ul>
-                  <li class="mb-4 transition-colors duration-200">
+                  <li className="mb-4 transition-colors duration-200">
                     <a href="#" className='hover:text-white'>
                       Terms of Service
                     </a>
                   </li>
-                  <li class="mb-4 transition-colors duration-200">
+                  <li className="mb-4 transition-colors duration-200">
                     <a href="#" className='hover:text-white'>
                       Privacy Policy
                     </a>
@@ -251,7 +258,7 @@ const UserName = ({ nextStep, handleFormData, values }) => {
                 </ul>
               </div>
             </li>
-            <li class="w-1/2 md:w-1/3 lg:w-1/3">
+            <li className="w-1/2 md:w-1/3 lg:w-1/3">
             </li>
           </ul>
         </div>

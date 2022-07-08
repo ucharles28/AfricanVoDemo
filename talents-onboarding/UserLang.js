@@ -1,10 +1,7 @@
-import Footer from "../components/footer";
-import React, { useState } from "react";
-import validator from "validator";
-import { Form, Col } from 'react-bootstrap'
-import Select from 'react-select'
-
-
+import Footer from '../components/footer';
+import React, { useState } from 'react';
+import validator from 'validator';
+import Select from 'react-select';
 const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   const [error, setError] = useState(false);
 
@@ -202,7 +199,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                   <div
                     className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2 gap-1" key={index} >
                     <input
-                      class="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
+                      className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
                       placeholder="I know"
                       type="text"
                       name="spokenlang"
@@ -267,4 +264,4 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   );
 };
 
-export default UserLang
+export default UserLang;

@@ -52,12 +52,12 @@
 
 // export default UserSample;
 
-import Footer from "../components/footer";
-import React, { useState, useMemo } from "react";
-import validator from "validator";
+import Footer from '../components/footer';
+import React, { useState, useMemo } from 'react';
+import validator from 'validator';
 import { Form, Col, Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
-import countryList from "react-select-country-list";
+import countryList from 'react-select-country-list';
 
 
 const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
@@ -320,6 +320,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                         <textarea 
                           className="flex-1 appearance-none border border-gray-300 w-full py-2 px-3 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base ml-2"
                           maxlength = "70"
+                          minlength="40"
                           name="title of sample" 
                           rows="3" 
                           cols="40"
@@ -347,7 +348,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                         <p className="text-2xl font-bold pb-2">Tone <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
                         <div>
                           <input
-                            class="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                            className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                             placeholder="Enter sample tone"
                             type="text"
                             name="tone"
@@ -357,7 +358,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                       <div className="ml-4">
                         <p className="text-2xl font-bold pb-2">Genre <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
                           <input
-                            class="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                            className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                             placeholder="Enter sample genre"
                             type="text"
                             name="genre"
@@ -413,4 +414,4 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
   );
 };
 
-export default UserSample
+export default UserSample;

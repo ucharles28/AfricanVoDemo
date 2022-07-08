@@ -1,8 +1,7 @@
-import { m } from "framer-motion";
-import React, { useState } from "react";
-import { Card } from "react-bootstrap";
-import validator from "validator";
-import Footer from "../components/footer";
+import React, { useState } from 'react';
+import { Card } from 'react-bootstrap';
+import validator from 'validator';
+import Footer from '../components/footer';
 
 const SubmitProfile = ({ prevStep, values }) => {
   const [error, setError] = useState(false);
@@ -22,11 +21,11 @@ const SubmitProfile = ({ prevStep, values }) => {
   // state for navbar for sm screens
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // state for change email
+  // state for profile hover
   const [show1, setShow1] = useState(false)
 
   //destructuring the object from values
-  const { talent, terms, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, audiosample, city, spokenlang, country } = values;
+  const { term, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, talent, audiosample, city, spokenlang, country } = values;
 
   return (
     
@@ -53,24 +52,24 @@ const SubmitProfile = ({ prevStep, values }) => {
                       </a>
                   </div>
                   { 
-                  show1?<div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                      <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                          <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                              <span class="flex flex-col">
+                  show1?<div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                      <div className="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                          <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                              <span className="flex flex-col">
                                   <span>
                                       Settings
                                   </span>
                               </span>
                           </a>
-                          <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                              <span class="flex flex-col">
+                          <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                              <span className="flex flex-col">
                                   <span>
                                       Account
                                   </span>
                               </span>
                           </a>
-                          <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                              <span class="flex flex-col">
+                          <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                              <span className="flex flex-col">
                                   <span>
                                       Logout
                                   </span>
@@ -252,7 +251,7 @@ const SubmitProfile = ({ prevStep, values }) => {
                 <strong>Profile Photo :</strong> {avatar}{" "}
               </p>
               <p>
-                <strong>Terms :</strong> {terms}{" "}
+                <strong>Terms :</strong> {term}{" "}
               </p>
             </Card.Body>
           </Card>

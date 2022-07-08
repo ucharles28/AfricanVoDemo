@@ -1,8 +1,7 @@
-
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Link from 'next/link'
-import { Form, Col } from "react-bootstrap";
-import validator from "validator";
+import { Form, Col } from 'react-bootstrap';
+import validator from 'validator';
 import { FcGoogle } from 'react-icons/fc'
 
 // creating functional component ans getting props from app.js and destucturing them
@@ -23,6 +22,8 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
     }
   };
 
+  const [email, setEmail] = useState("");
+
   // const [validated, setValidated] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,11 +42,11 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
                 <img src="https://i.ibb.co/yshXSCj/africanvo.png" alt="africanvo" width={120} layout='responsive' />
                 </span>
             </a>
-            <ul class="flex items-center hidden space-x-8 lg:flex">
+            <ul className="flex items-center hidden space-x-8 lg:flex">
                 <li>
                 <a
                     href="../login"
-                    class="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                     Already have an account? Login
                 </a>
@@ -148,8 +149,9 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
                       className="bg-white border rounded-lg border-gray text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"  
                       required 
                       name="email"
-                      // defaultValue={values.email}
-                      onChange={handleFormData("email")}
+                      value={email}
+                      // onChange={handleFormData("email")}
+                      onChange={(e) => setEmail(e.target.value)}
                   />
                   <Form.Control.Feedback type="invalid" />
                 </div>
@@ -173,20 +175,20 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
           </div>
         </div>
         {/* Footer starts */}
-        <footer class="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
-            <div class="mx-auto px-4 sm:px-6 md:px-8 text-white">
-                <ul class="flex flex-col items-center justify-center">
-                    <li class="w-1/2 md:w-1/3 lg:w-1/3">
+        <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
+            <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
+                <ul className="flex flex-col items-center justify-center">
+                    <li className="w-1/2 md:w-1/3 lg:w-1/3">
                     </li>
-                    <li class="w-1/2 md:w-1/3 lg:w-1/3">
-                        <div class="text-center">
+                    <li className="w-1/2 md:w-1/3 lg:w-1/3">
+                        <div className="text-center">
                             <ul>
-                                <li class="mb-4 transition-colors duration-200">
+                                <li className="mb-4 transition-colors duration-200">
                                     <a href="#" className='hover:text-white'>
                                         Terms of Service
                                     </a>
                                     </li>
-                                <li class="mb-4 transition-colors duration-200">
+                                <li className="mb-4 transition-colors duration-200">
                                     <a href="#" className='hover:text-white'>
                                         Privacy Policy
                                     </a>
@@ -194,7 +196,7 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
                             </ul>
                         </div>
                     </li>
-                    <li class="w-1/2 md:w-1/3 lg:w-1/3">
+                    <li className="w-1/2 md:w-1/3 lg:w-1/3">
                     </li>
                 </ul>
             </div>

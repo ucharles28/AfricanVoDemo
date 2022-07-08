@@ -2,9 +2,10 @@ import App from 'next/app';
 // import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import '../styles/styles.css'
-import '../styles/tailwind.css'
-import { ChakraProvider } from '@chakra-ui/react'
-import { extendTheme } from '@chakra-ui/react'
+import '../styles/tailwind.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
+
 const colors = {
   purple: {
     50: '#F9F4FF',

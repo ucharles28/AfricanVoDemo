@@ -1,17 +1,16 @@
-import Footer from "../components/footer";
-import React, { useState } from "react";
-import validator from "validator";
+import Footer from '../components/footer';
+import React, { useState } from 'react';
+import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
-import Select from 'react-select'
 
-const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
+const UserAuth1 = ({ nextStep, handleFormData, values }) => {
     const [error, setError] = useState(false);
 
     const submitFormData = (e) => {
       e.preventDefault();
   
       if (
-        validator.isEmpty(values.voicerange)
+        validator.isEmpty(values.email)
       ) {
         setError(true);
       } else {
@@ -19,30 +18,19 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
       }
     };
 
+    const { email } = values;
+
     // state for navbar for sm screens
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // state for change email
+    const [show, setShow] = useState(false)
     const [show1, setShow1] = useState(false)
-
-    const options = [
-      { label: "Kids", value: "kids" },
-      { label: "Teens", value: "teens" },
-      { label: "Young adults", value: "young adults" },
-      { label: "Adults", value: "adults" }
-    ];
-
-    const handleOnchange = options => {
-      console.log(options)
-    }
-
-    const [selected, setSelected] = useState();
-    
 
     return (
         <div>
             {/* Navbar starts */}
-            <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16">
+            <div className="bg-white fixed w-full z-10 shadow-sm pb-2">
                 <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div className="relative flex items-center justify-between">
                     <a
@@ -63,24 +51,24 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                             </a>
                         </div>
                         { 
-                        show1?<div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                            <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span class="flex flex-col">
+                        show1?<div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                            <div className="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span className="flex flex-col">
                                         <span>
                                             Settings
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span class="flex flex-col">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span className="flex flex-col">
                                         <span>
                                             Account
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                    <span class="flex flex-col">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                    <span className="flex flex-col">
                                         <span>
                                             Logout
                                         </span>
@@ -159,74 +147,60 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                 </div>
             </div>
             {/* Navbar ends */}
-            <Form onSubmit={submitFormData} >
-            <div className="flex flex-col items-center justify-center">
-              <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
-                <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6">
-                  Voice over artist or Translator? <br></br>What is your voice range(s)
-                </p>
-                <p className="pb-6 text-base text-gray-550 font-medium">Choose the categories that best describe the type of work you do so we can show you to the right type of clients in search results.</p>
-                <p className="text-2xl font-bold text-gray-900 text-left pb-2">I am a:</p>
-                <div className="flex flex-row items-center justify-center ml-4">
-                  <button 
-                    name="Voice over artist" 
-                    className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 border-2 rounded-lg border-purple-1000 hover:border-purple-600 text-center text-white px-3 py-3 sm:px-2 sm:py-1 font-semibold text-base w-2/3"
-                    // defaultValue={values.client} 
-                  >
-                    <a href='' className='hover:text-white'>Voice over artist</a>
-                  </button>
-                  <button 
-                    name="Translation" 
-                    className="sm:ml-2 md:ml-7 ml-7 hover:bg-purple-1000 transition duration-150 ease-in-out hover:border-purple-1000 border-2 rounded-lg border-gray-400 text-gray-400 hover:text-white px-3 sm:px-5 py-3 sm:py-2 text-base font-semibold text-center w-2/3"
-                    // defaultValue={values.talent} 
-                  >
-                    <a href='' className='hover:text-white'>Translator</a>
-                  </button>
+            <div className="flex flex-col items-center justify-center pl-4 pr-4 pt-5">
+                <div className="lg:w-2/5 md:w-1/2 pt-10 justify-center my-5">
+                    <img src="https://i.ibb.co/pdHkwJ8/Group-12.png" width={100} height={100} className="flex flex-col items-center justify-center m-auto pb-4"
+                    />
+                    <p tabIndex={0} role="heading" className="text-3xl font-semibold text-gray-800 text-center pt-3 pb-4">
+                        Verify your email to proceed
+                    </p>
+                    <p  className="text-center pb-2 text-base text-gray-500" >We just sent a link to your email address <b>{email}</b> please check your mail and click on the link provided to verify your address.
+                    </p>
+                    <div className="flex flex-col items-center justify-center py-2">
+                        <div className="whitespace-no-wrap text-center font-bold text-sm flex inline-flex relative text-purple-1000">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" className="align-middle"><path fill="#a259ff" d="M22 11.26V7.608l-9.652 5.056a.75.75 0 0 1-.696 0L2 7.608v8.142l.005.184A3.25 3.25 0 0 0 5.25 19h6.467c.184-.422.445-.807.773-1.135l5.903-5.903A3.287 3.287 0 0 1 22 11.26ZM18.75 3H5.25l-.186.005a3.25 3.25 0 0 0-3.048 2.919L12 11.154l9.984-5.23A3.25 3.25 0 0 0 18.75 3Zm.35 9.67l-5.903 5.902a2.686 2.686 0 0 0-.706 1.247l-.458 1.831a1.087 1.087 0 0 0 1.319 1.318l1.83-.457a2.685 2.685 0 0 0 1.248-.707l5.902-5.902A2.286 2.286 0 0 0 19.1 12.67Z"/></svg>
+                            <span 
+                            // className="text-center pt-4 pb-2 text-base font-bold text-purple-1000 truncate"
+                            onClick={()=>setShow(!show)} className="hover:cursor-pointer">Change email</span>
+                        </div>
+                    </div>
+                    <Form 
+                        onSubmit={submitFormData}
+                        >
+                        { 
+                        show?<div className="items-center flex justify-center flex-col">
+                            <Form.Group as={Col} controlId="validationCustom01" className="w-4/5">
+                                <div>
+                                    <lable className="text-sm font-medium leading-none text-gray-800">Email Address</lable>
+                                    <Form.Control 
+                                        type="email" 
+                                        placeholder="Enter email address" 
+                                        role="input" 
+                                        className="bg-white border rounded-lg border-gray focus:outline-none text-base font-medium leading-none text-black py-3 pl-3 mt-2"  
+                                        required 
+                                        name="email"
+                                        defaultValue={values.email}
+                                        onChange={handleFormData("email")}
+                                    />
+                                    <Form.Control.Feedback type="invalid" />
+                                </div>
+                            </Form.Group>
+                        </div>:null
+                        }
+                        <div className="my-3 items-center flex justify-center flex-col">
+                            <button 
+                                role="button" 
+                                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-4/5" 
+                                onClick={nextStep}
+                            >
+                                Resend email verification
+                            </button>
+                        </div>
+                    </Form>
                 </div>
-                <div className="">
-                  <label className="mt-4 font-bold text-gray-900">Voice Range(s)</label>
-                  <Select 
-                  options={options}
-                  isMulti
-                  isClearable={true}
-                  isSearchable={true}
-                  closeMenuOnSelect={true}
-                  placeholder="Select your voice range"
-                  className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
-                  name="voicerange"
-<<<<<<< HEAD
-                  // onChange={setSelected}
-                  // defaultValue={values.voicerange}
-=======
-                  onChange={setSelected}
->>>>>>> 6db3e5de7a4aabd84d9dc3d25d008b148869575e
-                  />
-                </div>
-              </div>                         
             </div>
-            <div className="flow-root">
-              <div className="ml-7 mb-5 float-left justify-start">
-                <button 
-                  role="button" 
-                  className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
-                  onClick={prevStep}
-                >
-                  Back
-                </button>
-              </div>
-              <div className="mr-7 mb-5 float-right justify-end">
-                <button 
-                  role="button" 
-                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
-                  onClick={nextStep}
-                >
-                  Next, your professional brief
-                </button>
-              </div>
-            </div>
-            </Form>
           <Footer />
         </div>
     );
 };
-export default UserVoiceRange;
+export default UserAuth1;
