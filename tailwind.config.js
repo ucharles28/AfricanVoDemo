@@ -1,7 +1,8 @@
 module.exports = {
     content: [
       './pages/**/*.{html,js}',
-      './components/**/*.{html,js}'
+      './components/*.{html,js}',
+      './talents-onboarding/*.{html,js}'
     ],
     media: false, // or 'media' or 'class'
     theme: {

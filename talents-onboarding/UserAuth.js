@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import validator from "validator";
-import Footer from '../components/footer'
-import { Bars } from 'react-loader-spinner'
-import UserBio from './UserBio'
-import { BsCheckCircleFill } from 'react-icons/bs'
+import React, { useState, useEffect } from 'react';
+import validator from 'validator';
+import Footer from '../components/footer';
+import { Bars } from 'react-loader-spinner';
+// import UserBio from '../talents-onboarding/UserBio';
+import { BsCheckCircleFill } from 'react-icons/bs';
 
 
 const UserAuth = ({ nextStep, handleFormData, values }) => {

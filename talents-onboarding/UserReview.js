@@ -1,4 +1,4 @@
-// import React, { useState } from "react";
+import React, { useState } from 'react';
 // import validator from "validator";
 
 // const UserReview = ({ nextStep, prevStep, handleFormData, values }) => {
@@ -39,5 +39,10 @@
 //           </div>
 //   )
 // }
+function UserReview () {
+    return (
+        <h1>User Review</h1>
+    );
+};
 
-// export default UserReview;
+export default UserReview;

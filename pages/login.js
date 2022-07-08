@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Meta from './components/Meta'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import Meta from '../components/meta';
+import Link from 'next/link';
 import {Navbar, Nav, Container, Button, Form, Col} from 'react-bootstrap';
-import { FiEye, FiEyeOff } from 'react-icons/fi'
-import { FcGoogle } from 'react-icons/fc'
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { FcGoogle } from 'react-icons/fc';
 
 function Login () {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -38,11 +38,11 @@ function Login () {
                 <img src="https://i.ibb.co/yshXSCj/africanvo.png" alt="africanvo" width={120} layout='responsive' />
                 </span>
             </a>
-            <ul class="flex items-center hidden space-x-8 lg:flex">
+            <ul className="flex items-center hidden space-x-8 lg:flex">
                 <li>
                 <a
                     href="../signup"
-                    class="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-semibold hover:text-purple-600 text-purple-1000 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                     Sign Up
                 </a>
@@ -168,20 +168,20 @@ function Login () {
             </div>
         </div>
         {/* Footer starts */}
-        <footer class="bg-purple-1000  py-12 xl:py-12">
-            <div class="mx-auto px-4 sm:px-6 md:px-8 text-white">
-                <ul class="flex flex-col items-center justify-center">
-                    <li class="w-1/2 md:w-1/3 lg:w-1/3">
+        <footer className="bg-purple-1000  py-12 xl:py-12">
+            <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
+                <ul className="flex flex-col items-center justify-center">
+                    <li className="w-1/2 md:w-1/3 lg:w-1/3">
                     </li>
-                    <li class="w-1/2 md:w-1/3 lg:w-1/3">
-                        <div class="text-center">
+                    <li className="w-1/2 md:w-1/3 lg:w-1/3">
+                        <div className="text-center">
                             <ul>
-                                <li class="mb-4 transition-colors duration-200">
+                                <li className="mb-4 transition-colors duration-200">
                                     <a href="#" className='hover:text-white'>
                                         Terms of Service
                                     </a>
                                     </li>
-                                <li class="mb-4 transition-colors duration-200">
+                                <li className="mb-4 transition-colors duration-200">
                                     <a href="#" className='hover:text-white'>
                                         Privacy Policy
                                     </a>
@@ -189,7 +189,7 @@ function Login () {
                             </ul>
                         </div>
                     </li>
-                    <li class="w-1/2 md:w-1/3 lg:w-1/3">
+                    <li className="w-1/2 md:w-1/3 lg:w-1/3">
                     </li>
                 </ul>
             </div>

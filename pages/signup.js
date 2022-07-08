@@ -1,32 +1,31 @@
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { useState } from "react";
-import UserEmail from "./talents-onboarding/UserEmail";
-import UserName from "./talents-onboarding/UserName";
-import UserAuth from "./talents-onboarding/UserAuth";
-import UserAuth1 from "./talents-onboarding/UserAuth1";
-import UserAuth2 from "./talents-onboarding/UserAuth2";
-import UserVoiceRange from "./talents-onboarding/UserVoiceRange"
-import UserBio from "./talents-onboarding/UserBio";
-import UserCategory from "./talents-onboarding/UserCategory";
-import UserLang from "./talents-onboarding/UserLang";
-import UserProfile from "./talents-onboarding/UserProfile";
-import UserReview from "./talents-onboarding/UserReview";
-import UserSample from "./talents-onboarding/UserSample";
-import SubmitProfile from "./talents-onboarding/UserSubmit"
-import validator from "validator";
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import UserEmail from '../talents-onboarding/UserEmail';
+import UserName from '../talents-onboarding/UserName';
+import UserAuth from '../talents-onboarding/UserAuth';
+import UserAuth1 from '../talents-onboarding/UserAuth1';
+import UserAuth2 from '../talents-onboarding/UserAuth2';
+import UserVoiceRange from '../talents-onboarding/UserVoiceRange';
+import UserBio from '../talents-onboarding/UserBio';
+import UserLang from '../talents-onboarding/UserLang';
+import UserProfile from '../talents-onboarding/UserProfile';
+import UserReview from '../talents-onboarding/UserReview';
+import UserSample from '../talents-onboarding/UserSample';
+import SubmitProfile from '../talents-onboarding/SubmitProfile';
+import validator from 'validator';
 
 const Signup = ({ values }) => {
   // Nav Open 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(7);
+  const [step, setstep] = useState(2);
 
   //state for form data
   const [formData, setFormData] = useState({
     talent: '',
     client: '',
-    terms: '',
+    term: '',
     firstName: '',
     lastName: '',
     age: '',
@@ -305,34 +304,16 @@ const Signup = ({ values }) => {
           <UserSample nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
-    // case 14:
-    //   return (
-    //     <div className="App">
-    //       <Container>
-    //         <Row>
-    //           <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-    //             <UserCategory nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-    //           </Col>
-    //         </Row>
-    //       </Container>
-    //     </div>
-    //   );
-    // case 12:
-    //   return (
-    //     <div className="App">
-    //       <Container>
-    //         <Row>
-    //           <Col  md={{ span: 6, offset: 3 }} className="custom-margin">
-    //             <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-    //           </Col>
-    //         </Row>
-    //       </Container>
-    //     </div>
-    //   );
+    case 13:
+      return (
+        <div>
+          <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+        </div>
+      );
       // Only formData is passed as prop to show the final value at form submit
     case 12:
       return (
-        <div className="flex items-center justify-center">
+        <div>
           <SubmitProfile values={formData}  prevStep={prevStep} />
         </div>
       );

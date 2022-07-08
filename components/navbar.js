@@ -1,6 +1,6 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
-import Link from 'next/link'
+import Link from 'next/link';
 // import {useRouter} from 'next/router'
 // import logo from './public/logo.png'
 import { useState } from 'react';
@@ -22,11 +22,11 @@ function Menu() {
                   <img src="https://i.ibb.co/yshXSCj/africanvo.png" alt="africanvo" width={120} layout='responsive' />
                 </span>
               </a>
-              <ul class="flex items-center hidden space-x-8 lg:flex">
+              <ul className="flex items-center hidden space-x-8 lg:flex">
                 <li>
                   <a
                     href="#"
-                    class="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Post a Project
                   </a>
@@ -34,7 +34,7 @@ function Menu() {
                 <li>
                   <a
                     href="#"
-                    class="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Voices
                   </a>
@@ -42,7 +42,7 @@ function Menu() {
                 <li>
                   <a
                     href="/"
-                    class="font-medium tracking-wide hover:text-gray-900  text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-medium tracking-wide hover:text-gray-900  text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Translators
                   </a>
@@ -50,7 +50,7 @@ function Menu() {
                 <li>
                   <a
                     href="../signup"
-                    class="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Sign Up
                   </a>
@@ -58,7 +58,7 @@ function Menu() {
                 <li>
                   <a
                     href="../login"
-                    class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-lg bg-purple-1000 hover:bg-purple-500"
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-lg bg-purple-1000 hover:bg-purple-500"
                   >
                     Login
                   </a>
@@ -107,7 +107,7 @@ function Menu() {
                             aria-label="Close Menu"
                             title="Close Menu"
                             className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => setIsMenuOpen(true)}
                           >
                             <svg className="w-5 text-gray-900" viewBox="0 0 24 24">
                               <path
@@ -192,4 +192,4 @@ function Menu() {
   )
 }
 
-export default Menu
+export default Menu;
