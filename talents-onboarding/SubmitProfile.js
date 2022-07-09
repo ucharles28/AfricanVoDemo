@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import validator from 'validator';
 import Footer from '../components/footer';
 
-const SubmitProfile = ({ prevStep, values }) => {
+const SubmitProfile = ({ prevStep, nextStep, values }) => {
   const [error, setError] = useState(false);
 
   const submitFormData = (e) => {
@@ -162,13 +162,13 @@ const SubmitProfile = ({ prevStep, values }) => {
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6 font-inter"
-                  onClick={prevStep}
+                  onClick={nextStep}
                 >
                   Submit profile
                 </button>
               </div>
             </div>
-            <div className="mt-16 justify-center flex lg:grid-cols-2 ">
+            <div className="mt-16 justify-center w-full flex lg:grid-cols-2 ">
               {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
                 <div className="mr-5 w-1/4 bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5">
                   <div className="flex flex-col items-center justify-center pb-10">
@@ -185,7 +185,7 @@ const SubmitProfile = ({ prevStep, values }) => {
                     <div className="mt-3 flex justify-center">
                       <button
                         type="button"
-                        className="text-purple-1000 hover:text-white font-semibold font-inter flex items-center border-1 border-gray-150 py-2.5 px-3 rounded-lg hover:bg-purple-600"
+                        className="text-purple-1000 font-semibold font-inter flex items-center border-1 border-gray-150 py-2.5 px-3 rounded-lg"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
                         <span className="pl-2 text-base">Edit photo</span>
@@ -336,7 +336,7 @@ const SubmitProfile = ({ prevStep, values }) => {
           <button 
             role="button" 
             className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
-            onClick={prevStep}
+            onClick={nextStep}
           >
             Submit profile
           </button>

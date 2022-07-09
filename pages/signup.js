@@ -9,7 +9,7 @@ import UserVoiceRange from '../talents-onboarding/UserVoiceRange';
 import UserBio from '../talents-onboarding/UserBio';
 import UserLang from '../talents-onboarding/UserLang';
 import UserProfile from '../talents-onboarding/UserProfile';
-import UserReview from '../talents-onboarding/UserReview';
+import UserReview from '../talents-onboarding/SetupComplete';
 import UserSample from '../talents-onboarding/UserSample';
 import SubmitProfile from '../talents-onboarding/SubmitProfile';
 import validator from 'validator';
@@ -19,7 +19,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(12);
+  const [step, setstep] = useState(13);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -86,9 +86,9 @@ const Signup = ({ values }) => {
     // case 1 to show stepOne form and passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the form
     case 1:
       return (
-        <div>
+        <div className=' font-inter '>
           {/* Navbar starts */}
-          <div className="bg-white fixed w-full z-10 shadow-sm">
+          <div className="bg-white fixed w-full z-10 shadow-sm font-inter ">
             <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
               <div className="relative flex items-center justify-between">
                 <a
@@ -304,20 +304,23 @@ const Signup = ({ values }) => {
           <UserSample nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
         </div>
       );
-    case 13:
-      return (
-        <div>
-          <UserReview nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-        </div>
-      );
-      // Only formData is passed as prop to show the final value at form submit
+    // Only formData is passed as prop to show the final value at form submit
     case 12:
       return (
         <div>
-          <SubmitProfile values={formData}  prevStep={prevStep} />
+          <SubmitProfile values={formData} prevStep={prevStep} nextStep={nextStep} />
+        </div>
+      );
+    case 13:
+      return (
+        <div>
+          <UserReview nextStep={nextStep} prevStep={prevStep} values={formData} />
         </div>
       );
   }
 }
+
+// array of number of steps
+
 
 export default Signup;

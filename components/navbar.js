@@ -11,7 +11,7 @@ function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-        <div className="bg-white fixed w-full z-10 shadow-sm">
+        <div className="bg-white fixed w-full z-10 shadow-sm font-inter ">
           <div className="px-4 pt-2 pb-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="relative flex items-center pt-1 justify-between">
               <a
