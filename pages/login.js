@@ -27,7 +27,7 @@ function Login () {
     return (
     <div>
         {/* Navbar starts */}
-        <div className="bg-white fixed w-full z-10 shadow-sm">
+        <div className="bg-white fixed w-full z-10 shadow-sm font-inter ">
         <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
             <a
@@ -116,7 +116,7 @@ function Login () {
         </div>
         </div>
         {/* Navbar ends */}
-        <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100">
+        <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100 font-inter ">
             <div>
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white rounded lg:w-1/3  md:w-1/2 w-full mt-12 p-10 shadow-sm">
@@ -168,7 +168,7 @@ function Login () {
             </div>
         </div>
         {/* Footer starts */}
-        <footer className="bg-purple-1000  py-12 xl:py-12">
+        <footer className="bg-purple-1000  py-12 xl:py-12 font-inter ">
             <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
                 <ul className="flex flex-col items-center justify-center">
                     <li className="w-1/2 md:w-1/3 lg:w-1/3">

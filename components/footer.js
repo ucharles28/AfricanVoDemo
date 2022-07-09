@@ -7,7 +7,7 @@ import { ImFacebook2, ImTwitter, ImGoogle} from 'react-icons/im'
 
 function Footer() {
     return (
-        <div className="bg-purple-1000 text-white">
+        <div className="bg-purple-1000 text-white font-inter ">
             <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div>
