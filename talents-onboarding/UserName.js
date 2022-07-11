@@ -11,7 +11,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
     e.preventDefault();
 
     if (
-      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.term) || validator.isEmpty(values.confirmpassword)
+      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.term)
     ) {
       setError(true);
     } else {
@@ -171,7 +171,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                 onChange={handleFormData("password")}
               />
             </div>
-            <div  className="mt-2 w-full">
+            {/* <div  className="mt-2 w-full">
                 <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
                 <input 
                     type="text" 
@@ -184,7 +184,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                     onChange={handleFormData("confirmpassword")}
                 />
                 {isError}
-            </div>
+            </div> */}
             <div className="col-span-6 sm:col-span-3 mt-2">
               <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                 Country
