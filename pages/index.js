@@ -23,8 +23,8 @@ function Home() {
               <p className="mt-2 sm:mt-10 lg:w-10/12 text-gray-400 font-medium text-center text-base font-inter sm:text-lg">Beat the complexity of Africa and find professional Native speaking African voice talents and translators with ease. </p>
             </div>
             <div className="flex justify-center items-center">
-              <button className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 lg:text-xl lg:font-bold  rounded-lg text-white px-4 sm:px-10 border border-purple py-2 sm:py-4 text-xs"><a href='./signup' className='hover:text-white font-inter '>Find Talent</a></button>
-              <button className="hover:bg-purple-1000 ml-4 transition duration-150 ease-in-out lg:text-xl lg:font-bold rounded-lg text-purple-600 hover:text-white px-4 sm:px-10 border border-purple-600 py-2 sm:py-4 text-xs"><a href='./login' className='hover:text-white font-inter '>Login</a></button>
+              <a href='./signup' className='font-inter '><button className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 lg:text-xl lg:font-bold  rounded-lg text-white px-4 sm:px-10 border border-purple py-2 sm:py-4 text-xs">Find Talent</button></a>
+              <a href='./login' className='font-inter'><button className="hover:bg-purple-1000 ml-4 transition duration-150 ease-in-out lg:text-xl lg:font-bold rounded-lg text-purple-600 hover:text-white px-4 sm:px-10 border border-purple-600 py-2 sm:py-4 text-xs">Login</button></a>
             </div>
           </div>
         </div>
