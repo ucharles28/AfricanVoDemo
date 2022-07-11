@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap';
 import Select from 'react-select';
+import Disabledbutton from '../components/disabledbutton';
+import Activebutton from '../components/activebutton';
 
 const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
     const [error, setError] = useState(false);
@@ -168,20 +170,22 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                 <p className="pb-6 text-base text-gray-550 font-medium">Choose the categories that best describe the type of work you do so we can show you to the right type of clients in search results.</p>
                 <p className="text-2xl font-bold text-gray-900 text-left pb-2">I am a:</p>
                 <div className="flex flex-row items-center justify-center ml-4">
-                  <button 
+                  {/* <button 
                     name="Voice over artist" 
                     className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 border-2 rounded-lg border-purple-1000 hover:border-purple-600 text-center text-white px-3 py-3 sm:px-2 sm:py-1 font-semibold text-base w-2/3"
                     // defaultValue={values.client} 
                   >
                     <a href='' className='hover:text-white'>Voice over artist</a>
-                  </button>
-                  <button 
+                  </button> */}
+                  <Activebutton bg='#A259FF' color='#fff' width='66.6%'>Voice over artist</Activebutton>
+                  <Disabledbutton bg='#ffffff' color='#9CA3AF' width='66.6%'>Translator</Disabledbutton>
+                  {/* <button 
                     name="Translation" 
                     className="sm:ml-2 md:ml-7 ml-7 hover:bg-purple-1000 transition duration-150 ease-in-out hover:border-purple-1000 border-2 rounded-lg border-gray-400 text-gray-400 hover:text-white px-3 sm:px-5 py-3 sm:py-2 text-base font-semibold text-center w-2/3"
                     // defaultValue={values.talent} 
                   >
                     <a href='' className='hover:text-white'>Translator</a>
-                  </button>
+                  </button> */}
                 </div>
                 <div className="">
                   <label className="mt-4 font-bold text-gray-900">Voice Range(s)</label>
