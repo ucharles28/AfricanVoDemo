@@ -19,7 +19,7 @@ const Signup = ({ values }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(13);
+  const [step, setstep] = useState(1);
 
   //state for form data
   const [formData, setFormData] = useState({
@@ -193,7 +193,7 @@ const Signup = ({ values }) => {
                           name="client" 
                           className="hover:bg-purple-1000 transition duration-150 ease-in-out border-2 hover:border-purple-1000 rounded-lg text-gray-400 hover:text-white px-4 sm:px-4 border-gray-400 py-2 sm:py-2 text-sm font-semibold text-center"
                           onChange={handleInputData('client')}
-                          // defaultValue={values.client} 
+                          // defaultValue={values.client}
                         >
                           <a href='' className='hover:text-white'>Hire a voice talent/translator</a>
                         </button>

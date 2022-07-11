@@ -149,7 +149,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
       </div>
       {/* Navbar ends */}
       <div className="flex flex-col items-center justify-center">
-        <div className="w-full py-6 px-8 flex justify-center align-top flex-col items-center mt-16 mb-16">
+        <div className="w-full py-6 flex justify-center align-top flex-col items-center mt-16 mb-16">
           <div className="w-4/5 mb-16">
             <div className="w-full bg-purple-1000 rounded-t-xl py-4">
               <p className="text-white lg:text-2xl w-full font-semibold pl-4 font-inter text-xl">Preview profile</p>
@@ -168,79 +168,81 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                 </button>
               </div>
             </div>
-            <div className="mt-16 justify-center w-full flex lg:grid-cols-2 ">
-              {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
-                <div className="mr-5 w-1/4 bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5">
-                  <div className="flex flex-col items-center justify-center pb-10">
-                    <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
-                      <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" />{avatar}{' '}
-                    </span>
-                    <p className='font-semibold font-inter text-lg leading-6 pt-2'>{lastName}{' '} {firstName}{' '}</p>
-                    <div className='flex items-center pr-2 pt-1'>
-                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M12 21a29.776 29.776 0 0 1-3.5-3.531C6.9 15.558 5 12.712 5 10a7 7 0 0 1 11.952-4.951A6.955 6.955 0 0 1 19 10c0 2.712-1.9 5.558-3.5 7.469A29.777 29.777 0 0 1 12 21Zm0-14a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"/>
-                      </svg>
-                      <span className='font-inter text-base font-medium leading-6 text-[#828282]'>{city}{' '}, {country}{' '}</span>
+            <div className='flex mt-16 justify-center'>
+              <div className='w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
+                {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
+                  <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5 mb-2">
+                    <div className="flex flex-col items-center justify-center pb-10">
+                      <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
+                        <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" />{avatar}{' '}
+                      </span>
+                      <p className='font-semibold font-inter text-lg leading-6 pt-2'>{lastName}{' '} {firstName}{' '}</p>
+                      <div className='flex items-center pr-2 pt-1'>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M12 21a29.776 29.776 0 0 1-3.5-3.531C6.9 15.558 5 12.712 5 10a7 7 0 0 1 11.952-4.951A6.955 6.955 0 0 1 19 10c0 2.712-1.9 5.558-3.5 7.469A29.777 29.777 0 0 1 12 21Zm0-14a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"/>
+                        </svg>
+                        <span className='font-inter text-base font-medium leading-6 text-[#828282]'>{city}{' '}, {country}{' '}</span>
 
-                    </div>
-                    <div className="mt-3 flex justify-center">
-                      <button
-                        type="button"
-                        className="text-purple-1000 font-semibold font-inter flex items-center border-1 border-gray-150 py-2.5 px-3 rounded-lg"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
-                        <span className="pl-2 text-base">Edit photo</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className='w-3/4'>
-                  <div className="bg-purple-50 text-gray-900 rounded-xl px-3 py-4">
-                    <div className="flex items-center pb-3">
-                      <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Professional Brief</p>
-                      <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
-                      </span>
-                    </div>
-                    <span className='font-medium text-lg leading-7 text-[#4F4F4F] font-inter'>{bio}{' '}.</span>
-                  </div>
-                  <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
-                    <div className="flex items-center pb-3">
-                      <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Voice Range</p>
-                      <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
-                      </span>
-                    </div>
-                    <span className='font-medium text-lg leading-7 text-[#333333] bg-[#BDBDBD] rounded-full px-3 py-1 font-inter'>Kids</span>
-                    <span className='ml-2 font-medium text-lg leading-7 text-[#333333] bg-[#BDBDBD] rounded-full px-3 py-1 font-inter'>Young adult</span>
-                  </div>
-                  <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
-                    <div className="flex items-center pb-3">
-                      <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Language</p>
-                      <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
-                      </span>
-                    </div>
-                    <div
-                      className="py-2.5 px-3 mb-2 font-inter text-gray-900 border rounded-xl bg-purple-250 grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">
-                      <strong className="text-base font-medium leading-6 w-1/2 sm:w-1/2"> Language </strong>
-                      <strong className="text-base font-medium leading-6 w-1/2 sm:w-1/2"> Proficiency </strong>
-                    </div>
-                    <div
-                      className="py-2.5 px-3 mb-2 font-inter grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">
-                      <strong className="text-base font-normal text-gray-900 leading-6 w-1/2 sm:w-1/2"> English </strong>
-                      <strong className="text-base font-medium text-[#6C757D] leading-6 w-1/2 sm:w-1/2"> Basic </strong>
+                      </div>
+                      <div className="mt-3 flex justify-center">
+                        <button
+                          type="button"
+                          className="text-purple-1000 font-semibold font-inter flex items-center border-1 border-gray-150 py-2.5 px-3 rounded-lg"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
+                          <span className="pl-2 text-base">Edit photo</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
-                    <div className="flex items-center pb-3">
-                      <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Audio Sample</p>
-                      <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
-                      </span>
+                  <div className='lg:w-full sm:w-full'>
+                    <div className="bg-purple-50 text-gray-900 rounded-xl px-3 py-4">
+                      <div className="flex items-center pb-3">
+                        <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Professional Brief</p>
+                        <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
+                        </span>
+                      </div>
+                      <span className='font-medium text-lg leading-7 text-[#4F4F4F] font-inter'>{bio}{' '}.</span>
+                    </div>
+                    <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
+                      <div className="flex items-center pb-3">
+                        <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Voice Range</p>
+                        <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
+                        </span>
+                      </div>
+                      <span className='font-medium text-lg leading-7 text-[#333333] bg-[#BDBDBD] rounded-full px-3 py-1 font-inter'>Kids</span>
+                      <span className='ml-2 font-medium text-lg leading-7 text-[#333333] bg-[#BDBDBD] rounded-full px-3 py-1 font-inter'>Young adult</span>
+                    </div>
+                    <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
+                      <div className="flex items-center pb-3">
+                        <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Language</p>
+                        <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
+                        </span>
+                      </div>
+                      <div
+                        className="py-2.5 px-3 mb-2 font-inter text-gray-900 border rounded-xl bg-purple-250 grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">
+                        <strong className="text-base font-medium leading-6 w-1/2 sm:w-1/2"> Language </strong>
+                        <strong className="text-base font-medium leading-6 w-1/2 sm:w-1/2"> Proficiency </strong>
+                      </div>
+                      <div
+                        className="py-2.5 px-3 mb-2 font-inter grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">
+                        <strong className="text-base font-normal text-gray-900 leading-6 w-1/2 sm:w-1/2"> English </strong>
+                        <strong className="text-base font-medium text-[#6C757D] leading-6 w-1/2 sm:w-1/2"> Basic </strong>
+                      </div>
+                    </div>
+                    <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
+                      <div className="flex items-center pb-3">
+                        <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Audio Sample</p>
+                        <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z"/></svg>
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              {/* </div> */}
+                {/* </div> */}
+              </div>
             </div>
           </div>
           {/* <Card>
