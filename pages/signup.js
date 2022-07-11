@@ -12,6 +12,8 @@ import UserProfile from '../talents-onboarding/UserProfile';
 import UserReview from '../talents-onboarding/SetupComplete';
 import UserSample from '../talents-onboarding/UserSample';
 import SubmitProfile from '../talents-onboarding/SubmitProfile';
+import Activebutton from '../components/activebutton';
+import Disabledbutton from '../components/disabledbutton';
 import validator from 'validator';
 
 const Signup = ({ values }) => {
@@ -36,6 +38,7 @@ const Signup = ({ values }) => {
     email: '',
     authtext: '',
     password: '',
+    confirmpassword: '',
     bio: '',
     country: '',
     city: '',
@@ -189,22 +192,24 @@ const Signup = ({ values }) => {
                   // onSubmit={handleSubmit}
                 >
                     <div className="flex justify-center items-center">
-                        <button 
+                        {/* <button 
                           name="client" 
                           className="hover:bg-purple-1000 transition duration-150 ease-in-out border-2 hover:border-purple-1000 rounded-lg text-gray-400 hover:text-white px-4 sm:px-4 border-gray-400 py-2 sm:py-2 text-sm font-semibold text-center"
                           onChange={handleInputData('client')}
                           // defaultValue={values.client}
                         >
                           <a href='' className='hover:text-white'>Hire a voice talent/translator</a>
-                        </button>
-                        <button 
+                        </button> */}
+                        <Disabledbutton bg='#ffffff' color='#9CA3AF'>Hire a voice talent/translator</Disabledbutton>
+                        <Activebutton bg='#A259FF' color='#fff'>Work as voice talent/translator</Activebutton>
+                        {/* <button 
                           name="talent" 
                           className="bg-purple-1000 sm:ml-2 md:ml-7 ml-7 transition duration-150 ease-in-out hover:bg-purple-600 border-2 border-purple-1000 hover:border-purple-600 text-center flex rounded-lg text-white px-4 sm:px-2 py-2 sm:py-2 font-semibold text-sm"
                           onChange={handleInputData('talent')}
                           // defaultValue={values.talent} 
                         >
                           <a href='' className='hover:text-white'>Work as voice talent/translator</a>
-                        </button>
+                        </button> */}
                     </div>
                     <div className="mt-16">
                         <button label="Continue" name="continue" role="button" className="text-base font-semibold leading-none text-white bg-purple-1000 rounded-lg hover:bg-purple-600 py-4 w-full" onClick={nextStep} handleFormData={handleInputData} values={formData} >Continue</button>
@@ -319,8 +324,5 @@ const Signup = ({ values }) => {
       );
   }
 }
-
-// array of number of steps
-
 
 export default Signup;

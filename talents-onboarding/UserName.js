@@ -179,10 +179,11 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                     role="input" 
                     className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"  
                     required 
-                    name="password"
-                    defaultValue={values.password}
-                    onChange={handleFormData("password")}
+                    name="confirmpassword"
+                    defaultValue={values.confirmpassword}
+                    onChange={handleFormData("confirmpassword")}
                 />
+                {isError}
             </div> */}
             <div className="col-span-6 sm:col-span-3 mt-2">
               <label htmlFor="country" className="block text-sm font-medium text-gray-700">
