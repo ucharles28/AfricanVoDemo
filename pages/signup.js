@@ -38,7 +38,7 @@ const Signup = ({ values }) => {
     email: '',
     authtext: '',
     password: '',
-    confirmPassword: '',
+    confirmpassword: '',
     bio: '',
     country: '',
     city: '',
@@ -322,8 +322,8 @@ const Signup = ({ values }) => {
           <UserReview nextStep={nextStep} prevStep={prevStep} values={formData} />
         </div>
       );
-  };
-};
+  }
+}
 
 // array of number of steps
 

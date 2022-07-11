@@ -11,7 +11,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
     e.preventDefault();
 
     if (
-      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.term) || validator.isEmpty(values.confirmPassword)
+      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.term) || validator.isEmpty(values.confirmpassword)
     ) {
       setError(true);
     } else {
@@ -179,9 +179,9 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                     role="input" 
                     className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"  
                     required 
-                    name="confirmPassword"
-                    defaultValue={values.confirmPassword}
-                    onChange={handleFormData("confirmPassword")}
+                    name="confirmpassword"
+                    defaultValue={values.confirmpassword}
+                    onChange={handleFormData("confirmpassword")}
                 />
                 {isError}
             </div>
