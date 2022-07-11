@@ -325,7 +325,4 @@ const Signup = ({ values }) => {
   }
 }
 
-// array of number of steps
-
-
 export default Signup;
