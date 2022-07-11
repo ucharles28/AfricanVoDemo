@@ -25,7 +25,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
   const [show1, setShow1] = useState(false)
 
   //destructuring the object from values
-  const { term, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, talent, audiosample, city, spokenlang, country } = values;
+  const { term, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, confirmPassword, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, talent, audiosample, city, spokenlang, country } = values;
 
   return (
     
@@ -282,6 +282,9 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
               </p>
               <p>
                 <strong>Password :</strong> {password}{" "}
+              </p> 
+              <p>
+                <strong>Confirm Password :</strong> {confirmPassword}{" "}
               </p>
               <p>
                 <strong>Bio :</strong> {bio}{" "}
