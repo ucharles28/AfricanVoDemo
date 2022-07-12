@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "next -p 7777",
     "build": "env-cmd -f .env next build",
-    "build:dev": "env-cmd -f .env next build && next export",
-    "start": "env-cmd -f .env -p ${PORT:-7777}",
+    "start": "next start -p ${PORT:-7777}",
     "test": "NODE_ENV=test jest --watch",
     "export": "npm run build && next export -o _static",
     "tailwindcss": "postcss styles/tailwind.css -o src/app_tailwind.css"
