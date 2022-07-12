@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
-import { FcGoogle } from 'react-icons/fc';
+import Footer from '../components/footer';
+// import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import { post } from '../Helpers/api';
@@ -159,8 +160,8 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
           >
             Create your account
           </p>
-          <div className="flex flex-col items-center justify-center">
-            <button
+          <div className="flex flex-col items-center justify-center mt-15">
+            {/* <button
               role="button"
               className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-4/5 mt-15"
             >
@@ -170,7 +171,7 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
               <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center flex">
                 Sign Up with Google
               </p>
-            </button>
+            </button> */}
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 handleGoogleAuth(credentialResponse);
@@ -232,7 +233,7 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
         </div>
       </div>
       {/* Footer starts */}
-      <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
+      {/* <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
         <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
           <ul className="flex flex-col items-center justify-center">
             <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
@@ -255,7 +256,8 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
             <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
           </ul>
         </div>
-      </footer>
+      </footer> */}
+      <Footer />
       {/* Footer ends */}
     </div>
   );

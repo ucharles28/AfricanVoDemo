@@ -36,7 +36,3 @@ _static
 .next
 .vscode
 out
-
-/.github
-
-/Dockerfile

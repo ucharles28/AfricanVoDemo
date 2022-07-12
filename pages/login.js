@@ -3,7 +3,7 @@ import Link from 'next/link';
 import jwt_decode from 'jwt-decode';
 import { Navbar, Nav, Container, Button, Form, Col } from 'react-bootstrap';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
 import Meta from '../components/meta';
 import { post } from '../Helpers/api';
@@ -226,7 +226,7 @@ function Login() {
                 </p>
                 <hr className="w-full bg-gray-400  " />
               </div>
-              <button
+              {/* <button
                 role="button"
                 className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15"
                 type="submit"
@@ -237,8 +237,9 @@ function Login() {
                 <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center">
                   Sign in with Google
                 </p>
-              </button>
+              </button> */}
               <GoogleLogin
+                buttonText="Sign in with Google"
                 onSuccess={(credentialResponse) => {
                   handleGoogleAuth(credentialResponse);
                 }}
