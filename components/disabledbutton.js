@@ -19,6 +19,8 @@ const Disabledbutton = styled.button`
     background-color: ${({ bg }) => bg || '#A259FF'};
     color: ${({ color }) => color || '#9CA3AF'};
     width: ${({ width }) => width || 'auto'};
+    margin-right: ${({ marginLeft }) => marginLeft || '0'};
+    margin-left: ${({ marginRight }) => marginRight || '0'};
 
     &:hover {
         background-color: #874AD4;
