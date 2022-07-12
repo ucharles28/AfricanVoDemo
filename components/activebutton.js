@@ -9,7 +9,7 @@ const Activebutton = styled.button`
     font-weight: 600;
     padding: 8px;
     padding-left: 32px;
-    margin-right: 12px;
+    margin-left: 12px;
     padding-right: 32px;
     display: flex;
     align-items: center;
@@ -19,6 +19,7 @@ const Activebutton = styled.button`
     background-color: ${({ bg }) => bg || '#A259FF'};
     color: ${({ color }) => color || '#FFFFFF'};
     width: ${({ width }) => width || 'auto'};
+    margin-right: ${({ marginLeft }) => marginLeft || '0'};
 
     &:hover {
         background-color: #874AD4;

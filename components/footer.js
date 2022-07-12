@@ -1,5 +1,3 @@
-import { IoIosFlag, IoIosArrowDown } from 'react-icons/io';
-import { FaFacebookSquare, FaGooglePlusG, FaTwitter } from 'react-icons/fa';
 import { Navbar } from 'react-bootstrap';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -32,7 +30,7 @@ function Footer() {
 
                     <div className="grid grid-cols-2 gap-8 lg:col-span-2 sm:grid-cols-4 lg:grid-cols-4">
                         <div>
-                        <p className="font-bold text-base leading-none">
+                        <p className="font-bold text-base leading-5">
                             Products
                         </p>
                         <nav className="flex flex-col mt-4 space-y-2 text-sm text-white">
@@ -57,7 +55,7 @@ function Footer() {
                         </div>
 
                         <div>
-                        <p className="font-bold text-base leading-none">
+                        <p className="font-bold text-base leading-5">
                             Helpful Links
                         </p>
                         <nav className="flex flex-col mt-4 space-y-2 text-sm text-white">
