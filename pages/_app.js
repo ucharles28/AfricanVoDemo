@@ -3,8 +3,8 @@ import App from 'next/app';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import '../styles/styles.css'
 import '../styles/tailwind.css';
-import { ChakraProvider } from '@chakra-ui/react';
-import { extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const colors = {
   purple: {
@@ -37,16 +37,18 @@ const font = {
   inter: ['Inter', 'sans-serif'],
 }
 
-const theme = extendTheme({ colors, font })
+const theme = extendTheme({ colors, font });
 
-console.log('Where am i : ' + process.env.REACT_APP_WHERE_AM_I);
+console.log(`Where am i : ${process.env.GOOGLE_CLIENT_ID}`);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme} >
+    <ChakraProvider theme={theme}>
+      <GoogleOAuthProvider clientId="93183711763-r1s27d24vk7km5uo667okv4ssm5voj4e.apps.googleusercontent.com">
       <Component {...pageProps} />
+      </GoogleOAuthProvider>
     </ChakraProvider>
   )
 }
 
-export default MyApp
+export default MyApp;
