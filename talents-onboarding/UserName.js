@@ -9,7 +9,6 @@ import Footer from '../components/footer';
 
 const UserName = ({
   nextStep,
-  prevStep,
   handleFormData,
   values,
   email,
@@ -275,13 +274,13 @@ const UserName = ({
               >
                 Create my account
               </button>
-              <button
+              {/* <button
                 role="button"
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
                 onClick={prevStep}
               >
                 back
-              </button>
+              </button> */}
             </div>
           </Form>
           <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
@@ -292,7 +291,7 @@ const UserName = ({
               aria-label="Sign up here"
               className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
             >
-              <Link href="../login.js">
+              <Link href="../login">
                 <a> Login</a>
               </Link>
             </span>
