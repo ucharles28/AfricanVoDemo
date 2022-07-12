@@ -65,23 +65,23 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                             </a>
                         </div>
                         { 
-                        show1?<div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+                        show1?<div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-sm bg-white ring-1 ring-black ring-opacity-5">
                             <div className="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                     <span className="flex flex-col">
                                         <span>
                                             Settings
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                     <span className="flex flex-col">
                                         <span>
                                             Account
                                         </span>
                                     </span>
                                 </a>
-                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                     <span className="flex flex-col">
                                         <span>
                                             Logout
@@ -177,8 +177,8 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                   >
                     <a href='' className='hover:text-white'>Voice over artist</a>
                   </button> */}
-                  <Activebutton bg='#A259FF' color='#fff' width='66.6%'>Voice over artist</Activebutton>
-                  <Disabledbutton bg='#ffffff' color='#9CA3AF' width='66.6%'>Translator</Disabledbutton>
+                  <Activebutton bg='#A259FF' color='#fff' width='66.6%' margin-right='12px'>Voice over artist</Activebutton>
+                  <Disabledbutton bg='#ffffff' color='#9CA3AF' width='66.6%' margin-left='12px'>Translator</Disabledbutton>
                   {/* <button 
                     name="Translation" 
                     className="sm:ml-2 md:ml-7 ml-7 hover:bg-purple-1000 transition duration-150 ease-in-out hover:border-purple-1000 border-2 rounded-lg border-gray-400 text-gray-400 hover:text-white px-3 sm:px-5 py-3 sm:py-2 text-base font-semibold text-center w-2/3"
