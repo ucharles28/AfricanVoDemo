@@ -246,7 +246,7 @@ function Login() {
                   console.log('Login Failed');
                 }}
               />
-              ;
+              
               <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
                 Don't have account yet?{' '}
                 <span
