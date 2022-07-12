@@ -247,7 +247,7 @@ function Login() {
                   console.log('Login Failed');
                 }}
               />
-              
+
               <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
                 Don't have account yet?{' '}
                 <span
@@ -269,7 +269,7 @@ function Login() {
       <footer className="bg-purple-1000  py-12 xl:py-12 font-inter ">
         <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
           <ul className="flex flex-col items-center justify-center">
-            <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
+            <li className="w-1/2 md:w-1/3 lg:w-1/3" />
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
               <div className="text-center">
                 <ul>
@@ -286,7 +286,7 @@ function Login() {
                 </ul>
               </div>
             </li>
-            <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
+            <li className="w-1/2 md:w-1/3 lg:w-1/3" />
           </ul>
         </div>
       </footer>

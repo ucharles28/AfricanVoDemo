@@ -1,4 +1,4 @@
-import App from 'next/app';
+// import App from 'next/app';
 // import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import '../styles/styles.css'
@@ -31,11 +31,11 @@ const colors = {
     800: '#1F2937',
     900: '#111827',
   },
-}
+};
 
 const font = {
   inter: ['Inter', 'sans-serif'],
-}
+};
 
 const theme = extendTheme({ colors, font });
 
@@ -45,10 +45,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <GoogleOAuthProvider clientId="93183711763-r1s27d24vk7km5uo667okv4ssm5voj4e.apps.googleusercontent.com">
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </GoogleOAuthProvider>
     </ChakraProvider>
-  )
+  );
 }
 
 export default MyApp;

@@ -78,8 +78,11 @@
   },
   "eslintConfig": {
     "extends": [
-      "wesbos"
-    ]
+      "africanvo"
+    ],
+    "prettier/prettier": ["error", {
+      "endOfLine":"auto"
+    }]
   },
   "jest": {
     "setupFilesAfterEnv": [

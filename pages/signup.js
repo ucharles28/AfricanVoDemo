@@ -1,5 +1,6 @@
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+// import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import validator from 'validator';
 import UserEmail from '../talents-onboarding/UserEmail';
 import UserName from '../talents-onboarding/UserName';
 import UserAuth from '../talents-onboarding/UserAuth';
@@ -14,7 +15,7 @@ import UserSample from '../talents-onboarding/UserSample';
 import SubmitProfile from '../talents-onboarding/SubmitProfile';
 import Activebutton from '../components/activebutton';
 import Disabledbutton from '../components/disabledbutton';
-import validator from 'validator';
+import Footer from '../components/footer';
 
 const Signup = ({ values }) => {
   // Nav Open
@@ -266,7 +267,8 @@ const Signup = ({ values }) => {
             </div>
           </div>
           {/* footer starts */}
-          <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
+          <Footer />
+          {/* <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
             <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
               <ul className="flex flex-col items-center justify-center">
                 <li className="w-1/2 md:w-1/3 lg:w-1/3" />
@@ -289,7 +291,7 @@ const Signup = ({ values }) => {
                 <li className="w-1/2 md:w-1/3 lg:w-1/3" />
               </ul>
             </div>
-          </footer>
+          </footer> */}
           {/* footer ends */}
           {/* <button onClick={nextStep} handleFormData={handleInputData} values={formData}>Continue</button> */}
         </div>
