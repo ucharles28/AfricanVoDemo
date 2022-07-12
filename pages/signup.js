@@ -200,8 +200,8 @@ const Signup = ({ values }) => {
                         >
                           <a href='' className='hover:text-white'>Hire a voice talent/translator</a>
                         </button> */}
-                        <Disabledbutton bg='#ffffff' color='#9CA3AF'>Hire a voice talent/translator</Disabledbutton>
-                        <Activebutton bg='#A259FF' color='#fff'>Work as voice talent/translator</Activebutton>
+                        <Disabledbutton bg='#ffffff' color='#9CA3AF' width='50%' margin-right='12px'>Hire a voice talent/translator</Disabledbutton>
+                        <Activebutton bg='#A259FF' color='#fff' width='50%'>Work as voice talent/translator</Activebutton>
                         {/* <button 
                           name="talent" 
                           className="bg-purple-1000 sm:ml-2 md:ml-7 ml-7 transition duration-150 ease-in-out hover:bg-purple-600 border-2 border-purple-1000 hover:border-purple-600 text-center flex rounded-lg text-white px-4 sm:px-2 py-2 sm:py-2 font-semibold text-sm"

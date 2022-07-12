@@ -126,9 +126,9 @@ const UserEmail = ({ nextStep, handleFormData, values }) => {
               Create your account
             </p>
             <div className="flex flex-col items-center justify-center">
-              <button role="button" className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-4/5 mt-15" >
+              <button role="button" className="py-2.5 px-2 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full lg:w-4/5 mt-15" >
                 <div className="border rounded-full bg-white p-1 shadow-sm"><FcGoogle size={26}/></div>
-                <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center flex">Sign in with Google</p>
+                <p className="text-base font-medium pl-16 lg:ml-5 text-white text-center flex">Sign in with Google</p>
               </button>
             </div>
             <div className="w-full flex items-center justify-between py-4">

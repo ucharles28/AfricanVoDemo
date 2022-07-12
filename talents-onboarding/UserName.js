@@ -4,6 +4,7 @@ import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
+import Footer from '../components/footer';
 
 const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
 
@@ -127,7 +128,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
       {/* Navbar ends */}
       <div className="flex flex-col items-center justify-center">
         <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center my-5">
-          <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-4xl font-bold text-gray-800 text-center pt-3 pb-3">
+          <p tabIndex={0} className="lg:text-4xl text-3xl font-bold text-gray-800 text-center pt-3 pb-3">
             Complete your account setup
           </p>
           <p className="text-center pb-2 text-base font-normal text-gray-500">{email}{' '}</p>
@@ -146,7 +147,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                   onChange={handleFormData("firstName")}
                 />
               </div>
-              <div>
+              <div className='-mt-3 lg:mt-0 md:mt-0 xl:mt-0'>
                 <label className="text-sm font-semibold leading-none text-gray-800">Last Name</label>
                 <input
                   className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
@@ -208,8 +209,8 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                   onChange={handleFormData("term")}
                 />
               </div>
-              <div className="ml-3 text-sm">
-                <p className=" ">Yes, I understand and agree to the Africanvo <span className="text-purple-1000">Terms of Service,</span>including the <span className="text-purple-1000">User Agreement</span> and <span className="text-purple-1000">Privacy Policy.</span></p>
+              <div className="ml-2 text-sm">
+                <p>Yes, I understand and agree to the Africanvo <span className="text-purple-1000">Terms of Service,</span> including the <span className="text-purple-1000">User Agreement</span> and <span className="text-purple-1000">Privacy Policy.</span></p>
               </div>
             </div>
             <div className="mt-8">
@@ -238,7 +239,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
         </div>
       </div>
       {/* Footer starts */}
-      <footer className="bg-purple-1000 fixed h-full w-full pb-12 pt-8 xl:pt-8">
+      {/* <footer className="bg-purple-1000 fixed h-full w-full pb-12 pt-8 xl:pt-8">
         <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
           <ul className="flex flex-col items-center justify-center">
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
@@ -263,7 +264,8 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
             </li>
           </ul>
         </div>
-      </footer>
+      </footer> */}
+      <Footer />
       {/* Footer ends */}
     </div>
   );

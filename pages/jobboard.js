@@ -6,7 +6,7 @@ function JobBoard () {
     return (
         <div>
             <Menu />
-            <h1>Hello World!</h1>
+            <h1>Hello World! for Job Board</h1>
             <Footer />
         </div>
     );
