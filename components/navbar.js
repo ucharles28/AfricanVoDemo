@@ -32,7 +32,7 @@ function Menu() {
                 </li>
                 <li>
                   <a
-                    href="../jobboard"
+                    href="../job-board"
                     className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Voices
@@ -40,7 +40,7 @@ function Menu() {
                 </li>
                 <li>
                   <a
-                    href="../jobboard"
+                    href="../job-board"
                     className="font-medium tracking-wide hover:text-gray-900  text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Translators

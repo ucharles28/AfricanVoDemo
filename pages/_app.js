@@ -1,7 +1,6 @@
 // import App from 'next/app';
 // import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../styles/styles.css'
 import '../styles/tailwind.css';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
