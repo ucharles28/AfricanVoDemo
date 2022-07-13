@@ -45,7 +45,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
   return (
       <div>
           {/* Navbar starts */}
-          <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16">
+          <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16 font-inter">
               <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                   <div className="relative flex items-center justify-between">
                   <a
@@ -162,7 +162,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
               </div>
           </div>
           {/* Navbar ends */}
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center font-inter">
             <div className="lg:w-3/5 md:w-3/5 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
               <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6 block">
               A few last details - then you can check and publish your profile.
@@ -232,8 +232,8 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                         onChange={changeHandler}
                       />
                     </div>
-                    <div className='w-full md:w-1/2 px-3 mb-2'>
-                      <label className="text-sm font-semibold leading-none text-gray-800">City</label>
+                    <div className='w-full md:w-1/2 pl-3 mb-2'>
+                      <label className="text-sm font-medium leading-none text-gray-700">City</label>
                       <input
                         className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-base"
                         placeholder="Enter your city"
@@ -261,12 +261,12 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                   </div>
                   <div className='w-full md:w-1/2 pl-3 mb-2'>
                     <label className='block font-medium text-gray-700 text-sm mb-2' >Date of birth</label>
-                    <input type="date" name="dob" className="py-2 px-2 border border-gray-300 rounded-lg focus:ring-opacity-0 focus:ring-offset-transparent" defaultValue={values.DOB} onChange={handleFormData("DOB")} />
+                    <input type="date" name="dob" className="text-gray-700 py-2 pl-3 pr-4 border rounded-lg border-gray-300 w-full placeholder-gray-400 flex-1" defaultValue={values.DOB} onChange={handleFormData("DOB")} />
                   </div>
-                  <div className='w-full md:w-1/2 px-3 mb-2'>
-                    <label className="text-sm font-semibold leading-none text-gray-800">Phone Number</label>
+                  <div className='w-full md:w-1/2 pl-3 mb-2'>
+                    <label className="text-sm font-medium leading-none text-gray-700">Phone Number</label>
                     <input
-                      className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-base"
+                      className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 pr-4 mt-1 placeholder:text-sm placeholder-gray-400"
                       placeholder="000-000-000-000"
                       type="text"
                       name="tel"
@@ -288,8 +288,8 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                     <div className="w-1/3 bg-gray-200 h-1 rounded-tr rounded-br" />
                 </div> */}
                 {/* progress bar ends */}
-          <div className="flow-root">
-            <div className="ml-10 mb-5 float-left justify-start">
+          <div className="flow-root font-inter">
+            <div className="ml-5 lg:ml-10 mb-5 float-left justify-start">
               <button 
                 role="button" 
                 className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
@@ -298,10 +298,10 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                 Back
               </button>
             </div>
-            <div className="mr-10 mb-5 float-right justify-end">
+            <div className="mr-5 lg:mr-10 mb-5 float-right justify-end">
               <button 
                 role="button" 
-                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3" 
                 onClick={nextStep}
               >
                 Lastly, Your audio samples

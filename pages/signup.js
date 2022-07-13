@@ -23,7 +23,7 @@ const Signup = ({ values }) => {
 
 
   // state for steps
-  const [step, setstep] = useState(1);
+  const [step, setstep] = useState(10);
   const [accountType, setAccountType] = useState('Client');
   const [email, setEmail] = useState('');
 
