@@ -192,7 +192,7 @@ const UserName = ({ nextStep, email, accountType }) => {
                       placeholder="Enter last name"
                       type="text"
                       required
-                      name="firstName"
+                      name="lastName"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                     />

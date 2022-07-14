@@ -4,6 +4,7 @@ import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
+import Footer from '../components/footer';
 
 // creating functional component ans getting props from app.js and destucturing them
 const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
@@ -229,7 +230,8 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
         </div>
       </div>
       {/* Footer starts */}
-      <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
+      <Footer />
+      {/* <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
         <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
           <ul className="flex flex-col items-center justify-center">
             <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
@@ -252,7 +254,7 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
             <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
           </ul>
         </div>
-      </footer>
+      </footer> */}
       {/* Footer ends */}
     </div>
   );

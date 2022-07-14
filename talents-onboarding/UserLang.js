@@ -2,6 +2,7 @@ import Footer from '../components/footer';
 import React, { useState } from 'react';
 import validator from 'validator';
 import Select from 'react-select';
+
 const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
   const [error, setError] = useState(false);
 
@@ -31,22 +32,22 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
 
   const [selected, setSelected] = useState();
 
-  const [languageList, setLanguageList] = useState([{ service: "" }]);
-  const handleServiceRemove = (index) => {
+  const [languageList, setLanguageList] = useState([{ language: "" }]);
+  const handleLanguageRemove = (index) => {
     const list = [...languageList];
     list.splice(index, 1);
     setLanguageList(list);
   };
 
-  const handleServiceChange = (e, index) => {
+  const handleLanguageChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...languageList];
     list[index][name] = value;
     setLanguageList(list);
   };
 
-  const handleServiceAdd = () => {
-    setLanguageList([...languageList, { service: "" }]);
+  const handleLanguageAdd = () => {
+    setLanguageList([...languageList, { language: "" }]);
   };
   
 
@@ -194,7 +195,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 // defaultValue={values.langstrength}
                 />
               </div>
-              {languageList.map((singleService, index) => (
+              {languageList.map((singleLanguage, index) => (
                 <div>
                   <div
                     className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2 gap-1" key={index} >
@@ -203,9 +204,9 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                       placeholder="I know"
                       type="text"
                       name="spokenlang"
-                      // value={singleService.service}
+                      // value={singleLanguage.language}
                       defaultValue={values.spokenlang}
-                      onChange={(e) => handleServiceChange(e, index)}
+                      onChange={(e) => handleLanguageChange(e, index)}
                     />
                     <div className=" flex items-center">
                     <Select 
@@ -219,14 +220,14 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                     defaultValue={values.langstrength}
                     />
                       {languageList.length !== 1 && (
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#bdbdbd" d="M10 5h4a2 2 0 1 0-4 0ZM8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5H8.5Zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0v-7.5ZM14.25 9a.75.75 0 0 0-.75.75v7.5a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75Z" onClick={() => handleServiceRemove(index)} /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#bdbdbd" d="M10 5h4a2 2 0 1 0-4 0ZM8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5H8.5Zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0v-7.5ZM14.25 9a.75.75 0 0 0-.75.75v7.5a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75Z" onClick={() => handleLanguageRemove(index)} /></svg>
                       )}
                     </div>
                   </div>
                   {languageList.length - 1 === index && languageList.length < 100 && (
                     <button
                       type="button"
-                      onClick={handleServiceAdd}
+                      onClick={handleLanguageAdd}
                       className="mt-2.5 text-purple-1000 ml-4 font-semibold flex items-center"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>

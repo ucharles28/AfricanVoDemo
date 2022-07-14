@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import validator from 'validator';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
-import {Modal, Button} from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 
 
 const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {

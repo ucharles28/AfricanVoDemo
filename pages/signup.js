@@ -11,6 +11,8 @@ import UserProfile from '../talents-onboarding/UserProfile';
 import UserReview from '../talents-onboarding/SetupComplete';
 import UserSample from '../talents-onboarding/UserSample';
 import SubmitProfile from '../talents-onboarding/SubmitProfile';
+import TransRange from '../talents-onboarding/TransRange';
+import TransSample from '../talents-onboarding/TransSample';
 import Activebutton from '../components/styles/ActiveButton';
 import Footer from '../components/footer';
 
@@ -195,9 +197,7 @@ const Signup = () => {
                     </div>
             </div>
           </div>
-          {/* footer starts */}
           <Footer />
-          {/* footer ends */}
           {/* <button onClick={nextStep} handleFormData={handleInputData} values={formData}>Continue</button> */}
         </div>
       );
@@ -287,6 +287,28 @@ const Signup = () => {
           <UserReview
             nextStep={nextStep}
             prevStep={prevStep}
+            values={formData}
+          />
+        </div>
+      );
+    case 14:
+      return (
+        <div>
+          <TransRange
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleFormData={handleInputData}
+            values={formData}
+          />
+        </div>
+      );
+    case 15:
+      return (
+        <div>
+          <TransSample
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleFormData={handleInputData}
             values={formData}
           />
         </div>

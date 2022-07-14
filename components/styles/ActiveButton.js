@@ -19,6 +19,7 @@ const Activebutton = styled.button`
   background-color: ${(props) => (props.active ? '#A259FF' : '#ffffff')};
   color: ${(props) => (props.active ? '#fff' : '#9CA3AF')};
   width: ${({ width }) => width || 'auto'};
+  height: ${({ height }) => height || 'auto'};
 
   &:hover {
     background-color: #874ad4;
