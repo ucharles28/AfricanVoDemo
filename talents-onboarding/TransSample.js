@@ -222,19 +222,19 @@ const TransSample = ({ nextStep, prevStep, handleFormData, values }) => {
                             </div>
                             <fieldset className="flex flex-wrap ml-2">
                                 <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="radio" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
+                                <input type="check" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
                                 </div>
                                 <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
-                                <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
+                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
                                 </div>
                                 <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
+                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
                                 </div>
                                 <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
+                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
                                 </div>
                                 <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
+                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
                                 </div>
                             </fieldset>
                             </div>
