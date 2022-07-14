@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import validator from 'validator';
 import Footer from '../components/footer';
 import { Bars } from 'react-loader-spinner';
-// import UserBio from '../talents-onboarding/UserBio';
 import { BsCheckCircleFill } from 'react-icons/bs';
 
 
@@ -21,14 +20,6 @@ const UserAuth = ({ nextStep, handleFormData, values }) => {
     }
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // const [show, setShow] = useState(false);
-  // const [loading, setLoading] = useState(false);
-
-  // const helloHandeler = () => {
-  //   setLoading(!loading);
-  //   setShow(!show);
-  // };
 
   useEffect(() => {
       setTimeout(() => {
@@ -141,9 +132,7 @@ const UserAuth = ({ nextStep, handleFormData, values }) => {
     <div className="flex flex-col items-center justify-center">
       <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center my-5">
         {/* Alert starts */}
-        {/* {!show &&  */}
-        <div className="w-full bg-[#34D399] bg-opacity-[15%] px-4 pt-4 pb-1 md:p-3 rounded-lg shadow-sm flex" 
-        // onClick={helloHandeler}
+        <div className="w-full bg-[#34D399] bg-opacity-[15%] px-4 pt-4 pb-1 md:p-3 rounded-lg shadow-sm flex"
         >
           <BsCheckCircleFill size={24} color='#34d399' className="max-w-[36px] w-full h-9 flex items-center justify-center rounded-full mr-3 "/>
           <div className="w-full">
@@ -151,9 +140,7 @@ const UserAuth = ({ nextStep, handleFormData, values }) => {
               Your account has been successfully created. Redirecting you... 
             </h5>
           </div>
-        </div> 
-        {/* } */}
-        {/* {show && <UserBio />} */}
+        </div>
         {/* alert ends */}
         <div className="m-12 pt-14 flex flex-col items-center justify-center">
           <Bars 
@@ -163,15 +150,6 @@ const UserAuth = ({ nextStep, handleFormData, values }) => {
             ariaLabel="loading-indicator"
           />
         </div>
-        {/* <div className="mt-8">
-          <button 
-            role="button" 
-            className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full" 
-            onClick={nextStep}
-          >
-            Send verification link
-          </button> 
-        </div> */}
       </div>
     </div>
     {/* Auth ends */}

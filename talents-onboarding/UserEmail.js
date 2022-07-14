@@ -13,8 +13,6 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
 
   const [email, setEmail] = useState('');
 
-  // const [validated, setValidated] = useState(false);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleGoogleAuth = async (user) => {
@@ -187,7 +185,7 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
           </div>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group as={Col} controlId="validationCustom01">
-              <div className="mt-1  w-full">
+              <div className="mt-1 w-full">
                 <lable className="text-sm font-medium leading-none text-gray-800">
                   Email Address
                 </lable>
