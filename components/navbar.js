@@ -4,8 +4,7 @@ import Link from 'next/link';
 // import {useRouter} from 'next/router'
 // import logo from './public/logo.png'
 import { useState } from 'react';
-import {Navbar, Nav, Container, Button} from 'react-bootstrap';
-
+// import {Navbar, Nav, Container, Button} from 'react-bootstrap';
 function Menu() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,7 +32,7 @@ function Menu() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="../job-board"
                     className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Voices
@@ -41,7 +40,7 @@ function Menu() {
                 </li>
                 <li>
                   <a
-                    href="/"
+                    href="../job-board"
                     className="font-medium tracking-wide hover:text-gray-900  text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Translators

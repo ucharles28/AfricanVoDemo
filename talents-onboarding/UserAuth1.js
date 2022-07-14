@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
 import { useRouter } from 'next/router'
-import { post } from '../helpers/api';
+import { post } from '../helpers/Api';
 
 const UserAuth1 = ({ email, setParentEmail }) => {
     const router = useRouter();

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { get } from '../../helpers/api'
+import { get } from '../../helpers/Api'
 import Verify from '../../components/Verify'
 
 

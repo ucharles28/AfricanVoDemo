@@ -1,7 +1,6 @@
-import App from 'next/app';
+// import App from 'next/app';
 // import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../styles/styles.css'
 import '../styles/tailwind.css';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
@@ -32,15 +31,15 @@ const colors = {
     800: '#1F2937',
     900: '#111827',
   },
-}
+};
 
 const font = {
   inter: ['Inter', 'sans-serif'],
-}
+};
 
-const theme = extendTheme({ colors, font })
+const theme = extendTheme({ colors, font });
 
-console.log('Where am i : ' + process.env.REACT_APP_WHERE_AM_I);
+console.log(`Where am i : ${process.env.GOOGLE_CLIENT_ID}`);
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -49,7 +48,7 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
       </GoogleOAuthProvider>
     </ChakraProvider>
-  )
+  );
 }
 
 export default MyApp;

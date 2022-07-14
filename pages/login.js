@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import jwt_decode from 'jwt-decode';
 import { Navbar, Nav, Container, Button, Form, Col } from 'react-bootstrap';
-import { GoogleLogin } from '@react-oauth/google';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
+import { GoogleLogin } from '@react-oauth/google';
 import Meta from '../components/meta';
+import { post } from '../helpers/Api';
 
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -188,7 +190,6 @@ function Login() {
                       role="input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      value
                       className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
                       required
                     />

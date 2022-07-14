@@ -9,21 +9,3 @@ module.exports = {
     case: 'insentive'
   },
 }
-
-// const isDev = NODE_ENV === 'development'
-
-// module.exports = {
-//   webpack: config => {
-//     if (isDev) {
-//       return config;
-//     }
-
-//     return {
-//       ...config,
-//       externals: {
-//         react: 'React',
-//         'react-dom': 'ReactDOM',
-//       },
-//     };
-//   },
-// };
