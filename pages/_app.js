@@ -2,8 +2,9 @@
 // import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/tailwind.css';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+
 
 const colors = {
   purple: {
@@ -44,7 +45,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <GoogleOAuthProvider clientId="93183711763-r1s27d24vk7km5uo667okv4ssm5voj4e.apps.googleusercontent.com">
-        <Component {...pageProps} />
+      <Component {...pageProps} />
       </GoogleOAuthProvider>
     </ChakraProvider>
   );

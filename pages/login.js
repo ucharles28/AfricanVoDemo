@@ -6,12 +6,12 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 // import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
 import Meta from '../components/meta';
-import { post } from '../Helpers/api';
+import { post } from '../helpers/Api';
 
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
-    setPasswordShown(!passwordShown);
+    setPasswordShown(passwordShown ? false : true);
   };
   const [validated, setValidated] = useState(false);
 
@@ -19,8 +19,17 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
   const handleSubmit = async (event) => {
+
     event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      return;
+    }
+
+    setValidated(true);
     const request = {
       email,
       password,
@@ -31,12 +40,12 @@ function Login() {
     const response = await post('Auth/SignIn', request, '');
     if (response.successful) {
       // Request is successful
-      localStorage.setItem('token', response.Token);
+      localStorage.setItem('token', response.data.Token);
       localStorage.setItem(
         'tokenExpiry',
-        JSON.stringify(response.TokenExpiryDate)
+        JSON.stringify(response.data.TokenExpiryDate)
       );
-      localStorage.setItem('user', JSON.stringify(response));
+      localStorage.setItem('user', JSON.stringify(response.data));
     }
   };
 
@@ -50,9 +59,11 @@ function Login() {
     // Sign In
     const response = await post('Auth/SignIn', request, '');
     console.log(response);
-    localStorage.setItem('token', response.Token);
-    localStorage.setItem('tokenExpiry', response.TokenExpiryDate);
-    localStorage.setItem('user', response);
+    if (response.successful) {
+    localStorage.setItem('token', response.data.Token);
+    localStorage.setItem('tokenExpiry', response.data.TokenExpiryDate);
+    localStorage.setItem('user', JSON.stringify( response.data));
+}
   };
 
   return (
@@ -154,6 +165,7 @@ function Login() {
         </div>
       </div>
       {/* Navbar ends */}
+      
       <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100 font-inter ">
         <div>
           <div className="flex flex-col items-center justify-center">
@@ -175,9 +187,9 @@ function Login() {
                     <Form.Control
                       type="email"
                       placeholder="Email Address"
+                      role="input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      role="input"
                       className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
                       required
                     />
@@ -192,9 +204,9 @@ function Login() {
                     <div className="relative flex items-center justify-center">
                       <Form.Control
                         type={passwordShown ? 'text' : 'password'}
+                        role="input"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        role="input"
                         placeholder="Password"
                         className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
                         required
@@ -226,7 +238,7 @@ function Login() {
                 </p>
                 <hr className="w-full bg-gray-400  " />
               </div>
-              {/* <button
+              <button
                 role="button"
                 className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-full mt-15"
                 type="submit"
@@ -237,9 +249,8 @@ function Login() {
                 <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center">
                   Sign in with Google
                 </p>
-              </button> */}
+              </button>
               <GoogleLogin
-                buttonText="Sign in with Google"
                 onSuccess={(credentialResponse) => {
                   handleGoogleAuth(credentialResponse);
                 }}
@@ -247,7 +258,6 @@ function Login() {
                   console.log('Login Failed');
                 }}
               />
-
               <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
                 Don't have account yet?{' '}
                 <span
@@ -269,7 +279,7 @@ function Login() {
       <footer className="bg-purple-1000  py-12 xl:py-12 font-inter ">
         <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
           <ul className="flex flex-col items-center justify-center">
-            <li className="w-1/2 md:w-1/3 lg:w-1/3" />
+            <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
               <div className="text-center">
                 <ul>
@@ -286,7 +296,7 @@ function Login() {
                 </ul>
               </div>
             </li>
-            <li className="w-1/2 md:w-1/3 lg:w-1/3" />
+            <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
           </ul>
         </div>
       </footer>

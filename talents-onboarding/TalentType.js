@@ -1,24 +1,24 @@
-import Footer from '../components/footer';
 import React, { useState } from 'react';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap';
 import Select from 'react-select';
-import Disabledbutton from '../components/disabledbutton';
-import Activebutton from '../components/activebutton';
+import Footer from '../components/footer';
+import Activebutton from '../components/styles/ActiveButton';
+import router from 'next/router';
 
-const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
+const TalentType = ({ nextStep, setTalentType }) => {
     const [error, setError] = useState(false);
+    const [voiceOverButttonActive, setVoiceOverButttonActive] = useState('active');
+    const [translatorButttonActive, setTranslatorButttonActive] = useState('');
+    
+    const handleSetTalentType = (value) => {
+      setTalentType(value);
+      setVoiceOverButttonActive(value === 'Translator' ? '' : 'active');
+      setTranslatorButttonActive(value === 'Translator' ? 'active' : '');
+    };
 
     const submitFormData = (e) => {
       e.preventDefault();
-  
-      if (
-        validator.isEmpty(values.voicerange)
-      ) {
-        setError(true);
-      } else {
-        nextStep();
-      }
     };
 
     // state for navbar for sm screens
@@ -177,8 +177,8 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                   >
                     <a href='' className='hover:text-white'>Voice over artist</a>
                   </button> */}
-                  <Activebutton bg='#A259FF' color='#fff' width='66.6%' margin-right='12px'>Voice over artist</Activebutton>
-                  <Disabledbutton bg='#ffffff' color='#9CA3AF' width='66.6%' margin-left='12px'>Translator</Disabledbutton>
+                  <Activebutton active={voiceOverButttonActive} onClick={() => handleSetTalentType('VoiceOver')} width='66.6%'>Voice over artist</Activebutton>
+                  <Activebutton active={translatorButttonActive} onClick={() => handleSetTalentType('Translator')} width='66.6%'>Translator</Activebutton>
                   {/* <button 
                     name="Translation" 
                     className="sm:ml-2 md:ml-7 ml-7 hover:bg-purple-1000 transition duration-150 ease-in-out hover:border-purple-1000 border-2 rounded-lg border-gray-400 text-gray-400 hover:text-white px-3 sm:px-5 py-3 sm:py-2 text-base font-semibold text-center w-2/3"
@@ -208,7 +208,7 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
-                  onClick={prevStep}
+                  onClick={() => router.back()}
                 >
                   Back
                 </button>
@@ -228,4 +228,4 @@ const UserVoiceRange = ({ nextStep, prevStep, handleFormData, values }) => {
         </div>
     );
 };
-export default UserVoiceRange;
+export default TalentType;

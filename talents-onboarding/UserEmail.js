@@ -2,30 +2,20 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
-import Footer from '../components/footer';
-// import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
-import jwt_decode from 'jwt-decode';
-import { post } from '../Helpers/api';
 
 // creating functional component ans getting props from app.js and destucturing them
-const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEmail }) => {
-  //creating error state for validation
+const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
+  // creating error state for validation
+
+  const [validated, setValidated] = useState(false);
+
   const [email, setEmail] = useState('');
-  const [error, setError] = useState(false);
 
-  // after form submit validating the form data using validator
-  const submitFormData = (e) => {
-    e.preventDefault();
+  // const [validated, setValidated] = useState(false);
 
-    // checking if value of first name and last name is empty show error else take to step 2
-    if (validator.isEmpty(email)) {
-      setError(true);
-    } else {
-      setParentEmail(email);
-      nextStep();
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleGoogleAuth = async (user) => {
     const decodeData = jwt_decode(user.credential);
@@ -38,20 +28,27 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
       accountType,
     };
 
-    // Sign In
+    // Sign Up
     const response = await post('Auth/SignUp', request, '');
-    console.log(response);
-    localStorage.setItem('token', response.Token);
-    localStorage.setItem('tokenExpiryDate', response.TokenExpiryDate);
-    localStorage.setItem('user', response);
+    
+    if (response.successful) { 
+      localStorage.setItem('token', response.data.Token);
+      localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
+      localStorage.setItem('user', JSON.stringify( response.data));
+    }
   };
 
-  // const [email, setEmail] = useState('');
-
-  // const [validated, setValidated] = useState(false);
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    } else {
+      setParentEmail(email);
+      nextStep();
+    }
+    setValidated(true);
+  };
   return (
     <div>
       {/* Navbar starts */}
@@ -160,7 +157,7 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
           >
             Create your account
           </p>
-          <div className="flex flex-col items-center justify-center mt-15">
+          <div className="flex flex-col items-center justify-center">
             {/* <button
               role="button"
               className="py-2.5 px-4 bg-googlesignin border rounded-full border-gray-700 flex items-center w-4/5 mt-15"
@@ -169,7 +166,7 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
                 <FcGoogle size={26} />
               </div>
               <p className="text-base font-medium ml-8 sm:ml-6 md:ml-6 lg:ml-6 xl:ml-6 text-white text-center flex">
-                Sign Up with Google
+                Sign in with Google
               </p>
             </button> */}
             <GoogleLogin
@@ -188,12 +185,12 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
             </p>
             <hr className="w-full bg-gray-400  " />
           </div>
-          <Form onSubmit={submitFormData}>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group as={Col} controlId="validationCustom01">
               <div className="mt-1  w-full">
-                <label className="text-sm font-medium leading-none text-gray-800">
+                <lable className="text-sm font-medium leading-none text-gray-800">
                   Email Address
-                </label>
+                </lable>
                 <Form.Control
                   type="email"
                   placeholder="Enter email address"
@@ -204,14 +201,15 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <Form.Control.Feedback type="invalid" />
+                <Form.Control.Feedback type="invalid">
+                  Please provide an email address.
+                </Form.Control.Feedback>
               </div>
             </Form.Group>
             <div className="mt-8">
               <button
-                role="button"
+                role="submit"
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
-                onClick={nextStep}
               >
                 Continue with email
               </button>
@@ -233,7 +231,7 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
         </div>
       </div>
       {/* Footer starts */}
-      {/* <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
+      <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
         <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
           <ul className="flex flex-col items-center justify-center">
             <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
@@ -256,8 +254,7 @@ const UserEmail = ({ nextStep, handleFormData, values, accountType, setParentEma
             <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
           </ul>
         </div>
-      </footer> */}
-      <Footer />
+      </footer>
       {/* Footer ends */}
     </div>
   );

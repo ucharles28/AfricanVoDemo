@@ -4,57 +4,52 @@ import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
-import { post } from '../Helpers/api';
+import { post } from '../helpers/Api';
 import Footer from '../components/footer';
 
-const UserName = ({
-  nextStep,
-  handleFormData,
-  values,
-  email,
-  accountType,
-}) => {
-  console.log(email);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [error, setError] = useState(false);
+const UserName = ({ nextStep, prevStep, email, accountType }) => {
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    } else {
+      const request = {
+        email,
+        isGoogleAuth: false,
+        firstname: firstName,
+        lastname: lastName,
+        accountType,
+        country,
+        password
+      };
+      console.log(request);
+      // Sign Up
+      // const response = await post('Auth/SignUp', request, '');
+      // console.log(response);
+      // localStorage.setItem('token', response.Token);
+      // localStorage.setItem('tokenExpiryDate', response.TokenExpiryDate);
+      // localStorage.setItem('user', response);
+      nextStep();
+    }
+    setValidated(true);
+  };
+
   const [validated, setValidated] = useState(false);
 
-  const options = useMemo(() => countryList().getData(), []);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const options = useMemo(() => countryList().getData(), []);
   const [country, setCountry] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const submitFormData = async (e) => {
-    console.log(e);
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.stopPropagation();
-    } else {
-      setValidated(true);
-
-      // Sign up user
-      const request = {
-        email,
-        isGoogleAuth: false,
-        firstname: firstName,
-        lastname: lastName,
-        country,
-        password,
-        accountType,
-      };
-      const response = await post('Auth/SignUp', request, '');
-      
-      nextStep();
-    }
-  };
-  const changeHandler = (Cvalue) => {
-    setCountry(Cvalue);
-  };
+  const changeHandler = Cvalue => {
+    setCountry(Cvalue)
+  }
 
   return (
     <div>
@@ -165,10 +160,11 @@ const UserName = ({
           >
             Complete your account setup
           </p>
-          <p className="text-center pb-2 text-base font-normal text-gray-500">
-            {email}{' '}
-          </p>
-          <Form noValidate validated={validated} onSubmit={submitFormData}>
+          <p className="text-center pb-2 text-base font-normal text-gray-500">{email}{' '}</p>
+          <Form
+          noValidate validated={validated}
+            onSubmit={handleSubmit}
+          >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="text-sm font-semibold leading-none text-gray-800">
@@ -214,20 +210,18 @@ const UserName = ({
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="mt-2 w-full">
-              <label className="text-sm font-medium leading-none text-gray-800">
-                Confirm Password
-              </label>
-              <input
-                type="text"
-                placeholder="Confirm password"
-                role="input"
-                className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
-                required
-                name="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
+            <div  className="mt-2 w-full">
+                <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
+                <input 
+                    type="password" 
+                    placeholder="Confirm password" 
+                    role="input" 
+                    className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"  
+                    required 
+                    name="confirmpassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                />
             </div>
             <div className="col-span-6 sm:col-span-3 mt-2">
               <label
@@ -274,13 +268,13 @@ const UserName = ({
               >
                 Create my account
               </button>
-              {/* <button
+              <button
                 role="button"
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
                 onClick={prevStep}
               >
-                back
-              </button> */}
+                Go Back
+              </button>
             </div>
           </Form>
           <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">

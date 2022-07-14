@@ -30,13 +30,11 @@ const UserAuth = ({ nextStep, handleFormData, values }) => {
   //   setShow(!show);
   // };
 
-  // useEffect(() => {
-  //   if (loading) {
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //     }, 2000);
-  //   }
-  // }, [loading]);
+  useEffect(() => {
+      setTimeout(() => {
+        nextStep()
+      }, 3000);
+  });
 
   // if (loading) return <Bars />;
 
@@ -165,15 +163,15 @@ const UserAuth = ({ nextStep, handleFormData, values }) => {
             ariaLabel="loading-indicator"
           />
         </div>
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <button 
             role="button" 
             className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full" 
             onClick={nextStep}
           >
             Send verification link
-          </button>
-        </div>
+          </button> 
+        </div> */}
       </div>
     </div>
     {/* Auth ends */}

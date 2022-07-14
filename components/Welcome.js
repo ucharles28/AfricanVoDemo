@@ -1,51 +1,24 @@
-import Footer from '../components/footer';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Footer from './footer';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
 import { useRouter } from 'next/router'
-import { post } from '../helpers/Api';
 
-const UserAuth1 = ({ email, setParentEmail }) => {
+const Welcome = ({ firstName }) => {
     const router = useRouter();
 
-    const [error, setError] = useState(false);
-    // state for navbar for sm screens
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // state for change email
-    const [show, setShow] = useState(false)
     const [show1, setShow1] = useState(false)
-    const [newEmail, setNewEmail] = useState('')
 
-    const handleResendEmail = async() => {
-        if (newEmail !== email) { //If email was change
-            const request = {
-                oldEmail: email,
-                newEmail,
-            };
-            const response = await post('Auth/ChangeEmail', request, '');
-
-            if (response.successful) {
-                setParentEmail(newEmail);
-                setShow(false)
-            }
-        } else {
-            const request = {
-                email
-            };
-
-            const response = await post('Auth/ResendEmail', request, '');
-            if (response.successful) {
-                setParentEmail(newEmail);
-                setShow(false)
-            }
-        }
+    const handleGetStarted = () => {
+        router.push('/portfolio')
     }
-
 
     return (
         <div>
             {/* Navbar starts */}
-            <div className="bg-white fixed w-full z-10 shadow-sm pb-2">
+            <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-14">
                 <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div className="relative flex items-center justify-between">
                         <a
@@ -162,59 +135,65 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                 </div>
             </div>
             {/* Navbar ends */}
-            <div className="flex flex-col items-center justify-center pl-4 pr-4 pt-5">
-                <div className="lg:w-2/5 md:w-1/2 pt-10 justify-center my-5">
-                    <img src="https://i.ibb.co/pdHkwJ8/Group-12.png" width={100} height={100} className="flex flex-col items-center justify-center m-auto pb-4"
-                    />
-                    <p tabIndex={0} role="heading" className="text-3xl font-semibold text-gray-800 text-center pt-3 pb-4">
-                        Verify your email to proceed
-                    </p>
-                    <p className="text-center pb-2 text-base text-gray-500" >We just sent a link to your email address <b>{email}</b> please check your mail and click on the link provided to verify your address.
-                    </p>
-                    <div className="flex flex-col items-center justify-center py-2">
-                        <div className="whitespace-no-wrap text-center font-bold text-sm flex inline-flex relative text-purple-1000">
-                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" className="align-middle"><path fill="#a259ff" d="M22 11.26V7.608l-9.652 5.056a.75.75 0 0 1-.696 0L2 7.608v8.142l.005.184A3.25 3.25 0 0 0 5.25 19h6.467c.184-.422.445-.807.773-1.135l5.903-5.903A3.287 3.287 0 0 1 22 11.26ZM18.75 3H5.25l-.186.005a3.25 3.25 0 0 0-3.048 2.919L12 11.154l9.984-5.23A3.25 3.25 0 0 0 18.75 3Zm.35 9.67l-5.903 5.902a2.686 2.686 0 0 0-.706 1.247l-.458 1.831a1.087 1.087 0 0 0 1.319 1.318l1.83-.457a2.685 2.685 0 0 0 1.248-.707l5.902-5.902A2.286 2.286 0 0 0 19.1 12.67Z" /></svg>
-                            <span
-                                // className="text-center pt-4 pb-2 text-base font-bold text-purple-1000 truncate"
-                                onClick={() => setShow(!show)} className="hover:cursor-pointer">Change email</span>
-                        </div>
+            {/* <div className="flex flex-col items-center justify-center pt-16"> */}
+            <section className="grid lg:grid-cols-2 gap-3 pt-32 mb-10">
+                <main className="mt-2 mb-5 max-w-7xl lg:m-auto px-4 sm:px-6 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28">
+                    <div className="sm:text-center lg:text-left">
+                        <h1 className="text-5xl leading-10 font-bold sm:text-5xl md:text-5xl text-purple-1000"> Hello {firstName}{''}
+                        </h1>
+                        <h1 className="text-4xl leading-10 font-semibold sm:text-4xl md:text-4xl text-gray-900 pt-2">Welcome to Africanvo!
+                        </h1>
                     </div>
-                    <Form
-                    >
-                        {
-                            show ? <div className="items-center flex justify-center flex-col">
-                                <Form.Group as={Col} controlId="validationCustom01" className="w-4/5">
-                                    <div>
-                                        <lable className="text-sm font-medium leading-none text-gray-800">Email Address</lable>
-                                        <Form.Control
-                                            type="email"
-                                            placeholder="Enter email address"
-                                            role="input"
-                                            className="bg-white border rounded-lg border-gray focus:outline-none text-base font-medium leading-none text-black py-3 pl-3 mt-2"
-                                            required
-                                            name="email"
-                                            defaultValue={newEmail}
-                                            onChange={(e) => setNewEmail(e.target.value)}
-                                        />
-                                        <Form.Control.Feedback type="invalid" />
+                </main>
+                <main className="mt-4 mb-5 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div className="sm:text-center lg:text-left">
+                        <h1 className="text-2xl leading-10 font-medium text-gray-900 sm:text-3xl md:text-3xl">
+                            <span className="block xl:inline">Ready for your next big opportunity?</span>
+                        </h1>
+                        <div className="container mx-auto mt-8 rounded bg-gray-100 xl:w-full">
+                            <div className="container mx-auto">
+                                <div className="flex items-center my-4 py-4 border-b-2 pr-8">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="#4F4F4F" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z" />
+                                    </svg>
+                                    <p className="text-base font-medium ml-4 text-gray-550">Answer a few question and start building your portfolio</p>
+                                </div>
+                                <div className="pb-4 pr-8 border-b-2 ">
+                                    <div className="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path fill="#4F4F4F" d="m4 8l8 5l8-5l-8-5l-8 5m18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71Z" />
+                                        </svg>
+                                        <p className="text-base font-medium ml-4 text-gray-550">Apply or audition for jobs rolls posted by clients</p>
                                     </div>
-                                </Form.Group>
-                            </div> : null
-                        }
-                        <div className="my-3 items-center flex justify-center flex-col">
+                                </div>
+                                <div className="flex items-center py-4 pr-8 mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                                        <path fill="#4F4F4F" fill-rule="evenodd" d="M24.04 6c-4.517 0-8.633 1.492-11.068 2.711c-.22.11-.425.218-.616.322c-.378.206-.7.398-.956.567l2.77 4.078l1.304.519c5.096 2.571 11.93 2.571 17.027 0l1.48-.768l2.62-3.829a15.503 15.503 0 0 0-1.69-.957C32.489 7.437 28.472 6 24.04 6Zm-6.443 4.616a24.579 24.579 0 0 1-2.901-.728C16.977 8.875 20.377 7.8 24.039 7.8c2.537 0 4.936.516 6.92 1.17c-2.325.327-4.806.882-7.17 1.565c-1.86.538-4.034.48-6.192.081Zm15.96 5.064l-.245.124c-5.607 2.828-13.043 2.828-18.65 0l-.232-.118C6.008 24.927-.422 41.997 24.04 41.997c24.46 0 17.873-17.389 9.517-26.317ZM23 24a2 2 0 0 0 0 4v-4Zm2-2v-1h-2v1a4 4 0 0 0 0 8v4a2 2 0 0 1-1.886-1.333a1 1 0 1 0-1.886.666A4.001 4.001 0 0 0 23 36v1h2v-1a4 4 0 1 0 0-8v-4c.87 0 1.611.555 1.887 1.333a1 1 0 1 0 1.885-.666A4.001 4.001 0 0 0 25 22Zm0 8v4a2 2 0 1 0 0-4Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <p className="text-base font-medium ml-4 text-gray-550">Get hired and get payed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="pb-2 pr-8">
+                            <div className="flex items-center">
+                                <p className="text-base ml-4 font-medium text-gray-550">It only takes 5-10 minutes and you can edit it later, we&#39;ll save as you go.</p>
+                            </div>
+                        </div>
+                        <div className="items-center flex justify-center flex-col mb-4">
                             <button
                                 role="button"
-                                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-4/5"
-                                onClick={handleResendEmail}
+                                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
+                                onClick={handleGetStarted}
                             >
-                                Resend email verification
+                                Get started
                             </button>
                         </div>
-                    </Form>
-                </div>
-            </div>
+                    </div>
+                </main>
+            </section>
+            {/* </div> */}
             <Footer />
         </div>
     );
 };
-export default UserAuth1;
+export default Welcome;
