@@ -4,66 +4,35 @@ import UserEmail from '../talents-onboarding/UserEmail';
 import UserName from '../talents-onboarding/UserName';
 import UserAuth from '../talents-onboarding/UserAuth';
 import UserAuth1 from '../talents-onboarding/UserAuth1';
-import UserAuth2 from '../talents-onboarding/UserAuth2';
-import UserVoiceRange from '../talents-onboarding/UserVoiceRange';
 import UserBio from '../talents-onboarding/UserBio';
 import UserLang from '../talents-onboarding/UserLang';
 import UserProfile from '../talents-onboarding/UserProfile';
 import UserReview from '../talents-onboarding/SetupComplete';
 import UserSample from '../talents-onboarding/UserSample';
 import SubmitProfile from '../talents-onboarding/SubmitProfile';
-import Activebutton from '../components/activebutton';
-import Disabledbutton from '../components/disabledbutton';
+import Activebutton from '../components/styles/ActiveButton';
 import validator from 'validator';
 
-const Signup = ({ values }) => {
+const Signup = () => {
   // Nav Open 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
   const [step, setstep] = useState(1);
-
-  //state for form data
-  const [formData, setFormData] = useState({
-    talent: '',
-    client: '',
-    term: '',
-    firstName: '',
-    lastName: '',
-    age: '',
-    genderm: '',
-    genderf: '',
-    DOB: '',
-    tel: '',
-    email: '',
-    authtext: '',
-    password: '',
-    confirmpassword: '',
-    bio: '',
-    country: '',
-    city: '',
-    role: '',
-    voicerange: '',
-    sourcelang: '',
-    targetlang: '',
-    langstrength: '',
-    spokenlang: '',
-    avatar: '',
-    audiosample: ''
-  })
+  const [accountType, setAccountType] = useState('Client');
+  const [email, setEmail] = useState('');
+  const [clientButttonActive, setClientButttonActive] = useState('active');
+  const [talentButttonActive, setTalentButttonActive] = useState('');
 
   // function for going to next step by increasing step state by 1
   const nextStep = () => {
     setstep(step + 1);
+  };
 
-    // if (
-    //   validator.isEmpty(values.client) ||
-    //   validator.isEmpty(values.talent)
-    // ) {
-    //   setError(true);
-    // } else {
-    //   nextStep();
-    // }
+  const handleSetAccountType = (value) => {
+    setAccountType(value);
+    setTalentButttonActive(value === 'Client' ? '' : 'active');
+    setClientButttonActive(value === 'Client' ? 'active' : '');
   };
 
   // function for going to previous step by decreasing step state by 1
@@ -186,11 +155,6 @@ const Signup = ({ values }) => {
                     I want to:
                 </p>
                 <p className='pb-5 font-medium text-base pt-2 text-gray-500'>Select what type of user you want to be on Africanvo</p>
-                <Form
-                  // noValidate 
-                  // validated={validated} 
-                  // onSubmit={handleSubmit}
-                >
                     <div className="flex justify-center items-center">
                         {/* <button 
                           name="client" 
@@ -200,8 +164,8 @@ const Signup = ({ values }) => {
                         >
                           <a href='' className='hover:text-white'>Hire a voice talent/translator</a>
                         </button> */}
-                        <Disabledbutton bg='#ffffff' color='#9CA3AF'>Hire a voice talent/translator</Disabledbutton>
-                        <Activebutton bg='#A259FF' color='#fff'>Work as voice talent/translator</Activebutton>
+                        <Activebutton active={clientButttonActive} onClick={() => handleSetAccountType('Client')}>Hire a voice talent/translator</Activebutton>
+                        <Activebutton active={talentButttonActive} onClick={() => handleSetAccountType('Talent')}>Work as voice talent/translator</Activebutton>
                         {/* <button 
                           name="talent" 
                           className="bg-purple-1000 sm:ml-2 md:ml-7 ml-7 transition duration-150 ease-in-out hover:bg-purple-600 border-2 border-purple-1000 hover:border-purple-600 text-center flex rounded-lg text-white px-4 sm:px-2 py-2 sm:py-2 font-semibold text-sm"
@@ -214,15 +178,13 @@ const Signup = ({ values }) => {
                     <div className="mt-16">
                         <button label="Continue" name="continue" role="button" className="text-base font-semibold leading-none text-white bg-purple-1000 rounded-lg hover:bg-purple-600 py-4 w-full" onClick={nextStep} handleFormData={handleInputData} values={formData} >Continue</button>
                     </div>
-                </Form>
             </div>
           </div>
           {/* footer starts */}
           <footer className="bg-purple-1000 fixed h-full w-full pt-16 xl:pt-12">
               <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
                   <ul className="flex flex-col items-center justify-center">
-                      <li className="w-1/2 md:w-1/3 lg:w-1/3">
-                      </li>
+                      <li className="w-1/2 md:w-1/3 lg:w-1/3" />
                       <li className="w-1/2 md:w-1/3 lg:w-1/3">
                           <div className="text-center">
                               <ul>
@@ -239,8 +201,7 @@ const Signup = ({ values }) => {
                               </ul>
                           </div>
                       </li>
-                      <li className="w-1/2 md:w-1/3 lg:w-1/3">
-                      </li>
+                      <li className="w-1/2 md:w-1/3 lg:w-1/3" />
                   </ul>
               </div>
           </footer>
@@ -251,38 +212,26 @@ const Signup = ({ values }) => {
     case 2:
       return (
         <div>
-          <UserEmail nextStep={nextStep} handleFormData={handleInputData} values={formData} />
+          <UserEmail nextStep={nextStep} setParentEmail={setEmail} accountType={accountType} />
         </div>
       );
     // case 2 to show stepTwo form passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the form
     case 3:
       return (
         <div>
-          <UserName nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+          <UserName nextStep={nextStep} prevStep={prevStep} email={email} accountType={accountType} />
         </div>
       );
     case 4:
       return (
         <div>
-          <UserAuth nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+          <UserAuth nextStep={nextStep} prevStep={prevStep} />
         </div>
       );
     case 5:
       return (
         <div>
-          <UserAuth1 nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-        </div>
-      );
-    case 6:
-      return (
-        <div>
-          <UserAuth2 nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
-        </div>
-      );
-    case 7:
-      return (
-        <div>
-          <UserVoiceRange nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+          <UserAuth1 nextStep={nextStep} setParentEmail={setEmail} email={email} />
         </div>
       );
     case 8:
@@ -294,32 +243,55 @@ const Signup = ({ values }) => {
     case 9:
       return (
         <div>
-          <UserLang nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+          <UserLang
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleFormData={handleInputData}
+            values={formData}
+          />
         </div>
       );
     case 10:
       return (
         <div>
-          <UserProfile nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+          <UserProfile
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleFormData={handleInputData}
+            values={formData}
+          />
         </div>
       );
     case 11:
       return (
         <div>
-          <UserSample nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+          <UserSample
+            nextStep={nextStep}
+            prevStep={prevStep}
+            handleFormData={handleInputData}
+            values={formData}
+          />
         </div>
       );
     // Only formData is passed as prop to show the final value at form submit
     case 12:
       return (
         <div>
-          <SubmitProfile values={formData} prevStep={prevStep} nextStep={nextStep} />
+          <SubmitProfile
+            values={formData}
+            prevStep={prevStep}
+            nextStep={nextStep}
+          />
         </div>
       );
     case 13:
       return (
         <div>
-          <UserReview nextStep={nextStep} prevStep={prevStep} values={formData} />
+          <UserReview
+            nextStep={nextStep}
+            prevStep={prevStep}
+            values={formData}
+          />
         </div>
       );
   }

@@ -5,32 +5,48 @@ import validator from 'validator';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 
-const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
+const UserName = ({ nextStep, prevStep, email, accountType }) => {
 
-  const submitFormData = (e) => {
-    e.preventDefault();
-
-    if (
-      validator.isEmpty(values.firstName) || validator.isEmpty(values.lastName) || validator.isEmpty(values.password) || validator.isEmpty(values.country) || validator.isEmpty(values.term)
-    ) {
-      setError(true);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
     } else {
+      const request = {
+        email,
+        isGoogleAuth: false,
+        firstname: firstName,
+        lastname: lastName,
+        accountType,
+        country,
+        password
+      };
+      console.log(request);
+      // Sign Up
+      // const response = await post('Auth/SignUp', request, '');
+      // console.log(response);
+      // localStorage.setItem('token', response.Token);
+      // localStorage.setItem('tokenExpiryDate', response.TokenExpiryDate);
+      // localStorage.setItem('user', response);
       nextStep();
     }
+    setValidated(true);
   };
 
-  const { email } = values;
+  const [validated, setValidated] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const options = useMemo(() => countryList().getData(), []);
-
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const changeHandler = Cvalue => {
-    // console.log(Cvalue)
-    values.country = Cvalue
-    // setCountry(Cvalue)
+    setCountry(Cvalue)
   }
 
   return (
@@ -132,7 +148,8 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
           </p>
           <p className="text-center pb-2 text-base font-normal text-gray-500">{email}{' '}</p>
           <Form
-            onSubmit={submitFormData}
+          noValidate validated={validated}
+            onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
@@ -142,8 +159,8 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                   placeholder="Enter first name"
                   type="text"
                   name="firstName"
-                  defaultValue={values.firstName}
-                  onChange={handleFormData("firstName")}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
               <div>
@@ -153,38 +170,37 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                   placeholder="Enter last name"
                   type="text"
                   name="firstName"
-                  defaultValue={values.lastName}
-                  onChange={handleFormData("lastName")}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
             </div>
             <div className="mt-2 w-full">
               <label className="text-sm font-medium leading-none text-gray-800">Create Password</label>
               <input
-                type="text"
+                type="password"
                 placeholder="Create password"
                 role="input"
                 className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                 required
                 name="password"
-                defaultValue={values.password}
-                onChange={handleFormData("password")}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            {/* <div  className="mt-2 w-full">
+            <div  className="mt-2 w-full">
                 <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
                 <input 
-                    type="text" 
+                    type="password" 
                     placeholder="Confirm password" 
                     role="input" 
                     className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"  
                     required 
                     name="confirmpassword"
-                    defaultValue={values.confirmpassword}
-                    onChange={handleFormData("confirmpassword")}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                {isError}
-            </div> */}
+            </div>
             <div className="col-span-6 sm:col-span-3 mt-2">
               <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                 Country
@@ -193,7 +209,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                 name="country"
                 placeholder="Select your country"
                 className="mt-1 border-gray-300"
-                value={values.country}
+                value={country}
                 options={options}
                 onChange={changeHandler}
               />
@@ -204,8 +220,6 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                   name="term"
                   type="checkbox"
                   className="focus:ring-indigo-500 bg-purple-1000 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                  defaultValue={values.term}
-                  onChange={handleFormData("term")}
                 />
               </div>
               <div className="ml-3 text-sm">
@@ -214,9 +228,8 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
             </div>
             <div className="mt-8">
               <button
-                role="button"
+                role="submit"
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
-                onClick={nextStep}
               >
                 Create my account
               </button>
@@ -225,7 +238,7 @@ const UserName = ({ nextStep, prevStep, handleFormData, values }) => {
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
                 onClick={prevStep}
               >
-                back
+                Go Back
               </button>
             </div>
           </Form>

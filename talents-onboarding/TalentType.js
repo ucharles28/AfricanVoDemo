@@ -1,32 +1,25 @@
-import Footer from '../components/footer';
+import React, { useState } from 'react';
 import validator from 'validator';
-import { Form, Col } from 'react-bootstrap'
-import React, { useState, useEffect } from 'react';
+import { Form, Col } from 'react-bootstrap';
+import Select from 'react-select';
+import Footer from '../components/footer';
+import Activebutton from '../components/styles/ActiveButton';
+import router from 'next/router';
 
-const UserAuth2 = ({ nextStep, handleFormData, values }) => {
+const TalentType = ({ nextStep, setTalentType }) => {
     const [error, setError] = useState(false);
+    const [voiceOverButttonActive, setVoiceOverButttonActive] = useState('active');
+    const [translatorButttonActive, setTranslatorButttonActive] = useState('');
+    
+    const handleSetTalentType = (value) => {
+      setTalentType(value);
+      setVoiceOverButttonActive(value === 'Translator' ? '' : 'active');
+      setTranslatorButttonActive(value === 'Translator' ? 'active' : '');
+    };
 
     const submitFormData = (e) => {
       e.preventDefault();
-  
-      if (
-        validator.isEmpty
-      ) {
-        setError(true);
-      } else {
-        nextStep();
-      }
     };
-
-    // destruct firstName
-    // const { firstName } = values;
-    
-    // define firstName
-    const [firstName, setFirstName] = useState('');
-    const [firstNameError, setFirstNameError] = useState(false);
-
-    
-    // const { firstName } = values;
 
     // state for navbar for sm screens
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,10 +27,24 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
     // state for change email
     const [show1, setShow1] = useState(false)
 
+    const options = [
+      { label: "Kids", value: "kids" },
+      { label: "Teens", value: "teens" },
+      { label: "Young adults", value: "young adults" },
+      { label: "Adults", value: "adults" }
+    ];
+
+    // const handleOnchange = options => {
+    //   console.log(options)
+    // }
+
+    const [selected, setSelected] = useState();
+    
+
     return (
         <div>
             {/* Navbar starts */}
-            <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-14">
+            <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16">
                 <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div className="relative flex items-center justify-between">
                     <a
@@ -154,65 +161,71 @@ const UserAuth2 = ({ nextStep, handleFormData, values }) => {
                 </div>
             </div>
             {/* Navbar ends */}
-            {/* <div className="flex flex-col items-center justify-center pt-16"> */}
-                <section className="grid lg:grid-cols-2 gap-3 pt-32 mb-10">
-                    <main className="mt-2 mb-5 max-w-7xl lg:m-auto px-4 sm:px-6 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28">
-                        <div className="sm:text-center lg:text-left">
-                            <h1 className="text-5xl leading-10 font-bold sm:text-5xl md:text-5xl text-purple-1000"> Hello {firstName}{''}
-                            </h1>
-                            <h1 className="text-4xl leading-10 font-semibold sm:text-4xl md:text-4xl text-gray-900 pt-2">Welcome to Africanvo!
-                            </h1>
-                        </div>
-                    </main>
-                    <main className="mt-4 mb-5 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                        <div className="sm:text-center lg:text-left">
-                            <h1 className="text-2xl leading-10 font-medium text-gray-900 sm:text-3xl md:text-3xl">
-                                <span className="block xl:inline">Ready for your next big opportunity?</span>
-                            </h1>
-                            <div className="container mx-auto mt-8 rounded bg-gray-100 xl:w-full">
-                                <div className="container mx-auto">
-                                    <div className="flex items-center my-4 py-4 border-b-2 pr-8">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#4F4F4F" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"/>
-                                        </svg>
-                                        <p className="text-base font-medium ml-4 text-gray-550">Answer a few question and start building your portfolio</p>
-                                    </div>
-                                    <div className="pb-4 pr-8 border-b-2 ">
-                                        <div className="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                <path fill="#4F4F4F" d="m4 8l8 5l8-5l-8-5l-8 5m18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71Z"/>
-                                            </svg>
-                                            <p className="text-base font-medium ml-4 text-gray-550">Apply or audition for jobs rolls posted by clients</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center py-4 pr-8 mb-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                                            <path fill="#4F4F4F" fill-rule="evenodd" d="M24.04 6c-4.517 0-8.633 1.492-11.068 2.711c-.22.11-.425.218-.616.322c-.378.206-.7.398-.956.567l2.77 4.078l1.304.519c5.096 2.571 11.93 2.571 17.027 0l1.48-.768l2.62-3.829a15.503 15.503 0 0 0-1.69-.957C32.489 7.437 28.472 6 24.04 6Zm-6.443 4.616a24.579 24.579 0 0 1-2.901-.728C16.977 8.875 20.377 7.8 24.039 7.8c2.537 0 4.936.516 6.92 1.17c-2.325.327-4.806.882-7.17 1.565c-1.86.538-4.034.48-6.192.081Zm15.96 5.064l-.245.124c-5.607 2.828-13.043 2.828-18.65 0l-.232-.118C6.008 24.927-.422 41.997 24.04 41.997c24.46 0 17.873-17.389 9.517-26.317ZM23 24a2 2 0 0 0 0 4v-4Zm2-2v-1h-2v1a4 4 0 0 0 0 8v4a2 2 0 0 1-1.886-1.333a1 1 0 1 0-1.886.666A4.001 4.001 0 0 0 23 36v1h2v-1a4 4 0 1 0 0-8v-4c.87 0 1.611.555 1.887 1.333a1 1 0 1 0 1.885-.666A4.001 4.001 0 0 0 25 22Zm0 8v4a2 2 0 1 0 0-4Z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <p className="text-base font-medium ml-4 text-gray-550">Get hired and get payed</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="pb-2 pr-8">
-                                <div className="flex items-center">
-                                    <p className="text-base ml-4 font-medium text-gray-550">It only takes 5-10 minutes and you can edit it later, we&#39;ll save as you go.</p>
-                                </div>
-                            </div>
-                            <div className="items-center flex justify-center flex-col mb-4">
-                                <button 
-                                    role="button" 
-                                    className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full" 
-                                    onClick={nextStep}
-                                >
-                                    Get started
-                                </button>
-                            </div>
-                        </div>
-                    </main>
-                </section>
-            {/* </div> */}
+            <Form onSubmit={submitFormData} >
+            <div className="flex flex-col items-center justify-center">
+              <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
+                <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6">
+                  Voice over artist or Translator? <br></br>What is your voice range(s)
+                </p>
+                <p className="pb-6 text-base text-gray-550 font-medium">Choose the categories that best describe the type of work you do so we can show you to the right type of clients in search results.</p>
+                <p className="text-2xl font-bold text-gray-900 text-left pb-2">I am a:</p>
+                <div className="flex flex-row items-center justify-center ml-4">
+                  {/* <button 
+                    name="Voice over artist" 
+                    className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 border-2 rounded-lg border-purple-1000 hover:border-purple-600 text-center text-white px-3 py-3 sm:px-2 sm:py-1 font-semibold text-base w-2/3"
+                    // defaultValue={values.client} 
+                  >
+                    <a href='' className='hover:text-white'>Voice over artist</a>
+                  </button> */}
+                  <Activebutton active={voiceOverButttonActive} onClick={() => handleSetTalentType('VoiceOver')} width='66.6%'>Voice over artist</Activebutton>
+                  <Activebutton active={translatorButttonActive} onClick={() => handleSetTalentType('Translator')} width='66.6%'>Translator</Activebutton>
+                  {/* <button 
+                    name="Translation" 
+                    className="sm:ml-2 md:ml-7 ml-7 hover:bg-purple-1000 transition duration-150 ease-in-out hover:border-purple-1000 border-2 rounded-lg border-gray-400 text-gray-400 hover:text-white px-3 sm:px-5 py-3 sm:py-2 text-base font-semibold text-center w-2/3"
+                    // defaultValue={values.talent} 
+                  >
+                    <a href='' className='hover:text-white'>Translator</a>
+                  </button> */}
+                </div>
+                <div className="">
+                  <label className="mt-4 font-bold text-gray-900">Voice Range(s)</label>
+                  <Select 
+                  options={options}
+                  isMulti
+                  isClearable={true}
+                  isSearchable={true}
+                  closeMenuOnSelect={true}
+                  placeholder="Select your voice range"
+                  className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
+                  name="voicerange"
+                  onChange={setSelected}
+                  />
+                </div>
+              </div>                         
+            </div>
+            <div className="flow-root">
+              <div className="ml-7 mb-5 float-left justify-start">
+                <button 
+                  role="button" 
+                  className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                  onClick={() => router.back()}
+                >
+                  Back
+                </button>
+              </div>
+              <div className="mr-7 mb-5 float-right justify-end">
+                <button 
+                  role="button" 
+                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                  onClick={nextStep}
+                >
+                  Next, your professional brief
+                </button>
+              </div>
+            </div>
+            </Form>
           <Footer />
         </div>
     );
 };
-export default UserAuth2;
+export default TalentType;
