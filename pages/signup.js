@@ -21,7 +21,7 @@ const Signup = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(1);
+  const [step, setstep] = useState(15);
   const [accountType, setAccountType] = useState('Client');
   const [email, setEmail] = useState('');
   const [clientButttonActive, setClientButttonActive] = useState('active');
@@ -181,8 +181,8 @@ const Signup = () => {
                         >
                           <a href='' className='hover:text-white'>Hire a voice talent/translator</a>
                         </button> */}
-                        <Activebutton active={clientButttonActive} onClick={() => handleSetAccountType('Client')}>Hire a voice talent/translator</Activebutton>
-                        <Activebutton active={talentButttonActive} onClick={() => handleSetAccountType('Talent')}>Work as voice talent/translator</Activebutton>
+                        <Activebutton height='48px' active={clientButttonActive} onClick={() => handleSetAccountType('Client')}>Hire a voice talent/translator</Activebutton>
+                        <Activebutton height='48px' active={talentButttonActive} onClick={() => handleSetAccountType('Talent')}>Work as voice talent/translator</Activebutton>
                         {/* <button 
                           name="talent" 
                           className="bg-purple-1000 sm:ml-2 md:ml-7 ml-7 transition duration-150 ease-in-out hover:bg-purple-600 border-2 border-purple-1000 hover:border-purple-600 text-center flex rounded-lg text-white px-4 sm:px-2 py-2 sm:py-2 font-semibold text-sm"

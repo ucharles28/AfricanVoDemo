@@ -3,6 +3,7 @@ import Link from 'next/link';
 import jwt_decode from 'jwt-decode';
 import { Navbar, Nav, Container, Button, Form, Col } from 'react-bootstrap';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import Footer from '../components/footer';
 // import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
 import { post } from '../helpers/Api';
@@ -164,16 +165,15 @@ function Login() {
         </div>
       </div>
       {/* Navbar ends */}
-      
       <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100 font-inter ">
         <div>
           <div className="flex flex-col items-center justify-center">
-            <div className="bg-white rounded lg:w-1/3  md:w-1/2 w-full mt-12 p-10 shadow-sm">
+            <div className="bg-white rounded lg:w-1/4  md:w-1/2 w-full mt-12 p-10 shadow-sm">
               <p
                 tabIndex={0}
                 role="heading"
                 aria-label="Login to your account"
-                className="text-3xl font-extrabold leading-6 text-gray-800 text-center pt-3 pb-3"
+                className="text-2xl lg:text-3xl font-extrabold leading-7 text-gray-800 text-center pt-3 pb-3"
               >
                 Login to Africanvo
               </p>
@@ -189,7 +189,7 @@ function Login() {
                       role="input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
+                      className="bg-white border rounded-lg border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
                       required
                     />
                     <Form.Control.Feedback type="invalid" />
@@ -207,7 +207,7 @@ function Login() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
-                        className="bg-white border rounded border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
+                        className="bg-white border rounded-lg border-gray focus:outline-none text-base font-medium leading-none text-black py-3 w-full pl-3 mt-2"
                         required
                       />
                       <div
@@ -224,7 +224,7 @@ function Login() {
                     role="button"
                     type="submit"
                     aria-label="log into my account"
-                    className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded hover:bg-purple-500 py-3 w-full"
+                    className="text-base font-semibold rounded-lg leading-none text-white focus:outline-none bg-purple-1000 border hover:bg-purple-500 py-3 w-full"
                   >
                     Login
                   </button>
@@ -276,30 +276,7 @@ function Login() {
         </div>
       </div>
       {/* Footer starts */}
-      <footer className="bg-purple-1000  py-12 xl:py-12 font-inter ">
-        <div className="mx-auto px-4 sm:px-6 md:px-8 text-white">
-          <ul className="flex flex-col items-center justify-center">
-            <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
-            <li className="w-1/2 md:w-1/3 lg:w-1/3">
-              <div className="text-center">
-                <ul>
-                  <li className="mb-4 transition-colors duration-200">
-                    <a href="#" className="hover:text-white">
-                      Terms of Service
-                    </a>
-                  </li>
-                  <li className="mb-4 transition-colors duration-200">
-                    <a href="#" className="hover:text-white">
-                      Privacy Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className="w-1/2 md:w-1/3 lg:w-1/3"></li>
-          </ul>
-        </div>
-      </footer>
+      <Footer />
       {/* Footer ends */}
     </div>
   );

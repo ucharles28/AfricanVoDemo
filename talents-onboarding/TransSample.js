@@ -255,6 +255,24 @@ const TransSample = ({ nextStep, prevStep, handleFormData, values }) => {
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
                                         <Form.Check type="checkbox" className='mr-2' /> Hospitality
                                     </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Manufacturing
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Media
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Professional Services
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Real Estate
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Social Services
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Technology
+                                    </div>
                                 </fieldset>
                                 </div>
                             </div>

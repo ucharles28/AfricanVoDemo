@@ -172,8 +172,8 @@ const TransRange = ({ nextStep, setTalentType }) => {
 
                     <p className="text-2xl font-bold text-gray-900 text-left pb-2">I am a:</p>
                     <div className="flex flex-row items-center justify-center ml-4">
-                        <Activebutton active={voiceOverButttonActive} onClick={() => handleSetTalentType('VoiceOver')} width='66.6%' height='40px'>Voice over artist</Activebutton>
-                        <Activebutton active={translatorButttonActive} onClick={() => handleSetTalentType('Translator')} width='66.6%' height='40px'>Translator</Activebutton>
+                        <Activebutton active={voiceOverButttonActive} onClick={() => handleSetTalentType('VoiceOver')} width='66.6%' height='48px'>Voice over artist</Activebutton>
+                        <Activebutton active={translatorButttonActive} onClick={() => handleSetTalentType('Translator')} width='66.6%' height='48px'>Translator</Activebutton>
                     </div>
                     {languageList.map((singleLanguage, index) => (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-3 border-b-2 border-gray-200 pb-2.5">

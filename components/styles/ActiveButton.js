@@ -6,7 +6,6 @@ const Activebutton = styled.button`
   border-style: solid;
   border-color: ${(props) => (props.active ? '#A259FF' : '#9CA3AF')};
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
   font-weight: 600;
   padding: 4px;
   padding-left: 28px;
@@ -20,6 +19,7 @@ const Activebutton = styled.button`
   color: ${(props) => (props.active ? '#fff' : '#9CA3AF')};
   width: ${({ width }) => width || 'auto'};
   height: ${({ height }) => height || 'auto'};
+  font-size: ${({ fontSize }) => fontSize || '14px'};
 
   &:hover {
     background-color: #874ad4;
