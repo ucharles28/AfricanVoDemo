@@ -9,11 +9,11 @@ import countryList from 'react-select-country-list';
 const TransSample = ({ nextStep, prevStep, handleFormData, values }) => {
   const [error, setError] = useState(false);
 
-  const submitFormData = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (
-      validator.isEmpty(values.audiosample) || validator.isEmpty(values.country) 
+      validator.isEmpty
     ) {
       setError(true);
     } else {
@@ -180,75 +180,95 @@ const TransSample = ({ nextStep, prevStep, handleFormData, values }) => {
                     </div>
                 </div>
 
-                <Modal show={show2} onHide={handleClose} centered scrollable className="rounded-xl" size="lg">
-                    <Modal.Header closeButton={true}>
-                        <Modal.Title className="font-bold text-4xl">English to Yoruba</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className="flex flex-col">
-                        <div>
+                <Form onSubmit={handleSubmit} >
+                    <Modal show={show2} onHide={handleClose} centered scrollable className="rounded-xl" size="lg">
+                        <Modal.Header closeButton={true}>
+                            <Modal.Title className="font-bold text-4xl">English to Yoruba</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body className="flex flex-col">
                             <div>
-                                <div className="ml-2">
-                                    <p className="text-2xl font-bold pb-2">Title <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                                    <p className="text-base font-medium pb-2 text-gray-550" >Include your languages, industry expertise, and any other descriptive to get your portfolio samples the most views.</p>
+                                <div>
+                                    <div className="ml-2">
+                                        <p className="text-2xl font-bold pb-2">Title <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                                        <p className="text-base font-medium pb-2 text-gray-550" >Include your languages, industry expertise, and any other descriptive to get your portfolio samples the most views.</p>
+                                    </div>
+                                    <Form.Group className='flex flex-wrap'>
+                                        <Form.Control as="textarea" rows={2} maxLength={150} className='rounded-lg text-base ml-2 border-gray-500 placeholder-gray-400 py-2 px-3 flex-1'
+                                        placeholder='A title of the translation...'/>
+                                    </Form.Group>
                                 </div>
-                                <Form.Group className='flex flex-wrap'>
-                                    <Form.Control as="textarea" rows={2} maxLength={150} className='rounded-lg text-base ml-2 border-gray-500 placeholder-gray-400 py-2 px-3 flex-1'
-                                    placeholder='A title of the translation...'/>
-                                </Form.Group>
-                            </div>
-                            <div className='mt-4'>
-                                <div className="ml-2">
-                                    <p className="text-2xl font-bold pb-2">Description <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                                    <p className="text-base font-medium pb-2 text-gray-550" >Share some background and more information on this sample and how you contributed to it.</p>
+                                <div className='mt-4'>
+                                    <div className="ml-2">
+                                        <p className="text-2xl font-bold pb-2">Description <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                                        <p className="text-base font-medium pb-2 text-gray-550" >Share some background and more information on this sample and how you contributed to it.</p>
+                                    </div>
+                                    <Form.Group className='flex flex-wrap'>
+                                        <Form.Control as="textarea" rows={5} maxLength={350} className='rounded-lg text-base ml-2 border-gray-500 placeholder-gray-400 py-2 px-3 flex-1'
+                                        placeholder='A description of the translation...'/>
+                                    </Form.Group>
                                 </div>
-                                <Form.Group className='flex flex-wrap'>
-                                    <Form.Control as="textarea" rows={5} maxLength={350} className='rounded-lg text-base ml-2 border-gray-500 placeholder-gray-400 py-2 px-3 flex-1'
-                                    placeholder='A description of the translation...'/>
-                                </Form.Group>
-                            </div>
-                            <div className="mt-4">
-                                <div className="ml-2">
-                                    <p className="text-2xl font-bold pb-2">Upload Translation Sample File <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                                    <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
+                                <div className="mt-4">
+                                    <div className="ml-2">
+                                        <p className="text-2xl font-bold pb-2">Upload Translation Sample File <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                                        <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
+                                    </div>
+                                    <fieldset className="flex flex-wrap">
+                                    <input type="file" name="audiosample" accept="audio/**" className="ml-2"/>
+                                    </fieldset>
                                 </div>
-                                <fieldset className="flex flex-wrap">
-                                <input type="file" name="audiosample" accept="audio/**" className="ml-2"/>
+                                <div className="mt-4">
+                                <div className="ml-2">
+                                    <p className="text-2xl font-bold pb-2">Industry Expertise <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                                    <p className="text-base font-semibold pb-2 text-gray-550">Select up to three industries tags this portfolio sample relates to.</p>
+                                </div>
+                                <fieldset className="flex flex-wrap ml-2">
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Advertising
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Consumer Products
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Education
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Entertainment
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Financial Services
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Food
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='ml-1 mr-2' /> General
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Government
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Retail
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Health Care
+                                    </div>
+                                    <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                                        <Form.Check type="checkbox" className='mr-2' /> Hospitality
+                                    </div>
                                 </fieldset>
+                                </div>
                             </div>
-                            <div className="mt-4">
-                            <div className="ml-2">
-                                <p className="text-2xl font-bold pb-2">Industry Expertise <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                                <p className="text-base font-semibold pb-2 text-gray-550">Select up to three industries tags this portfolio sample relates to.</p>
-                            </div>
-                            <fieldset className="flex flex-wrap ml-2">
-                                <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="check" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
-                                </div>
-                                <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
-                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
-                                </div>
-                                <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
-                                </div>
-                                <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
-                                </div>
-                                <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                <input type="check" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
-                                </div>
-                            </fieldset>
-                            </div>
-                        </div>
-                    </Modal.Body>
-                    <Modal.Footer className="border-t-0">
-                        <Button onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 ml-2">
-                        <span className="px-1">Cancel</span>
-                        </Button>
-                        <Button onClick={handleClose} className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2">
-                            <span className="px-2">Save</span>
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                        </Modal.Body>
+                        <Modal.Footer className="border-t-0">
+                            <Button onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 ml-2">
+                            <span className="px-1">Cancel</span>
+                            </Button>
+                            <Button onClick={handleClose} className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2">
+                                <span className="px-2">Save</span>
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </Form>
             </div>                         
           </div>
           {/* prev & next button starts */}
