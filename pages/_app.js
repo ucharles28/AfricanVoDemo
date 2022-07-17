@@ -2,6 +2,7 @@
 // import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/tailwind.css';
+import 'antd/dist/antd.css';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 

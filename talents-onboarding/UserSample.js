@@ -174,7 +174,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                   className="text-purple-1000 font-semibold flex items-center border-2 border-{#E0E0E0} py-2 px-3 rounded-lg bg-white"
                   onClick={handleShow}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>
+                  <svg className='group-hover:stroke-white' xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#a259ff" d="M12 22c-5.52-.006-9.994-4.48-10-10v-.2C2.11 6.305 6.635 1.928 12.13 2c5.497.074 9.904 4.569 9.868 10.065C21.962 17.562 17.497 22 12 22ZM7 11v2h4v4h2v-4h4v-2h-4V7h-2v4H7Z"/></svg>
                   <span className="pl-3 text-base">Add a demo</span>
                 </button>
               </div>
@@ -317,7 +317,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                         <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
                       </div>
                       <fieldset className="flex flex-wrap">
-                      <input type="file" name="audiosample" accept="audio/**" className="ml-2"/>
+                        <input type="file" name="audiosample" accept="audio/**" className='ml-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100'/>
                       </fieldset>
                     </div>
                   </div>
