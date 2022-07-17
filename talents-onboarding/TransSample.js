@@ -213,7 +213,7 @@ const TransSample = ({ nextStep, prevStep, handleFormData, values }) => {
                                         <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
                                     </div>
                                     <fieldset className="flex flex-wrap">
-                                    <input type="file" name="audiosample" accept="audio/**" className="ml-2"/>
+                                        <input type="file" name="audiosample" accept="audio/**" className='ml-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100'/>
                                     </fieldset>
                                 </div>
                                 <div className="mt-4">
@@ -223,55 +223,55 @@ const TransSample = ({ nextStep, prevStep, handleFormData, values }) => {
                                 </div>
                                 <fieldset className="flex flex-wrap ml-2">
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Advertising
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Advertising
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Consumer Products
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Consumer Products
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Education
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Education
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Entertainment
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Entertainment
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Financial Services
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Financial Services
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Food
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Food
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='ml-1 mr-2' /> General
+                                        <Form.Check type="checkbox" className='accent-purple-1000 ml-1 mr-2' /> General
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Government
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Government
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Retail
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Retail
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Health Care
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Health Care
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Hospitality
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Hospitality
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Manufacturing
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Manufacturing
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Media
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Media
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Professional Services
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Professional Services
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Real Estate
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Real Estate
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Social Services
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Social Services
                                     </div>
                                     <div className="border-2 border-gray-300 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                                        <Form.Check type="checkbox" className='mr-2' /> Technology
+                                        <Form.Check type="checkbox" className='accent-purple-1000 mr-2' /> Technology
                                     </div>
                                 </fieldset>
                                 </div>

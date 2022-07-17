@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { GoSettings } from 'react-icons/go';
 
 function NavxSearch () {
     // state for navbar for sm screens
@@ -11,7 +12,7 @@ function NavxSearch () {
     return (
         <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16 font-inter">
             <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div className="relative flex items-center justify-between">
+                <div className="w-full relative flex items-center justify-between">
                     <a
                         href="/"
                         className="inline-flex items-center"
@@ -21,18 +22,24 @@ function NavxSearch () {
                         </span>
                     </a>
                     <div className="flex items-center justify-center ml-24">
-                        <form className="hidden lg:flex">
+                        {/* <form className="hidden lg:flex"> */}
                             <div className="relative mx-auto lg:block hidden">
-                                <form>
+                                <form className='="hidden lg:flex"'>
+                                    <span className='absolute inset-y-0.5 left-0 p-2 ml-px items-center text-gray-550 hover:text-gray-600 mr-2'>
+                                        {/* <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M3 5h4m14 0H11m-8 7h12m6 0h-2M3 19h2m16 0H9"/><circle cx="9" cy="5" r="2"/><circle cx="17" cy="12" r="2"/><circle cx="7" cy="19" r="2"/></g></svg> */}
+                                        <GoSettings size={20}/>
+                                    </span>
+                                    <span className='absolute inset-y-0.5 left-7 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span>
+                                    {/* <span className='absolute inset-y-0.5 left-0 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span> */}
                                     <input
-                                        className="block h-10 pl-4 pr-9 text-base text-gray-900 rounded-xl border-2 border-gray-300 placeholder-gray-550 w-80 focus:z-10 bg-[#F3F3F3]"
-                                        placeholder="Search..."
-                                        type="text"
+                                        className="block h-10 pl-16 pr-9 text-base text-gray-90 rounded-xl placeholder-gray-550 w-96 focus:z-10 bg-[#F3F3F3]"
+                                        placeholder="Search for jobs"
+                                        type="search"
                                     />
-                                    <button type="submit" className="text-gray-550 hover:text-gray-600 inset-y-0 absolute right-0 p-2.5 mr-px items-center"><AiOutlineSearch size={20}/></button>
+                                    <button type="submit" className="text-white bg-purple-1000 rounded-lg inset-y-0 absolute right-0 p-2.5 mr-px items-center">Search</button>
                                 </form>
                             </div>
-                        </form>
+                        {/* </form> */}
                     </div>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
                         <li className='flex items-center'>

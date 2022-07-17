@@ -150,11 +150,11 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
       </div>
       {/* Navbar ends */}
       <div className="flex flex-col items-center mb-12 p-1 justify-center">
-        <div className="lg:w-2/5 md:w-1/2 pt-10 justify-center my-5">
+        <div className="w-4/5 lg:w-1/3 md:w-1/2 pt-10 justify-center my-5">
           <p
             tabIndex={0}
             role="heading"
-            className="text-4xl font-bold text-gray-800 text-center pt-3 pb-4"
+            className="text-3xl lg:text-4xl font-bold text-gray-800 text-center pt-3 pb-4"
           >
             Create your account
           </p>

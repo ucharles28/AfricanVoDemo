@@ -151,18 +151,18 @@ const UserName = ({ nextStep, email, accountType }) => {
       </div>
       {/* Navbar ends */}
       <div className="flex flex-col items-center justify-center">
-        <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center my-5">
+        <div className="lg:w-1/3 md:w-1/2 pt-10 pl-4 pr-4 justify-center my-5">
           <p
             tabIndex={0}
             role="heading"
             aria-label="Login to your account"
-            className="text-4xl font-bold text-gray-800 text-center pt-3 pb-3"
+            className="text-3xl lg:text-4xl font-bold text-gray-800 text-center pt-3 pb-3"
           >
             Complete your account setup
           </p>
           <p className="text-center pb-2 text-base font-normal text-gray-500">{email}{' '}</p>
           <Form noValidate validated={validated} onSubmit={handleSubmit} >
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-2 lg:gap-4 sm:grid-cols-2">
                 <Form.Group as={Col} controlId="validationCustom01">
                   <div>
                     <label className="text-sm font-semibold leading-none text-gray-800">
