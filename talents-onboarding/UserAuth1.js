@@ -60,7 +60,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                             <li>
                                 <div className="relative flex items-center justify-end">
                                     <a href="#" className="block relative">
-                                        <img alt="profile" src="https://i.ibb.co/bvxhMZJ/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png" className="mx-auto object-cover rounded-full h-10 w-10" onClick={() => setShow1(!show1)} />
+                                        <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                                         {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
                                 </span> */}
                                     </a>

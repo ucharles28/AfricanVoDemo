@@ -1,10 +1,11 @@
 import Footer from '../components/footer';
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import validator from 'validator';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { Modal, Button } from 'react-bootstrap';
 import { RiAddCircleFill } from 'react-icons/ri';
+import { BsInfoLg } from 'react-icons/bs';
 
 
 const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
@@ -61,9 +62,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                       <li>
                       <div className="relative flex items-center justify-end">
                           <a href="#" className="block relative">
-                              <img alt="profile" src="https://i.ibb.co/bvxhMZJ/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
-                              {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
-                              </span> */}
+                              <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                           </a>
                       </div>
                       { 
@@ -194,23 +193,24 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                     </div>
                     <Modal.Body className="text-[#828282] text-base">
                       <div className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                          <path fill="#a259ff" d="M13.839 17.525c-.006.002-.559.186-1.039.186c-.265 0-.372-.055-.406-.079c-.168-.117-.48-.336.054-1.4l1-1.994c.593-1.184.681-2.329.245-3.225c-.356-.733-1.039-1.236-1.92-1.416a4.776 4.776 0 0 0-.958-.097c-1.849 0-3.094 1.08-3.146 1.126a.5.5 0 0 0 .493.848c.005-.002.559-.187 1.039-.187c.263 0 .369.055.402.078c.169.118.482.34-.051 1.402l-1 1.995c-.594 1.185-.681 2.33-.245 3.225c.356.733 1.038 1.236 1.921 1.416c.314.063.636.097.954.097c1.85 0 3.096-1.08 3.148-1.126a.5.5 0 0 0-.491-.849z"/><circle cx="13" cy="6.001" r="2.5" fill="#a259ff"/>
-                        </svg>
+                        <BsInfoLg size={24} className='text-purple-1000' />
                         <p className="ml-4">Must be an actual photo of you. Logos, clip-art, group photos, and digitally-altered images are not allowed </p>
                       </div>
-                      <div className="mt-3 flex justify-center">
-                        {/* <button
-                          type="file"
-                          role="button"
-                          className="text-purple-1000 hover:bg-purple-600 hover:text-white font-semibold flex items-center border-1 border-gray-150 py-2 px-3 rounded-lg"
-                        >
-                          <RiAddCircleFill size={24}/>
-                          <span className="pl-3 text-base">Add Photo</span>
-                        </button> */}
-                        <input type="file" name="avatar" accept="image/*" className='file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100'
-                        />
-                      </div>
+                        <div className="mt-3 flex justify-center">
+                          {/* <button
+                            type="file"
+                            role="button"
+                            className="text-purple-1000 hover:bg-purple-600 hover:text-white font-semibold flex items-center border-1 border-gray-150 py-2 px-3 rounded-lg"
+                            // onClick={() => this.fileInput.click()}
+                          >
+                            <RiAddCircleFill size={24}/>
+                            <span className="pl-3 text-base">Add Photo</span>
+                          </button> */}
+                          <input type="file" name="avatar" className='file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100' 
+                          // style={{display: 'none'}} 
+                          // ref={fileInput => this.fileInput = fileInput} 
+                          />
+                        </div>
                     </Modal.Body>
                     <Modal.Footer className="border-t-0">
                       <Button variant="secondary" onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 px-2 ml-2">

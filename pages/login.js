@@ -168,7 +168,7 @@ function Login() {
       <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100 font-inter ">
         <div>
           <div className="flex flex-col items-center justify-center">
-            <div className="bg-white rounded lg:w-1/4  md:w-1/2 w-full mt-12 p-10 shadow-sm">
+            <div className="bg-white rounded lg:w-1/3  md:w-1/2 w-full mt-12 p-10 shadow-sm">
               <p
                 tabIndex={0}
                 role="heading"

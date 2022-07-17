@@ -67,7 +67,7 @@ const TransSample = ({ nextStep, prevStep, values, languageList }) => {
                       <li>
                       <div className="relative flex items-center justify-end">
                           <a href="#" className="block relative">
-                              <img alt="profile" src="https://i.ibb.co/bvxhMZJ/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                            <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                           </a>
                       </div>
                       { 
@@ -188,7 +188,7 @@ const TransSample = ({ nextStep, prevStep, values, languageList }) => {
                             <span className="lg:pl-3 pl-1.5 text-base">Add translation sample</span>
                             </button>
                         </div>
-                    {/* ))} */}
+                    ))}
                 </div>
 
                 <Form onSubmit={handleSubmit} >

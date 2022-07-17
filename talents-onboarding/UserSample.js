@@ -61,7 +61,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                       <li>
                       <div className="relative flex items-center justify-end">
                           <a href="#" className="block relative">
-                              <img alt="profile" src="https://i.ibb.co/bvxhMZJ/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                              <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                               {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
                               </span> */}
                           </a>
@@ -193,46 +193,46 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                       </div>
                       <fieldset className="flex flex-wrap ml-2">
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Animation
+                          <input type="radio" value="animation" name="skill" className="mr-2 w-4 h-4" label="Animation" />Animation
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />AudioBooks
+                          <input type="radio" value="audiobooks" name="skill" className="ml-2 mr-2 w-4 h-4" />AudioBooks
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Business
+                          <input type="radio" value="business" name="skill" className="ml-2 mr-2 w-4 h-4" />Business
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Documentaries
+                          <input type="radio" value="documentaries" name="skill" className="ml-2 mr-2 w-4 h-4" />Documentaries
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />E-Learning
+                          <input type="radio" value="e-learning" name="skill" className="ml-2 mr-2 w-4 h-4" />E-Learning
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Online-Video
+                          <input type="radio" value="online-video" name="skill" className="ml-2 mr-2 w-4 h-4" />Online-Video
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Movie Trailer
+                          <input type="radio" value="movie-trailer" name="skill" className="ml-2 mr-2 w-4 h-4" />Movie Trailer
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Podcasting
+                          <input type="radio" value="podcasting" name="skill" className="ml-2 mr-2 w-4 h-4" />Podcasting
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Radio
+                          <input type="radio" value="radio" name="skill" className="ml-2 mr-2 w-4 h-4" />Radio
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Telephone
+                          <input type="radio" value="telephone" name="skill" className="ml-2 mr-2 w-4 h-4" />Telephone
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Television
+                          <input type="radio" value="television" name="skill" className="ml-2 mr-2 w-4 h-4" />Television
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Video Games
+                          <input type="radio" value="video-games" name="skill" className="ml-2 mr-2 w-4 h-4" />Video Games
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Voice Assistant
+                          <input type="radio" value="voice-assistant" name="skill" className="ml-2 mr-2 w-4 h-4" />Voice Assistant
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Commercial
+                          <input type="radio" value="commercial" name="skill" className="ml-2 mr-2 w-4 h-4" />Commercial
                         </div>
                       </fieldset>
                     </div>
@@ -242,19 +242,19 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                       </div>
                       <fieldset className="flex flex-wrap ml-2">
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value1" name="group1" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
+                          <input type="radio" value="kids (1 - 10)" name="age-tick" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
+                          <input type="radio" value="teen (11 - 17)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
+                          <input type="radio" value="older-teen ( 18 - 20)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
+                          <input type="radio" value="young-adult (21 - 40)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
                         </div>
                         <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                          <input type="radio" value="value2" name="group1" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
+                          <input type="radio" value="older-adult (41 - 90)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
                         </div>
                       </fieldset>
                     </div>

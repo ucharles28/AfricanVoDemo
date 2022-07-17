@@ -35,11 +35,11 @@ function JobBoard () {
                     <Form className='="hidden lg:flex"'>
                       <span className='absolute inset-y-1.5 left-0 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span>
                       <input
-                        className="block h-12 pl-9 pr-9 text-base text-gray-900 rounded-lg placeholder-gray-550 w-64 lg:w-96 focus:z-10 bg-[#F3F3F3]"
+                        className="block h-12 pl-9 pr-9 text-base text-gray-900 rounded-lg placeholder-gray-550 w-64 lg:w-96 focus:z-10 bg-[#F3F3F3] focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-2"
                         placeholder="Search for jobs"
                         type="search"
                       />
-                      <button type="submit" className="text-white bg-purple-1000 rounded-lg inset-y-0 absolute right-0 p-2.5 mr-px items-center">Search</button>
+                      <button type="submit" className="text-white bg-purple-1000 rounded-lg inset-y-0 absolute -right-0.5 p-2.5 mr-px items-center">Search</button>
                       {/* <button type="submit" className="text-gray-550 hover:text-gray-600 inset-y-0 absolute right-0 p-2.5 mr-px items-center"><AiOutlineSearch size={20}/></button> */}
                     </Form>
                   </div>

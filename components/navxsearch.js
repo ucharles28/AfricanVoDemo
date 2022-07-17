@@ -32,11 +32,11 @@ function NavxSearch () {
                                     <span className='absolute inset-y-0.5 left-7 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span>
                                     {/* <span className='absolute inset-y-0.5 left-0 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span> */}
                                     <input
-                                        className="block h-10 pl-16 pr-9 text-base text-gray-90 rounded-xl placeholder-gray-550 w-96 focus:z-10 bg-[#F3F3F3]"
+                                        className="block h-10 pl-16 pr-9 text-base text-gray-90 rounded-xl placeholder-gray-550 w-96 focus:z-10 bg-[#F3F3F3] focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-2"
                                         placeholder="Search for jobs"
                                         type="search"
                                     />
-                                    <button type="submit" className="text-white bg-purple-1000 rounded-lg inset-y-0 absolute right-0 p-2.5 mr-px items-center">Search</button>
+                                    <button type="submit" className="text-white bg-purple-1000 rounded-lg inset-y-0 absolute -right-0.5 p-2.5 mr-px items-center">Search</button>
                                 </form>
                             </div>
                         {/* </form> */}
@@ -72,9 +72,7 @@ function NavxSearch () {
                         <li>
                             <div className="relative flex items-center justify-end">
                                 <a href="#" className="block relative">
-                                    <img alt="profile" src="https://i.ibb.co/bvxhMZJ/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png" className="mx-auto object-cover rounded-full h-8 w-8" onClick={()=>setShow1(!show1)} />
-                                    {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
-                                    </span> */}
+                                    <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-8 w-8" onClick={()=>setShow1(!show1)} />
                                 </a>
                             </div>
                             { 
