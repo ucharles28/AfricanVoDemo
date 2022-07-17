@@ -1,20 +1,17 @@
 import React from 'react';
 import { Alert, Button } from 'react-bootstrap';
 
-function AlertDismissibleExample() {
-    const [show, setShow] = useState(true);
-  
+function AlertDismissibleExample({ variant, title, body, show, setShow }) {  
     if (show) {
       return (
-        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-          <Alert.Heading>Oh snap! You got an error 400!</Alert.Heading>
+        <Alert variant={variant} onClose={() => setShow(false)} dismissible>
+          <Alert.Heading>{title}</Alert.Heading>
           <p>
-            Bad Request
+              {body}
           </p>
         </Alert>
       );
     }
-    return <Button onClick={() => setShow(true)}>Show Alert</Button>;
   }
   
   render(<AlertDismissibleExample />)

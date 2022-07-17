@@ -6,13 +6,40 @@ import Footer from '../components/footer';
 import Activebutton from '../components/styles/ActiveButton';
 import router from 'next/router';
 
-const TalentType = ({ nextStep, setTalentType }) => {
+const TalentType = ({ nextStep, setParentTalentType, languageList, setLanguageList, setVoiceRanges }) => {
     const [error, setError] = useState(false);
+    const [talentType, setTalentType] = useState('VoiceOver');
     const [voiceOverButttonActive, setVoiceOverButttonActive] = useState('active');
     const [translatorButttonActive, setTranslatorButttonActive] = useState('');
     
+    const voiceRangeChangeHandler = value => {
+      const result = value.map(function (obj) {
+        return obj.label;
+      });
+      setVoiceRanges(result)
+    }
+
+    const handleLanguageRemove = (index) => {
+      const list = [...languageList];
+      list.splice(index, 1);
+      setLanguageList(list);
+    };
+  
+    const handleLanguageChange = (e, index) => {
+      const { name, value } = e.target;
+      const list = [...languageList];
+      list[index][name] = value;
+      setLanguageList(list);
+      console.log(list);
+    };
+  
+    const handleLanguageAdd = () => {
+      setLanguageList([...languageList, { sourceLanguage: "", targetLanguage: "" }]);
+    };
+    
     const handleSetTalentType = (value) => {
       setTalentType(value);
+      setParentTalentType(value);
       setVoiceOverButttonActive(value === 'Translator' ? '' : 'active');
       setTranslatorButttonActive(value === 'Translator' ? 'active' : '');
     };
@@ -33,12 +60,6 @@ const TalentType = ({ nextStep, setTalentType }) => {
       { label: "Young adults", value: "young adults" },
       { label: "Adults", value: "adults" }
     ];
-
-    // const handleOnchange = options => {
-    //   console.log(options)
-    // }
-
-    const [selected, setSelected] = useState();
     
 
     return (
@@ -161,7 +182,6 @@ const TalentType = ({ nextStep, setTalentType }) => {
                 </div>
             </div>
             {/* Navbar ends */}
-            <Form onSubmit={submitFormData} >
             <div className="flex flex-col items-center justify-center">
               <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
                 <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6">
@@ -187,20 +207,64 @@ const TalentType = ({ nextStep, setTalentType }) => {
                     <a href='' className='hover:text-white'>Translator</a>
                   </button> */}
                 </div>
-                <div className="">
-                  <label className="mt-4 font-bold text-gray-900">Voice Range(s)</label>
-                  <Select 
-                  options={options}
-                  isMulti
-                  isClearable={true}
-                  isSearchable={true}
-                  closeMenuOnSelect={true}
-                  placeholder="Select your voice range"
-                  className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
-                  name="voicerange"
-                  onChange={setSelected}
-                  />
-                </div>
+                {talentType === 'Translator' ? languageList.map((singleLanguage, index) => (
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-3 border-b-2 border-gray-200 pb-2.5">
+                        <div>
+                            <label className="text-sm font-semibold leading-none text-gray-800">
+                            Source Language
+                            </label>
+                            <input
+                            className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-4/5 pl-3 mt-1 placeholder:text-sm"
+                            placeholder="English"
+                            type="text"
+                            name="sourceLanguage"
+                            onChange={(e) => handleLanguageChange(e, index)}
+                            />
+                        </div>
+                        <div>
+                            <div>
+                            <label className="text-sm font-semibold leading-none text-gray-800">
+                            Target Language
+                            </label>
+                                <div className='flex items-center'>
+                                    <input
+                                    className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-4/5 mr-2 pl-3 mt-1 placeholder:text-sm"
+                                    placeholder="Yoruba"
+                                    type="text"
+                                    name="targetLanguage"
+                                    onChange={(e) => handleLanguageChange(e, index)}
+                                    />
+                                    {languageList.length !== 1 && (
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#bdbdbd" d="M10 5h4a2 2 0 1 0-4 0ZM8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5H8.5Zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0v-7.5ZM14.25 9a.75.75 0 0 0-.75.75v7.5a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75Z" onClick={() => handleLanguageRemove(index)} />
+                                        </svg>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        {languageList.length - 1 === index && languageList.length < 100 && (
+                            <button
+                            type="button"
+                            onClick={handleLanguageAdd}
+                            className="text-purple-1000 ml-2 font-semibold flex items-center"
+                            >
+                                Add additional translation skill
+                            </button>
+                        )}
+                    </div> 
+                    )) : <div className="">
+                    <label className="mt-4 font-bold text-gray-900">Voice Range(s)</label>
+                    <Select 
+                    options={options}
+                    isMulti
+                    isClearable={true}
+                    isSearchable={true}
+                    closeMenuOnSelect={true}
+                    placeholder="Select your voice range"
+                    className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
+                    name="voicerange"
+                    onChange={voiceRangeChangeHandler}
+                    />
+                  </div>}
               </div>                         
             </div>
             <div className="flow-root">
@@ -223,7 +287,6 @@ const TalentType = ({ nextStep, setTalentType }) => {
                 </button>
               </div>
             </div>
-            </Form>
           <Footer />
         </div>
     );
