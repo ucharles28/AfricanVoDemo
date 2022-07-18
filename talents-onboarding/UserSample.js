@@ -5,6 +5,7 @@ import { Form, Col, Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { RiAddCircleFill } from 'react-icons/ri';
+import Styledcheckbox from '../components/styles/StyledCheckbox';
 
 
 const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
@@ -192,48 +193,50 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                         <p className="text-base font-semibold pb-2 text-gray-550" >Select one skill this voice over sample relates to.</p>
                       </div>
                       <fieldset className="flex flex-wrap ml-2">
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        {/* <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" > */}
+                        <Styledcheckbox>
                           <input type="radio" value="animation" name="skill" className="mr-2 w-4 h-4" label="Animation" />Animation
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
+                        </Styledcheckbox>
+                        {/* </div> */}
+                        <Styledcheckbox>
                           <input type="radio" value="audiobooks" name="skill" className="ml-2 mr-2 w-4 h-4" />AudioBooks
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="business" name="skill" className="ml-2 mr-2 w-4 h-4" />Business
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="documentaries" name="skill" className="ml-2 mr-2 w-4 h-4" />Documentaries
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="e-learning" name="skill" className="ml-2 mr-2 w-4 h-4" />E-Learning
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="online-video" name="skill" className="ml-2 mr-2 w-4 h-4" />Online-Video
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="movie-trailer" name="skill" className="ml-2 mr-2 w-4 h-4" />Movie Trailer
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="podcasting" name="skill" className="ml-2 mr-2 w-4 h-4" />Podcasting
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="radio" name="skill" className="ml-2 mr-2 w-4 h-4" />Radio
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="telephone" name="skill" className="ml-2 mr-2 w-4 h-4" />Telephone
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="television" name="skill" className="ml-2 mr-2 w-4 h-4" />Television
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="video-games" name="skill" className="ml-2 mr-2 w-4 h-4" />Video Games
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="voice-assistant" name="skill" className="ml-2 mr-2 w-4 h-4" />Voice Assistant
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="commercial" name="skill" className="ml-2 mr-2 w-4 h-4" />Commercial
-                        </div>
+                        </Styledcheckbox>
                       </fieldset>
                     </div>
                     <div className="mt-4">
@@ -241,21 +244,21 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                         <p className="text-2xl font-bold pb-2">Age tick <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
                       </div>
                       <fieldset className="flex flex-wrap ml-2">
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        <Styledcheckbox>
                           <input type="radio" value="kids (1 - 10)" name="age-tick" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="teen (11 - 17)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="older-teen ( 18 - 20)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="young-adult (21 - 40)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
-                        </div>
-                        <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
+                        </Styledcheckbox>
+                        <Styledcheckbox>
                           <input type="radio" value="older-adult (41 - 90)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
-                        </div>
+                        </Styledcheckbox>
                       </fieldset>
                     </div>
                     <div className="mt-4">
@@ -265,9 +268,8 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                       </div>
                       <fieldset className="flex flex-wrap">
                         <textarea 
-                          className="flex-1 appearance-none border border-gray-300 w-full py-2 px-3 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base ml-2"
-                          maxlength = "70"
-                          minlength="40"
+                          className="flex-1 appearance-none border border-gray-300 w-full py-2 px-2 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base ml-2 focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-2 focus:ring-opacity-40"
+                          maxlength= "100"
                           name="title of sample" 
                           rows="3" 
                           cols="40"

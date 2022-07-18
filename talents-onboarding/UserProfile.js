@@ -249,13 +249,13 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                   <div className='w-full md:w-1/2 pl-3 mb-2'>
                       <label className='block font-medium text-gray-700 text-sm mb-2' >Gender</label>
                       <div className="inline-flex items-center mr-4">
-                        <input type="radio" name="male" className="h-4 w-4 text-red-600" defaultValue={values.genderm} onChange={handleFormData("genderm")} />
+                        <input type="radio" name="gender" className="h-4 w-4 text-red-600" defaultValue={values.genderm} onChange={handleFormData("genderm")} />
                         <span className="ml-2 text-gray-700">
                           Male
                         </span>
                       </div>
                       <div className="inline-flex items-center">
-                        <input type="radio" name="female" className="h-4 w-4 text-red-600" defaultValue={values.genderf} onChange={handleFormData("genderf")} />
+                        <input type="radio" name="gender" className="h-4 w-4 text-red-600" defaultValue={values.genderf} onChange={handleFormData("genderf")} />
                         <span className="ml-2 text-gray-700">
                           Female
                         </span>
