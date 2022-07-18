@@ -28,7 +28,7 @@ function Home() {
             </div>
             <div className="flex justify-center items-center">
               <Link href="./signup">
-              <button className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 lg:text-xl lg:font-bold  rounded-lg text-white px-4 sm:px-10 border border-purple py-2 sm:py-4 text-xs">
+              <button className="bg-purple-1000 transition duration-150 ease-in-out hover:bg-purple-600 lg:text-xl lg:font-bold rounded-lg text-white px-4 sm:px-10 border border-purple py-2 sm:py-4 text-base font-medium">
                   Find Talent
                 </button>
               </Link>
@@ -37,7 +37,7 @@ function Home() {
               </a> */}
               <Link href="./login">
                 {/* <a className="font-inter"> */}
-                  <button className="hover:bg-purple-1000 ml-4 transition duration-150 ease-in-out lg:text-xl lg:font-bold rounded-lg text-purple-600 hover:text-white px-4 sm:px-10 border border-purple-600 py-2 sm:py-4 text-xs">
+                  <button className="hover:bg-purple-1000 ml-4 transition duration-150 ease-in-out lg:text-xl lg:font-bold rounded-lg text-purple-600 hover:text-white px-4 sm:px-10 border border-purple-600 py-2 sm:py-4 text-base fot-medium">
                     Login
                   </button>
                 {/* </a> */}
