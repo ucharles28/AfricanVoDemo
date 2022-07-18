@@ -177,7 +177,7 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                   onClick={handleShow}
                 >
                   <RiAddCircleFill size={24}/>
-                  <span className="pl-3 text-base">Add a demo</span>
+                  <span className="pl-2 text-base">Add a demo</span>
                 </button>
               </div>
 
