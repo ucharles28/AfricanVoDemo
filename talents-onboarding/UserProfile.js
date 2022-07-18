@@ -23,6 +23,17 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
     }
   };
 
+  // user avatar upload
+  const handleImageChange = (e) => {
+    const image = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      setProfileImageSrc(e.target.result);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+  const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
   // state for navbar for sm screens
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -170,8 +181,8 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
               <p className="pb-6 text-base text-left text-gray-550">A professional photo helps you build trust with your clients. To keep things safe and simple, which is why we need your personal information.</p>
               <div className="py-3 px-3 text-gray-900 rounded-xl grid sm:grid-cols-2 lg:grid-cols-2">
                 <div className="flex flex-col items-center align-top lg:border-r lg:border-gray-300 pb-10">
-                  <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
-                    <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" />
+                  <span className="rounded-full bg-gray-100">
+                    <img src={profileImageSrc} className='h-24 w-24 rounded-full object-cover' />
                   </span>
                   <div className="mt-3 flex justify-center">
                     <button
@@ -189,7 +200,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                       <Modal.Title className="font-bold text-4xl">Add Photo</Modal.Title>
                     </Modal.Header>
                     <div className="bg-[#F2F2F2] items-center flex justify-center py-10 px-12">
-                      <img src='https://i.ibb.co/X5LP2MZ/avatar.png' alt="avatar" border="0" width="264" height="264" />
+                      <img src={profileImageSrc} alt="avatar" border="0" className='w-64 h-64 rounded-full object-cover' />
                     </div>
                     <Modal.Body className="text-[#828282] text-base">
                       <div className="flex items-center">
@@ -197,18 +208,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                         <p className="ml-4">Must be an actual photo of you. Logos, clip-art, group photos, and digitally-altered images are not allowed </p>
                       </div>
                         <div className="mt-3 flex justify-center">
-                          {/* <button
-                            type="file"
-                            role="button"
-                            className="text-purple-1000 hover:bg-purple-600 hover:text-white font-semibold flex items-center border-1 border-gray-150 py-2 px-3 rounded-lg"
-                            // onClick={() => this.fileInput.click()}
-                          >
-                            <RiAddCircleFill size={24}/>
-                            <span className="pl-3 text-base">Add Photo</span>
-                          </button> */}
-                          <input type="file" name="avatar" className='file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100' 
-                          // style={{display: 'none'}} 
-                          // ref={fileInput => this.fileInput = fileInput} 
+                          <input type="file" name="avatar" className='file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100' onChange={handleImageChange} 
                           />
                         </div>
                     </Modal.Body>
