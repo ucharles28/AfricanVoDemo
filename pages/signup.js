@@ -14,7 +14,7 @@ import SubmitProfile from '../talents-onboarding/SubmitProfile';
 import TransSample from '../talents-onboarding/TransSample';
 import Activebutton from '../components/styles/ActiveButton';
 import Footer from '../components/footer';
-import PostTitle from '../client-onboarding/PostTitle';
+// import PostTitle from '../client-onboarding/PostTitle';
 // import ScriptDetails from '../client-onboarding/ScriptDetails';
 // import SelectService from '../client-onboarding/SelectService';
 // import SampleDetails from '../client-onboarding/SampleDetails';
@@ -27,7 +27,7 @@ const Signup = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(15);
+  const [step, setstep] = useState(1);
   const [accountType, setAccountType] = useState('Client');
   const [email, setEmail] = useState('');
   const [clientButttonActive, setClientButttonActive] = useState('active');
@@ -308,17 +308,17 @@ const Signup = () => {
           />
         </div>
       );
-    case 15:
-      return (
-        <div>
-          <PostTitle
-            nextStep={nextStep}
-            prevStep={prevStep}
-            handleFormData={handleInputData}
-            values={formData}
-          />
-        </div>
-      );
+    // case 15:
+    //   return (
+    //     <div>
+    //       <PostTitle
+    //         nextStep={nextStep}
+    //         prevStep={prevStep}
+    //         handleFormData={handleInputData}
+    //         values={formData}
+    //       />
+    //     </div>
+    //   );
     // case 16:
     //   return (
     //     <div>
