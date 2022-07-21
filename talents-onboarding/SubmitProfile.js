@@ -29,6 +29,9 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
   //destructuring the object from values
   const { term, authtext, client, firstName, lastName, age, genderm, genderf, DOB, email, password, confirmpassword, bio, role, voicerange, sourcelang, targetlang, tel, langstrength, avatar, talent, audiosample, city, spokenlang, country } = values;
 
+  const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
+
   return (
     
     <div>
@@ -48,7 +51,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                   <li>
                   <div className="relative flex items-center justify-end">
                       <a href="#" className="block relative">
-                          <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                          <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                           {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
                           </span> */}
                       </a>
@@ -59,14 +62,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                           <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                               <span className="flex flex-col">
                                   <span>
-                                      Settings
-                                  </span>
-                              </span>
-                          </a>
-                          <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                              <span className="flex flex-col">
-                                  <span>
-                                      Account
+                                     Account Settings
                                   </span>
                               </span>
                           </a>
@@ -179,7 +175,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                   <div className="lg:item lg:w-80 bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5 mb-4 lg:flex lg:items-center lg:content-center lg:justify-center">
                     <div className="flex flex-col items-center justify-center pb-10">
                       <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
-                        <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" />{avatar}{' '}
+                        <img src={profileImageSrc} alt="avatar" border="0" />{avatar}{' '}
                       </span>
                       <p className='font-semibold font-inter text-lg leading-6 pt-2'>{lastName}{' '} {firstName}{' '}</p>
                       <div className='flex items-center pr-2 pt-1'>
@@ -200,7 +196,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                   </div>
                   {/* <div className='lg:w-3/5 sm:w-full'> */}
                   <div className="item lg:w-full w-full lg:h-auto lg:items-center lg:content-center lg:justify-center">
-                    <div className="bg-purple-50 text-gray-900 rounded-xl px-3 py-4">
+                    < div className="bg-purple-50 text-gray-900 rounded-xl px-3 py-4">
                       <div className="flex items-center pb-3">
                         <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Professional Brief</p>
                         <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
@@ -209,6 +205,7 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                       </div>
                       <span className='font-medium text-lg leading-7 text-[#4F4F4F] font-inter'>{bio}{' '}.</span>
                     </div>
+
                     <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
                       <div className="flex items-center pb-3">
                         <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Voice Range</p>

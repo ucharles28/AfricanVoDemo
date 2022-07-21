@@ -41,6 +41,8 @@ const UserAuth1 = ({ email, setParentEmail }) => {
         }
     }
 
+    const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
 
     return (
         <div>
@@ -60,7 +62,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                             <li>
                                 <div className="relative flex items-center justify-end">
                                     <a href="#" className="block relative">
-                                        <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                                        <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                                         {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
                                 </span> */}
                                     </a>
@@ -71,14 +73,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                                             <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
                                                 <span className="flex flex-col">
                                                     <span>
-                                                        Settings
-                                                    </span>
-                                                </span>
-                                            </a>
-                                            <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                                <span className="flex flex-col">
-                                                    <span>
-                                                        Account
+                                                       Account Settings
                                                     </span>
                                                 </span>
                                             </a>

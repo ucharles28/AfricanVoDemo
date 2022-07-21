@@ -9,8 +9,10 @@ function NavxSearch () {
     // state for change email
     const [show1, setShow1] = useState(false)
 
+    const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
     return (
-        <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16 font-inter">
+        <div className="bg-white fixed w-full z-10 shadow-sm pb-3 mb-16 font-inter">
             <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="w-full relative flex items-center justify-between">
                     <a
@@ -71,7 +73,7 @@ function NavxSearch () {
                         <li>
                             <div className="relative flex items-center justify-end">
                                 <a href="#" className="block relative">
-                                    <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                                    <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                                 </a>
                             </div>
                             { 
@@ -80,14 +82,7 @@ function NavxSearch () {
                                     <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                         <span className="flex flex-col">
                                             <span>
-                                                Settings
-                                            </span>
-                                        </span>
-                                    </a>
-                                    <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                        <span className="flex flex-col">
-                                            <span>
-                                                Account
+                                                Account Settings
                                             </span>
                                         </span>
                                     </a>

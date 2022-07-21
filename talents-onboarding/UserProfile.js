@@ -73,7 +73,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                       <li>
                       <div className="relative flex items-center justify-end">
                           <a href="#" className="block relative">
-                              <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                              <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                           </a>
                       </div>
                       { 
@@ -82,14 +82,7 @@ const UserProfile = ({ nextStep, prevStep, handleFormData, values }) => {
                               <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                   <span className="flex flex-col">
                                       <span>
-                                          Settings
-                                      </span>
-                                  </span>
-                              </a>
-                              <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                  <span className="flex flex-col">
-                                      <span>
-                                          Account
+                                         Account Settings
                                       </span>
                                   </span>
                               </a>
