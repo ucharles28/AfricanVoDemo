@@ -282,14 +282,12 @@ const UserSample = ({ nextStep, prevStep, handleFormData, values }) => {
                         <p className="text-2xl font-bold pb-2">Language <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
                       </div>
                       <fieldset className="flex flex-wrap">
-                      <Select
-                        name="country"
-                        placeholder="Select your country"
-                        className="mt-1 border-gray-300 ml-2"
-                        value={values.country}
-                        options={options}
-                        onChange={changeHandler} 
-                      />
+                        <input
+                          className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-2/5 pl-3 ml-2 mt-1 placeholder:text-sm"
+                          placeholder="Enter sample language"
+                          type="text"
+                          name="tone"
+                        />
                       </fieldset>
                     </div>
                     <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
