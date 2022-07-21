@@ -172,9 +172,11 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
             </div>
 
             <div className='flex mt-16 justify-center'>
-              <div className='w-full lg:flex-row lg:flex lg:gap-4 grid grid-cols-1'>
+            <div className="lg:flex lg:items-stretch lg:space-x-2 lg:h-full w-full lg:flex-row lg:gap-4 grid grid-cols-1">
+              {/* <div className='w-full lg:flex-row lg:flex lg:gap-4 grid grid-cols-1'> */}
                 {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
-                  <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5 mb-4">
+                  {/* <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5 mb-4"> */}
+                  <div className="lg:item lg:w-80 bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5 mb-4 lg:flex lg:items-center lg:content-center lg:justify-center">
                     <div className="flex flex-col items-center justify-center pb-10">
                       <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
                         <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" />{avatar}{' '}
@@ -196,7 +198,8 @@ const SubmitProfile = ({ prevStep, nextStep, values }) => {
                       </div>
                     </div>
                   </div>
-                  <div className='lg:w-3/5 sm:w-full'>
+                  {/* <div className='lg:w-3/5 sm:w-full'> */}
+                  <div className="item lg:w-full w-full lg:h-auto lg:items-center lg:content-center lg:justify-center">
                     <div className="bg-purple-50 text-gray-900 rounded-xl px-3 py-4">
                       <div className="flex items-center pb-3">
                         <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Professional Brief</p>

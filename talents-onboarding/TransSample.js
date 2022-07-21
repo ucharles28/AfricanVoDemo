@@ -199,8 +199,11 @@ const TransSample = ({ nextStep, prevStep, values, languageList }) => {
                         <Modal.Body className="flex flex-col">
                             <div>
                                 <div>
-                                    <div className="ml-2">
-                                        <p className="text-2xl font-bold pb-2">Title <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                                    <div className='ml-2'>
+                                    <div className="items-center flex pb-2">
+                                        <p className="text-2xl font-bold">Title&nbsp;</p> 
+                                        <span className="text-gray-400 text-sm font-regular">(Required)</span>
+                                    </div>
                                         <p className="text-base font-medium pb-2 text-gray-550" >Include your languages, industry expertise, and any other descriptive to get your portfolio samples the most views.</p>
                                     </div>
                                     <Form.Group className='flex flex-wrap'>
@@ -209,8 +212,11 @@ const TransSample = ({ nextStep, prevStep, values, languageList }) => {
                                     </Form.Group>
                                 </div>
                                 <div className='mt-4'>
-                                    <div className="ml-2">
-                                        <p className="text-2xl font-bold pb-2">Description <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
+                                    <div className='ml-2'>
+                                    <div className="items-center flex pb-2">
+                                        <p className="text-2xl font-bold">Description&nbsp;</p> 
+                                        <span className="text-gray-400 text-sm font-regular">(Required)</span>
+                                    </div>
                                         <p className="text-base font-medium pb-2 text-gray-550" >Share some background and more information on this sample and how you contributed to it.</p>
                                     </div>
                                     <Form.Group className='flex flex-wrap'>
@@ -219,18 +225,24 @@ const TransSample = ({ nextStep, prevStep, values, languageList }) => {
                                     </Form.Group>
                                 </div>
                                 <div className="mt-4">
-                                    <div className="ml-2">
-                                        <p className="text-2xl font-bold pb-2">Upload Translation Sample File <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                                        <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
+                                    <div className='ml-2'>
+                                    <div className="items-center flex pb-2">
+                                        <p className="text-2xl font-bold">Upload Translation Sample File&nbsp;</p> 
+                                        <span className="text-gray-400 text-sm font-regular">(Required)</span>
+                                    </div>
+                                        <p className="text-base font-medium pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
                                     </div>
                                     <fieldset className="flex flex-wrap">
                                         <input type="file" name="audiosample" accept="audio/**" className='ml-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100'/>
                                     </fieldset>
                                 </div>
                                 <div className="mt-4">
-                                    <div className="ml-2">
-                                        <p className="text-2xl font-bold pb-2">Industry Expertise <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                                        <p className="text-base font-semibold pb-2 text-gray-550">Select up to three industries tags this portfolio sample relates to.</p>
+                                    <div className='ml-2'>
+                                    <div className="items-center flex pb-2">
+                                        <p className="text-2xl font-bold">Industry Expertise&nbsp;</p> 
+                                        <span className="text-gray-400 text-sm font-regular">(Required)</span>
+                                    </div>
+                                        <p className="text-base font-medium pb-2 text-gray-550" >Select up to three industries tags this portfolio sample relates to.</p>
                                     </div>
                                     <fieldset className="flex flex-wrap ml-2">
                                         <Styledcheckbox>

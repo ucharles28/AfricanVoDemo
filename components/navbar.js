@@ -25,7 +25,7 @@ function Menu() {
                 <li>
                   <a
                     href="#"
-                    className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-semibold tracking-wide text-base hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Post a Project
                   </a>
@@ -33,7 +33,7 @@ function Menu() {
                 <li>
                   <a
                     href="../job-board"
-                    className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-semibold tracking-wide text-base hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Voices
                   </a>
@@ -41,7 +41,7 @@ function Menu() {
                 <li>
                   <a
                     href="../job-board"
-                    className="font-medium tracking-wide hover:text-gray-900  text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-semibold tracking-wide text-base hover:text-gray-900  text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Find Translators
                   </a>
@@ -49,7 +49,7 @@ function Menu() {
                 <li>
                   <a
                     href="../signup"
-                    className="font-medium tracking-wide hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    className="font-semibold tracking-wide text-base hover:text-gray-900 text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                     Sign Up
                   </a>
@@ -57,7 +57,7 @@ function Menu() {
                 <li>
                   <a
                     href="../login"
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-lg bg-purple-1000 hover:bg-purple-500"
+                    className="inline-flex items-center text-base justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-lg bg-purple-1000 hover:bg-purple-500"
                   >
                     Login
                   </a>
