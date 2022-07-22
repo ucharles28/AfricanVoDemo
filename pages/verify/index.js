@@ -5,7 +5,7 @@ import Verify from '../../components/Verify';
 
 export default function VerifyPage() {
     const { query } = useRouter();
-    const token = parseInt(query.token);
+    const token = query.token;
 
     return (
         <Verify token={token} />

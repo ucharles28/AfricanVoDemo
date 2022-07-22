@@ -18,7 +18,9 @@ export default function Verify({ token }) {
             localStorage.setItem('token', response.data.Token);
             localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
             localStorage.setItem('user', JSON.stringify(response.data));
-            router.push('/portfolio')
+            setTimeout(() => {
+                router.push('/portfolio')
+            }, 2000);
         }
     }
 
