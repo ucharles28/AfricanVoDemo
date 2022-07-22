@@ -4,7 +4,7 @@ import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
-import { post } from '../helpers/Api';
+import { post } from '../helpers/ApiRequest';
 import Footer from '../components/footer';
 
 const UserName = ({ nextStep, email, accountType }) => {
@@ -26,11 +26,11 @@ const UserName = ({ nextStep, email, accountType }) => {
       };
       console.log(request);
       // Sign Up
-      // const response = await post('Auth/SignUp', request, '');
-      // console.log(response);
-      // localStorage.setItem('token', response.Token);
-      // localStorage.setItem('tokenExpiryDate', response.TokenExpiryDate);
-      // localStorage.setItem('user', response);
+      const response = await post('Auth/SignUp', request, '');
+      console.log(response);
+      localStorage.setItem('token', response.Token);
+      localStorage.setItem('tokenExpiryDate', response.TokenExpiryDate);
+      localStorage.setItem('user', response);
       nextStep();
     }
     setValidated(true);

@@ -6,12 +6,11 @@ import Footer from '../components/footer';
 import Activebutton from '../components/styles/ActiveButton';
 import router from 'next/router';
 
-const TalentType = ({ nextStep, setParentTalentType, languageList, setLanguageList, setVoiceRanges }) => {
+const TalentType = ({ nextStep, setParentTalentType, languageList, voiceRanges, setLanguageList, setVoiceRanges }) => {
     const [error, setError] = useState(false);
     const [talentType, setTalentType] = useState('VoiceOver');
     const [voiceOverButttonActive, setVoiceOverButttonActive] = useState('active');
     const [translatorButttonActive, setTranslatorButttonActive] = useState('');
-    
     const voiceRangeChangeHandler = value => {
       const result = value.map(function (obj) {
         return obj.label;
@@ -282,8 +281,9 @@ const TalentType = ({ nextStep, setParentTalentType, languageList, setLanguageLi
                   role="button" 
                   className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
                   onClick={nextStep}
+                  disabled={(languageList.length === 1 && (!languageList[0].sourceLanguage || !languageList[0].targetLanguage)) && voiceRanges.length < 1}
                 >
-                  Next, your professional brief
+                  {talentType === 'VoiceOver' ? 'Next, your professional brief' : 'Add Translation Skills'}
                 </button>
               </div>
             </div>

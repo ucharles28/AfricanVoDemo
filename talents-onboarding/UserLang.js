@@ -4,19 +4,18 @@ import validator from 'validator';
 import Select from 'react-select';
 import { RiAddCircleFill } from 'react-icons/ri';
 
-const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
+const UserLang = ({ nextStep, prevStep, setParentLanguageList }) => {
   const [error, setError] = useState(false);
 
   const submitFormData = (e) => {
     e.preventDefault();
 
-    if (
-      validator.isEmpty(values.langstrength) || validator.isEmpty(values.spokenlang)
-    ) {
-      setError(true);
-    } else {
-      nextStep();
-    }
+    // if (
+    // ) {
+    //   setError(true);
+    // } else {
+    //   nextStep();
+    // }
   };
 
   // state for navbar for sm screens
@@ -33,11 +32,18 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
 
   const [selected, setSelected] = useState();
 
-  const [languageList, setLanguageList] = useState([{ language: "" }]);
+  const [languageList, setLanguageList] = useState([{ language: "", proficiency: "" }]);
   const handleLanguageRemove = (index) => {
     const list = [...languageList];
     list.splice(index, 1);
     setLanguageList(list);
+  };
+
+  const handleProficiencySelected = (value, index) => {
+    const list = [...languageList];
+    list[index].proficiency = value.label;
+    setLanguageList(list);
+    console.log(languageList)
   };
 
   const handleLanguageChange = (e, index) => {
@@ -45,12 +51,17 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
     const list = [...languageList];
     list[index][name] = value;
     setLanguageList(list);
+    console.log(languageList)
   };
 
   const handleLanguageAdd = () => {
-    setLanguageList([...languageList, { language: "" }]);
+    setLanguageList([...languageList, { language: "", proficiency: "" }]);
   };
   
+  const handleGoNext = () => {
+    setParentLanguageList(languageList);
+    nextStep()
+  };
 
   return (
       <div>
@@ -183,7 +194,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 <strong className="text-base font-medium w-1/2 sm:w-full"> Language </strong>
                 <strong className="text-base font-medium w-1/2 sm:w-full"> Proficiency </strong>
               </div>
-              <div
+              {/* <div
                 className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2">
                 <strong className="text-base font-medium w-1/2 sm:w-full"> English </strong>
                 <Select 
@@ -193,9 +204,8 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 className="mt-1 rounded-lg focus:outline-none" 
                 name="langstrength"
                 onChange={setSelected}
-                // defaultValue={values.langstrength}
                 />
-              </div>
+              </div> */}
               {languageList.map((singleLanguage, index) => (
                 <div>
                   <div
@@ -204,9 +214,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                       className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
                       placeholder="I know"
                       type="text"
-                      name="spokenlang"
-                      // value={singleLanguage.language}
-                      defaultValue={values.spokenlang}
+                      name="language"
                       onChange={(e) => handleLanguageChange(e, index)}
                     />
                     <div className=" flex items-center">
@@ -217,8 +225,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                     placeholder="My level is.."
                     className="mt-1 mr-2 w-full rounded-lg focus:outline-none" 
                     name="langstrength"
-                    onChange={setSelected}
-                    defaultValue={values.langstrength}
+                    onChange={(value) => handleProficiencySelected(value, index)}
                     />
                       {languageList.length !== 1 && (
                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#bdbdbd" d="M10 5h4a2 2 0 1 0-4 0ZM8.5 5a3.5 3.5 0 1 1 7 0h5.75a.75.75 0 0 1 0 1.5h-1.32l-1.17 12.111A3.75 3.75 0 0 1 15.026 22H8.974a3.75 3.75 0 0 1-3.733-3.389L4.07 6.5H2.75a.75.75 0 0 1 0-1.5H8.5Zm2 4.75a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0v-7.5ZM14.25 9a.75.75 0 0 0-.75.75v7.5a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75Z" onClick={() => handleLanguageRemove(index)} /></svg>
@@ -255,6 +262,7 @@ const UserLang = ({ nextStep, prevStep, handleFormData, values }) => {
                 role="button" 
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
                 onClick={nextStep}
+                disabled={(languageList.length === 1 && (!languageList[0].language || !languageList[0].proficiency))}
               >
                 Add photo and location
               </button>

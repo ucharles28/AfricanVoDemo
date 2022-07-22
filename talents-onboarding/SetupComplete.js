@@ -3,8 +3,11 @@ import validator from 'validator';
 import Footer from '../components/footer';
 import Link from 'next/link';
 
-const SetupComplete = ({ prevStep, nextStep, values }) => {
+const SetupComplete = ({ prevStep, nextStep }) => {
+    const user = JSON.parse(localStorage.getItem('user'))
     const [error, setError] = useState(false);
+    // define firstName
+    const [firstName, setFirstName] = useState(user?.firstName);
 
     const submitFormData = (e) => {
         e.preventDefault();
@@ -18,8 +21,6 @@ const SetupComplete = ({ prevStep, nextStep, values }) => {
         }
     };
 
-    // define firstName
-    const firstName = values.firstName;
 
     // state for navbar for sm screens
   const [isMenuOpen, setIsMenuOpen] = useState(false);

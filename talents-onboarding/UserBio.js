@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
 
-const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
+const UserBio = ({ nextStep, prevStep, userBio, setUserBio, talentType }) => {
     const [error, setError] = useState(false);
 
     const submitFormData = (e) => {
@@ -159,8 +159,8 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                       name="bio" 
                       rows="5" 
                       cols="40"
-                      defaultValue={values.bio}
-                      onChange={handleFormData("bio")}
+                      value={userBio}
+                      onChange={(e) => {setUserBio(e.target.value)}}
                     >
                     </textarea>
                 </label>
@@ -181,9 +181,10 @@ const UserBio = ({ nextStep, prevStep, handleFormData, values }) => {
                 <button 
                   role="button" 
                   className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                  disabled={!userBio}
                   onClick={nextStep}
                 >
-                  Next, Languages
+                  {talentType === 'VoiceOver' ? 'Next, Languages' : 'Lastly, photo and location'}
                 </button>
               </div>
             </div>
