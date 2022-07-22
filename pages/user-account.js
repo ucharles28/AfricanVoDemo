@@ -11,8 +11,7 @@ function UserAccount() {
   return (
     <div>
       <NavxSearch />
-      {/* <div className="mx-4 mb-16 pt-16"> */}
-      <div className="flex flex-col bg-purple-50 items-center justify-center">
+      <div className="flex flex-col bg-purple-50 items-center justify-center font-inter">
         <div className="w-full py-6 flex justify-center align-top flex-col items-center mt-24">
           <div className="w-4/5 mb-12">
             <div className="flex flex-col justify-center items-stretch space-y-4 h-auto w-full">

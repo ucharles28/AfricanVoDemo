@@ -1,6 +1,6 @@
 import { Navbar } from 'react-bootstrap';
 import Link from 'next/link';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { ImFacebook2, ImTwitter, ImGoogle} from 'react-icons/im'
 
 function Footer() {
@@ -82,6 +82,7 @@ function Footer() {
                 </p>
             </div>
         </div>
-    )
+    );
 }
+
 export default Footer;
