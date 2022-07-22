@@ -1,6 +1,6 @@
 import Welcome from '../components/Welcome';
 
-export default Welcome = () => {
+export default WelcomePage = () => {
     const [firstName, setFirstName] = useState('');
 
     useEffect(async() => {
