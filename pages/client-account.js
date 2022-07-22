@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import NavxSearch from '../components/navxsearch';
 import { RiArrowDownSLine, RiAddCircleFill } from 'react-icons/ri';
 import { Form } from 'react-bootstrap';
