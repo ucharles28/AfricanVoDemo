@@ -52,8 +52,8 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
 
   // modal
   const [showModal, setShowModal] = useState(false);
-  const handleClose = () => setShow2(false);
-  const handleShow = () => setShow2(true);
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   const fileChangeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -324,7 +324,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                         setVoiceOverSkill(skill)
                       }} active={voiceOverSkill === skill ? 'active' : ''}>
                         {/* <Form.Check type="checkbox" className='accent-purple-1000 checked:bg-purple-1000 mr-2 caret-purple-700' />  */}
-                        <input type="radio" checked={voiceOverSkill === skill} value="animation" name="skill" className="mr-2 w-4 h-4" label="Animation" /> {skill}
+                        <input type="radio" checked={voiceOverSkill === skill} value="vo-skills" name="skill" className="mr-2 w-4 h-4" /> {skill}
                       </Styledcheckbox>
                     ))}
                   </fieldset>
@@ -339,24 +339,9 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                         setAgeTick(agetick)
                       }} active={ageTick === agetick ? 'active' : ''}>
                         {/* <Form.Check type="checkbox" className='accent-purple-1000 checked:bg-purple-1000 mr-2 caret-purple-700' />  */}
-                        <input type="radio" checked={ageTick === agetick} value="animation" name="skill" className="mr-2 w-4 h-4" label="Animation" /> {agetick}
+                        <input type="radio" checked={ageTick === agetick} value="age-tick" name="age-tick" className="mr-2 w-4 h-4" /> {agetick}
                       </Styledcheckbox>
                     ))}
-                    <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center text-gray-900 hover:text-white text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                      <input type="radio" value="kids (1 - 10)" name="age-tick" className="mr-2 w-4 h-4" label="Animation" />Kids (1 - 10)
-                    </div>
-                    <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium  mr-3 mt-2" >
-                      <input type="radio" value="teen (11 - 17)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Teen (11 - 17)
-                    </div>
-                    <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                      <input type="radio" value="older-teen ( 18 - 20)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Older teen (18 - 20)
-                    </div>
-                    <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                      <input type="radio" value="young-adult (21 - 40)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Young adult (21 - 40)
-                    </div>
-                    <div className="border border-gray-150 rounded-full hover:bg-purple-1000 flex items-center hover:text-white text-gray-900 text-base py-2 pr-3 pl-2 font-medium mr-3 mt-2" >
-                      <input type="radio" value="older-adult (41 - 90)" name="age-tick" className="ml-2 mr-2 w-4 h-4" />Older adult (41 - 90)
-                    </div>
                   </fieldset>
                 </div>
                 <div className="mt-4">
@@ -384,7 +369,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                   </div>
                   <fieldset className="flex flex-wrap">
                     <input
-                      className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                      className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 pl-3 mt-1 placeholder:text-sm w-1/2 ml-2"
                       placeholder="Enter language"
                       type="text"
                       name="language"

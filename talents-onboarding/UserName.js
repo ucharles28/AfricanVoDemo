@@ -21,7 +21,7 @@ const UserName = ({ nextStep, email, accountType }) => {
         firstname: firstName,
         lastname: lastName,
         accountType,
-        country,
+        country: country.label,
         password
       };
       console.log(request);
@@ -234,6 +234,7 @@ const UserName = ({ nextStep, email, accountType }) => {
                       name="confirmpassword"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
+                      autocomplete 
                     />
                     <Form.Control.Feedback type="invalid">
                       Please provide an valid password.

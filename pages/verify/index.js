@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router'
-import { get } from '../../helpers/Api'
-import Verify from '../../components/Verify'
+import { useRouter } from 'next/router';
+import { get } from '../../helpers/ApiRequest';
+import Verify from '../../components/Verify';
 
 
 export default Verify = () => {

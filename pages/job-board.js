@@ -29,8 +29,8 @@ function JobBoard () {
         <div className='font-inter'>
           <Tabs defaultActiveKey="jobs" onChange={onChange} className=''>
             <TabPane tab="All Jobs" key="jobs">
-              <div className='items-center flex bg-white rounded-lg'>
-                <div className="flex items-center justify-center ml-2 my-2">
+              <div className='flex items-stretch space-x-2 h-auto w-full bg-white rounded-lg'>
+                <div className="item flex items-center justify-center ml-2 my-2">
                   <div className="relative mx-auto lg:block">
                     <Form className='="hidden lg:flex"'>
                       <span className='absolute inset-y-1.5 left-0 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span>
@@ -44,7 +44,7 @@ function JobBoard () {
                     </Form>
                   </div>
                 </div>
-                <div className="flex items-center justify-center ml-4  my-2">
+                <div className="item flex items-center justify-center ml-4 my-2">
                   <div className="relative mx-auto lg:block">
                     <Form.Select className="hidden lg:flex rounded-lg h-10 bg-[#f3f3f3]" 
                       onChange={(e) => {
@@ -84,6 +84,60 @@ function JobBoard () {
               Content of Tab Pane 4
             </TabPane>
           </Tabs>
+          <div className='bg-white rounded-lg mt-4 px-2 py-2'>
+            <div className="flex flex-col items-stretch space-y-2 h-auto w-full">
+              <div className="item w-full border-y-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  1
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  2
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  3
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  4
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  5
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  6
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  7
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  8
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  9
+                </div>
+              </div>
+              <div className="item w-full border-b-2">
+                <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>
+                  10
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

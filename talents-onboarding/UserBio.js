@@ -147,10 +147,10 @@ const UserBio = ({ nextStep, prevStep, userBio, setUserBio, talentType }) => {
             {/* Navbar ends */}
             <div className="flex flex-col items-center justify-center">
               <div className="lg:w-2/5 md:w-1/2 pt-10 pl-4 pr-4 justify-center mt-5 mb-10">
-                <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-center pt-3 pb-6 block">
+                <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-3xl font-bold text-gray-800 text-left pt-3 pb-6 block">
                 Now, tell us summary about your profession and yourself
                 </p>
-                <p className="pb-6 text-base text-center text-gray-550">Talents who add their a summary about their profession and about themselves are twice as likely to win work.</p>
+                <p className="pb-6 text-base text-left text-gray-550">Talents who add their a summary about their profession and about themselves are twice as likely to win work.</p>
                 <Form onSubmit={submitFormData}>
                 <label className="text-gray-700 justify-center flex items-center" for="name">
                     <textarea 

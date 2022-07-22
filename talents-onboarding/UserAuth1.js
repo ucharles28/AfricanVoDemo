@@ -180,7 +180,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                             show ? <div className="items-center flex justify-center flex-col">
                                 <Form.Group as={Col} controlId="validationCustom01" className="w-4/5">
                                     <div>
-                                        <lable className="text-sm font-medium leading-none text-gray-800">Email Address</lable>
+                                        <label className="text-sm font-medium leading-none text-gray-800">Email Address</label>
                                         <Form.Control
                                             type="email"
                                             placeholder="Enter email address"

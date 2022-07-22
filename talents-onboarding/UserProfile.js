@@ -10,10 +10,10 @@ import { BsInfoLg } from 'react-icons/bs';
 
 const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileImage, setProfileImageSrc, profileImageSrc }) => {
   //retrieve customer
-  const user = JSON.parse(localStorage.getItem('user'))
+  // const user = JSON.parse(localStorage.getItem('user'))
 
   const [error, setError] = useState(false);
-  const [country, setCountry] = useState(user?.country);
+  const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [gender, setGender] = useState('Male');

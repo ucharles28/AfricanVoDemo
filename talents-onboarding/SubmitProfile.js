@@ -11,7 +11,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, userBio, languageList, userData, voiceRanges, profileImageSrc, profileImage, voiceOverSamples }) => {
   const router = useRouter();
   //retrieve customer
-  const user = JSON.parse(localStorage.getItem('user'))
+  // const user = JSON.parse(localStorage.getItem('user'))
   console.log(translationalSkills)
 
   const [error, setError] = useState(false);
@@ -75,7 +75,7 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
 
   //destructuring the object from values
 
-  const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+  // const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
 
 
   return (
