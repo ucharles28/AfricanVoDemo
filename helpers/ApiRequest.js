@@ -42,8 +42,7 @@ export async function post(url = '', request = {}, token = '') {
 }
 
 export async function postData(url = '', request = {}, token = '') {
-  console.log(`https://test.africanvo.com/doc/api/v1/${url}`);
-  await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
+  const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -83,7 +82,7 @@ export async function postData(url = '', request = {}, token = '') {
 }
 
 export async function get(url = '', token = '') {
-  await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
+  const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
