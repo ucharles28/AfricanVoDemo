@@ -160,7 +160,7 @@ const UserBio = ({ nextStep, prevStep, userBio, setUserBio, talentType }) => {
                       rows="5" 
                       cols="40"
                       value={userBio}
-                      onChange={(e) => {setUserBio(e.target.value)}}
+                      onChange={(e) => setUserBio(e.target.value)}
                     >
                     </textarea>
                 </label>

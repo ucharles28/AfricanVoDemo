@@ -6,7 +6,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 import Footer from '../components/footer';
 // import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
-import { post } from '../helpers/Api';
+import { post } from '../helpers/ApiRequest';
 
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);

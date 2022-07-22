@@ -156,16 +156,16 @@ const SetupComplete = ({ prevStep, nextStep }) => {
                         <button 
                             role="button" 
                             className="text-base font-semibold leading-6 text-purple-1000 border-purple-1000 border rounded-lg hover:bg-purple-600 hover:text-white py-2.5 px-3 mr-4" 
-                            onClick={prevStep}
+                            // onClick={prevStep}
                         >
-                           View my profile
+                           <Link href='#'><a className='hover:text-white'>View my profile</a></Link>
                         </button>
                         <button 
                             role="button" 
                             className="text-base font-semibold leading-6 text-white bg-purple-1000 border rounded-lg hover:bg-purple-600 py-2.5 px-3" 
                             // onClick={nextStep}
                         >
-                            <Link href='../login'><a> Browse Jobs</a></Link>
+                            <Link href='#'><a className='hover:text-white'> Browse Jobs</a></Link>
                         </button>
                     </div>
                 </div>
