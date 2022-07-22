@@ -1,4 +1,5 @@
-import Welcome from '../components/Welcome'
+import Welcome from '../components/Welcome';
+
 export default Welcome = () => {
     const [firstName, setFirstName] = useState('');
 

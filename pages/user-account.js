@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import NavxSearch from '../components/navxsearch';
 import { RiEdit2Fill, RiAddCircleFill } from 'react-icons/ri';
 import { FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
