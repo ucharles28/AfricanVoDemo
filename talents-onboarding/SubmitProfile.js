@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
+import { RiEdit2Fill } from 'react-icons/ri';
 import validator from 'validator';
 import Footer from '../components/footer';
 import { postData, get } from '../helpers/ApiRequest'
 import { tokenIsValid } from '../helpers/Utils'
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, userBio, languageList, userData, voiceRanges, profileImageSrc, profileImage, voiceOverSamples }) => {
   const router = useRouter();
@@ -72,6 +74,9 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
   const [show1, setShow1] = useState(false)
 
   //destructuring the object from values
+
+  const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
 
   return (
 
@@ -214,8 +219,10 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                 </button>
               </div>
             </div>
+
             <div className='flex mt-16 justify-center'>
-              <div className='w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
+            <div className="lg:flex lg:items-stretch lg:space-x-2 lg:h-full w-full lg:flex-row lg:gap-4 grid grid-cols-1">
+              {/* <div className='w-full lg:flex-row lg:flex lg:gap-4 grid grid-cols-1'> */}
                 {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
                 <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-5 mb-2">
                   <div className="flex flex-col items-center justify-center pb-10">
@@ -291,9 +298,7 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                   <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
                     <div className="flex items-center pb-3">
                       <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Audio Sample</p>
-                      <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2ZM5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18ZM15.27 4L18 6.73l-2 1.95L13.32 6Z" /></svg>
-                      </span>
+                      <RiEdit2Fill size={20} className='text-[#828282]'/>
                     </div>
                     {talentType !== 'VoiceOver' ? languageList.map((language, index) => (<div
                       className="py-2.5 px-3 mb-2 font-inter grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">

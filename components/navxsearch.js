@@ -9,8 +9,10 @@ function NavxSearch () {
     // state for change email
     const [show1, setShow1] = useState(false)
 
+    const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
     return (
-        <div className="bg-white fixed w-full z-10 shadow-sm pb-2 mb-16 font-inter">
+        <div className="bg-white fixed w-full z-10 shadow-sm pb-3 mb-16 font-inter">
             <div className="px-4 pt-2 pb-2 h-12 mt-2 mx-auto w-full sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="w-full relative flex items-center justify-between">
                     <a
@@ -26,7 +28,6 @@ function NavxSearch () {
                             <div className="relative mx-auto lg:block hidden">
                                 <form className='="hidden lg:flex"'>
                                     <span className='absolute inset-y-0.5 left-0 p-2 ml-px items-center text-gray-550 hover:text-gray-600 mr-2'>
-                                        {/* <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M3 5h4m14 0H11m-8 7h12m6 0h-2M3 19h2m16 0H9"/><circle cx="9" cy="5" r="2"/><circle cx="17" cy="12" r="2"/><circle cx="7" cy="19" r="2"/></g></svg> */}
                                         <GoSettings size={20}/>
                                     </span>
                                     <span className='absolute inset-y-0.5 left-7 p-2 ml-px items-center text-gray-550 hover:text-gray-600'><AiOutlineSearch size={20}/></span>
@@ -42,37 +43,37 @@ function NavxSearch () {
                         {/* </form> */}
                     </div>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
-                        <li className='flex items-center'>
+                        <li className='flex items-center hover:bg-purple-200 px-1 py-0.5'>
                             <a
                                 href="#"
-                                className="font-medium text-xs hover:text-gray-900 tracking-wide text-gray-550 transition-colors duration-200"
+                                className="font-medium text-xs hover:text-gray-500 tracking-wide text-gray-550 transition-colors duration-200 flex-col justify-between flex"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 6h-3V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v1H5C3.3 6 2 7.3 2 9v9c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3V9c0-1.7-1.3-3-3-3zm-9-1h4v1h-4V5zm10 13c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-5.6L8.7 14H15c.1 0 .2 0 .3-.1l4.7-1.6V18z"/></svg>
-                                <span className='pt-2'>Jobs</span>
+                                <div className='m-auto'><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M19 6h-3V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v1H5C3.3 6 2 7.3 2 9v9c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3V9c0-1.7-1.3-3-3-3zm-9-1h4v1h-4V5zm10 13c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-5.6L8.7 14H15c.1 0 .2 0 .3-.1l4.7-1.6V18z"/></svg></div>
+                                <span className=''>Jobs</span>
                             </a>
                         </li>
-                        <li className='flex items-center'>
+                        <li className='flex items-center hover:bg-purple-200 px-1 py-0.5'>
                             <a
                                 href="#"
-                                className="font-medium text-xs hover:text-gray-900 tracking-wide text-gray-550 transition-colors duration-200"
+                                className="font-medium text-xs hover:text-gray-500 tracking-wide text-gray-550 transition-colors duration-200 flex-col justify-between flex"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459c-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174c.195-.195.437-.393.691-.599c.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 0 0-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"/></svg>
-                                <span className='pt-2'>Help</span>
+                                <div className='m-auto'><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459c-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174c.195-.195.437-.393.691-.599c.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 0 0-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"/></svg></div>
+                                <span className=''>Help</span>
                             </a>
                         </li>
-                        <li className='flex items-center align-middle'>
+                        <li className='flex items-center hover:bg-purple-200 px-1 py-0.5'>
                             <a
                                 href="#"
-                                className="font-medium text-xs hover:text-gray-900 tracking-wide text-gray-550 transition-colors duration-200"
+                                className="font-medium text-xs hover:text-gray-500 tracking-wide text-gray-550 transition-colors duration-200 flex-col justify-between flex"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="m8.5 18l3.5 4l3.5-4H19c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3.5zM7 7h10v2H7V7zm0 4h7v2H7v-2z"/></svg>
-                                <span className='pt-2'>Messages</span>
+                                <div className='m-auto'><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#828282" d="m8.5 18l3.5 4l3.5-4H19c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3.5zM7 7h10v2H7V7zm0 4h7v2H7v-2z"/></svg></div>
+                                <span className=''>Messages</span>
                             </a>
                         </li>
                         <li>
                             <div className="relative flex items-center justify-end">
                                 <a href="#" className="block relative">
-                                    <img src="https://i.ibb.co/X5LP2MZ/avatar.png" alt="avatar" border="0" className="mx-auto object-cover rounded-full h-8 w-8" onClick={()=>setShow1(!show1)} />
+                                    <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
                                 </a>
                             </div>
                             { 
@@ -81,14 +82,7 @@ function NavxSearch () {
                                     <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                         <span className="flex flex-col">
                                             <span>
-                                                Settings
-                                            </span>
-                                        </span>
-                                    </a>
-                                    <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                        <span className="flex flex-col">
-                                            <span>
-                                                Account
+                                                Account Settings
                                             </span>
                                         </span>
                                     </a>

@@ -2,7 +2,8 @@ module.exports = {
     content: [
       './pages/**/*.{html,js}',
       './components/*.{html,js}',
-      './talents-onboarding/*.{html,js}'
+      './talents-onboarding/*.{html,js}',
+      './client-onboarding/*.{html,js}'
     ],
     media: false, // or 'media' or 'class'
     theme: {
@@ -47,5 +48,7 @@ module.exports = {
     variants: {
       extend: {},
     },
-    plugins: [],
+    plugins: [
+      require('tailwind-scrollbar'),
+    ],
 };

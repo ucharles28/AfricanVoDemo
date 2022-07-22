@@ -3,6 +3,8 @@ import Footer from './footer';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
 import { useRouter } from 'next/router'
+import { FaUser } from 'react-icons/fa';
+import { IoMdMailOpen } from 'react-icons/io';
 
 const Welcome = ({ firstName }) => {
     const router = useRouter();
@@ -153,16 +155,12 @@ const Welcome = ({ firstName }) => {
                         <div className="container mx-auto mt-8 rounded bg-gray-100 xl:w-full">
                             <div className="container mx-auto">
                                 <div className="flex items-center my-4 py-4 border-b-2 pr-8">
-                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                        <path fill="#4F4F4F" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z" />
-                                    </svg>
+                                    <FaUser className='text-[#4F4F4F]'/>
                                     <p className="text-base font-medium ml-4 text-gray-550">Answer a few question and start building your portfolio</p>
                                 </div>
                                 <div className="pb-4 pr-8 border-b-2 ">
                                     <div className="flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#4F4F4F" d="m4 8l8 5l8-5l-8-5l-8 5m18 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8c0-.73.39-1.36.97-1.71L12 .64l9.03 5.65c.58.35.97.98.97 1.71Z" />
-                                        </svg>
+                                        <IoMdMailOpen className='text-[#4F4F4F]'/>
                                         <p className="text-base font-medium ml-4 text-gray-550">Apply or audition for jobs rolls posted by clients</p>
                                     </div>
                                 </div>
