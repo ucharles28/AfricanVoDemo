@@ -6,7 +6,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
 import Footer from '../components/footer';
 import jwt_decode from 'jwt-decode';
-import { post } from '../helpers/Api';
+import { post } from '../helpers/ApiRequest';
 
 // creating functional component ans getting props from app.js and destucturing them
 const UserEmail = ({ nextStep, setParentEmail, accountType }) => {

@@ -213,7 +213,6 @@ const Signup = () => {
           <UserEmail nextStep={nextStep} setParentEmail={setEmail} accountType={accountType} />
         </div>
       );
-    // case 2 to show stepTwo form passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the form
     case 3:
       return (
         <div>

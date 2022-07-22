@@ -1,8 +1,8 @@
 import Footer from '../components/footer';
 import React, { useState, useMemo } from 'react';
-import validator from 'validator';
+// import validator from 'validator';
 import { Form, Col, Modal, Button } from 'react-bootstrap';
-import Select from 'react-select';
+// import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { RiAddCircleFill } from 'react-icons/ri';
 import Styledcheckbox from '../components/styles/StyledCheckbox';
