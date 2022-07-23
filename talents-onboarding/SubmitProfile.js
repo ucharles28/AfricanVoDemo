@@ -10,9 +10,9 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, userBio, languageList, userData, voiceRanges, profileImageSrc, profileImage, voiceOverSamples }) => {
   const router = useRouter();
+
   //retrieve customer
   // const user = JSON.parse(localStorage.getItem('user'))
-  console.log(translationalSkills)
 
   const [error, setError] = useState(false);
   const [firstName, setFirstName] = useState('');
@@ -298,7 +298,7 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                   <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
                     <div className="flex items-center pb-3">
                       <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Audio Sample</p>
-                      <RiEdit2Fill size={20} className='text-[#828282]'/>
+                      <span className='border-2 rounded-full py-1 px-1 border-[#828282]'><RiEdit2Fill size={20} className='text-[#828282]'/></span>
                     </div>
                     {talentType !== 'VoiceOver' ? languageList.map((language, index) => (<div
                       className="py-2.5 px-3 mb-2 font-inter grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">

@@ -46,7 +46,7 @@ export default function Portfolio() {
             {((step === 3) && talentType === 'VoiceOver') && <UserLang nextStep={nextStep} prevStep={prevStep} setParentLanguageList={setLanguageList} />}
             {((step === 4) && talentType === 'VoiceOver') && <UserProfile setProfileImageSrc={setProfileImageSrc} profileImageSrc={profileImageSrc} talentType={talentType} setProfileImage={setProfileImage} nextStep={nextStep} prevStep={prevStep} setUserData={setUserData} />}
             {((step === 5) && talentType === 'VoiceOver') && <UserSample nextStep={nextStep} prevStep={prevStep} setVoiceOverSamples={setVoiceOverSamples} voiceOverSamples={voiceOverSamples} userData={userData} voiceRanges={voiceRanges} />}
-            {((step === 6) && talentType === 'VoiceOver') && <SubmitProfile nextStep={nextStep} userData={userData} prevStep={prevStep} profileImageSrc={profileImageSrc} userBio={userBio} talentType={talentType} profileImage={profileImage} voiceOverSamples={voiceOverSamples} languageList={languageList} />}
+            {((step === 6) && talentType === 'VoiceOver') && <SubmitProfile nextStep={nextStep} userData={userData} prevStep={prevStep} profileImageSrc={profileImageSrc} userBio={userBio} talentType={talentType} profileImage={profileImage} voiceOverSamples={voiceOverSamples} languageList={languageList} voiceRanges={voiceRanges} />}
             {((step === 7) && talentType === 'VoiceOver') && <SetupComplete prevStep={prevStep} nextStep={nextStep} />}
             
         </di>

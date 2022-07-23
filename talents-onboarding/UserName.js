@@ -6,6 +6,7 @@ import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { post } from '../helpers/ApiRequest';
 import Footer from '../components/footer';
+import { Bars } from 'react-loader-spinner';
 
 const UserName = ({ nextStep, email, accountType }) => {
 
