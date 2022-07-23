@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Form, Col } from 'react-bootstrap';
 import validator from 'validator';
@@ -7,6 +7,10 @@ import countryList from 'react-select-country-list';
 import { post } from '../helpers/ApiRequest';
 import Footer from '../components/footer';
 import { Bars } from 'react-loader-spinner';
+
+function simulateNetworkRequest() {
+  return new Promise((resolve) => setTimeout(resolve, 3000));
+}
 
 const UserName = ({ nextStep, email, accountType }) => {
 
@@ -51,6 +55,18 @@ const UserName = ({ nextStep, email, accountType }) => {
   const changeHandler = Cvalue => {
     setCountry(Cvalue)
   }
+
+  const [isLoading, setLoading] = useState(false);
+  useEffect(() => {
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
+
+  const handleClick = () => setLoading(true);
+
 
   return (
     <div>
@@ -290,17 +306,13 @@ const UserName = ({ nextStep, email, accountType }) => {
               <div className="mt-8">
                 <button
                   role="submit"
-                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
+                  className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center"
+                  disabled={isLoading}
+                  onClick={!isLoading ? handleClick : null}
                 >
-                  Create my account
+                  {isLoading ? <Bars height={24} width={24} color='#ffffff' className='flex'/> : 'Create my account'}
+                  
                 </button>
-                {/* <button
-                  role="button"
-                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full"
-                  onClick={prevStep}
-                >
-                  Go Back
-                </button> */}
               </div>
           </Form>
           <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
