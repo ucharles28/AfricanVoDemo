@@ -6,6 +6,8 @@ import { Form, Col, Modal, Button } from 'react-bootstrap';
 import countryList from 'react-select-country-list';
 import { RiAddCircleFill } from 'react-icons/ri';
 import Styledcheckbox from '../components/styles/StyledCheckbox';
+import { RiEdit2Fill } from 'react-icons/ri';
+import { IoTrashOutline } from 'react-icons/io5';
 
 
 const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples }) => {
@@ -98,7 +100,13 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
     setTone('')
     setGenre('')
     setShowModal(false);
-}
+  }
+
+  // play mp3 file
+  // const playAudio = () => { 
+  //   const audioEl = document.getElementsByClassName("audio-element")[0]
+  //   audioEl.play()
+  // }
 
   return (
     <div>
@@ -296,6 +304,41 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
             Lastly, show how great you are, upload an audio sample.
           </p>
           <p className="pb-6 text-base text-left text-gray-550">Talent who add portfolios to their profile are more likely to win work. (+20%) </p>
+          <div className="py-3 px-3 mb-2 text-purple-1000 flex flex-col justify-center rounded-xl bg-[#F9F4FF]">
+            <div className='flex flex-col items-stretch space-y-2 w-full'>
+
+              <div className="item w-full">
+                <span className='text-base font-medium text-gray-900 text-left'>My sound sample.mp3</span>
+              </div>
+
+              <div className="item w-full">
+                <div className='flex flex-row'>
+                  <div className='bg-[#E0E0E0] px-2 py-0.5 rounded-full'>
+                    <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="item w-full">
+                <div className='flex items-stretch space-x-4 h-auto w-full'>
+
+                  <div class="item w-full">
+                    <audio src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3" controls controlsList="nodownload" />
+                    {/* <button onClick={playAudio}></button> */}
+                  </div>
+
+                  <div class="item w-32">
+                    <div className="flex items-center gap-3">
+                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline size={20} className='text-purple-1000'/></span>
+                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill size={20} className='text-purple-1000'/></span>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
           <div className="py-5 px-3 mb-2 text-purple-1000 flex flex-col items-center justify-center rounded-xl bg-[#F9F4FF] text-center">
             <button
               type="button"

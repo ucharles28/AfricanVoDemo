@@ -85,6 +85,11 @@ function JobBoard () {
             </TabPane>
           </Tabs>
           <div className='bg-white rounded-lg mt-4 px-2 py-2'>
+            <div className="flex py-2 px-2">
+              <p role="heading" className="text-xl lg:text-2xl font-semibold text-gray-900 block">
+                Jobs you might like
+              </p>
+            </div>
             <div className="flex flex-col items-stretch space-y-2 h-auto w-full">
               <div className="item w-full border-y-2">
                 <div className='hover:bg-gray-100 my-3 h-52 px-2 py-2'>

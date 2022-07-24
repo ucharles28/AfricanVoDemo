@@ -308,10 +308,12 @@ const UserName = ({ nextStep, email, accountType }) => {
                   role="submit"
                   className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center"
                   disabled={isLoading}
-                  onClick={!isLoading ? handleClick : null}
+                  onClick={handleClick}
                 >
-                  {isLoading ? <Bars height={24} width={24} color='#ffffff' className='flex'/> : 'Create my account'}
-                  
+                  <div className='flex items-center justify-center'>
+                  {isLoading && <Bars height={22} width={22} color='#ffffff' className=''/>}
+                    <span className='pl-2'>Create my account</span>
+                  </div>
                 </button>
               </div>
           </Form>
