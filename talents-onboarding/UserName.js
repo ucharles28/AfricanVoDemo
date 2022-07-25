@@ -19,6 +19,7 @@ const UserName = ({ nextStep, email, accountType }) => {
       event.stopPropagation();
     } else {
       //Checks
+      setLoading(true);
       if (password.length < 8) {
         setErrorMessage('Use 8 characters or more for your password')
         setShowAlert(true)
@@ -40,11 +41,11 @@ const UserName = ({ nextStep, email, accountType }) => {
       console.log(request);
       // Sign Up
       const response = await post('Auth/SignUp', request, '');
-
-      if (response.success) {
+      console.log(response)
+      if (response.successful) {
         localStorage.setItem('token', response.data.Token);
         localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
-        localStorage.setItem('user', response.data);
+        localStorage.setItem('user', JSON.stringify(response.data));
         setLoading(false)
         nextStep();
       } else {
@@ -54,6 +55,7 @@ const UserName = ({ nextStep, email, accountType }) => {
       }
     }
     setValidated(true);
+    setLoading(false);
   };
 
   const [validated, setValidated] = useState(false);
@@ -328,7 +330,7 @@ const UserName = ({ nextStep, email, accountType }) => {
                 role="submit"
                 className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center"
                 disabled={isLoading || !firstName || !lastName || !confirmPassword || !password || !country}
-                onClick={handleClick}
+                onClick={handleSubmit}
               >
                 <div className='flex items-center justify-center'>
                   {isLoading && <Bars height={22} width={22} color='#ffffff' className='' />}

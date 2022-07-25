@@ -11,6 +11,9 @@ export async function post(url = '', request = {}, token = '') {
     body: JSON.stringify(request),
   })
     .then(async (res) => {
+      // const text = await res.text()
+      console.log('res', res)
+      // console.log('text', text)
       /*Check if request forbidden due to expired token
         Then request a new token if it is
     q */
@@ -25,12 +28,14 @@ export async function post(url = '', request = {}, token = '') {
       }
       const responseObject = {
         successful: res.ok,
-        data: await res.json(),
+        data: res.ok ? await res.json() : await res.text(),
       };
+      console.log('response', responseObject)
       return responseObject;
     })
     // .then((data) => data)
     .catch((error) => {
+      console.log('err', error)
       // return error;
       const responseObject = {
         successful: false,
@@ -74,6 +79,7 @@ export async function postData(url = '', request = {}, token = '') {
     // .then((data) => data)
     .catch((error) => {
       // return error;
+      console.log('error', error)
       const responseObject = {
         successful: false,
         data: 'Unable to send request. Kindly your internet connection and try again',
