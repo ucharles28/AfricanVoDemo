@@ -273,10 +273,10 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                         </div>
                     </div>
                     <div className="py-4 px-3 mb-2 text-purple-1000 flex flex-col items-center justify-center rounded-xl bg-[#F9F4FF] text-center">
-                        {/* {languageList.map((singleLanguage, index) => ( */}
+                        {languageList.map((singleLanguage, index) => (
                             <div className='flex items-center mt-2'>
                                 <span className='mr-4 lg:text-xl text-lg leading-6 font-semibold text-gray-900'>
-                                    {/* {`${singleLanguage.sourceLanguage} to ${singleLanguage.targetLanguage}`} */}
+                                    {`${singleLanguage.sourceLanguage} to ${singleLanguage.targetLanguage}`}
                                 </span>
                                 <button
                                     type="button"
@@ -287,7 +287,7 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                                     <span className="lg:pl-3 pl-1.5 text-base">Add translation sample</span>
                                 </button>
                             </div>
-                        {/* ))} */}
+                        ))}
                     </div>
 
                     <Form onSubmit={handleSubmit} >
