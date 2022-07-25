@@ -1,9 +1,10 @@
 import Footer from '../components/footer';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { post } from '../helpers/ApiRequest';
+import { simulateNetworkRequest } from '../helpers/Utils'
 
 const UserAuth1 = ({ email, setParentEmail }) => {
     const router = useRouter();
@@ -15,8 +16,16 @@ const UserAuth1 = ({ email, setParentEmail }) => {
     const [show, setShow] = useState(false)
     const [show1, setShow1] = useState(false)
     const [newEmail, setNewEmail] = useState('')
+    const [isLoading, setLoading] = useState(false);
+    useEffect(() => {
+        if (isLoading) {
+            simulateNetworkRequest().then(() => {
+                setLoading(false);
+            });
+        }
+    }, [isLoading]);
 
-    const handleResendEmail = async() => {
+    const handleResendEmail = async () => {
         if (newEmail !== email) { //If email was change
             const request = {
                 oldEmail: email,
@@ -27,6 +36,9 @@ const UserAuth1 = ({ email, setParentEmail }) => {
             if (response.successful) {
                 setParentEmail(newEmail);
                 setShow(false)
+            } else {
+                setShowAlert(true)
+                setErrorMessage(response.data)
             }
         } else {
             const request = {
@@ -37,6 +49,9 @@ const UserAuth1 = ({ email, setParentEmail }) => {
             if (response.successful) {
                 setParentEmail(newEmail);
                 setShow(false)
+            } else {
+                setShowAlert(true)
+                setErrorMessage(response.data)
             }
         }
     }
@@ -62,7 +77,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                             <li>
                                 <div className="relative flex items-center justify-end">
                                     <a href="#" className="block relative">
-                                        <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={()=>setShow1(!show1)} />
+                                        <img src={profileImageSrc} alt="avatar" border="0" className="mx-auto object-cover rounded-full h-10 w-10" onClick={() => setShow1(!show1)} />
                                         {/* <span className="absolute w-3 border-2 left-3/4 -bottom-1 transform -translate-x-1/2 border-white h-3 bg-purple-1000 rounded-full">
                                 </span> */}
                                     </a>
@@ -73,7 +88,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                                             <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
                                                 <span className="flex flex-col">
                                                     <span>
-                                                       Account Settings
+                                                        Account Settings
                                                     </span>
                                                 </span>
                                             </a>
@@ -202,7 +217,11 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-4/5"
                                 onClick={handleResendEmail}
                             >
-                                Resend email verification
+                                <div className='flex items-center justify-center'>
+                                    {isLoading && <Bars height={22} width={22} color='#ffffff' className='' />}
+                                    <span className='pl-2'>Resend email verification</span>
+                                </div>
+
                             </button>
                         </div>
                     </Form>

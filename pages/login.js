@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import jwt_decode from 'jwt-decode';
 import { Navbar, Nav, Container, Button, Form, Col } from 'react-bootstrap';
@@ -7,6 +7,8 @@ import Footer from '../components/footer';
 // import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from '@react-oauth/google';
 import { post } from '../helpers/ApiRequest';
+import { simulateNetworkRequest } from '../helpers/Utils'
+import CustomAlert from '../components/CustomAlert';
 
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -18,8 +20,17 @@ function Login() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('Errorrrrr ');
+  const [showAlert, setShowAlert] = useState(true);
 
-
+  const [isLoading, setLoading] = useState(false);
+  useEffect(() => {
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+      });
+    }
+  }, [isLoading]);
   const handleSubmit = async (event) => {
 
     event.preventDefault();
@@ -46,6 +57,9 @@ function Login() {
         JSON.stringify(response.data.TokenExpiryDate)
       );
       localStorage.setItem('user', JSON.stringify(response.data));
+    } else {
+      setShowAlert(true)
+      setErrorMessage(response.data)
     }
   };
 
@@ -58,12 +72,16 @@ function Login() {
 
     // Sign In
     const response = await post('Auth/SignIn', request, '');
-    console.log(response);
+
     if (response.successful) {
-    localStorage.setItem('token', response.data.Token);
-    localStorage.setItem('tokenExpiry', response.data.TokenExpiryDate);
-    localStorage.setItem('user', JSON.stringify( response.data));
-}
+      localStorage.setItem('token', response.data.Token);
+      localStorage.setItem('tokenExpiry', response.data.TokenExpiryDate);
+      localStorage.setItem('user', JSON.stringify(response.data));
+    } else {
+      setShowAlert(true)
+      setErrorMessage(response.data)
+    }
+    setLoading(false)
   };
 
   return (
@@ -168,6 +186,9 @@ function Login() {
       <div className="h-full bg-gray-100 shadow-sm w-full py-16 px-4 w-100 font-inter ">
         <div>
           <div className="flex flex-col items-center justify-center">
+            <div style={{ padding: '10px', width: '30%' }}>
+              <CustomAlert show={showAlert} message={errorMessage} type="error" showTitle />
+            </div>
             <div className="bg-white rounded lg:w-1/3  md:w-1/2 w-full mt-12 p-10 shadow-sm">
               <p
                 tabIndex={0}
@@ -224,9 +245,13 @@ function Login() {
                     role="button"
                     type="submit"
                     aria-label="log into my account"
+                    disabled={!email || !password || isLoading}
                     className="text-base font-semibold rounded-lg leading-none text-white focus:outline-none bg-purple-1000 border hover:bg-purple-500 py-3 w-full"
                   >
-                    Login
+                    <div className='flex items-center justify-center'>
+                      {isLoading && <Bars height={22} width={22} color='#ffffff' className='' />}
+                      <span className='pl-2'>Login</span>
+                    </div>
                   </button>
                 </div>
               </Form>

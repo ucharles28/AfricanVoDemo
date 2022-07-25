@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../components/footer';
 import NavxSearch from '../components/navxsearch';
 import { Form } from 'react-bootstrap'
 
-const PostTitle = ({ nextStep, prevStep }) => {
-
+const JobTitle = ({ nextStep, projectName, setProjectName }) => {
     return (
         <div>
             <NavxSearch />
@@ -44,6 +43,8 @@ const PostTitle = ({ nextStep, prevStep }) => {
                                         className=" bg-white border-2 rounded-lg border-gray-300 text-base text-black py-2 px-2 mt-1 w-3/4"
                                         type="text"
                                         name="title"
+                                        value={projectName}
+                                        onChange={(e) => setProjectName(e.target.value)}
                                     />
                                 </div>
                             </Form>
@@ -55,6 +56,7 @@ const PostTitle = ({ nextStep, prevStep }) => {
                 <div className="mr-10 mb-10 float-right justify-end">
                     <button 
                         role="button" 
+                        disabled={!projectName}
                         className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3"
                         onClick={nextStep}
                     >
@@ -67,4 +69,4 @@ const PostTitle = ({ nextStep, prevStep }) => {
     );
 }
 
-export default PostTitle;
+export default JobTitle;

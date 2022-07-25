@@ -4,7 +4,7 @@ import NavxSearch from '../components/navxsearch';
 import { Form } from 'react-bootstrap'
 import { BsFillMicFill, BsTranslate } from 'react-icons/bs';
 
-const SelectService = ({ nextStep, prevStep }) => {
+const SelectServiceType = ({ nextStep, prevStep, setTalentType, talentType }) => {
 
     return (
         <div>
@@ -45,7 +45,7 @@ const SelectService = ({ nextStep, prevStep }) => {
                                         <p>Choose the service you will like to hire a talent for</p>
                                     </div>
                                     <div className='flex items-center gap-4 mt-1'>
-                                        <div className='border-2 px-2 py-2 border-purple-1000 rounded-lg flex w-64'>
+                                        <div className='border-2 px-2 py-2 border-purple-1000 rounded-lg flex w-64' onClick={() => setTalentType('VoiceOver')}>
                                             <BsFillMicFill size={50} className='text-purple-1000 mr-2'/>
                                             <div className=''>
                                                 <span className='text-base leading-6 text-gray-900 font-semibold'>Voice Over</span><br></br>
@@ -53,7 +53,7 @@ const SelectService = ({ nextStep, prevStep }) => {
                                             </div>
                                             
                                         </div>
-                                        <div className='border-2 px-2 py-2 border-gray-300 rounded-lg flex w-64 hover:border-purple-1000 hover:shadow-md'>
+                                        <div className='border-2 px-2 py-2 border-gray-300 rounded-lg flex w-64 hover:border-purple-1000 hover:shadow-md' onClick={() => setTalentType('Translator')}>
                                             <BsTranslate size={50} className='text-purple-1000 mr-2'/>
                                             <div className=''>
                                                 <span className='text-base leading-6 text-gray-900 font-semibold'>Translation</span><br></br>
@@ -93,4 +93,4 @@ const SelectService = ({ nextStep, prevStep }) => {
     );
 }
 
-export default SelectService;
+export default SelectServiceType;

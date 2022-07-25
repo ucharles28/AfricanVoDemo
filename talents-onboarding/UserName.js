@@ -7,10 +7,8 @@ import countryList from 'react-select-country-list';
 import { post } from '../helpers/ApiRequest';
 import Footer from '../components/footer';
 import { Bars } from 'react-loader-spinner';
-
-function simulateNetworkRequest() {
-  return new Promise((resolve) => setTimeout(resolve, 3000));
-}
+import { simulateNetworkRequest } from '../helpers/Utils'
+import CustomAlert from '../components/CustomAlert';
 
 const UserName = ({ nextStep, email, accountType }) => {
 
@@ -20,6 +18,16 @@ const UserName = ({ nextStep, email, accountType }) => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
+      //Checks
+      if (password.length < 8) {
+        setErrorMessage('Use 8 characters or more for your password')
+        setShowAlert(true)
+      }
+      if (confirmPassword !== password) {
+        setErrorMessage('Both passwords didn’t match. Please try again.')
+        setShowAlert(true)
+      }
+      //Make call
       const request = {
         email,
         isGoogleAuth: false,
@@ -32,11 +40,18 @@ const UserName = ({ nextStep, email, accountType }) => {
       console.log(request);
       // Sign Up
       const response = await post('Auth/SignUp', request, '');
-      console.log(response);
-      localStorage.setItem('token', response.Token);
-      localStorage.setItem('tokenExpiryDate', response.TokenExpiryDate);
-      localStorage.setItem('user', response);
-      nextStep();
+
+      if (response.success) {
+        localStorage.setItem('token', response.data.Token);
+        localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
+        localStorage.setItem('user', response.data);
+        setLoading(false)
+        nextStep();
+      } else {
+        setShowAlert(true)
+        setErrorMessage(response.data)
+        setLoading(false)
+      }
     }
     setValidated(true);
   };
@@ -51,6 +66,8 @@ const UserName = ({ nextStep, email, accountType }) => {
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState();
+  const [showAlert, setShowAlert] = useState(false);
 
   const changeHandler = Cvalue => {
     setCountry(Cvalue)
@@ -167,6 +184,9 @@ const UserName = ({ nextStep, email, accountType }) => {
         </div>
       </div>
       {/* Navbar ends */}
+      <div style={{ padding: '10px' }}>
+        {/* <CustomAlert show={showAlert} message={errorMessage} type="error" showTitle /> */}
+      </div>
       <div className="flex flex-col items-center justify-center">
         <div className="lg:w-1/3 md:w-1/2 pt-10 pl-4 pr-4 justify-center my-5">
           <p
@@ -179,143 +199,143 @@ const UserName = ({ nextStep, email, accountType }) => {
           </p>
           <p className="text-center pb-2 text-base font-normal text-gray-500">{email}{' '}</p>
           <Form noValidate validated={validated} onSubmit={handleSubmit} >
-              <div className="grid grid-cols-1 gap-2 lg:gap-4 sm:grid-cols-2">
-                <Form.Group as={Col} controlId="validationCustom01">
-                  <div>
-                    <label className="text-sm font-semibold leading-none text-gray-800">
-                      First Name
-                    </label>
-                    <Form.Control
-                      className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
-                      placeholder="Enter first name"
-                      type="text"
-                      required
-                      name="firstName"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide an first name.
-                    </Form.Control.Feedback>
-                  </div>
-                </Form.Group>
-                <Form.Group as={Col} controlId="validationCustom02">
-                  <div>
-                    <label className="text-sm font-semibold leading-none text-gray-800">
-                      Last Name
-                    </label>
-                    <Form.Control
-                      className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
-                      placeholder="Enter last name"
-                      type="text"
-                      required
-                      name="lastName"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide an last name.
-                    </Form.Control.Feedback>
-                  </div>
-                </Form.Group>
-              </div>
-              <Form.Group as={Col} controlId="validationCustomPassword">
-                <div className="mt-2 w-full">
-                  <label className="text-sm font-medium leading-none text-gray-800">
-                    Create Password
+            <div className="grid grid-cols-1 gap-2 lg:gap-4 sm:grid-cols-2">
+              <Form.Group as={Col} controlId="validationCustom01">
+                <div>
+                  <label className="text-sm font-semibold leading-none text-gray-800">
+                    First Name
                   </label>
                   <Form.Control
-                    type="password"
-                    placeholder="Create password"
-                    role="input"
-                    className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                    className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                    placeholder="Enter first name"
+                    type="text"
                     required
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please provide an valid password.
+                    Please provide an first name.
                   </Form.Control.Feedback>
                 </div>
               </Form.Group>
-              <Form.Group as={Col} controlId="validationCustomRepeatpassword">
-                <div  className="mt-2 w-full">
-                  <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
-                    <Form.Control 
-                      type="password" 
-                      placeholder="Confirm password" 
-                      role="input" 
-                      className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"  
-                      required 
-                      name="confirmpassword"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      autocomplete 
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide an valid password.
-                    </Form.Control.Feedback>
-                </div>
-              </Form.Group>
-              <Form.Group as={Col} controlId="validationCustomCountry">
-                <div className="col-span-6 sm:col-span-3 mt-2">
-                  <label
-                    htmlFor="country"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Country
+              <Form.Group as={Col} controlId="validationCustom02">
+                <div>
+                  <label className="text-sm font-semibold leading-none text-gray-800">
+                    Last Name
                   </label>
-                  <Select
-                    name="country"
-                    placeholder="Select your country"
-                    className="mt-1 border-gray-300"
-                    value={country}
-                    options={options}
+                  <Form.Control
+                    className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                    placeholder="Enter last name"
+                    type="text"
                     required
-                    onChange={changeHandler}
+                    name="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please select a country.
+                    Please provide an last name.
                   </Form.Control.Feedback>
                 </div>
               </Form.Group>
-              <Form.Group as={Col} controlId="validationCustomTerms">
-                <div className="flex items-start mt-2 ml-1">
-                  <div className="flex items-center h-5">
-                    <Form.Check
-                      name="term"
-                      type="checkbox"
-                      // className="focus:ring-indigo-500 bg-purple-1000 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                      // required
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <p className=" ">
-                      Yes, I understand and agree to the Africanvo{' '}
-                      <span className="text-purple-1000">Terms of Service,</span>
-                      including the{' '}
-                      <span className="text-purple-1000">
-                        User Agreement
-                      </span> and{' '}
-                      <span className="text-purple-1000">Privacy Policy.</span>
-                    </p>
-                  </div>
-                </div>
-              </Form.Group>
-              <div className="mt-8">
-                <button
-                  role="submit"
-                  className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center"
-                  disabled={isLoading}
-                  onClick={handleClick}
-                >
-                  <div className='flex items-center justify-center'>
-                  {isLoading && <Bars height={22} width={22} color='#ffffff' className=''/>}
-                    <span className='pl-2'>Create my account</span>
-                  </div>
-                </button>
+            </div>
+            <Form.Group as={Col} controlId="validationCustomPassword">
+              <div className="mt-2 w-full">
+                <label className="text-sm font-medium leading-none text-gray-800">
+                  Create Password
+                </label>
+                <Form.Control
+                  type="password"
+                  placeholder="Create password"
+                  role="input"
+                  className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                  required
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide an valid password.
+                </Form.Control.Feedback>
               </div>
+            </Form.Group>
+            <Form.Group as={Col} controlId="validationCustomRepeatpassword">
+              <div className="mt-2 w-full">
+                <label className="text-sm font-medium leading-none text-gray-800">Confirm Password</label>
+                <Form.Control
+                  type="password"
+                  placeholder="Confirm password"
+                  role="input"
+                  className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                  required
+                  name="confirmpassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  autocomplete
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide an valid password.
+                </Form.Control.Feedback>
+              </div>
+            </Form.Group>
+            <Form.Group as={Col} controlId="validationCustomCountry">
+              <div className="col-span-6 sm:col-span-3 mt-2">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Country
+                </label>
+                <Select
+                  name="country"
+                  placeholder="Select your country"
+                  className="mt-1 border-gray-300"
+                  value={country}
+                  options={options}
+                  required
+                  onChange={changeHandler}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please select a country.
+                </Form.Control.Feedback>
+              </div>
+            </Form.Group>
+            <Form.Group as={Col} controlId="validationCustomTerms">
+              <div className="flex items-start mt-2 ml-1">
+                <div className="flex items-center h-5">
+                  <Form.Check
+                    name="term"
+                    type="checkbox"
+                  // className="focus:ring-indigo-500 bg-purple-1000 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  // required
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <p className=" ">
+                    Yes, I understand and agree to the Africanvo{' '}
+                    <span className="text-purple-1000">Terms of Service,</span>
+                    including the{' '}
+                    <span className="text-purple-1000">
+                      User Agreement
+                    </span> and{' '}
+                    <span className="text-purple-1000">Privacy Policy.</span>
+                  </p>
+                </div>
+              </div>
+            </Form.Group>
+            <div className="mt-8">
+              <button
+                role="submit"
+                className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center"
+                disabled={isLoading || !firstName || !lastName || !confirmPassword || !password || !country}
+                onClick={handleClick}
+              >
+                <div className='flex items-center justify-center'>
+                  {isLoading && <Bars height={22} width={22} color='#ffffff' className='' />}
+                  <span className='pl-2'>Create my account</span>
+                </div>
+              </button>
+            </div>
           </Form>
           <p className="text-sm mt-4 font-medium leading-none text-gray-500 text-center">
             Already have an account?{' '}

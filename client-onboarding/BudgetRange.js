@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../components/footer';
 import NavxSearch from '../components/navxsearch';
 import { BsFillFileEarmarkPlusFill, BsFillTagsFill } from 'react-icons/bs';
@@ -6,8 +6,48 @@ import { FiEdit } from 'react-icons/fi';
 import { Form, Col } from 'react-bootstrap';
 import { FaBalanceScaleRight } from 'react-icons/fa';
 import Styledcheckbox from '../components/styles/StyledCheckbox';
+import { get, postData } from '../helpers/ApiRequest';
+import { Bars } from 'react-loader-spinner';
 
-const BudgetRange = ({ nextStep, prevStep }) => {
+const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }) => {
+    const [budgetRange, setBudgetRange] = useState('')
+    const [fixedPrice, setFixedPrice] = useState('')
+    const [isFixedPrice, setIsFixedPrice] = useState(false)
+    const [isLoading, setLoading] = useState(false);
+    const budgetRanges = [
+        "$100 - $249",
+        "$250 - $499",
+        "$500 - $749",
+        "$750 - $999",
+        "$1,000 - $1,249",
+        "$$1,250 - $1,499",
+        "$1,500 - $1,749",
+        "$1,750 - $1,999",
+        "$2,000 - $2,499",
+        "$2,500 - $4,999",
+        "$5,000 - $7,499",
+        "$10,000+",
+    ]
+
+    const submitJob = async () => {
+        setLoading(true)
+        let token = localStorage.getItem('token')
+        let response = await get(`Auth/RenewToken/${token}`, '')
+        token = response.data.token
+        const request = {
+            ...jobDetails,
+            isFixedPrice,
+            fixedPrice,
+            budgetRange,
+            name: projectName,
+            talentType
+        }
+        console.log(request)
+        response = await postData('Job', request, token)
+        console.log(response)
+        setLoading(false)
+    }
+
     return (
         <div>
             <NavxSearch />
@@ -41,79 +81,68 @@ const BudgetRange = ({ nextStep, prevStep }) => {
                                 <span className="font-regular text-[#4F4F4F] block">This will help us match you to talent within your range.</span>
                             </div>
                             <div className='flex items-center gap-4 mt-3'>
-                                <div className='border-2 px-2 py-4 border-purple-1000 rounded-lg w-44 flex flex-col justify-between'>
-                                    <FaBalanceScaleRight size={24} className='text-purple-1000 mr-2 m-auto'/>
+                                <div className='border-2 px-2 py-4 border-purple-1000 rounded-lg w-44 flex flex-col justify-between' onClick={() => setIsFixedPrice(false)}>
+                                    <FaBalanceScaleRight size={24} className='text-purple-1000 mr-2 m-auto' />
                                     <div className='m-auto mt-2'>
                                         <span className='text-base leading-6 text-gray-900 font-semibold'>Budget Range</span>
-                                    </div>     
+                                    </div>
                                 </div>
-                                <div className='border-2 px-2 py-4 border-gray-300 hover:shadow-md hover:border-purple-1000 rounded-lg w-44 flex flex-col justify-between'>
-                                    <BsFillTagsFill size={24} className='flip text-purple-1000 mr-2 m-auto'/>
+                                <div className='border-2 px-2 py-4 border-gray-300 hover:shadow-md hover:border-purple-1000 rounded-lg w-44 flex flex-col justify-between' onClick={() => setIsFixedPrice(true)}>
+                                    <BsFillTagsFill size={24} className='flip text-purple-1000 mr-2 m-auto' />
                                     <div className='m-auto mt-2'>
                                         <span className='text-base text-center leading-6 text-gray-900 font-semibold'>Fixed Price</span>
                                     </div>
-                                            
+
                                 </div>
                             </div>
                         </div>
-                        <div className='mt-4'>
+                        {!isFixedPrice ? <div className='mt-4'>
                             <p className="text-sm font-semibold">What’s your budget range?&nbsp;</p>
-                            {/* <p className="text-sm font-regular pb-2 text-[#4f4f4f]">Attach your script or related file (max 30mb).</p> */}
                             <fieldset className="flex flex-wrap text-base">
-                                <Styledcheckbox>
-                                    <input type="radio" value="100-249" name="skill" className="mr-2 w-4 h-4" label="Animation" />$100 - $249
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="250-499" name="skill" className="mr-2 w-4 h-4" />$250 - $499
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="500-749" name="skill" className="mr-2 w-4 h-4" />$500 - $749
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="750-999" name="skill" className="mr-2 w-4 h-4" />$750 - $999
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="1000-1249" name="skill" className="mr-2 w-4 h-4" />$1,000 - $1,249
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="1250-1499" name="skill" className="mr-2 w-4 h-4" />$1,250 - $1,499
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="1500-1749" name="skill" className="mr-2 w-4 h-4" />$1,500 - $1,749
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="1750-1999" name="skill" className="mr-2 w-4 h-4" />$1,750 - $1,999
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="2000-2499" name="skill" className="mr-2 w-4 h-4" />$2,000 - $2,499
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="2500-4999" name="skill" className="mr-2 w-4 h-4" />$2,500 - $4,999
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="5000-7499" name="skill" className="mr-2 w-4 h-4" />$5,000 - $7,499
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="7500-9999" name="skill" className="mr-2 w-4 h-4" />$7,500 - $9,999
-                                </Styledcheckbox>
-                                <Styledcheckbox>
-                                    <input type="radio" value="10000+" name="skill" className="mr-2 w-4 h-4" />$10,000+
-                                </Styledcheckbox>
+                                {budgetRanges.map((range) => (<Styledcheckbox onClick={() => setBudgetRange(range)} active={range === budgetRange ? 'active' : ''}>
+                                    <input type="radio" value="100-249" checked={range === budgetRange} name="range" className="mr-2 w-4 h-4" label="Animation" />{range}
+                                </Styledcheckbox>))}
                             </fieldset>
-                        </div>
+                        </div> : <div className='mt-4'>
+                            <Form.Group as={Col} controlId="validationCustom02">
+                                <div>
+                                    <label className="text-sm font-semibold leading-none text-gray-800">
+                                        What’s your fixed range?
+                                    </label>
+                                    <div className='relative'>
+                                        <div className="absolute inset-y-0 left-0 pl-3 pr-2 flex items-center pointer-events-none">
+                                            <span className="text-gray-900 font-bold text-lg">
+                                                $
+                                            </span>
+                                        </div>
+                                        <Form.Control
+                                            className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-1/2 pl-8 mt-1 placeholder:text-sm"
+                                            type="text"
+                                            placeholder='0.00 USD'
+                                            name="project-fixed-price"
+                                            value={fixedPrice}
+                                            onchage={(e) => setFixedPrice(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </Form.Group>
+                        </div>}
                         <div className="flow-root mt-24">
                             <div className="mr-10 float-right justify-end">
-                                <button 
-                                    role="button" 
+                                <button
+                                    role="button"
                                     className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3"
-                                    onClick={nextStep}
+                                    onClick={submitJob}
                                 >
-                                    Submit &amp; Post Project
+                                    <div className='flex items-center justify-center'>
+                                        {isLoading && <Bars height={22} width={22} color='#ffffff' className='' />}
+                                        <span className='pl-2'>Submit &amp; Post Project</span>
+                                    </div>
                                 </button>
                             </div>
                             <div className="mr-10 mb-10 float-right justify-end">
-                                <button 
-                                    role="button" 
+                                <button
+                                    role="button"
                                     className="text-base font-semibold leading-none text-gray-900 focus:outline-none bg-[#E0E0E0] border rounded-lg hover:bg-gray-400 py-3 px-3"
                                     onClick={prevStep}
                                 >
@@ -124,7 +153,7 @@ const BudgetRange = ({ nextStep, prevStep }) => {
                     </main>
                 </div>
             </div>
-            
+
             <Footer />
         </div>
     )

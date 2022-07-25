@@ -48,12 +48,14 @@ export async function postData(url = '', request = {}, token = '') {
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
-      'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${token}`,
     },
     body: request,
   })
     .then(async (res) => {
+      console.log(res)
+      const text = await res.text();
+      console.log(text)
       if (res.status === 401) {
         const response = await get(`Auth/RenewToken/${token}`, '')
         if (response.successful) {
@@ -65,7 +67,7 @@ export async function postData(url = '', request = {}, token = '') {
       }
       const responseObject = {
         successful: res.ok,
-        data: await res.json(),
+        data: await res?.json(),
       };
       return responseObject;
     })
@@ -82,6 +84,7 @@ export async function postData(url = '', request = {}, token = '') {
 }
 
 export async function get(url = '', token = '') {
+  console.log(`https://test.africanvo.com/doc/api/v1/${url}`)
   const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'GET',
     mode: 'cors',
@@ -93,23 +96,26 @@ export async function get(url = '', token = '') {
     },
   })
     .then(async (res) => {
-      if (res.status === 401) {
-        const response = await get(`Auth/RenewToken/${token}`, '')
-        if (response.successful) {
-          localStorage.setItem('token', response.data.Token);
-          localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
-          localStorage.setItem('user', JSON.stringify(response.data));
-        }
-        return await get(url, response.data.Token);
-      }
+      console.log('res', res)
+      console.log('status', res.status)
+      // if (!res.ok) {
+      //   const response = await get(`Auth/RenewToken/${token}`, '')
+      //   if (response.successful) {
+      //     localStorage.setItem('token', response.data.Token);
+      //     localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
+      //     localStorage.setItem('user', JSON.stringify(response.data));
+      //   }
+      //   return await get(url, response.data.Token);
+      // }
       const responseObject = {
         successful: res.ok,
-        data: await res.json(),
+        data: await res?.json(),
       };
       return responseObject;
     })
     // .then((data) => data)
     .catch((error) => {
+      console.log(error)
       // return error;
       const responseObject = {
         successful: false,
