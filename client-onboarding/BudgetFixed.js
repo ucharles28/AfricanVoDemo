@@ -5,7 +5,7 @@ import { BsFillFileEarmarkPlusFill, BsFillTagsFill } from 'react-icons/bs';
 import { FiEdit } from 'react-icons/fi';
 import { Form, Col } from 'react-bootstrap';
 import { FaBalanceScaleRight } from 'react-icons/fa';
-import Styledcheckbox from '../components/styles/StyledCheckbox';
+import BudgetButton from '../components/styles/BudgetButton';
 
 const BudgetFixed = ({ nextStep, prevStep }) => {
     return (
@@ -41,19 +41,22 @@ const BudgetFixed = ({ nextStep, prevStep }) => {
                                 <span className="font-regular text-[#4F4F4F] block">This will help us match you to talent within your range.</span>
                             </div>
                             <div className='flex items-center gap-4 mt-3'>
-                                <div className='border-2 px-2 py-4 border-gray-300 hover:shadow-md hover:border-purple-1000 rounded-lg w-44 flex flex-col justify-between'>
+                                {/* <div className='border-2 px-2 py-4 border-purple-1000 rounded-lg w-44 flex flex-col justify-between'> */}
+                                <BudgetButton>
                                     <FaBalanceScaleRight size={24} className='text-purple-1000 mr-2 m-auto'/>
                                     <div className='m-auto mt-2'>
                                         <span className='text-base leading-6 text-gray-900 font-semibold'>Budget Range</span>
-                                    </div>     
-                                </div>
-                                <div className='border-2 px-2 py-4 border-purple-1000 rounded-lg w-44 flex flex-col justify-between'>
+                                    </div> 
+                                </BudgetButton>   
+                                {/* </div> */}
+                                <BudgetButton active>
+                                {/* <div className='border-2 px-2 py-4 border-gray-300 hover:shadow-md hover:border-purple-1000 rounded-lg w-44 flex flex-col justify-between'> */}
                                     <BsFillTagsFill size={24} className='flip text-purple-1000 mr-2 m-auto'/>
                                     <div className='m-auto mt-2'>
                                         <span className='text-base text-center leading-6 text-gray-900 font-semibold'>Fixed Price</span>
                                     </div>
-                                            
-                                </div>
+                                {/* </div> */}
+                                </BudgetButton>
                             </div>
                         </div>
                         <div className='mt-4'>

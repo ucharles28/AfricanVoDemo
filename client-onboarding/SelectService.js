@@ -3,6 +3,7 @@ import Footer from '../components/footer';
 import NavxSearch from '../components/navxsearch';
 import { Form } from 'react-bootstrap'
 import { BsFillMicFill, BsTranslate } from 'react-icons/bs';
+import ClientButton from '../components/styles/ClientButton';
 
 const SelectService = ({ nextStep, prevStep }) => {
 
@@ -29,7 +30,6 @@ const SelectService = ({ nextStep, prevStep }) => {
                             <div className='flex items-center justify-center'>
                                 <div className='px-4 pt-32'>
                                     <span className='text-left text-3xl font-semibold leading-7 text-white'>Great! What service does your work require?</span>
-                                    {/* <p className='text-white text-sm font-medium leading-5 pt-3'>This helps your job post stand out to the right candidates. It’s the first thing they’ll see, so make it count!.</p> */}
                                 </div>
                             </div>
                         </div>
@@ -45,22 +45,26 @@ const SelectService = ({ nextStep, prevStep }) => {
                                         <p>Choose the service you will like to hire a talent for</p>
                                     </div>
                                     <div className='flex items-center gap-4 mt-1'>
-                                        <div className='border-2 px-2 py-2 border-purple-1000 rounded-lg flex w-64'>
-                                            <BsFillMicFill size={50} className='text-purple-1000 mr-2'/>
-                                            <div className=''>
+                                        {/* <div className='border-2 px-2 py-2 border-purple-1000 rounded-lg w-64 flex items-stretch space-x-2'> */}
+                                        <ClientButton active>
+                                            <BsFillMicFill size={60} className='text-purple-1000 mr-2 items'/>
+                                            <div className='items text-left'>
                                                 <span className='text-base leading-6 text-gray-900 font-semibold'>Voice Over</span><br></br>
                                                 <span className='text-xs font-medium text-gray-900'>Find a voice for documentary, narration, movie trailers, audio books, and more.</span>
                                             </div>
-                                            
-                                        </div>
-                                        <div className='border-2 px-2 py-2 border-gray-300 rounded-lg flex w-64 hover:border-purple-1000 hover:shadow-md'>
-                                            <BsTranslate size={50} className='text-purple-1000 mr-2'/>
-                                            <div className=''>
+                                            <input type='radio' value='voice-over' name='select-job-type' className='checked:bg-purple-1000 items mb-16'/>
+                                        </ClientButton>
+                                        {/* </div> */}
+                                        {/* <div className='border-2 px-2 py-2 border-gray-300 rounded-lg w-64 hover:border-purple-1000 hover:shadow-md flex items-stretch space-x-2 '> */}
+                                        <ClientButton>
+                                            <BsTranslate size={60} className='text-purple-1000 mr-2 items'/>
+                                            <div className='items'>
                                                 <span className='text-base leading-6 text-gray-900 font-semibold'>Translation</span><br></br>
                                                 <span className='text-xs font-medium text-gray-900'>Find a translator for professional conversation, technical document and more.</span>
                                             </div>
-                                            
-                                        </div>
+                                            <input type='radio' value='translator' name='select-job-type' className='items mb-16'/>
+                                        {/* </div> */}
+                                        </ClientButton>
                                     </div>
                                 </div>
                             </Form>

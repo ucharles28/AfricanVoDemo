@@ -4,9 +4,11 @@ import validator from 'validator';
 import { Form, Col, Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
-import { RiAddCircleFill } from 'react-icons/ri';
+import { RiAddCircleFill, RiEdit2Fill } from 'react-icons/ri';
 import Styledcheckbox from '../components/styles/StyledCheckbox';
 import CustomAlert from '../components/CustomAlert';
+import { IoTrashOutline } from 'react-icons/io5';
+import Stepbutton from '../components/styles/StepButton';
 
 // const GridStyles = styled.div`
 //   display: grid;
@@ -235,11 +237,46 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                         Lastly, show how great you are, upload your translation sample.
                     </p>
                     <p className="pb-6 text-base text-left text-gray-550">Talent who add portfolios to their profile are more likely to win work. (+20%) </p>
+                    <div className="py-3 px-3 mb-2 text-purple-1000 flex flex-col justify-center rounded-xl bg-[#F9F4FF]">
+                        <div className='flex flex-col items-stretch space-y-2 w-full'>
+                            
+                            <div className="item w-full">
+                                <span className='text-xl font-semibold text-gray-900 text-left'>English to Yoruba</span>
+                            </div>
+                            
+                            <div className="item w-full">
+                                <div className='flex items-stretch space-x-4 h-auto w-full'>
+                                    <div className="item w-full bg-[#E6D2FF] rounded-lg py-2 px-2">
+                                        <div className="item mb-2">
+                                            <span className='text-base font-medium text-gray-900 text-left'>My sound sample.mp3</span>
+                                        </div>
+                                        <div className='flex flex-row gap-2 flex-wrap'>
+                                            <div className='bg-purple-300 px-2 py-0.5 rounded-full'>
+                                                <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                                            </div>
+                                            <div className='bg-purple-300 px-2 py-0.5 rounded-full'>
+                                                <span className='text-[#4F4F4F] font-medium'>Consumer products</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="item w-32">
+                                        <div className="flex items-center gap-3">
+                                        <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline size={20} className='text-purple-1000'/></span>
+                                        <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill size={20} className='text-purple-1000'/></span>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <div className="py-4 px-3 mb-2 text-purple-1000 flex flex-col items-center justify-center rounded-xl bg-[#F9F4FF] text-center">
-                        {languageList.map((singleLanguage, index) => (
+                        {/* {languageList.map((singleLanguage, index) => ( */}
                             <div className='flex items-center mt-2'>
                                 <span className='mr-4 lg:text-xl text-lg leading-6 font-semibold text-gray-900'>
-                                    {`${singleLanguage.sourceLanguage} to ${singleLanguage.targetLanguage}`}
+                                    {/* {`${singleLanguage.sourceLanguage} to ${singleLanguage.targetLanguage}`} */}
                                 </span>
                                 <button
                                     type="button"
@@ -250,7 +287,7 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                                     <span className="lg:pl-3 pl-1.5 text-base">Add translation sample</span>
                                 </button>
                             </div>
-                        ))}
+                        {/* ))} */}
                     </div>
 
                     <Form onSubmit={handleSubmit} >
@@ -325,22 +362,26 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
             {/* prev & next button starts */}
             <div className="flow-root">
                 <div className="ml-10 mb-5 float-left justify-start">
-                    <button
+                    {/* <button
                         role="button"
                         className="text-base font-semibold leading-none text-gray-800 hover:text-white focus:outline-none bg-gray-300 border rounded-lg hover:bg-purple-500 py-3 px-6"
                         onClick={prevStep}
-                    >
+                    > */}
+                    <Stepbutton onClick={prevStep} color='#111827' backgroundColor='#cfcfcf' hoverBackgroundColor='#c0bebe' hoverColor='#111827'>
                         Back
-                    </button>
+                    </Stepbutton>
+                    {/* </button> */}
                 </div>
                 <div className="mr-10 mb-5 float-right justify-end">
-                    <button
+                    {/* <button
                         role="button"
                         className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6"
                         onClick={nextStep}
-                    >
+                    > */}
+                    <Stepbutton color='#ffffff' backgroundColor='#A259Ff' hoverBackgroundColor='#B175FF'>
                         Next, your professional brief
-                    </button>
+                    </Stepbutton>
+                    {/* </button> */}
                 </div>
             </div>
             {/* prev & next button ends */}

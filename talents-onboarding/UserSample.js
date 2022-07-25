@@ -312,7 +312,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
               </div>
 
               <div className="item w-full">
-                <div className='flex flex-row'>
+                <div className='flex flex-row flex-wrap'>
                   <div className='bg-[#E0E0E0] px-2 py-0.5 rounded-full'>
                     <span className='text-[#4F4F4F] font-medium'>Animation</span>
                   </div>
