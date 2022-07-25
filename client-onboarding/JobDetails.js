@@ -7,6 +7,7 @@ import { Form, Col } from 'react-bootstrap';
 import { get } from '../helpers/ApiRequest'
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
+import ClientButton from '../components/styles/ClientButton';
 
 const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
     const getCategories = async () => {
@@ -117,28 +118,27 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                             </div>
                         </div>
                     </main>
-                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] overflow-y-scroll scroll-smooth h-[35.5rem] scrollbar-thumb-purple-300 hover:scrollbar-thumb-purple-500 scrollbar-thin">
+                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] overflow-y-scroll scroll-smooth h-[35.5rem] scrollbar-thumb-purple-300 scrollbar-thin">
                         <div className="sm:text-center lg:text-left">
                             <div className="text-sm">
                                 <span className="font-semibold text-gray-900 block">Script Sample</span>
                                 <span className="font-regular text-[#4F4F4F] block">By providing a smaple of your script, you’ll recieve custom response from the talent. If you fon’t have your script yet, provide a generic exaample to their reads.</span>
                             </div>
                             <div className='flex items-center gap-4 mt-4'>
-                                <div className='border-2 px-2 py-2 border-gray-300 rounded-lg flex w-64 hover:border-purple-1000 hover:shadow-md' onClick={() => setShowSampleScript(true)}>
-                                    <FiEdit size={50} className='text-purple-1000 mr-2' />
+                                <ClientButton active={showSampleScript} onClick={() => setShowSampleScript(true)}>
+                                    <FiEdit size={50} className='text-purple-1000 mr-2'/>
                                     <div className=''>
                                         <span className='text-base leading-6 text-gray-900 font-semibold'>Enter Sample Script</span><br></br>
                                         <span className='text-xs font-medium text-[#4f4f4f]'>Type or copy and past a small sample of your script for talent</span>
-                                    </div>
-                                </div>
-                                <div className='border-2 px-2 py-2 border-purple-1000 rounded-lg flex w-64' onClick={() => setShowSampleScript(false)}>
-                                    <BsFillFileEarmarkPlusFill size={50} className='text-purple-1000 mr-2' />
+                                    </div>     
+                                </ClientButton>
+                                <ClientButton active={!showSampleScript} onClick={() => setShowSampleScript(false)}>
+                                    <BsFillFileEarmarkPlusFill size={50} className='text-purple-1000 mr-2'/>
                                     <div className=''>
                                         <span className='text-base leading-6 text-gray-900 font-semibold'>Upload Sample Script</span><br></br>
                                         <span className='text-xs font-medium text-[#4f4f4f]'>Type or copy and past a small sample of your script for talent</span>
                                     </div>
-
-                                </div>
+                                </ClientButton>       
                             </div>
                             {!showSampleScript ? <div className='mt-4'>
                                 <p className="text-sm font-semibold">Upload Audio File&nbsp;</p>

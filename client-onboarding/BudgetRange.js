@@ -8,6 +8,7 @@ import { FaBalanceScaleRight } from 'react-icons/fa';
 import Styledcheckbox from '../components/styles/StyledCheckbox';
 import { get, postData } from '../helpers/ApiRequest';
 import { Bars } from 'react-loader-spinner';
+import BudgetButton from '../components/styles/BudgetButton';
 
 const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }) => {
     const [budgetRange, setBudgetRange] = useState('')
@@ -81,19 +82,19 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                                 <span className="font-regular text-[#4F4F4F] block">This will help us match you to talent within your range.</span>
                             </div>
                             <div className='flex items-center gap-4 mt-3'>
-                                <div className='border-2 px-2 py-4 border-purple-1000 rounded-lg w-44 flex flex-col justify-between' onClick={() => setIsFixedPrice(false)}>
-                                    <FaBalanceScaleRight size={24} className='text-purple-1000 mr-2 m-auto' />
+                                <BudgetButton active={!isFixedPrice} onClick={() => setIsFixedPrice(false)}>
+                                    <FaBalanceScaleRight size={24} className='text-purple-1000 mr-2 m-auto'/>
                                     <div className='m-auto mt-2'>
                                         <span className='text-base leading-6 text-gray-900 font-semibold'>Budget Range</span>
-                                    </div>
-                                </div>
-                                <div className='border-2 px-2 py-4 border-gray-300 hover:shadow-md hover:border-purple-1000 rounded-lg w-44 flex flex-col justify-between' onClick={() => setIsFixedPrice(true)}>
-                                    <BsFillTagsFill size={24} className='flip text-purple-1000 mr-2 m-auto' />
+                                    </div> 
+                                </BudgetButton>   
+                                {/* </div> */}
+                                <BudgetButton active={isFixedPrice} onClick={() => setIsFixedPrice(true)}>
+                                    <BsFillTagsFill size={24} className='flip text-purple-1000 mr-2 m-auto'/>
                                     <div className='m-auto mt-2'>
                                         <span className='text-base text-center leading-6 text-gray-900 font-semibold'>Fixed Price</span>
                                     </div>
-
-                                </div>
+                                </BudgetButton>
                             </div>
                         </div>
                         {!isFixedPrice ? <div className='mt-4'>
