@@ -13,7 +13,7 @@ const SelectServiceType = ({ nextStep, prevStep, setTalentType, talentType }) =>
             {/* <div className="grid grid-cols-2 pt-32 mb-10 font-inter"> */}
             <div className="flex items-center pt-32 font-inter">
                 <div className="grid grid-cols-2 items-center">
-                    <main className="ml-36">
+                    <main className="ml-32">
                         <div className="bg-purple-1000 rounded-lg w-4/5 h-[32rem]">
                             <div className="pt-4">
                                 <div className="mx-4 bg-white rounded-full h-2 mb-2">
@@ -34,7 +34,7 @@ const SelectServiceType = ({ nextStep, prevStep, setTalentType, talentType }) =>
                             </div>
                         </div>
                     </main>
-                    <main className="mr-[8rem] -ml-[10rem]">
+                    <main className="mr-[8rem] -ml-[8rem]">
                         <div className="flex items-center justify-center">
                             <Form>
                                 <div className='w-full'>

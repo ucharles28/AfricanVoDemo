@@ -65,7 +65,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                                     <span className="text-xs font-normal text-white px-8">Project Name</span>
                                     <span className="text-xs font-normal text-white px-8">Service</span>
                                     <span className="text-xs font-normal text-white px-8">Details</span>
-                                    <span className="text-xs font-medium text-[#75ff84] px-8">Budgets</span>
+                                    <span className="text-xs font-medium text-[#75ff84] px-6">Budgets</span>
                                 </div>
                             </div>
                             <div className='flex items-center justify-center'>
@@ -118,11 +118,11 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                                         </div>
                                         <Form.Control
                                             className="bg-white border-1 rounded-lg border-gray-300 text-base text-black py-2 w-1/2 pl-8 mt-1 placeholder:text-sm"
-                                            type="text"
+                                            type="number"
                                             placeholder='0.00 USD'
                                             name="project-fixed-price"
                                             value={fixedPrice}
-                                            onchage={(e) => setFixedPrice(e.target.value)}
+                                            onChange={(e) => setFixedPrice(e.target.value)}
                                         />
                                     </div>
                                 </div>

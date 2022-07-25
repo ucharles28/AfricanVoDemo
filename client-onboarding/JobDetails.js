@@ -97,7 +97,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
             <NavxSearch />
             <div className="flex items-center pt-32 font-inter">
                 <div className="grid grid-cols-2 items-center mb-20">
-                    <main className="ml-36">
+                    <main className="ml-32">
                         <div className="bg-purple-1000 rounded-lg w-4/5 h-[32rem]">
                             <div className="pt-4">
                                 <div className="mx-4 bg-white rounded-full h-2 mb-2">
