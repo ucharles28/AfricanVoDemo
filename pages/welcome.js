@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import Welcome from '../components/Welcome';
 
-export default WelcomePage = () => {
+export default function WelcomePage() {
     const [firstName, setFirstName] = useState('');
 
     useEffect(async() => {
