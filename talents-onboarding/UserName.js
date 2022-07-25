@@ -184,11 +184,11 @@ const UserName = ({ nextStep, email, accountType }) => {
         </div>
       </div>
       {/* Navbar ends */}
-      <div style={{ padding: '10px' }}>
-        {/* <CustomAlert show={showAlert} message={errorMessage} type="error" showTitle /> */}
-      </div>
       <div className="flex flex-col items-center justify-center">
         <div className="lg:w-1/3 md:w-1/2 pt-10 pl-4 pr-4 justify-center my-5">
+          <div className='lg:w-full md:w-1/2 w-full'>
+            <CustomAlert show={showAlert} message={errorMessage} type="error" showTitle />
+          </div>
           <p
             tabIndex={0}
             role="heading"
@@ -268,7 +268,7 @@ const UserName = ({ nextStep, email, accountType }) => {
                   role="input"
                   className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                   required
-                  name="confirmpassword"
+                  name="confirm-password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   autocomplete
@@ -326,7 +326,7 @@ const UserName = ({ nextStep, email, accountType }) => {
             <div className="mt-8">
               <button
                 role="submit"
-                className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center"
+                className="text-base font-semibold leading-none text-white bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-4 w-full text-center disabled:opacity-70"
                 disabled={isLoading || !firstName || !lastName || !confirmPassword || !password || !country}
                 onClick={handleClick}
               >

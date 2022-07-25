@@ -222,7 +222,7 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
               tabIndex={0}
               role="link"
               aria-label="Sign up here"
-              className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
+              className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer disabled:opacity-70"
             >
               <Link href="../login">
                 <a> Login</a>
