@@ -344,7 +344,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                             <div className="mr-10 float-right justify-end">
                                 <button
                                     role="button"
-                                    className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3"
+                                    className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3 disabled:opacity-70"
                                     onClick={goNext}
                                 >
                                     Next

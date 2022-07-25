@@ -61,7 +61,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                                     <div className="bg-[#75FFB4] h-2 rounded-full w-full">
                                     </div>
                                 </div>
-                                <div className='flex-row flex'>
+                                <div className='flex-row flex flex-wrap'>
                                     <span className="text-xs font-normal text-white px-8">Project Name</span>
                                     <span className="text-xs font-normal text-white px-8">Service</span>
                                     <span className="text-xs font-normal text-white px-8">Details</span>
@@ -132,7 +132,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                             <div className="mr-10 float-right justify-end">
                                 <button
                                     role="button"
-                                    className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3"
+                                    className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3 disabled:opacity-70"
                                     onClick={submitJob}
                                 >
                                     <div className='flex items-center justify-center'>

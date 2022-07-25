@@ -57,7 +57,7 @@ const JobTitle = ({ nextStep, projectName, setProjectName }) => {
                     <button 
                         role="button" 
                         disabled={!projectName}
-                        className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3"
+                        className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3 disabled:opacity-70"
                         onClick={nextStep}
                     >
                         Next
