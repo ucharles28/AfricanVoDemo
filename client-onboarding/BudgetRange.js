@@ -55,7 +55,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
             <div className="flex items-center pt-32 font-inter">
                 <div className="grid grid-cols-2 items-center mb-20">
                     <main className="ml-36">
-                        <div className="bg-purple-1000 rounded-lg w-4/5 h-[35.5rem]">
+                        <div className="bg-purple-1000 rounded-lg w-4/5 h-[32rem]">
                             <div className="pt-4">
                                 <div className="mx-4 bg-white rounded-full h-2 mb-2">
                                     <div className="bg-[#75FFB4] h-2 rounded-full w-full">
@@ -75,7 +75,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                             </div>
                         </div>
                     </main>
-                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] h-[35.5rem]">
+                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] h-[32rem]">
                         <div className="sm:text-center lg:text-left">
                             <div className="text-sm">
                                 <span className="font-semibold text-gray-900 block">What type of budget do you have?</span>
@@ -117,7 +117,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                                             </span>
                                         </div>
                                         <Form.Control
-                                            className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-1/2 pl-8 mt-1 placeholder:text-sm"
+                                            className="bg-white border-1 rounded-lg border-gray-300 text-base text-black py-2 w-1/2 pl-8 mt-1 placeholder:text-sm"
                                             type="text"
                                             placeholder='0.00 USD'
                                             name="project-fixed-price"

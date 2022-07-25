@@ -1,4 +1,3 @@
-// import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import validator from 'validator';
 import UserEmail from '../talents-onboarding/UserEmail';
@@ -14,13 +13,6 @@ import SubmitProfile from '../talents-onboarding/SubmitProfile';
 import TransSample from '../talents-onboarding/TransSample';
 import Activebutton from '../components/styles/ActiveButton';
 import Footer from '../components/footer';
-// import PostTitle from '../client-onboarding/PostTitle';
-// import ScriptDetails from '../client-onboarding/ScriptDetails';
-// import SelectService from '../client-onboarding/SelectService';
-// import SampleDetails from '../client-onboarding/SampleDetails';
-// import BudgetRange from '../client-onboarding/BudgetRange';
-// import BudgetFixed from '../client-onboarding/BudgetFixed';
-// import JobPosted from '../components/JobPosted';
 
 const Signup = () => { 
   // Nav Open 
@@ -204,7 +196,6 @@ const Signup = () => {
             </div>
           </div>
           <Footer />
-          {/* <button onClick={nextStep} handleFormData={handleInputData} values={formData}>Continue</button> */}
         </div>
       );
     case 2:
@@ -307,83 +298,6 @@ const Signup = () => {
           />
         </div>
       );
-    // case 15:
-    //   return (
-    //     <div>
-    //       <PostTitle
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
-    // case 16:
-    //   return (
-    //     <div>
-    //       <SelectService
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
-    // case 17:
-    //   return (
-    //     <div>
-    //       <ScriptDetails
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
-    // case 18:
-    //   return (
-    //     <div>
-    //       <SampleDetails
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
-    // case 19:
-    //   return (
-    //     <div>
-    //       <BudgetRange
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
-    // case 20:
-    //   return (
-    //     <div>
-    //       <BudgetFixed
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
-    // case 21:
-    //   return (
-    //     <div>
-    //       <JobPosted
-    //         nextStep={nextStep}
-    //         prevStep={prevStep}
-    //         handleFormData={handleInputData}
-    //         values={formData}
-    //       />
-    //     </div>
-    //   );
   }
 };
 

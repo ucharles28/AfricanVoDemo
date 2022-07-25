@@ -63,7 +63,7 @@ const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileIm
     })
     nextStep();
   }
-
+  
   // modal
   const [show2, setShow2] = useState(false);
   const handleClose = () => setShow2(false);
@@ -96,14 +96,7 @@ const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileIm
                       <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                         <span className="flex flex-col">
                           <span>
-                            Settings
-                          </span>
-                        </span>
-                      </a>
-                      <a href="#" className="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                        <span className="flex flex-col">
-                          <span>
-                            Account
+                            Account Settings
                           </span>
                         </span>
                       </a>
@@ -317,7 +310,7 @@ const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileIm
         <div className="mr-5 lg:mr-10 mb-5 float-right justify-end">
           <button
             role="button"
-            className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3"
+            className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-3 disabled:opacity-70"
             onClick={() => goNext()}
           >
             {talentType === 'VoiceOver' ? 'Lastly, Your audio samples' : 'Review Profile'}

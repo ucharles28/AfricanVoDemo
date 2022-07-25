@@ -98,7 +98,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
             <div className="flex items-center pt-32 font-inter">
                 <div className="grid grid-cols-2 items-center mb-20">
                     <main className="ml-36">
-                        <div className="bg-purple-1000 rounded-lg w-4/5 h-[35.5rem]">
+                        <div className="bg-purple-1000 rounded-lg w-4/5 h-[32rem]">
                             <div className="pt-4">
                                 <div className="mx-4 bg-white rounded-full h-2 mb-2">
                                     <div className="bg-[#75FFB4] h-2 rounded-full w-3/4">
@@ -118,7 +118,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                             </div>
                         </div>
                     </main>
-                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] overflow-y-scroll scroll-smooth h-[35.5rem] scrollbar-thumb-purple-300 scrollbar-thin">
+                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] overflow-y-scroll scroll-smooth h-[32rem] scrollbar-thumb-purple-300 scrollbar-thin">
                         <div className="sm:text-center lg:text-left">
                             <div className="text-sm">
                                 <span className="font-semibold text-gray-900 block">Script Sample</span>
@@ -264,7 +264,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                                         <Select
                                             name="country"
                                             placeholder="Country"
-                                            className="mt-1 border-gray-300"
+                                            className="mt-1 border-gray-300 w-1/2"
                                             value={country}
                                             options={options}
                                             required
@@ -281,7 +281,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                                             <span className="text-[#4f4f4f] text-sm font-regular">&nbsp;(Optional)</span>
                                         </div>
                                         <Form.Control
-                                            className="mt-1 border-gray-300"
+                                            className="mt-1 border-gray-300 w-1/2"
                                             placeholder="Add project city"
                                             type="text"
                                             name="project-city"
@@ -302,7 +302,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                                         <Select
                                             name="category"
                                             placeholder="Add job category"
-                                            className="mt-1 border-gray-300"
+                                            className="mt-1 border-gray-300 w-1/2"
                                             value={selectedCategory}
                                             options={jobCategories}
                                             required
