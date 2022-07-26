@@ -131,7 +131,7 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
         setSelectedExpertise({})
         setShowModal(false);
     }
-    const handleShow = (key, index) => {
+    const handleShow = (index) => {
         setCurrentIndex(index)
         setCurrentSampleIndex(currentSampleIndex + 1)
         setShowModal(true);
@@ -254,8 +254,8 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                         Lastly, show how great you are, upload your translation sample.
                     </p>
                     <p className="pb-6 text-base text-left text-gray-550">Talent who add portfolios to their profile are more likely to win work. (+20%) </p>
-                    <div className="py-3 px-3 mb-2 text-purple-1000 flex flex-col justify-center rounded-xl bg-[#F9F4FF]">
-                        {Object.keys(translationalSkills).map((key, index) => (<div className='flex flex-col items-stretch space-y-2 w-full mb-2'>
+                    {Object.keys(translationalSkills).map((key, index) => (<div className="py-3 px-3 mb-2 text-purple-1000 flex flex-col justify-center rounded-xl bg-[#F9F4FF]">
+                        <div className='flex flex-col items-stretch space-y-2 w-full mb-2'>
 
                             <div className="item w-full">
                                 <span className='text-xl font-semibold text-gray-900 text-left'>{`${languageList[index].sourceLanguage} to ${languageList[index].targetLanguage}`}</span>
@@ -287,8 +287,8 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                                 </div>
                             </div>))}
 
-                        </div>))}
-                    </div>
+                        </div>
+                    </div>))}
                     <div className="py-4 px-3 mb-2 text-purple-1000 flex flex-col items-center justify-center rounded-xl bg-[#F9F4FF] text-center">
                         {languageList.map((singleLanguage, index) => (
                             <div className='flex items-center mt-2'>
@@ -395,7 +395,7 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                         className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6"
                         onClick={nextStep}
                     > */}
-                    <Stepbutton color='#ffffff' backgroundColor='#A259Ff' hoverBackgroundColor='#B175FF'>
+                    <Stepbutton onClick={nextStep} color='#ffffff' backgroundColor='#A259Ff' hoverBackgroundColor='#B175FF'>
                         Next, your professional brief
                     </Stepbutton>
                     {/* </button> */}
