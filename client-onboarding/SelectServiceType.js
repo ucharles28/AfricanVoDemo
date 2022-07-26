@@ -10,21 +10,20 @@ const SelectServiceType = ({ nextStep, prevStep, setTalentType, talentType }) =>
     return (
         <div>
             <NavxSearch />
-            {/* <div className="grid grid-cols-2 pt-32 mb-10 font-inter"> */}
             <div className="flex items-center pt-32 font-inter">
                 <div className="grid grid-cols-2 items-center">
-                    <main className="ml-32">
-                        <div className="bg-purple-1000 rounded-lg w-4/5 h-[32rem]">
+                    <main className="ml-32 items-center flex justify-center">
+                        <div className="bg-purple-1000 rounded-lg w-4/5 2xl:w-3/4 h-[32rem]">
                             <div className="pt-4">
-                                <div className="mx-4 bg-white rounded-full h-2 mb-2">
+                                <div className="mx-4 bg-white rounded-full h-2 mb-2 w-auto">
                                     <div className="bg-[#75FFB4] h-2 rounded-full w-2/4">
                                     </div>
                                 </div>
                                 <div className='flex-row flex'>
-                                    <span className="text-xs font-normal text-white px-8">Project Name</span>
-                                    <span className="text-xs font-medium text-[#75FFB4] px-8">Service</span>
-                                    <span className="text-xs font-normal text-white px-8">Details</span>
-                                    <span className="text-xs font-normal text-white px-8">Budgets</span>
+                                    <span className="text-xs font-normal text-white px-8 2xl:pr-8">Project Name</span>
+                                    <span className="text-xs font-medium text-[#75FFB4] px-8 2xl:px-10">Service</span>
+                                    <span className="text-xs font-normal text-white px-8 2xl:px-10">Details</span>
+                                    <span className="text-xs font-normal text-white px-8 2xl:px-10">Budgets</span>
                                 </div>
                             </div>
                             <div className='flex items-center justify-center'>
@@ -34,7 +33,7 @@ const SelectServiceType = ({ nextStep, prevStep, setTalentType, talentType }) =>
                             </div>
                         </div>
                     </main>
-                    <main className="mr-[8rem] -ml-[8rem]">
+                    <main className="mr-[8rem] 2xl:-ml-[12rem] xl:-ml-[4rem] -ml-[8rem]">
                         <div className="flex items-center justify-center">
                             <Form>
                                 <div className='w-full'>
@@ -45,24 +44,22 @@ const SelectServiceType = ({ nextStep, prevStep, setTalentType, talentType }) =>
                                         <p>Choose the service you will like to hire a talent for</p>
                                     </div>
                                     <div className='flex items-center gap-4 mt-1'>
-                                        {/* <div className='border-2 px-2 py-2 border-purple-1000 rounded-lg flex w-64' onClick={() => setTalentType('VoiceOver')}> */}
-                                            <ClientButton active={talentType === 'VoiceOver'} onClick={() => setTalentType('VoiceOver')}>
-                                                <BsFillMicFill size={60} className='text-purple-1000 mr-2 items' />
-                                                <div className='items text-left'>
-                                                    <span className='text-base leading-6 text-gray-900 font-semibold'>Voice Over</span><br></br>
-                                                    <span className='text-xs font-medium text-gray-900'>Find a voice for documentary, narration, movie trailers, audio books, and more.</span>
-                                                </div>
-                                                <input type='radio' value='voice-over' checked={talentType === 'VoiceOver'} name='select-job-type' className='checked:bg-purple-1000 items mb-16' />
-                                            </ClientButton>
-                                            <ClientButton active={talentType === 'Translator'} onClick={() => setTalentType('Translator')}>
-                                                <BsTranslate size={60} className='text-purple-1000 mr-2 items' />
-                                                <div className='items'>
-                                                    <span className='text-base leading-6 text-gray-900 font-semibold'>Translation</span><br></br>
-                                                    <span className='text-xs font-medium text-gray-900'>Find a translator for professional conversation, technical document and more.</span>
-                                                </div>
-                                                <input type='radio' checked={talentType === 'Translator'} value='translator' name='select-job-type' className='items mb-16' />
-                                            </ClientButton>
-                                        {/* </div> */}
+                                        <ClientButton active={talentType === 'VoiceOver'} onClick={() => setTalentType('VoiceOver')}>
+                                            <BsFillMicFill size={60} className='text-purple-1000 mr-2 items' />
+                                            <div className='items text-left'>
+                                                <span className='text-base leading-6 text-gray-900 font-semibold'>Voice Over</span><br></br>
+                                                <span className='text-xs font-medium text-gray-900'>Find a voice for documentary, narration, movie trailers, audio books, and more.</span>
+                                            </div>
+                                            <input type='radio' value='voice-over' checked={talentType === 'VoiceOver'} name='select-job-type' className='checked:bg-purple-1000 items mb-16' />
+                                        </ClientButton>
+                                        <ClientButton active={talentType === 'Translator'} onClick={() => setTalentType('Translator')}>
+                                            <BsTranslate size={60} className='text-purple-1000 mr-2 items' />
+                                            <div className='items'>
+                                                <span className='text-base leading-6 text-gray-900 font-semibold'>Translation</span><br></br>
+                                                <span className='text-xs font-medium text-gray-900'>Find a translator for professional conversation, technical document and more.</span>
+                                            </div>
+                                            <input type='radio' checked={talentType === 'Translator'} value='translator' name='select-job-type' className='items mb-16' />
+                                        </ClientButton>
                                     </div>
                                 </div>
                             </Form>

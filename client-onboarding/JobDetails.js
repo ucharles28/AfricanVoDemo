@@ -25,7 +25,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
         // }
         console.log(token)
         const response = await get('JobCategory', '')
-        debugger
+        // debugger
         console.log(response)
         if (response.successful) {
             const categories = response.data.map((cat) => {
@@ -97,18 +97,18 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
             <NavxSearch />
             <div className="flex items-center pt-32 font-inter">
                 <div className="grid grid-cols-2 items-center mb-20">
-                    <main className="ml-32">
-                        <div className="bg-purple-1000 rounded-lg w-4/5 h-[32rem]">
+                    <main className="ml-32 items-center flex justify-center">
+                        <div className="bg-purple-1000 rounded-lg w-4/5 2xl:w-3/4 h-[32rem]">
                             <div className="pt-4">
-                                <div className="mx-4 bg-white rounded-full h-2 mb-2">
+                                <div className="mx-4 bg-white rounded-full h-2 mb-2 w-auto">
                                     <div className="bg-[#75FFB4] h-2 rounded-full w-3/4">
                                     </div>
                                 </div>
                                 <div className='flex-row flex'>
-                                    <span className="text-xs font-normal text-white px-8">Project Name</span>
-                                    <span className="text-xs font-normal text-white px-8">Service</span>
-                                    <span className="text-xs font-medium text-[#75FFB4] px-8">Details</span>
-                                    <span className="text-xs font-normal text-white px-8">Budgets</span>
+                                    <span className="text-xs font-normal text-white px-8 2xl:pr-8">Project Name</span>
+                                    <span className="text-xs font-normal text-white px-8 2xl:px-10">Service</span>
+                                    <span className="text-xs font-medium text-[#75FFB4] px-8 2xl:px-10">Details</span>
+                                    <span className="text-xs font-normal text-white px-8 2xl:px-10">Budgets</span>
                                 </div>
                             </div>
                             <div className='flex items-center justify-center'>
@@ -118,7 +118,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                             </div>
                         </div>
                     </main>
-                    <main className="px-4 lg:px-8 mr-[8rem] -ml-[5rem] overflow-y-scroll scroll-smooth h-[32rem] scrollbar-thumb-purple-300 scrollbar-thin">
+                    <main className="mr-[8rem] 2xl:-ml-[4rem] xl:-ml-[4rem] -ml-[8rem] px-4 lg:px-8 overflow-y-scroll scroll-smooth border-y-2 h-[32rem] scrollbar-thumb-purple-300 scrollbar-thin">
                         <div className="sm:text-center lg:text-left">
                             <div className="text-sm">
                                 <span className="font-semibold text-gray-900 block">Script Sample</span>
@@ -340,7 +340,7 @@ const JobDetails = ({ nextStep, prevStep, setJobDetails }) => {
                                 </Form.Group>
                             </div>
                         </div>
-                        <div className="flow-root">
+                        <div className="flow-root mt-4">
                             <div className="mr-10 float-right justify-end">
                                 <button
                                     role="button"
