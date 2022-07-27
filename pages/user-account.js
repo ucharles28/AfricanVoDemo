@@ -37,12 +37,12 @@ function UserAccount() {
                         <span className='font-inter text-base font-medium leading-6 ml-2 text-[#828282]'>Lagos, Nigeria</span>
                       </div>
                     </div>
+                </div>
+                <div className='flex flex-col items-center'>
+                  <div className='bg-purple-300 rounded-lg py-1 px-10'>
+                    <span className='text-gray-900 font-medium text-2xl'>Voice Over</span>
                   </div>
-                  <div className='flex flex-col items-center'>
-                    <div className='bg-purple-300 rounded-lg py-1 px-10'>
-                      <span className='text-gray-900 font-medium text-2xl'>Voice Over</span>
-                    </div>
-                  </div>
+                </div>
               </div>
 
               <div className="item bg-white text-gray-900 rounded-xl">
