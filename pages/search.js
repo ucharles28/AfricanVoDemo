@@ -176,12 +176,12 @@ function TalentSearch () {
                                     </div>
 
 	                                <div className="item w-full">
-                                        <div class="flex flex-col items-stretch space-y-2 h-auto w-full px-2">
+                                        <div className="flex flex-col items-stretch space-y-2 h-auto w-full px-2">
 
-                                            <div class="item w-full h-full py-3">
-                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+                                            <div className="item w-full h-full py-3">
+                                                <div className="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className="flex items-left flex-row text-gray-900 pb-2">
                                                             <span className="rounded-full">
                                                                 <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
@@ -206,7 +206,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className='flex flex-col items-stretch space-y-2 w-full'>
                                                             <div className="item w-full">
                                                                 <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
@@ -229,7 +229,7 @@ function TalentSearch () {
                                                             <div className="item w-full">
                                                                 <div className='flex items-stretch space-x-4 h-auto w-full'>
                                                                     <div className="flex items-center gap-3">
-                                                                        <div class="item w-full">
+                                                                        <div className="item w-full">
                                                                             <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
                                                                         </div>
                                                                         <RiHeartFill size={24} className='text-[#cfcfcf]' />
@@ -239,7 +239,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full items-center">
+                                                    <div className="item w-full items-center">
                                                         <div className="flex items-center flex-col">
                                                             <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
                                                         </div>
@@ -247,10 +247,10 @@ function TalentSearch () {
                                                 </div>
                                             </div>
 
-                                            <div class="item w-full h-full py-3">
-                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+                                            <div className="item w-full h-full py-3">
+                                                <div className="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className="flex items-left flex-row text-gray-900 pb-2">
                                                             <span className="rounded-full">
                                                                 <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
@@ -275,7 +275,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className='flex flex-col items-stretch space-y-2 w-full'>
                                                             <div className="item w-full">
                                                                 <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
@@ -298,7 +298,7 @@ function TalentSearch () {
                                                             <div className="item w-full">
                                                                 <div className='flex items-stretch space-x-4 h-auto w-full'>
                                                                     <div className="flex items-center gap-3">
-                                                                        <div class="item w-full">
+                                                                        <div className="item w-full">
                                                                             <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
                                                                         </div>
                                                                         <RiHeartFill size={24} className='text-[#cfcfcf]' />
@@ -308,7 +308,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full items-center">
+                                                    <div className="item w-full items-center">
                                                         <div className="flex items-center flex-col">
                                                             <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
                                                         </div>
@@ -316,10 +316,10 @@ function TalentSearch () {
                                                 </div>
                                             </div>
 
-                                            <div class="item w-full h-full py-3">
-                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+                                            <div className="item w-full h-full py-3">
+                                                <div className="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className="flex items-left flex-row text-gray-900 pb-2">
                                                             <span className="rounded-full">
                                                                 <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
@@ -344,7 +344,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className='flex flex-col items-stretch space-y-2 w-full'>
                                                             <div className="item w-full">
                                                                 <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
@@ -367,7 +367,7 @@ function TalentSearch () {
                                                             <div className="item w-full">
                                                                 <div className='flex items-stretch space-x-4 h-auto w-full'>
                                                                     <div className="flex items-center gap-3">
-                                                                        <div class="item w-full">
+                                                                        <div className="item w-full">
                                                                             <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
                                                                         </div>
                                                                         <RiHeartFill size={24} className='text-[#cfcfcf]' />
@@ -377,7 +377,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full items-center">
+                                                    <div className="item w-full items-center">
                                                         <div className="flex items-center flex-col">
                                                             <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
                                                         </div>
@@ -385,10 +385,10 @@ function TalentSearch () {
                                                 </div>
                                             </div>
 
-                                            <div class="item w-full h-full py-3">
-                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+                                            <div className="item w-full h-full py-3">
+                                                <div className="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className="flex items-left flex-row text-gray-900 pb-2">
                                                             <span className="rounded-full">
                                                                 <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
@@ -413,7 +413,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className='flex flex-col items-stretch space-y-2 w-full'>
                                                             <div className="item w-full">
                                                                 <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
@@ -436,7 +436,7 @@ function TalentSearch () {
                                                             <div className="item w-full">
                                                                 <div className='flex items-stretch space-x-4 h-auto w-full'>
                                                                     <div className="flex items-center gap-3">
-                                                                        <div class="item w-full">
+                                                                        <div className="item w-full">
                                                                             <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
                                                                         </div>
                                                                         <RiHeartFill size={24} className='text-[#cfcfcf]' />
@@ -446,7 +446,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full items-center">
+                                                    <div className="item w-full items-center">
                                                         <div className="flex items-center flex-col">
                                                             <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
                                                         </div>
@@ -454,10 +454,10 @@ function TalentSearch () {
                                                 </div>
                                             </div>
 
-                                            <div class="item w-full h-full py-3">
-                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+                                            <div className="item w-full h-full py-3">
+                                                <div className="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className="flex items-left flex-row text-gray-900 pb-2">
                                                             <span className="rounded-full">
                                                                 <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
@@ -482,7 +482,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full h-full">
+                                                    <div className="item w-full h-full">
                                                         <div className='flex flex-col items-stretch space-y-2 w-full'>
                                                             <div className="item w-full">
                                                                 <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
@@ -505,7 +505,7 @@ function TalentSearch () {
                                                             <div className="item w-full">
                                                                 <div className='flex items-stretch space-x-4 h-auto w-full'>
                                                                     <div className="flex items-center gap-3">
-                                                                        <div class="item w-full">
+                                                                        <div className="item w-full">
                                                                             <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
                                                                         </div>
                                                                         <RiHeartFill size={24} className='text-[#cfcfcf]' />
@@ -515,7 +515,7 @@ function TalentSearch () {
                                                         </div>
                                                     </div>
 
-                                                    <div class="item w-full items-center">
+                                                    <div className="item w-full items-center">
                                                         <div className="flex items-center flex-col">
                                                             <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
                                                         </div>
@@ -523,13 +523,13 @@ function TalentSearch () {
                                                 </div>
                                             </div>
 
-                                            <div class="item w-full text-center">
+                                            <div className="item w-full text-center">
                                                 <Pagination defaultCurrent={1} total={50} />
                                             </div>
 
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>

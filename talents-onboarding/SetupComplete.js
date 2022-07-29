@@ -3,7 +3,7 @@ import validator from 'validator';
 import Footer from '../components/footer';
 import Link from 'next/link';
 import Image from 'next/image';
-import hubspot from '../assets/img/hubspot.png';
+import pana from '../assets/img/pana.png';
 
 const SetupComplete = ({ prevStep, nextStep }) => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -148,18 +148,19 @@ const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ
             {/* Navbar ends */}
             <div className="flex flex-col items-center justify-center font-inter">
                 <div className="lg:w-2/5 md:w-1/2 pt-20 pl-4 pr-4 justify-center mt-10 mb-10">
-                    <img src="https://i.ibb.co/jHMjYSF/pana.png" width={300} height={300} className="flex flex-col items-center justify-center m-auto pb-4"
-                    />
-                    {/* <Image src={hubspot} width={300} height={300} lazy className="flex flex-col items-center justify-center m-auto pb-4"
+                    {/* <img src="https://i.ibb.co/jHMjYSF/pana.png" width={300} height={300} className="flex flex-col items-center justify-center m-auto pb-4"
                     /> */}
-                    <p tabIndex={0} role="heading" className="text-4xl font-semibold text-gray-800 text-center pt-3 pb-4">
+                    <div className="w-72 h-72 flex flex-col items-center justify-center m-auto">
+                        <Image src={pana} lazy />
+                    </div>
+                    <p className="text-4xl font-semibold text-gray-800 text-center lg:pb-2 pb-4 -mt-4">
                     Nice work, {firstName}{' '} James!<br></br> Your profile is ready
                     </p>
                     <p  className="text-center pb-2 text-base font-medium text-[#4F4F4F]" >Congratulations! with thousands to choose from, it is time to start auditioning for voice over roles and translation roles that fit your skills.</p>
                     <div className="my-3 flex flex-row items-center justify-center">
                         <button 
                             role="button" 
-                            className="text-base font-semibold leading-6 text-purple-1000 border-purple-1000 border rounded-lg hover:bg-purple-600 hover:text-white py-2.5 px-3 mr-4" 
+                            className="text-base font-semibold leading-6 text-purple-1000 border-purple-500 border-2 rounded-lg hover:bg-purple-600 hover:text-white py-2.5 px-3 mr-4" 
                             // onClick={prevStep}
                         >
                            <Link href='#'><a className='hover:text-white'>View my profile</a></Link>

@@ -19,7 +19,7 @@ const Signup = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   //state for steps
-  const [step, setstep] = useState(1);
+  const [step, setstep] = useState(5);
   const [accountType, setAccountType] = useState('Client');
   const [email, setEmail] = useState('');
   const [clientButttonActive, setClientButttonActive] = useState('active');

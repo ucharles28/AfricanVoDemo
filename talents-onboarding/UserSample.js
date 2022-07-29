@@ -355,12 +355,12 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
               <div className="item w-full">
                 <div className='flex items-stretch space-x-4 h-auto w-full'>
 
-                  <div class="item w-full">
+                  <div className="item w-full">
                     <audio src={sample.fileSrc} controls controlsList="nodownload" />
                     {/* <button onClick={playAudio}></button> */}
                   </div>
 
-                  <div class="item w-32">
+                  <div className="item w-32">
                     <div className="flex items-center gap-3">
                       <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline onClick={()=> handleSampleRemove(index)} size={20} className='text-purple-1000' /></span>
                       <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill onClick={()=> handleShow(true, index)} size={20} className='text-purple-1000' /></span>

@@ -10,7 +10,7 @@ import UserSample from "../talents-onboarding/UserSample";
 
 export default function Portfolio() {
     //state for steps
-  const [step, setstep] = useState(1);
+  const [step, setstep] = useState(6);
   const [talentType, setTalentType] = useState('VoiceOver');
   const [userBio, setUserBio] = useState('');
   const [languageList, setLanguageList] = useState([{ sourceLanguage: "", targetLanguage: "" }]);

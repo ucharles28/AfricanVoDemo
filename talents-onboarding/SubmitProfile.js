@@ -325,11 +325,11 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                             <div className="item w-full">
                               <div className='flex items-stretch space-x-4 h-auto w-full'>
 
-                                <div class="item w-full">
+                                <div className="item w-full">
                                   <audio src="http://example.com/audio.mp3" controls controlsList="nodownload" />
                                 </div>
 
-                                <div class="item w-32">
+                                <div className="item w-32">
                                   <div className="flex items-center gap-3">
                                     <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline size={20} className='text-purple-1000' /></span>
                                     <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill size={20} className='text-purple-1000' /></span>

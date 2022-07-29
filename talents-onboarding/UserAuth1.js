@@ -4,7 +4,9 @@ import validator from 'validator';
 import { Form, Col } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { post } from '../helpers/ApiRequest';
-import { simulateNetworkRequest } from '../helpers/Utils'
+import { simulateNetworkRequest } from '../helpers/Utils';
+import Image from 'next/image'
+import emailbanner from '../assets/img/emailbanner.png';
 
 const UserAuth1 = ({ email, setParentEmail }) => {
     const router = useRouter();
@@ -174,8 +176,11 @@ const UserAuth1 = ({ email, setParentEmail }) => {
             {/* Navbar ends */}
             <div className="flex flex-col items-center justify-center pl-4 pr-4 pt-5">
                 <div className="lg:w-2/5 md:w-1/2 pt-10 justify-center my-5">
-                    <img src="https://i.ibb.co/pdHkwJ8/Group-12.png" width={100} height={100} className="flex flex-col items-center justify-center m-auto pb-4"
-                    />
+                    {/* <img src="https://i.ibb.co/pdHkwJ8/Group-12.png" width={100} height={100} className="flex flex-col items-center justify-center m-auto pb-4"
+                    /> */}
+                    <div className="w-28 h-28 flex flex-col items-center justify-center m-auto">
+                        <Image src={emailbanner} lazy />
+                    </div>
                     <p tabIndex={0} role="heading" className="text-3xl font-semibold text-gray-800 text-center pt-3 pb-4">
                         Verify your email to proceed
                     </p>

@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: #363636 !important; 
     font-weight: 600;
     font-size: 16px;
@@ -15,7 +15,11 @@
     background: #9d4343;
     pointer-events: none;
 }
-
-:hover.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+:hover.ant-tabs-tab.ant-tabs-tab {
     color: #A259FF;
-} */
+    font-weight: 600;
+}
+.ant-tabs-tab.ant-tabs-tab {
+    font-size: 16px;
+    font-weight: 500;
+}
