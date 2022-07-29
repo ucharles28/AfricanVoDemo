@@ -66,8 +66,8 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
         setSelectedFile(event.target.files[0]);
     };
 
-    const removeSampleHandler = (key,index) => {
-        const list = {...translationalSkills};
+    const removeSampleHandler = (key, index) => {
+        const list = { ...translationalSkills };
         list[key].splice(index, 1);
         setTranslationalSkills(list);
     };
@@ -131,9 +131,22 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
         setSelectedExpertise({})
         setShowModal(false);
     }
-    const handleShow = (index) => {
-        setCurrentIndex(index)
-        setCurrentSampleIndex(currentSampleIndex + 1)
+    const handleShow = (index, key) => {
+        if (key) {
+            const list = { ...translationalSkills };
+            const sample = list[key][index]
+            setCurrentIndex(key)
+            setCurrentSampleIndex(index)
+            setTitle(sample.Title)
+            setDescription(sample.Description)
+            setSelectedFile(sample.AudioFile)
+            const Expertises = sample.IndustryExpertises.reduce((a, v) => ({ ...a, [v]: true}), {})
+            console.log(Expertises)
+            setSelectedExpertise(Expertises)
+        } else {
+            setCurrentIndex(index)
+            setCurrentSampleIndex(currentSampleIndex + 1)
+        }
         setShowModal(true);
     }
 
@@ -280,7 +293,7 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                                     <div className="item w-32">
                                         <div className="flex items-center gap-3">
                                             <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline onClick={() => removeSampleHandler(key, sampleIndex)} size={20} className='text-purple-1000' /></span>
-                                            <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill size={20} className='text-purple-1000' /></span>
+                                            <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill onClick={(e) => { handleShow(sampleIndex, key) }} size={20} className='text-purple-1000' /></span>
                                         </div>
                                     </div>
 

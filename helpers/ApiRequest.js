@@ -1,7 +1,7 @@
 export async function post(url = '', request = {}, token = '') {
   const response = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'POST',
-    mode: 'cors',
+    mode: 'no-cors',
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
@@ -28,7 +28,8 @@ export async function post(url = '', request = {}, token = '') {
       }
       const responseObject = {
         successful: res.ok,
-        data: res.ok ? await res.json() : await res.text(),
+        data: await res.json()
+        // data: res.ok ? await res.json() : await res.text(),
       };
       console.log('response', responseObject)
       return responseObject;
@@ -39,7 +40,7 @@ export async function post(url = '', request = {}, token = '') {
       // return error;
       const responseObject = {
         successful: false,
-        data: 'Unable to send request. Kindly your internet connection and try again',
+        data: 'Unable to send request. Please try again later',
       };
       return responseObject;
     });
@@ -62,10 +63,11 @@ export async function postData(url = '', request = {}, token = '') {
       const text = await res.text();
       console.log(text)
       if (res.status === 401) {
+        // console.log()
         const response = await get(`Auth/RenewToken/${token}`, '')
         if (response.successful) {
-          localStorage.setItem('token', response.data.Token);
-          localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('tokenExpiryDate', response.data.tokenExpiryDate);
           localStorage.setItem('user', JSON.stringify(response.data));
         }
         return await postData(url, request, response.data.Token);
@@ -82,7 +84,7 @@ export async function postData(url = '', request = {}, token = '') {
       console.log('error', error)
       const responseObject = {
         successful: false,
-        data: 'Unable to send request. Kindly your internet connection and try again',
+        data: 'Unable to send request. Please try again later',
       };
       return responseObject;
     });
@@ -125,7 +127,7 @@ export async function get(url = '', token = '') {
       // return error;
       const responseObject = {
         successful: false,
-        data: 'Unable to send request. Kindly your internet connection and try again',
+        data: 'Unable to send request. Please try again later',
       };
       return responseObject;
     });

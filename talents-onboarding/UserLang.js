@@ -256,7 +256,7 @@ const UserLang = ({ nextStep, prevStep, setParentLanguageList }) => {
               <button 
                 role="button" 
                 className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
-                onClick={nextStep}
+                onClick={handleGoNext}
                 disabled={(languageList.length === 1 && (!languageList[0].language || !languageList[0].proficiency))}
               >
                 Add photo and location
