@@ -13,6 +13,7 @@ import CustomAlert from '../components/CustomAlert';
 const UserName = ({ nextStep, email, accountType }) => {
 
   const handleSubmit = async (event) => {
+    setLoading(true)
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -23,10 +24,14 @@ const UserName = ({ nextStep, email, accountType }) => {
       if (password.length < 8) {
         setErrorMessage('Use 8 characters or more for your password')
         setShowAlert(true)
+        setLoading(false);
+        return
       }
       if (confirmPassword !== password) {
         setErrorMessage('Both passwords didn’t match. Please try again.')
         setShowAlert(true)
+        setLoading(false);
+        return
       }
       //Make call
       const request = {
@@ -76,13 +81,6 @@ const UserName = ({ nextStep, email, accountType }) => {
   }
 
   const [isLoading, setLoading] = useState(false);
-  useEffect(() => {
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
-      });
-    }
-  }, [isLoading]);
 
   const handleClick = () => setLoading(true);
 

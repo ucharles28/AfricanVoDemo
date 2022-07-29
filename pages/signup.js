@@ -228,7 +228,6 @@ const Signup = () => {
           <UserBio
             nextStep={nextStep}
             prevStep={prevStep}
-            handleFormData={handleInputData}
             values={formData}
           />
         </div>
@@ -239,7 +238,6 @@ const Signup = () => {
           <UserLang
             nextStep={nextStep}
             prevStep={prevStep}
-            handleFormData={handleInputData}
             values={formData}
           />
         </div>

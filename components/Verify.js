@@ -19,8 +19,12 @@ export default function Verify({ token }) {
             localStorage.setItem('tokenExpiryDate', response.data.TokenExpiryDate);
             localStorage.setItem('user', JSON.stringify(response.data));
             setTimeout(() => {
-                router.push('/portfolio')
-            }, 2000);
+                if (response.data.accountType === 1){ //for talent 
+                    router.push('/portfolio')
+                } else { //for client
+                    router.push('/jobs/create')
+                }
+            }, 1000);
         }
     }
 

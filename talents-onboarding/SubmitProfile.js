@@ -1,71 +1,103 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { RiEdit2Fill } from 'react-icons/ri';
 import validator from 'validator';
 import Footer from '../components/footer';
-import { postData, get } from '../helpers/ApiRequest'
+import { postData, get, post } from '../helpers/ApiRequest'
 import { tokenIsValid } from '../helpers/Utils'
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoTrashOutline } from 'react-icons/io5';
 
+
 const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, userBio, languageList, userData, voiceRanges, profileImageSrc, profileImage, voiceOverSamples }) => {
   const router = useRouter();
-
+  console.log('image', profileImage)
   //retrieve customer
-  // const user = JSON.parse(localStorage.getItem('user'))
+  const user = JSON.parse(localStorage.getItem('user'))
 
   const [error, setError] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState(user.firstname);
+  const [lastName, setLastName] = useState(user.lastname);
   const [country, setCountry] = useState(userData?.country);
   const [city, setCity] = useState(userData?.city);
 
   const submitPortfolio = async () => {
-    // const token = localStorage.getItem('Token')
-    // if (talentType === 'Translator') {
-    //   const request = {
-    //     ...userData,
-    //     Bio: userBio,
-    //     ProfileImageFile: profileImage,
-    //     TranslationalSkills: languageList.map((language, index) => {
-    //       return {
-    //         SourceLanguage: language.sourceLanguage,
-    //         TargetLanguage: language.targetLanguage,
-    //         Samples: translationalSkills[index]
-    //       }
-    //     })
-    //   }
-    //   const response = await postData('User/Talent/Translator/SetupPortfolio', request, token);
-    //   if (response.successful) {
+    const token = localStorage.getItem('token')
+    console.log(token)
+    if (talentType === 'Translator') {
+      const request = {
+        ...userData,
+        Bio: userBio,
+        ProfileImageFile: profileImage,
+        TranslationalSkills: languageList.map((language, index) => {
+          return {
+            SourceLanguage: language.sourceLanguage,
+            TargetLanguage: language.targetLanguage,
+            Samples: translationalSkills[index]
+          }
+        })
+      }
+      const response = await postData('User/Talent/Translator/SetupPortfolio', request, token);
+      if (response.successful) {
 
-    //     nextStep();
-    //   } else {
+        nextStep();
+      } else {
 
-    //   }
+      }
 
-    // } else {
-    //   const request = {
-    //     ...userData,
-    //     Bio: userBio,
-    //     ProfileImageFile: profileImage,
-    //     Languages: languageList.map((language, index) => {
-    //       return {
-    //         Name: language.language,
-    //         Proficiency: language.proficiency,
-    //       }
-    //     }),
-    //     VoiceOverSamples: voiceOverSamples
-    //   }
+    } else {
+      const request = {
+        ...userData,
+        VoiceRanges: voiceRanges,
+        Bio: userBio,
+        ProfileImageFile: profileImage,
+        Languages: languageList.map((language, index) => {
+          return {
+            Name: language.language,
+            Proficiency: language.proficiency,
+          }
+        }),
+        VoiceOverSamples: voiceOverSamples
+      }
+      
+      // var data = new FormData();
+      // Object.keys(userData).map((key) => {
+      //   data.append(key, userData[key]);
+      // })
+      // voiceRanges.map((range) => {
+      //   data.append("VoiceRanges", range);
+      // })
+      // data.append("Bio", userBio);
+      // data.append("ProfileImageFile", profileImage, profileImage.name);
+      // // data.append("Languages", languageList.map((language, index) => {
+      // //   return {
+      // //     Name: language.language,
+      // //     Proficiency: language.proficiency,
+      // //   }
+      // // }));
+      // languageList.map((language) => {
+      //   const obj = {
+      //     Name: language.language,
+      //     Proficiency: language.proficiency,
+      //   }
+      //   data.append("Languages", obj)
+      // })
+      // voiceOverSamples.map((sample) => {
+      //   data.append("VoiceOverSamples", sample)
+      // })
 
-    //   const response = await postData('User/Talent/Translator/SetupPortfolio', request, token);
-    //   if (response.successful) {
+      const response = await post('User/Talent/VoiceOver/SetupPortfolio', request, token);
+      console.log(response)
+        // if (response.successful) {
 
-    //     nextStep();
-    //   } else {
+        //   nextStep();
+        // } else {
 
-    //   }
-    nextStep();
+        // }
+
+    }
+    // nextStep();
   };
 
   // state for navbar for sm screens
@@ -73,13 +105,6 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
 
   // state for profile hover
   const [show1, setShow1] = useState(false)
-
-  // play mp3 file
-  const playAudio = () => { 
-    const audioEl = document.getElementsByClassName("audio-element")[0]
-    audioEl.play()
-  }
-
 
   return (
 
@@ -224,8 +249,8 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
             </div>
 
             <div className='flex mt-16 justify-center'>
-            <div className="lg:flex lg:items-stretch lg:space-x-2 lg:h-full w-full lg:flex-row lg:gap-4 grid grid-cols-1">
-              {/* <div className='w-full lg:flex-row lg:flex lg:gap-4 grid grid-cols-1'> */}
+              <div className="lg:flex lg:items-stretch lg:space-x-2 lg:h-full w-full lg:flex-row lg:gap-4 grid grid-cols-1">
+                {/* <div className='w-full lg:flex-row lg:flex lg:gap-4 grid grid-cols-1'> */}
                 {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
                 <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-10 mb-2">
                   <div className="flex flex-col items-center justify-center">
@@ -234,7 +259,7 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                     </span>
                     <p className='font-semibold font-inter text-lg leading-6 pt-2'>{lastName}{' '} {firstName}{' '}</p>
                     <div className='flex items-center pr-2 pt-1'>
-                      <FaMapMarkerAlt size={20} color='#828282'/>
+                      <FaMapMarkerAlt size={20} color='#828282' />
                       <span className='font-inter text-base font-medium leading-6 text-[#828282]'>{country}{' '}, {city}{' '}</span>
 
                     </div>
@@ -297,7 +322,7 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                       </div>))}
                     </div>}
                   </div>
-                  <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
+                  {/* <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
                     <div className="flex items-center pb-3">
                       <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Audio Sample</p>
                     </div>
@@ -327,6 +352,53 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
 
                                 <div class="item w-full">
                                   <audio src="http://example.com/audio.mp3" controls controlsList="nodownload" />
+                                </div>
+
+                                <div class="item w-32">
+                                  <div className="flex items-center gap-3">
+                                    <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline size={20} className='text-purple-1000' /></span>
+                                    <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill size={20} className='text-purple-1000' /></span>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div> */}
+                  <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
+                    <div className="flex items-center pb-3">
+                      <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Audio Sample</p>
+                    </div>
+                    {talentType !== 'VoiceOver' ? languageList.map((language, index) => (<div
+                      className="py-2.5 px-3 mb-2 font-inter grid sm:grid-cols-2 lg:grid-cols-2 w-4/5">
+                      <strong className="text-base font-normal text-gray-900 leading-6 w-1/2 sm:w-1/2"> {`${language.sourceLanguage} to ${language.targetLanguage}`} </strong>
+                      <strong className="text-base font-medium text-[#6C757D] leading-6 w-1/2 sm:w-1/2"> {`${translationalSkills[index]?.length} ${translationalSkills[index]?.length > 1 ? 'Samples' : 'Sample'}`} </strong>
+                    </div>)) : voiceOverSamples.map((sample) => (
+                      <div className="py-2.5 mb-2 font-inter w-4/5">
+                        <div className="py-3 px-3 mb-2 flex flex-col justify-center rounded-xl bg-[#cfcfcf]">
+                          <div className='flex flex-col items-stretch space-y-2 w-full'>
+
+                            <div className="item w-full">
+                              <span className='text-base font-medium text-gray-900 text-left'>{sample.fileName}</span>
+                            </div>
+
+                            <div className="item w-full">
+                              <div className='flex flex-row flex-wrap gap-2'>
+                                <div className='bg-[#fcfcfc] px-2 py-0.5 rounded-full'>
+                                  <span className='text-[#4F4F4F] font-medium'>{sample.voiceOverSkill}</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="item w-full">
+                              <div className='flex items-stretch space-x-4 h-auto w-full'>
+
+                                <div class="item w-full">
+                                  <audio src={sample.fileSrc} controls controlsList="nodownload" />
                                 </div>
 
                                 <div class="item w-32">

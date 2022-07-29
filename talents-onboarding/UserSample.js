@@ -99,7 +99,11 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
             ageTick,
             tone,
             genre,
-            SampleAudioFile: selectedFile,
+            AudioFile: {
+              Base64String: selectedFileSrc,
+              ContentType: selectedFile.type,
+              FileName: selectedFile.name
+            },
             fileSrc: selectedFileSrc,
             fileName: selectedFile.name,
             SampleAudioFile: selectedFile
@@ -496,7 +500,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                 <span className="px-1">Cancel</span>
               </Button>
               <Button onClick={handleSave}
-                disabled={(!voiceOverSkill || !ageTick || !title || !tone || !genre)}
+                disabled={(!voiceOverSkill || !ageTick || !title || !tone || !genre || !selectedFile)}
                 className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2">
                 <span className="px-2">Save</span>
               </Button>

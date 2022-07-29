@@ -9,6 +9,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { post } from '../helpers/ApiRequest';
 import { simulateNetworkRequest } from '../helpers/Utils'
 import CustomAlert from '../components/CustomAlert';
+import { Bars } from 'react-loader-spinner';
 
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -20,19 +21,14 @@ function Login() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('Errorrrrr ');
-  const [showAlert, setShowAlert] = useState(true);
-
+  const [errorMessage, setErrorMessage] = useState();
+  const [showAlert, setShowAlert] = useState(false);
+  
   const [isLoading, setLoading] = useState(false);
-  useEffect(() => {
-    if (isLoading) {
-      simulateNetworkRequest().then(() => {
-        setLoading(false);
-      });
-    }
-  }, [isLoading]);
+  
   const handleSubmit = async (event) => {
-
+    
+    setLoading(true)
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {

@@ -5,6 +5,7 @@ import { Form, Col } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { post } from '../helpers/ApiRequest';
 import { simulateNetworkRequest } from '../helpers/Utils'
+import { Bars } from 'react-loader-spinner';
 
 const UserAuth1 = ({ email, setParentEmail }) => {
     const router = useRouter();
@@ -17,15 +18,14 @@ const UserAuth1 = ({ email, setParentEmail }) => {
     const [show1, setShow1] = useState(false)
     const [newEmail, setNewEmail] = useState('')
     const [isLoading, setLoading] = useState(false);
-    useEffect(() => {
-        if (isLoading) {
-            simulateNetworkRequest().then(() => {
-                setLoading(false);
-            });
-        }
-    }, [isLoading]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+    
 
     const handleResendEmail = async () => {
+        setLoading(true)
         if (newEmail !== email) { //If email was change
             const request = {
                 oldEmail: email,
@@ -47,13 +47,13 @@ const UserAuth1 = ({ email, setParentEmail }) => {
 
             const response = await post('Auth/ResendEmail', request, '');
             if (response.successful) {
-                setParentEmail(newEmail);
                 setShow(false)
             } else {
                 setShowAlert(true)
                 setErrorMessage(response.data)
             }
         }
+        setLoading(false)
     }
 
     const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
@@ -189,7 +189,7 @@ const UserAuth1 = ({ email, setParentEmail }) => {
                                 onClick={() => setShow(!show)} className="hover:cursor-pointer">Change email</span>
                         </div>
                     </div>
-                    <Form
+                    <Form onSubmit={handleSubmit}
                     >
                         {
                             show ? <div className="items-center flex justify-center flex-col">
