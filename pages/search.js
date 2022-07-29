@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import Footer from '../components/footer';
 import NavxSearch from '../components/navxsearch';
+import { RiHeartFill } from 'react-icons/ri';
+import { FaMapMarkerAlt, FaStar } from 'react-icons/fa';
+import { IoBriefcase } from 'react-icons/io5';
+import { Pagination } from 'antd';
 
 function TalentSearch () {
 
@@ -12,6 +16,15 @@ function TalentSearch () {
     const [showlanguage, setLanguage] = useState(false)
     const [showtone, setTone] = useState(false)
     const [showlocation, setLocation] = useState(false)
+
+    const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+
+    // play mp3 file
+    const playAudio = () => { 
+        const audioEl = document.getElementsByClassName("audio-element")[0]
+        audioEl.play()
+    }
+
 
     return (
         <div>
@@ -163,15 +176,360 @@ function TalentSearch () {
                                     </div>
 
 	                                <div className="item w-full">
-                                        <div class="flex flex-col items-stretch space-y-2 h-auto w-full">
-                                            <div class="item w-full h-full">Talent #1</div>
-                                            <div class="item w-full h-full">Talent #2</div>
-                                            <div class="item w-full h-full">Talent #3</div>
-                                            <div class="item w-full h-full">Talent #4</div>
-                                            <div class="item w-full h-full">Talent #5</div>
-                                            <div class="item w-full text-center">Pagination</div>
+                                        <div class="flex flex-col items-stretch space-y-2 h-auto w-full px-2">
+
+                                            <div class="item w-full h-full py-3">
+                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+
+                                                    <div class="item w-full h-full">
+                                                        <div className="flex items-left flex-row text-gray-900 pb-2">
+                                                            <span className="rounded-full">
+                                                                <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
+                                                            </span>
+                                                            <div className="block flex-col items-center justify-center ml-4">
+                                                                <div className="flex items-center w-full">
+                                                                    <span className='font-semibold font-inter text-lg text-purple-1000'>Duke Samuel</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaStar size={16} className='text-[#f4d452]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>5.0</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <IoBriefcase size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>36 jobs completed</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaMapMarkerAlt size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>Lagos, Nigeria.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full h-full">
+                                                        <div className='flex flex-col items-stretch space-y-2 w-full'>
+                                                            <div className="item w-full">
+                                                                <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex flex-row flex-wrap gap-2'>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Movie trailer</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Male</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex items-stretch space-x-4 h-auto w-full'>
+                                                                    <div className="flex items-center gap-3">
+                                                                        <div class="item w-full">
+                                                                            <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
+                                                                        </div>
+                                                                        <RiHeartFill size={24} className='text-[#cfcfcf]' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full items-center">
+                                                        <div className="flex items-center flex-col">
+                                                            <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item w-full h-full py-3">
+                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+
+                                                    <div class="item w-full h-full">
+                                                        <div className="flex items-left flex-row text-gray-900 pb-2">
+                                                            <span className="rounded-full">
+                                                                <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
+                                                            </span>
+                                                            <div className="block flex-col items-center justify-center ml-4">
+                                                                <div className="flex items-center w-full">
+                                                                    <span className='font-semibold font-inter text-lg text-purple-1000'>Duke Samuel</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaStar size={16} className='text-[#f4d452]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>5.0</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <IoBriefcase size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>36 jobs completed</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaMapMarkerAlt size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>Lagos, Nigeria.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full h-full">
+                                                        <div className='flex flex-col items-stretch space-y-2 w-full'>
+                                                            <div className="item w-full">
+                                                                <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex flex-row flex-wrap gap-2'>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Movie trailer</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Male</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex items-stretch space-x-4 h-auto w-full'>
+                                                                    <div className="flex items-center gap-3">
+                                                                        <div class="item w-full">
+                                                                            <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
+                                                                        </div>
+                                                                        <RiHeartFill size={24} className='text-[#cfcfcf]' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full items-center">
+                                                        <div className="flex items-center flex-col">
+                                                            <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item w-full h-full py-3">
+                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+
+                                                    <div class="item w-full h-full">
+                                                        <div className="flex items-left flex-row text-gray-900 pb-2">
+                                                            <span className="rounded-full">
+                                                                <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
+                                                            </span>
+                                                            <div className="block flex-col items-center justify-center ml-4">
+                                                                <div className="flex items-center w-full">
+                                                                    <span className='font-semibold font-inter text-lg text-purple-1000'>Duke Samuel</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaStar size={16} className='text-[#f4d452]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>5.0</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <IoBriefcase size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>36 jobs completed</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaMapMarkerAlt size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>Lagos, Nigeria.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full h-full">
+                                                        <div className='flex flex-col items-stretch space-y-2 w-full'>
+                                                            <div className="item w-full">
+                                                                <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex flex-row flex-wrap gap-2'>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Movie trailer</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Male</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex items-stretch space-x-4 h-auto w-full'>
+                                                                    <div className="flex items-center gap-3">
+                                                                        <div class="item w-full">
+                                                                            <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
+                                                                        </div>
+                                                                        <RiHeartFill size={24} className='text-[#cfcfcf]' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full items-center">
+                                                        <div className="flex items-center flex-col">
+                                                            <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item w-full h-full py-3">
+                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+
+                                                    <div class="item w-full h-full">
+                                                        <div className="flex items-left flex-row text-gray-900 pb-2">
+                                                            <span className="rounded-full">
+                                                                <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
+                                                            </span>
+                                                            <div className="block flex-col items-center justify-center ml-4">
+                                                                <div className="flex items-center w-full">
+                                                                    <span className='font-semibold font-inter text-lg text-purple-1000'>Duke Samuel</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaStar size={16} className='text-[#f4d452]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>5.0</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <IoBriefcase size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>36 jobs completed</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaMapMarkerAlt size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>Lagos, Nigeria.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full h-full">
+                                                        <div className='flex flex-col items-stretch space-y-2 w-full'>
+                                                            <div className="item w-full">
+                                                                <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex flex-row flex-wrap gap-2'>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Movie trailer</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Male</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex items-stretch space-x-4 h-auto w-full'>
+                                                                    <div className="flex items-center gap-3">
+                                                                        <div class="item w-full">
+                                                                            <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
+                                                                        </div>
+                                                                        <RiHeartFill size={24} className='text-[#cfcfcf]' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full items-center">
+                                                        <div className="flex items-center flex-col">
+                                                            <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item w-full h-full py-3">
+                                                <div class="flex items-stretch space-x-2 h-auto w-full pb-4 border-b-2">
+
+                                                    <div class="item w-full h-full">
+                                                        <div className="flex items-left flex-row text-gray-900 pb-2">
+                                                            <span className="rounded-full">
+                                                                <img src={profileImageSrc} className='h-16 w-16 rounded-full object-cover' />
+                                                            </span>
+                                                            <div className="block flex-col items-center justify-center ml-4">
+                                                                <div className="flex items-center w-full">
+                                                                    <span className='font-semibold font-inter text-lg text-purple-1000'>Duke Samuel</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaStar size={16} className='text-[#f4d452]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>5.0</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <IoBriefcase size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>36 jobs completed</span>
+                                                                </div>
+                                                                <div className='flex items-center'>
+                                                                    <FaMapMarkerAlt size={12} className='text-[#828282]'/>
+                                                                    <span className='font-inter text-xs font-medium ml-2 text-gray-600'>Lagos, Nigeria.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full h-full">
+                                                        <div className='flex flex-col items-stretch space-y-2 w-full'>
+                                                            <div className="item w-full">
+                                                                <span className='text-base font-semibold text-gray-900 text-left'>James bond voice over</span>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex flex-row flex-wrap gap-2'>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Animation</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Movie trailer</span>
+                                                                    </div>
+                                                                    <div className='bg-purple-200 px-2 py-0.5 rounded-full'>
+                                                                        <span className='text-[#4F4F4F] font-medium'>Male</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="item w-full">
+                                                                <div className='flex items-stretch space-x-4 h-auto w-full'>
+                                                                    <div className="flex items-center gap-3">
+                                                                        <div class="item w-full">
+                                                                            <audio src="http://streaming.tdiradio.com:8000/house.mp3" controls controlsList="nodownload" />
+                                                                        </div>
+                                                                        <RiHeartFill size={24} className='text-[#cfcfcf]' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="item w-full items-center">
+                                                        <div className="flex items-center flex-col">
+                                                            <button className='px-4 py-3 bg-purple-1000 text-base font-medium rounded-lg text-white'>Invite to job</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item w-full text-center">
+                                                <Pagination defaultCurrent={1} total={50} />
+                                            </div>
+
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import validator from 'validator';
 import Footer from '../components/footer';
 import Link from 'next/link';
+import Image from 'next/image';
+import hubspot from '../assets/img/hubspot.png';
 
 const SetupComplete = ({ prevStep, nextStep }) => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -28,7 +30,7 @@ const SetupComplete = ({ prevStep, nextStep }) => {
   // state for profile hover
   const [show1, setShow1] = useState(false)
 
-    const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
+const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ/avatar.png')
 
 
     return (
@@ -148,6 +150,8 @@ const SetupComplete = ({ prevStep, nextStep }) => {
                 <div className="lg:w-2/5 md:w-1/2 pt-20 pl-4 pr-4 justify-center mt-10 mb-10">
                     <img src="https://i.ibb.co/jHMjYSF/pana.png" width={300} height={300} className="flex flex-col items-center justify-center m-auto pb-4"
                     />
+                    {/* <Image src={hubspot} width={300} height={300} lazy className="flex flex-col items-center justify-center m-auto pb-4"
+                    /> */}
                     <p tabIndex={0} role="heading" className="text-4xl font-semibold text-gray-800 text-center pt-3 pb-4">
                     Nice work, {firstName}{' '} James!<br></br> Your profile is ready
                     </p>
