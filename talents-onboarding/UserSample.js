@@ -366,8 +366,8 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
 
                   <div className="item w-32">
                     <div className="flex items-center gap-3">
-                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline onClick={()=> handleSampleRemove(index)} size={20} className='text-purple-1000' /></span>
-                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill onClick={()=> handleShow(true, index)} size={20} className='text-purple-1000' /></span>
+                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000 hover:cursor-pointer'><IoTrashOutline onClick={()=> handleSampleRemove(index)} size={20} className='text-purple-1000' /></span>
+                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000 hover:cursor-pointer'><RiEdit2Fill onClick={()=> handleShow(true, index)} size={20} className='text-purple-1000' /></span>
                     </div>
                   </div>
 
@@ -501,7 +501,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
               </Button>
               <Button onClick={handleSave}
                 disabled={(!voiceOverSkill || !ageTick || !title || !tone || !genre || !selectedFile)}
-                className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2">
+                className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2 disabled:bg-purple-1000 disabled:opacity-70">
                 <span className="px-2">Save</span>
               </Button>
             </Modal.Footer>

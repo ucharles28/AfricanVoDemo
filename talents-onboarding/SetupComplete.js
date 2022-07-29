@@ -151,7 +151,7 @@ const [profileImageSrc, setProfileImageSrc] = useState('https://i.ibb.co/X5LP2MZ
                     {/* <img src="https://i.ibb.co/jHMjYSF/pana.png" width={300} height={300} className="flex flex-col items-center justify-center m-auto pb-4"
                     /> */}
                     <div className="w-72 h-72 flex flex-col items-center justify-center m-auto">
-                        <Image src={pana} lazy />
+                        <Image src={pana} />
                     </div>
                     <p className="text-4xl font-semibold text-gray-800 text-center lg:pb-2 pb-4 -mt-4">
                     Nice work, {firstName}{' '} James!<br></br> Your profile is ready
