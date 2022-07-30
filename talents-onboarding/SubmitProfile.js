@@ -252,12 +252,12 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
               <div className="lg:flex lg:items-stretch lg:space-x-2 lg:h-full w-full lg:flex-row lg:gap-4 grid grid-cols-1">
                 {/* <div className='w-full lg:flex-row lg:flex lg:gap-4 grid grid-cols-1'> */}
                 {/* <div className="grid grid-cols-2 gap-2 rounded-xl"> */}
-                <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-80 text-gray-900 rounded-xl px-6 py-10 mb-2">
+                <div className="mr-1 lg:w-2/5 sm:w-full bg-purple-50 h-72 text-gray-900 rounded-xl px-6 py-12 mb-2">
                   <div className="flex flex-col items-center justify-center">
-                    <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100">
+                    <span className="h-24 w-24 rounded-full overflow-hidden bg-gray-100 mb-4">
                       <img src={profileImageSrc} alt="avatar" border="0" />
                     </span>
-                    <p className='font-semibold font-inter text-lg leading-6 pt-2'>{lastName}{' '} {firstName}{' '}</p>
+                    <p className='font-semibold font-inter text-lg leading-6'>{lastName}{' '} {firstName}{' '}</p>
                     <div className='flex items-center pr-2 pt-1'>
                       <FaMapMarkerAlt size={20} color='#828282' />
                       <span className='font-inter text-base font-medium leading-6 text-[#828282]'>{country}{' '}, {city}{' '}</span>

@@ -273,7 +273,7 @@ const TalentType = ({ nextStep, setParentTalentType, languageList, voiceRanges, 
               <div className="mr-7 mb-5 float-right justify-end">
                 <button 
                   role="button" 
-                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6 disabled:opacity-70" 
                   onClick={nextStep}
                   disabled={(languageList.length === 1 && (!languageList[0].sourceLanguage || !languageList[0].targetLanguage)) && voiceRanges.length < 1}
                 >

@@ -223,7 +223,7 @@ const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileIm
                   <Button variant="secondary" onClick={() => handleClose()} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 px-2 ml-2">
                     Cancel
                   </Button>
-                  <Button variant="primary" onClick={() => handleClose()} className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2 px-2">
+                  <Button variant="primary" onClick={() => handleClose()} className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2 px-2 disabled:opacity-70 cursor-pointer">
                     Save
                   </Button>
                 </Modal.Footer>

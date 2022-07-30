@@ -376,12 +376,12 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                                 </div>
                             </Modal.Body>
                             <Modal.Footer className="border-t-0">
-                                <Button onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] rounded-lg hover:bg-[#333333] border-none border-0 py-2 ml-2">
+                                <Button onClick={handleClose} className="bg-[#e0e0e0] text-[#333333] hover:text-[#333333] rounded-lg hover:bg-[#c0bebe] border-none border-0 py-2 ml-2 cursor-pointer">
                                     <span className="px-1">Cancel</span>
                                 </Button>
                                 <Button onClick={handleSave}
                                     disabled={!title || !description}
-                                    className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2">
+                                    className="text-white bg-purple-1000 hover:bg-purple-600 border-none border-0 py-2  disabled:opacity-70  disabled:bg-purple-1000 cursor-pointer">
                                     <span className="px-2">Save</span>
                                 </Button>
                             </Modal.Footer>
@@ -403,14 +403,17 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                     {/* </button> */}
                 </div>
                 <div className="mr-10 mb-5 float-right justify-end">
-                    {/* <button
+                    <button
                         role="button"
-                        className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6"
+                        className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6 disabled:opacity-70 cursor-pointer"
                         onClick={nextStep}
-                    > */}
-                    <Stepbutton onClick={nextStep} color='#ffffff' backgroundColor='#A259Ff' hoverBackgroundColor='#B175FF'>
+                        
+                    > 
+                    Next, your professional brief
+                    </button>
+                    {/* <Stepbutton onClick={nextStep} color='#ffffff' backgroundColor='#A259Ff' hoverBackgroundColor='#B175FF' className='disabled:opacity-70'>
                         Next, your professional brief
-                    </Stepbutton>
+                    </Stepbutton> */}
                     {/* </button> */}
                 </div>
             </div>

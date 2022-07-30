@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 import { Tabs } from 'antd';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Form } from 'react-bootstrap';
-import { FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { MdOutlineMic } from 'react-icons/md';
 import { BsChatSquareTextFill } from 'react-icons/bs';
 import { Pagination } from 'antd';

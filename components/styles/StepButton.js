@@ -17,7 +17,6 @@ const Stepbutton = styled.button`
 
     &:disabled {
         opacity: 0.7;
-        cursor: not-allowed;
     }
 `;
 
