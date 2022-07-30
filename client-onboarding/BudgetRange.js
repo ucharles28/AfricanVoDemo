@@ -35,16 +35,33 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
         let token = localStorage.getItem('token')
         let response = await get(`Auth/RenewToken/${token}`, '')
         token = response.data.token
-        const request = {
-            ...jobDetails,
-            isFixedPrice,
-            fixedPrice,
-            budgetRange,
-            name: projectName,
-            talentType
-        }
-        console.log(request)
-        response = await postData('Job', request, token)
+        const formData = new FormData()
+        Object.keys(jobDetails).map((key, index) => {
+            if (index === Object.keys(jobDetails).length - 1) {//last index
+                //Assign form file
+                if (jobDetails[key]) {
+                    formData.append(key, jobDetails[key], jobDetails[key].name)
+                }
+            } else {
+                console.log(jobDetails[key])
+                formData.append(key, jobDetails[key])
+            }
+        })
+        formData.append('IsFixedPrice', isFixedPrice)
+        formData.append('FixedPrice', fixedPrice)
+        formData.append('BudgetRange', budgetRange)
+        formData.append('Name', projectName)
+        formData.append('TalentType', talentType)
+        // const request = {
+        //     ...jobDetails,
+        //     isFixedPrice,
+        //     fixedPrice,
+        //     budgetRange,
+        //     name: projectName,
+        //     talentType
+        // }
+        // console.log(request)
+        response = await postData('Job', formData, token)
         console.log(response)
         setLoading(false)
     }

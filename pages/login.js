@@ -47,16 +47,17 @@ function Login() {
     const response = await post('Auth/SignIn', request, '');
     if (response.successful) {
       // Request is successful
-      localStorage.setItem('token', response.data.Token);
+      localStorage.setItem('token', response.data.token);
       localStorage.setItem(
         'tokenExpiry',
-        JSON.stringify(response.data.TokenExpiryDate)
+        JSON.stringify(response.data.tokenExpiryDate)
       );
       localStorage.setItem('user', JSON.stringify(response.data));
     } else {
       setShowAlert(true)
       setErrorMessage(response.data)
     }
+    setLoading(false)
   };
 
   const handleGoogleAuth = async (user) => {
