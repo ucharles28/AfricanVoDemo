@@ -1,4 +1,4 @@
-export async function post(url = '', request = {}, token = '') {
+export async function post(url = '', request = {}, token) {
   const response = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'POST',
     mode: 'no-cors',
@@ -47,7 +47,44 @@ export async function post(url = '', request = {}, token = '') {
   return response;
 }
 
-export async function postData(url = '', request = {}, token = '') {
+export async function put(url = '', request = {}, token) {
+  const response = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
+    method: 'PUT',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(request),
+  })
+    .then(async (res) => {
+      const text = await res.text()
+      console.log('text', text)
+      
+      const responseObject = {
+        successful: res.ok,
+        data: await res.json()
+        // data: res.ok ? await res.json() : await res.text(),
+      };
+      console.log('response', responseObject)
+      return responseObject;
+    })
+    // .then((data) => data)
+    .catch((error) => {
+      console.log('err', error)
+      // return error;
+      const responseObject = {
+        successful: false,
+        data: 'Unable to send request. Please try again later',
+      };
+      return responseObject;
+    });
+  return response;
+}
+
+export async function postData(url = '', request = {}, token) {
   const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'POST',
     mode: 'cors',
@@ -91,7 +128,7 @@ export async function postData(url = '', request = {}, token = '') {
   return response;
 }
 
-export async function get(url = '', token = '') {
+export async function get(url = '', token) {
   console.log(`https://test.africanvo.com/doc/api/v1/${url}`)
   const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'GET',
