@@ -210,7 +210,7 @@ const UserEmail = ({ nextStep, setParentEmail, accountType }) => {
             <div className="mt-8">
               <button
                 role="submit"
-                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w- disabled:opacity-70"
+                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 w-full disabled:opacity-70"
               >
                 Continue with email
               </button>
