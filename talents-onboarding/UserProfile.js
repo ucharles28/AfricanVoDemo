@@ -244,7 +244,7 @@ const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileIm
                 <div className='w-full md:w-1/2 pl-3 mb-2'>
                   <label className="text-sm font-medium leading-none text-gray-700">City</label>
                   <input
-                    className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-base"
+                    className="p-2 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-base"
                     placeholder="Enter your city"
                     type="text"
                     name="city"
@@ -275,7 +275,7 @@ const UserProfile = ({ nextStep, prevStep, setUserData, talentType, setProfileIm
               <div className='w-full md:w-1/2 pl-3 mb-2'>
                 <label className="text-sm font-medium leading-none text-gray-700">Phone Number</label>
                 <input
-                  className="bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 pr-4 mt-1 placeholder:text-sm placeholder-gray-400"
+                  className="bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 pr-4 mt-1 placeholder:text-sm placeholder-gray-400"
                   placeholder="000-000-000-000"
                   type="text"
                   name="tel"

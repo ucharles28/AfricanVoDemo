@@ -284,7 +284,7 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
                     </div>
                     <span className='font-medium text-lg leading-7 text-[#4F4F4F] font-inter'>{userBio}{' '}.</span>
                   </div>
-                  {talentType === 'VoiceOver' && <div className="bg-purple-50 text-gray-900 rounded-xl mt-4 px-3 py-4">
+                  {talentType === 'VoiceOver' && <div className="bg-purple-50 text-gray-900 gap-2 rounded-xl mt-4 px-3 py-4">
                     <div className="flex items-center pb-3">
                       <p className='font-semibold text-2xl leading-6 pr-2 text-[#333333] font-inter'>Voice Range</p>
                       {/* <span className='border-2 rounded-full py-1 px-1 border-[#828282]'>

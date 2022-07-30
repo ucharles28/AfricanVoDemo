@@ -206,7 +206,7 @@ const UserLang = ({ nextStep, prevStep, setParentLanguageList }) => {
                   <div
                     className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2 gap-1" key={index} >
                     <input
-                      className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
+                      className="p-2 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
                       placeholder="I know"
                       type="text"
                       name="language"

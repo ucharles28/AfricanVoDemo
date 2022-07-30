@@ -449,7 +449,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                   </div>
                   <fieldset className="flex flex-wrap">
                     <input
-                      className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 pl-3 mt-1 placeholder:text-sm w-1/2 ml-2"
+                      className="p-3 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 pl-3 mt-1 placeholder:text-sm w-1/2 ml-2"
                       placeholder="Enter language"
                       type="text"
                       name="language"
@@ -463,7 +463,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                     <p className="text-2xl font-bold pb-2">Tone <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
                     <div>
                       <input
-                        className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                        className="p-3 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                         placeholder="Enter sample tone"
                         type="text"
                         name="tone"
@@ -475,7 +475,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                   <div className="ml-4">
                     <p className="text-2xl font-bold pb-2">Genre <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
                     <input
-                      className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
+                      className="p-3 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-full pl-3 mt-1 placeholder:text-sm"
                       placeholder="Enter sample genre"
                       type="text"
                       name="genre"
@@ -487,7 +487,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
                 <div className="mt-4">
                   <div className="ml-2">
                     <p className="text-2xl font-bold pb-2">Upload audio file <span className="text-gray-400 text-sm font-normal">(Required)</span></p>
-                    <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 100 MB. </p>
+                    <p className="text-base font-semibold pb-2 text-gray-550" >Limited to one file, must be MP3, and maximum 5 MB. </p>
                   </div>
                   <fieldset className="flex flex-wrap">
                     <input type="file" name="audiosample" onChange={fileChangeHandler} accept=".mp3,audio/*" className='ml-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100' />
