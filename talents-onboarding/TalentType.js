@@ -253,7 +253,7 @@ const TalentType = ({ nextStep, setParentTalentType, languageList, voiceRanges, 
                     isSearchable={true}
                     closeMenuOnSelect={true}
                     placeholder="Select your voice range"
-                    className="mt-1 border-1 rounded-lg border-gray-300 focus:outline-none" 
+                    className="mt-1 rounded-lg border-gray-300 focus:outline-none" 
                     name="voicerange"
                     onChange={voiceRangeChangeHandler}
                     />

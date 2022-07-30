@@ -290,7 +290,7 @@ const TransSample = ({ nextStep, prevStep, translationalSkills, languageList, se
                                         </div>
                                     </div>
 
-                                    <div class="item w-32">
+                                    <div className="item w-32">
                                         <div className="flex items-center gap-3">
                                             <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><IoTrashOutline onClick={() => removeSampleHandler(key, sampleIndex)} size={20} className='text-purple-1000' /></span>
                                             <span className='border-1 rounded-full py-1 px-1 border-purple-1000'><RiEdit2Fill onClick={(e) => { handleShow(sampleIndex, key) }} size={20} className='text-purple-1000' /></span>
