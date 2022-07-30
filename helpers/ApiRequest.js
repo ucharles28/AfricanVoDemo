@@ -11,8 +11,6 @@ export async function post(url = '', request = {}, token) {
     body: JSON.stringify(request),
   })
     .then(async (res) => {
-      // const text = await res.text()
-      console.log('res', res)
       // console.log('text', text)
       /*Check if request forbidden due to expired token
         Then request a new token if it is
@@ -60,8 +58,8 @@ export async function put(url = '', request = {}, token) {
     body: JSON.stringify(request),
   })
     .then(async (res) => {
-      const text = await res.text()
-      console.log('text', text)
+      // const text = await res.text()
+      // console.log('text', text)
       
       const responseObject = {
         successful: res.ok,
@@ -85,9 +83,9 @@ export async function put(url = '', request = {}, token) {
 }
 
 export async function postData(url = '', request = {}, token) {
-  const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
+  const response  = await fetch(`https://localhost:5001/doc/api/v1/${url}`, {
     method: 'POST',
-    mode: 'cors',
+    mode: 'no-cors',
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
@@ -96,9 +94,8 @@ export async function postData(url = '', request = {}, token) {
     body: request,
   })
     .then(async (res) => {
-      console.log(res)
-      const text = await res.text();
-      console.log(text)
+      // const text = await res.text();
+      // console.log(text)
       if (res.status === 401) {
         // console.log()
         const response = await get(`Auth/RenewToken/${token}`, '')
@@ -129,7 +126,6 @@ export async function postData(url = '', request = {}, token) {
 }
 
 export async function get(url = '', token) {
-  console.log(`https://test.africanvo.com/doc/api/v1/${url}`)
   const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
     method: 'GET',
     mode: 'cors',
@@ -141,8 +137,8 @@ export async function get(url = '', token) {
     },
   })
     .then(async (res) => {
-      console.log('res', res)
-      console.log('status', res.status)
+      // console.log('res', res)
+      // console.log('status', res.status)
       // if (!res.ok) {
       //   const response = await get(`Auth/RenewToken/${token}`, '')
       //   if (response.successful) {
