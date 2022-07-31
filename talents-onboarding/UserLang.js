@@ -206,7 +206,7 @@ const UserLang = ({ nextStep, prevStep, setParentLanguageList }) => {
                   <div
                     className="p-3 mb-2 text-gray-900 border-b border-gray-50 grid sm:grid-cols-2 lg:grid-cols-2 gap-1" key={index} >
                     <input
-                      className="p-2 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
+                      className="p-2 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-1.5 w-3/4 pl-3 mt-1 placeholder:text-base"
                       placeholder="I know"
                       type="text"
                       name="language"
@@ -255,7 +255,7 @@ const UserLang = ({ nextStep, prevStep, setParentLanguageList }) => {
             <div className="mr-10 mb-5 float-right justify-end">
               <button 
                 role="button" 
-                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6 disabled:opacity-70" 
                 onClick={handleGoNext}
                 disabled={(languageList.length === 1 && (!languageList[0].language || !languageList[0].proficiency))}
               >

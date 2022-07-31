@@ -5,7 +5,7 @@ import { Bars } from 'react-loader-spinner';
 import { BsCheckCircleFill } from 'react-icons/bs';
 
 
-const UserAuth = ({ nextStep, handleFormData, values }) => {
+const UserAuth = ({ nextStep, handleformdata, values }) => {
   const [error, setError] = useState(false);
 
   const submitFormData = (e) => {

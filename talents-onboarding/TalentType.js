@@ -207,7 +207,7 @@ const TalentType = ({ nextStep, setParentTalentType, languageList, voiceRanges, 
                             Source Language
                             </label>
                             <input
-                            className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-4/5 pl-3 mt-1 placeholder:text-sm"
+                            className="p-3 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-4/5 pl-3 mt-1 placeholder:text-sm"
                             placeholder="English"
                             type="text"
                             name="sourceLanguage"
@@ -221,7 +221,7 @@ const TalentType = ({ nextStep, setParentTalentType, languageList, voiceRanges, 
                             </label>
                                 <div className='flex items-center'>
                                     <input
-                                    className="p-3 bg-white border-1 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-4/5 mr-2 pl-3 mt-1 placeholder:text-sm"
+                                    className="p-3 bg-white border-2 rounded-lg border-gray-300 focus:outline-none text-base text-black py-2 w-4/5 mr-2 pl-3 mt-1 placeholder:text-sm"
                                     placeholder="Yoruba"
                                     type="text"
                                     name="targetLanguage"
@@ -273,7 +273,7 @@ const TalentType = ({ nextStep, setParentTalentType, languageList, voiceRanges, 
               <div className="mr-7 mb-5 float-right justify-end">
                 <button 
                   role="button" 
-                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6" 
+                  className="text-base font-semibold leading-none text-white focus:outline-none bg-purple-1000 border rounded-lg hover:bg-purple-500 py-3 px-6 disabled:opacity-70" 
                   onClick={nextStep}
                   disabled={(languageList.length === 1 && (!languageList[0].sourceLanguage || !languageList[0].targetLanguage)) && voiceRanges.length < 1}
                 >
