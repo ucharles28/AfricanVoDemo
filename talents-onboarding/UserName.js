@@ -75,6 +75,7 @@ const UserName = ({ nextStep, email, accountType }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState();
   const [showAlert, setShowAlert] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(false);
 
   const changeHandler = Cvalue => {
     setCountry(Cvalue)
@@ -306,6 +307,7 @@ const UserName = ({ nextStep, email, accountType }) => {
                   <Form.Check
                     name="term"
                     type="checkbox"
+                  checked={acc}
                   // className="focus:ring-indigo-500 bg-purple-1000 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                   // required
                   />
