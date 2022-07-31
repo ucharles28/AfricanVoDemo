@@ -82,7 +82,7 @@ export async function put(url = '', request = {}, token) {
   return response;
 }
 
-export async function postData(url = '', request = {}, token) {
+export async function postData(url = '', request = {}, token = '') {
   const response  = await fetch(`https://localhost:5001/doc/api/v1/${url}`, {
     method: 'POST',
     mode: 'no-cors',
@@ -95,7 +95,7 @@ export async function postData(url = '', request = {}, token) {
   })
     .then(async (res) => {
       // const text = await res.text();
-      // console.log(text)
+      console.log('response message', res)
       if (res.status === 401) {
         // console.log()
         const response = await get(`Auth/RenewToken/${token}`, '')
@@ -126,7 +126,7 @@ export async function postData(url = '', request = {}, token) {
 }
 
 export async function get(url = '', token) {
-  const response  = await fetch(`https://test.africanvo.com/doc/api/v1/${url}`, {
+  const response  = await fetch(`https://localhost:5001/doc/api/v1/${url}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
@@ -137,7 +137,8 @@ export async function get(url = '', token) {
     },
   })
     .then(async (res) => {
-      // console.log('res', res)
+      debugger
+      console.log('res', res)
       // console.log('status', res.status)
       // if (!res.ok) {
       //   const response = await get(`Auth/RenewToken/${token}`, '')

@@ -10,7 +10,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoTrashOutline } from 'react-icons/io5';
 
 
-const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, userBio, languageList, userData, voiceRanges, profileImageSrc, profileImage, voiceOverSamples }) => {
+const SubmitProfile = ({ prevStep, audioFiles, nextStep, translationalSkills, talentType, userBio, languageList, userData, voiceRanges, profileImageSrc, profileImage, voiceOverSamples }) => {
   const router = useRouter();
   console.log('image', profileImage)
   //retrieve customer
@@ -61,33 +61,39 @@ const SubmitProfile = ({ prevStep, nextStep, translationalSkills, talentType, us
         VoiceOverSamples: voiceOverSamples
       }
       
-      // var data = new FormData();
-      // Object.keys(userData).map((key) => {
-      //   data.append(key, userData[key]);
-      // })
-      // voiceRanges.map((range) => {
-      //   data.append("VoiceRanges", range);
-      // })
-      // data.append("Bio", userBio);
-      // data.append("ProfileImageFile", profileImage, profileImage.name);
-      // // data.append("Languages", languageList.map((language, index) => {
-      // //   return {
-      // //     Name: language.language,
-      // //     Proficiency: language.proficiency,
-      // //   }
-      // // }));
-      // languageList.map((language) => {
-      //   const obj = {
+      var data = new FormData();
+      Object.keys(userData).map((key) => {
+        data.append(key, userData[key]);
+      })
+      voiceRanges.map((range) => {
+        data.append("VoiceRanges", range);
+      })
+      data.append("Bio", userBio);
+      data.append("ProfileImageFile", profileImage, profileImage.name);
+      // data.append("Languages", languageList.map((language, index) => {
+      //   return {
       //     Name: language.language,
       //     Proficiency: language.proficiency,
       //   }
-      //   data.append("Languages", obj)
-      // })
-      // voiceOverSamples.map((sample) => {
-      //   data.append("VoiceOverSamples", sample)
-      // })
+      // }));
+      languageList.map((language) => {
+        const obj = {
+          Name: language.language,
+          Proficiency: language.proficiency,
+        }
+        data.append("Languages", obj)
+      })
+      voiceOverSamples.map((sample) => {
+        data.append("VoiceOverSamples", sample)
+      })
 
-      const response = await post('User/Talent/VoiceOver/SetupPortfolio', request, token);
+      audioFiles.map((file) => {
+        data.append("AudioFiles", file)
+      })
+      const user = JSON.parse(localStorage.getItem('user'))
+      data.append('UserId', user.id)
+
+      const response = await postData('User/Talent/VoiceOver/SetupPortfolio', data, token);
       console.log(response)
         // if (response.successful) {
 

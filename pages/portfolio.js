@@ -15,6 +15,7 @@ export default function Portfolio() {
   const [userBio, setUserBio] = useState('');
   const [languageList, setLanguageList] = useState([{ sourceLanguage: "", targetLanguage: "" }]);
   const [voiceRanges, setVoiceRanges] = useState([]);
+  const [audioFiles, setAudioFiles] = useState([]);
   const [voiceOverSamples, setVoiceOverSamples] = useState([]);
   const [translationalSkills, setTranslationalSkills] = useState({});
   const [userData, setUserData] = useState({});
@@ -45,8 +46,8 @@ export default function Portfolio() {
             {((step === 2) && talentType === 'VoiceOver') && <UserBio talentType={talentType} nextStep={nextStep} prevStep={prevStep} userBio={userBio} setUserBio={setUserBio} />}
             {((step === 3) && talentType === 'VoiceOver') && <UserLang nextStep={nextStep} prevStep={prevStep} setParentLanguageList={setLanguageList} />}
             {((step === 4) && talentType === 'VoiceOver') && <UserProfile setProfileImageSrc={setProfileImageSrc} profileImageSrc={profileImageSrc} talentType={talentType} setProfileImage={setProfileImage} nextStep={nextStep} prevStep={prevStep} setUserData={setUserData} />}
-            {((step === 5) && talentType === 'VoiceOver') && <UserSample nextStep={nextStep} prevStep={prevStep} setVoiceOverSamples={setVoiceOverSamples} voiceOverSamples={voiceOverSamples} userData={userData} voiceRanges={voiceRanges} />}
-            {((step === 6) && talentType === 'VoiceOver') && <SubmitProfile nextStep={nextStep} userData={userData} prevStep={prevStep} profileImageSrc={profileImageSrc} userBio={userBio} talentType={talentType} profileImage={profileImage} voiceOverSamples={voiceOverSamples} languageList={languageList} voiceRanges={voiceRanges} />}
+            {((step === 5) && talentType === 'VoiceOver') && <UserSample audioFiles={audioFiles} setAudioFiles={setAudioFiles} nextStep={nextStep} prevStep={prevStep} setVoiceOverSamples={setVoiceOverSamples} voiceOverSamples={voiceOverSamples} userData={userData} voiceRanges={voiceRanges} />}
+            {((step === 6) && talentType === 'VoiceOver') && <SubmitProfile audioFiles={audioFiles} nextStep={nextStep} userData={userData} prevStep={prevStep} profileImageSrc={profileImageSrc} userBio={userBio} talentType={talentType} profileImage={profileImage} voiceOverSamples={voiceOverSamples} languageList={languageList} voiceRanges={voiceRanges} />}
             {((step === 7) && talentType === 'VoiceOver') && <SetupComplete prevStep={prevStep} nextStep={nextStep} />}
             
         </di>

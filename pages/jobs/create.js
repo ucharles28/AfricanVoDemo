@@ -3,6 +3,7 @@ import BudgetRange from "../../client-onboarding/BudgetRange";
 import JobDetails from "../../client-onboarding/JobDetails";
 import JobTitle from "../../client-onboarding/JobTitle";
 import SelectServiceType from "../../client-onboarding/SelectServiceType";
+import JobPosted from "../../components/JobPosted";
 
 export default function CreateJob()  {
     const [step, setstep] = useState(1);
@@ -28,5 +29,7 @@ export default function CreateJob()  {
             return <JobDetails nextStep={nextStep} prevStep={prevStep} setJobDetails={setJobDetails} />
         case 4:
             return <BudgetRange nextStep={nextStep} prevStep={prevStep} jobDetails={jobDetails} talentType={talentType} projectName={projectName}/>
+        case 5:
+            return <JobPosted />
     }
 }

@@ -32,9 +32,11 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
 
     const submitJob = async () => {
         setLoading(true)
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user)
         let token = localStorage.getItem('token')
-        let response = await get(`Auth/RenewToken/${token}`, '')
-        token = response.data.token
+        // let response = await get(`Auth/RenewToken/${token}`, '')
+        // token = response.data.token
         const formData = new FormData()
         Object.keys(jobDetails).map((key, index) => {
             if (index === Object.keys(jobDetails).length - 1) {//last index
@@ -43,7 +45,6 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
                     formData.append(key, jobDetails[key], jobDetails[key].name)
                 }
             } else {
-                console.log(jobDetails[key])
                 formData.append(key, jobDetails[key])
             }
         })
@@ -52,6 +53,7 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
         formData.append('BudgetRange', budgetRange)
         formData.append('Name', projectName)
         formData.append('TalentType', talentType)
+        formData.append('UserId', user.id)
         // const request = {
         //     ...jobDetails,
         //     isFixedPrice,
@@ -61,9 +63,10 @@ const BudgetRange = ({ nextStep, prevStep, jobDetails, projectName, talentType }
         //     talentType
         // }
         // console.log(request)
-        response = await postData('Job', formData, token)
+        const response = await postData('Job', formData, token)
         console.log(response)
         setLoading(false)
+        nextStep();
     }
 
     return (

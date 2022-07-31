@@ -9,7 +9,7 @@ import Styledcheckbox from '../components/styles/StyledCheckbox';
 import { RiEdit2Fill } from 'react-icons/ri';
 import { IoTrashOutline } from 'react-icons/io5';
 
-const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples }) => {
+const UserSample = ({ nextStep, prevStep, voiceOverSamples, audioFiles, setVoiceOverSamples, setAudioFiles }) => {
   const voiceSkills = [
     'Animation',
     'AudioBooks',
@@ -67,7 +67,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
       setVoiceOverSkill(voiceSampleToEdit.voiceOverSkill)
       setLanguage(voiceSampleToEdit.language)
     }
-    else{
+    else {
       setCurrentIndex(currentIndex + 1)
     }
     setShowModal(true);
@@ -92,6 +92,9 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
     if (voiceOverSamples[currentIndex]) {
       const newState = voiceOverSamples.map((sample, index) => {
         if (index === currentIndex) {
+          const list = [...audioFiles]
+          list[index] = selectedFile;
+          setAudioFiles(list)
           return {
             voiceOverSkill,
             title,
@@ -99,14 +102,8 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
             ageTick,
             tone,
             genre,
-            AudioFile: {
-              Base64String: selectedFileSrc,
-              ContentType: selectedFile.type,
-              FileName: selectedFile.name
-            },
             fileSrc: selectedFileSrc,
             fileName: selectedFile.name,
-            SampleAudioFile: selectedFile
           }
         }
       })
@@ -121,9 +118,9 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
         genre,
         fileSrc: selectedFileSrc,
         fileName: selectedFile.name,
-        SampleAudioFile: selectedFile
       }
       setVoiceOverSamples((prev) => [...prev, newSample])
+      setAudioFiles((prev) => [...prev, selectedFile])
     }
     resetModalControls();
     console.log(voiceOverSamples)
@@ -137,6 +134,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
     setTone('')
     setGenre('')
     setShowModal(false);
+    setSelectedFile('')
   }
 
   // play mp3 file
@@ -366,8 +364,8 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
 
                   <div className="item w-32">
                     <div className="flex items-center gap-3">
-                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000 hover:cursor-pointer'><IoTrashOutline onClick={()=> handleSampleRemove(index)} size={20} className='text-purple-1000' /></span>
-                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000 hover:cursor-pointer'><RiEdit2Fill onClick={()=> handleShow(true, index)} size={20} className='text-purple-1000' /></span>
+                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000 hover:cursor-pointer'><IoTrashOutline onClick={() => handleSampleRemove(index)} size={20} className='text-purple-1000' /></span>
+                      <span className='border-1 rounded-full py-1 px-1 border-purple-1000 hover:cursor-pointer'><RiEdit2Fill onClick={() => handleShow(true, index)} size={20} className='text-purple-1000' /></span>
                     </div>
                   </div>
 
@@ -380,7 +378,7 @@ const UserSample = ({ nextStep, prevStep, voiceOverSamples, setVoiceOverSamples 
             <button
               type="button"
               className="text-purple-1000 font-semibold flex items-center border-2 border-{#E0E0E0} py-2 px-3 rounded-lg bg-white"
-              onClick={()=> handleShow()}
+              onClick={() => handleShow()}
             >
               <RiAddCircleFill size={24} />
               <span className="pl-3 text-base">Add a demo</span>
